@@ -2,26 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.breath {
+  animation: zoom-in-zoom-out 15s ease-in-out infinite;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.btn {
+  @apply rounded border bg-primary px-[1em] py-[0.5em] font-bold text-white shadow-md hover:border-dark;
+}
+
+.pair {
+  @apply w-[65%] md:w-[35%] lg:w-[30%] xl:w-[25%] xxl:w-[20%];
+}
+
+.heading {
+  font-family: var(--font-bebas);
+  @apply text-5xl uppercase text-dark;
+}
+
+@keyframes zoom-in-zoom-out {
+  0% {
+    transform: scale(1, 1);
   }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  50% {
+    transform: scale(1.07, 1.07);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
 }

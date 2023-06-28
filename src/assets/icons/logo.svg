@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="366.11023mm"
+   height="77.846153mm"
+   viewBox="0 0 406.78915 86.495728"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   sodipodi:docname="logo.svg"
+   xml:space="preserve"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="false"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="1.8761363"
+     inkscape:cx="111.93216"
+     inkscape:cy="252.64689"
+     inkscape:window-width="2560"
+     inkscape:window-height="1334"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     borderlayer="false"
+     showborder="false" /><defs
+     id="defs2"><inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect4661"
+       is_visible="true"
+       lpeversion="1"
+       nodesatellites_param="F,0,0,1,0,6.6145833,0,1 @ F,0,0,1,0,6.6145833,0,1 @ F,0,0,1,0,6.6145833,0,1 @ F,0,0,1,0,6.6145833,0,1"
+       unit="px"
+       method="arc"
+       mode="F"
+       radius="25"
+       chamfer_steps="1"
+       flexible="false"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="false"
+       hide_knots="false" /><rect
+       x="-353.91885"
+       y="-215.33617"
+       width="897.58936"
+       height="573.5191"
+       id="rect1705" /></defs><g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(39.838398,-88.367783)"><path
+       style="fill:#EAD1D9;fill-rule:evenodd;stroke-width:0.344877"
+       id="rect1648"
+       width="91.509972"
+       height="86.495728"
+       x="-39.838398"
+       y="88.367783"
+       inkscape:path-effect="#path-effect4661"
+       d="m -33.223815,88.367783 78.280805,0 a 6.6145833,6.6145833 45 0 1 6.614584,6.614583 v 73.266564 a 6.6145833,6.6145833 135 0 1 -6.614584,6.61458 h -78.280805 a 6.6145833,6.6145833 45 0 1 -6.614583,-6.61458 V 94.982366 a 6.6145833,6.6145833 135 0 1 6.614583,-6.614583 z"
+       sodipodi:type="rect" /><text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:88.1944px;font-family:Gabriola;-inkscape-font-specification:'Gabriola, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ede4e0;fill-opacity:1;stroke:#EAEAEA;stroke-width:2.76299"
+       x="66.104515"
+       y="155.22446"
+       id="text790-1"><tspan
+         sodipodi:role="line"
+         id="tspan2019"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:88.1944px;font-family:Gabriola;-inkscape-font-specification:'Gabriola, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#EAEAEA;fill-opacity:1"
+         x="66.104515"
+         y="155.22446">Restaurant</tspan></text><g
+       id="g1524"
+       transform="matrix(0.14060943,0,0,0.14060943,-28.792412,97.414802)">
+	<path
+   class="st0"
+   d="m 371.884,0 c -56.563,0 -102.406,56.594 -102.406,120.469 0,38.875 18.281,73.156 40.625,94.5 19.609,18.75 31.656,33.188 34.063,64.516 v 206.563 c 0,14.328 11.625,25.953 25.953,25.953 h 3.516 c 14.328,0 25.953,-11.625 25.953,-25.953 V 279.484 c 2.406,-31.328 14.453,-45.766 34.063,-64.516 22.344,-21.344 40.625,-55.625 40.625,-94.5 C 474.274,56.594 428.415,0 371.884,0 Z"
+   id="path1520" />
+	<path
+   class="st0"
+   d="m 188.587,24.547 v 109.375 c 0,6.984 -5.656,12.656 -12.641,12.656 h -3.391 c -6.969,0 -12.641,-5.672 -12.641,-12.656 V 24.047 c 0,-18.016 -12.125,-23.422 -23.766,-23.422 -11.625,0 -23.75,5.406 -23.75,23.422 v 109.875 c 0,6.984 -5.672,12.656 -12.656,12.656 h -3.375 c -6.984,0 -12.641,-5.672 -12.641,-12.656 V 24.547 c 0,-32.266 -46,-31.172 -46,0.359 0,37.75 0,104.438 0,104.438 -0.219,58 13.641,73.047 36.516,91.125 18.438,14.563 34.203,22.875 34.203,59.031 v 206.547 c 0,14.328 11.609,25.953 25.953,25.953 h 3.516 c 14.328,0 25.953,-11.625 25.953,-25.953 V 279.5 c 0,-36.156 15.75,-44.469 34.188,-59.031 22.891,-18.078 36.75,-33.125 36.531,-91.125 0,0 0,-66.688 0,-104.438 10e-4,-31.531 -45.999,-32.625 -45.999,-0.359 z"
+   id="path1522" />
+</g></g><style
+     type="text/css"
+     id="style1518">
+<![CDATA[
+	.st0{fill:#252A34;}
+]]>
+</style></svg>
