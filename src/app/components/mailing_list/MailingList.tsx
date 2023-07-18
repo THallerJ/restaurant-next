@@ -2,7 +2,7 @@ import MailWrapper from "./wrappers/MailWrapper";
 
 const MailingList = () => {
   const thankYou = (
-    <p className="text-center font-medium">
+    <p className="text-center font-bold">
       Thank you for signing up for our newsletter!
     </p>
   );

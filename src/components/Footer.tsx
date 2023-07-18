@@ -1,28 +1,29 @@
 import SocialMediaIcons from "./SocialMediaIcons";
-import { hours } from "../constants";
+import Hours from "./Hours";
 
 const findContact = (styles?: string) => (
   <div
     className={`lg:flex-1 ${styles} flex flex-col items-center
-      text-fourth lg:block`}
+      text-white lg:block`}
   >
-    <span className="font-poppins text-xl uppercase text-third">
+    <span className="font-poppins text-xl uppercase text-fourth">
       Find & Contact Us
     </span>
     <div className="flex flex-col">
       <a
         href="http://maps.google.com/?q=1600 Pennsy lvania Avenue NW, Washington, DC 20500"
-        className="text-start hover:text-third hover:underline"
+        className="text-center hover:text-third hover:underline lg:text-start"
         target="_blank"
         rel="noreferrer noopener"
       >
-        1600 Pennsylvania <br className="lg:hidden" /> Avenue NW,{" "}
-        <br className="lg:hidden" />
-        Washington, DC
+        <span>
+          1600 Pennsylvania <br /> Avenue NW, <br className="xl:hidden" />
+          Washington, DC
+        </span>
       </a>
       <a
         href="tel:1-123-555-6789"
-        className="text-start hover:text-third hover:underline"
+        className="text-center hover:text-third hover:underline lg:text-start"
       >
         1-123-555-6789
       </a>
@@ -40,23 +41,17 @@ const Footer = () => {
   return (
     <div
       className="flex w-full flex-col gap-12 bg-dark pb-4 pt-14 font-medium 
-      text-fourth lg:px-40"
+      text-white lg:px-40"
     >
       {findContact("lg:hidden")}
 
       <div className="flex w-full flex-col gap-12 lg:flex-row">
         {/* Left side*/}
         <div className="flex flex-col items-center lg:flex-1 lg:items-start lg:justify-end">
-          <span className="font-poppins text-xl uppercase text-third">
+          <span className="font-poppins text-xl uppercase text-fourth">
             Hours
           </span>
-          <ul className="flex flex-col">
-            {hours.map((item) => (
-              <li key={item} className="text-start text-base">
-                {item}
-              </li>
-            ))}
-          </ul>
+          <Hours />
         </div>
 
         {findContact("hidden lg:block")}
@@ -66,7 +61,7 @@ const Footer = () => {
           <div className="flex flex-col gap-1">
             <span
               className="text-center font-poppins text-xl 
-                uppercase text-third lg:text-start"
+                uppercase text-fourth lg:text-start"
             >
               Socials
             </span>

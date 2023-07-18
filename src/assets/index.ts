@@ -22,6 +22,8 @@ import barStaff from "./images/bar-staff.jpg";
 import kitchenStaff from "./images/kitchen-staff.jpg";
 import owner1 from "./images/owner1.jpg";
 import owner2 from "./images/owner2.jpg";
+import People from "./icons/people.svg";
+import Time from "./icons/time.svg";
 
 export {
   Logo,
@@ -48,4 +50,6 @@ export {
   kitchenStaff,
   owner1,
   owner2,
+  People,
+  Time,
 };

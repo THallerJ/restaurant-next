@@ -19,11 +19,12 @@ module.exports = {
       },
       screens: {
         xs: "450px",
+        xsm: "500px",
         sm: "640px",
         md: "867px",
-        lg: "1024px",
+        lg: "1066px",
         xl: "1280px",
-        xxl: "1536px",
+        xxl: "1633px",
       },
       fontFamily: {
         poppins: ["var(--font-poppins)"],

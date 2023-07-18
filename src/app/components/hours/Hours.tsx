@@ -1,7 +1,7 @@
 import { open } from "../../../assets";
-import { hours } from "../../../constants";
 import OpenDailySpecialDialog from "./components/OpenDailySpecialDialog";
 import Image from "next/image";
+import { Hours as OpenHours } from "@/components";
 
 const Hours = () => {
   return (
@@ -13,17 +13,10 @@ const Hours = () => {
       <div className="pair flex flex-col items-center">
         <span className="heading">Hours</span>
         <ul
-          className="flex w-full flex-col gap-2 rounded-2xl border-2 
-          border-dark p-4 sm:items-center md:items-start"
+          className="flex w-full flex-col items-center gap-2 overflow-hidden 
+            rounded-2xl border-4 border-dark p-4 text-sm font-bold sm:text-base"
         >
-          {hours.map((item) => (
-            <li
-              key={item}
-              className="mb-1 text-start text-xs font-bold text-dark sm:text-base"
-            >
-              {item}
-            </li>
-          ))}
+          <OpenHours spacing={3} />
         </ul>
         <OpenDailySpecialDialog />
       </div>

@@ -17,4 +17,9 @@ type layoutType =
   | "cross" // images along cross pattern span-2
   | "wide"; // all images span-2
 
-export type { imageType, layoutType };
+type breadCrumbs = {
+  title: string;
+  content: React.ReactNode;
+};
+
+export type { imageType, layoutType, breadCrumbs };

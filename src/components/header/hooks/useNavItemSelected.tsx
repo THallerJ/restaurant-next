@@ -1,4 +1,3 @@
-"use client";
 import { useState, useEffect } from "react";
 
 // This hook handles closing the mobile menu when a nav item is selected by the user

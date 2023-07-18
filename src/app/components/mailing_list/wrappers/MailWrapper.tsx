@@ -1,5 +1,6 @@
 "use client";
-import { useState, useRef, ComponentType } from "react";
+import { useRef } from "react";
+import { useNotify } from "@/hooks";
 
 type MailWrapperProps = {
   submitted: React.ReactNode;
@@ -8,40 +9,25 @@ type MailWrapperProps = {
 };
 
 const MailWrapper = ({ submitted, label, input }: MailWrapperProps) => {
-  const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
   const ref = useRef<HTMLFormElement>(null);
-  const [isValid, setValid] = useState<boolean | undefined>(undefined);
-
-  const onSubmit = (): void => {
-    const valid = ref.current?.checkValidity();
-
-    setValid(valid);
-    setTimeout(() => setValid(true), 1500);
-    if (valid) setIsSubmitted(true);
-  };
+  const [notified, notify] = useNotify();
 
   return (
     <form
       ref={ref}
       className="flex h-[35vh] flex-col items-center justify-center bg-second"
+      onSubmit={(e) => {
+        e.preventDefault();
+        notify();
+      }}
     >
-      {isSubmitted ? (
+      {notified ? (
         submitted
       ) : (
         <>
           {label}
-          <div className="relative">
-            {isValid === undefined || isValid ? null : (
-              <label
-                className="absolute bottom-0 rounded-full border-2 
-                border-primary bg-dark px-4 py-1 text-third"
-              >
-                Please enter a valid email address
-              </label>
-            )}
-            {input}
-          </div>
-          <button type="button" className="btn w-[19rem]" onClick={onSubmit}>
+          <div className="relative">{input}</div>
+          <button type="submit" className="btn w-[19rem]">
             Submit
           </button>
         </>
