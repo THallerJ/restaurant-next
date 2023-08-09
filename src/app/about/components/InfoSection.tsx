@@ -11,7 +11,7 @@ type InfoSectionProps = {
 const InfoSection = ({ title, images, layout, children }: InfoSectionProps) => {
   return (
     <>
-      <div className="p-12 md:w-[50%]">
+      <div className="page-scale p-8">
         <h2 className="heading pb-1">{title}</h2>
         {children}
       </div>

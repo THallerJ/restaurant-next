@@ -1,5 +1,21 @@
-const openHour = 11;
-const closeHour = 23;
-const interval = 15;
+import { openHour, closeHour, interval } from "./Hours";
+import {
+  lunchItems,
+  breakfastItems,
+  drinkItems,
+  dessertItems,
+  dinnerItems,
+  starterItems,
+} from "./Menu";
 
-export { openHour, closeHour, interval };
+export {
+  openHour,
+  closeHour,
+  interval,
+  lunchItems,
+  breakfastItems,
+  drinkItems,
+  dinnerItems,
+  dessertItems,
+  starterItems,
+};

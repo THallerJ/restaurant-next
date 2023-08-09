@@ -10,7 +10,7 @@ const MailingList = () => {
   const label = (
     <label
       htmlFor="mailingListEmail"
-      className="heading mb-2 block text-center sm:text-5xl"
+      className="heading mb-2 block text-center"
     >
       Sign up for our newsletter
     </label>

@@ -14,13 +14,21 @@
   @apply w-[80%] sm:w-[50%] md:w-[35%] lg:w-[30%] xl:w-[25%] xxl:w-[20%];
 }
 
+.page-scale {
+  @apply w-[90%] md:w-[75%] xl:w-[60%] xxl:w-[50%];
+}
+
 .message {
   @apply absolute rounded-lg border-2 border-primary bg-dark px-4 py-1 text-white;
 }
 
 .heading {
   font-family: var(--font-bebas);
-  @apply text-5xl uppercase text-dark;
+  @apply text-4xl uppercase text-dark;
+}
+.heading-sm {
+  font-family: var(--font-bebas);
+  @apply text-3xl uppercase text-dark;
 }
 
 @keyframes zoom-in-zoom-out {

@@ -15,7 +15,7 @@ const DailySpecialModal = ({
     <div className="flex flex-col items-center gap-4 sm:flex-row sm:items-start">
       <Image
         src={dailySpecial}
-        className="w-full rounded-2xl sm:w-[50%] lg:w-[35%]"
+        className="w-full rounded-2xl sm:w-[50%] lg:w-[25%]"
         alt="daily-special"
       />
 

@@ -10,7 +10,7 @@ const Details = () => {
 
   return (
     <div className="flex h-full w-full flex-col p-4">
-      <div className="flex flex-col text-sm font-semibold text-dark sm:text-base">
+      <div className="flex flex-col text-xs font-semibold text-dark sm:text-base">
         <span>{`${formatDateLong(selectedDate)} - 
           ${formatTime(...getTime(selectedDate))}`}</span>
         <span>{`${guestNum} people`}</span>

@@ -22,4 +22,10 @@ type breadCrumbs = {
   content: React.ReactNode;
 };
 
-export type { imageType, layoutType, breadCrumbs };
+type menuItem = {
+  name: string;
+  details?: string;
+  price: number;
+};
+
+export type { imageType, layoutType, breadCrumbs, menuItem };
