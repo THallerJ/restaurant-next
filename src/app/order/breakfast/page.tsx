@@ -1,7 +1,12 @@
-import React from "react";
+import { breakfastItems } from "@/constants";
+import MenuList from "../components/MenuList";
 
 const page = () => {
-  return <div>breakfast</div>;
+  return (
+    <div>
+      <MenuList items={breakfastItems} />
+    </div>
+  );
 };
 
 export default page;
