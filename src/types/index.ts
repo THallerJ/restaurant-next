@@ -26,6 +26,7 @@ type menuItem = {
   name: string;
   details?: string;
   price: number;
+  image?: StaticImageData;
 };
 
 export type { imageType, layoutType, breadCrumbs, menuItem };

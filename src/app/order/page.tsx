@@ -1,7 +1,6 @@
-import React from "react";
-
+import Order from "./components/Order";
 const page = () => {
-  return <div>order</div>;
+  return <Order />;
 };
 
 export default page;
