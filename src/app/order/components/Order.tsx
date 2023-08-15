@@ -9,18 +9,36 @@ import {
 } from "@/constants";
 
 const Order = () => {
+  const MenuListHeading = ({
+    children,
+    title,
+  }: {
+    children: React.ReactNode;
+    title: string;
+  }) => (
+    <div className="space-y-1">
+      <h2 className="heading-sm">{title}</h2>
+      {children}
+    </div>
+  );
+
   return (
-    <div>
-      <h2 className="heading">Starters</h2>
-      <MenuList items={starterItems} />
-      <h2 className="heading">Breakfast</h2>
-      <MenuList items={breakfastItems} />
-      <h2 className="heading">Lunch</h2>
-      <MenuList items={lunchItems} />
-      <h2 className="heading">Dinner</h2>
-      <MenuList items={dinnerItems} />
-      <h2 className="heading">Drinks</h2>
-      <MenuList items={drinkItems} />
+    <div className="flex flex-col space-y-4">
+      <MenuListHeading title="Starters">
+        <MenuList items={starterItems} />
+      </MenuListHeading>
+      <MenuListHeading title="Breakfast">
+        <MenuList items={breakfastItems} />
+      </MenuListHeading>
+      <MenuListHeading title="Lunch">
+        <MenuList items={lunchItems} />
+      </MenuListHeading>
+      <MenuListHeading title="Dinner">
+        <MenuList items={dinnerItems} />
+      </MenuListHeading>
+      <MenuListHeading title="Drinks">
+        <MenuList items={drinkItems} />
+      </MenuListHeading>
     </div>
   );
 };
