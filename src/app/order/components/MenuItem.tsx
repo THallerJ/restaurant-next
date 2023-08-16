@@ -8,9 +8,10 @@ const MenuItem = ({ item }: { item: menuItem }) => {
       {item.image ? (
         <Image src={item.image} alt={item.name} className="rounded-lg" />
       ) : null}
-      <div className="h-full">
+      <div className="flex h-full flex-col justify-between">
         <span className="font-semibold text-dark">{item.name}</span>
         <p className="text-xs text-dark">{item.details}</p>
+        <button className="btn mt-2 justify-self-end">Add to cart</button>
       </div>
     </div>
   );
