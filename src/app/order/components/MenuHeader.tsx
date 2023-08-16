@@ -39,7 +39,9 @@ const MenuHeader = () => {
         <Link
           href={item.to}
           key={item.to}
-          className={`${pathname === item.to ? "underline" : null}`}
+          className={`${
+            pathname === item.to ? "underline underline-offset-2" : null
+          }`}
         >
           {item.text}
         </Link>
