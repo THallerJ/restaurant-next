@@ -11,7 +11,7 @@ const MenuItem = ({ item }: { item: menuItem }) => {
       <div className="flex h-full flex-col justify-between">
         <span className="font-semibold text-dark">{item.name}</span>
         <p className="text-xs text-dark">{item.details}</p>
-        <button className="btn mt-2 justify-self-end">Add to cart</button>
+        <button className="btn mt-3">Add to cart</button>
       </div>
     </div>
   );
