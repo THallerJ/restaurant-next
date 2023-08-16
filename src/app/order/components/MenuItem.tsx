@@ -3,9 +3,9 @@ import { menuItem } from "@/types";
 
 const MenuItem = ({ item }: { item: menuItem }) => {
   return (
-    <div className="m-2 flex h-48 w-48 flex-col bg-red-400">
-      <span>{item.name}</span>
-      <span>{item.details}</span>
+    <div className=" flex h-48 w-48 flex-col rounded-lg bg-third p-2">
+      <span className="font-semibold text-dark">{item.name}</span>
+      <span className="text-sm text-dark">{item.details}</span>
     </div>
   );
 };

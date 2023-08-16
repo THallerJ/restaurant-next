@@ -7,23 +7,11 @@ import {
   dinnerItems,
   drinkItems,
 } from "@/constants";
+import MenuListHeading from "./MenuListHeading";
 
 const Order = () => {
-  const MenuListHeading = ({
-    children,
-    title,
-  }: {
-    children: React.ReactNode;
-    title: string;
-  }) => (
-    <div className="space-y-1">
-      <h2 className="heading-sm">{title}</h2>
-      {children}
-    </div>
-  );
-
   return (
-    <div className="flex flex-col space-y-4">
+    <div className="flex flex-col gap-4">
       <MenuListHeading title="Starters">
         <MenuList items={starterItems} />
       </MenuListHeading>

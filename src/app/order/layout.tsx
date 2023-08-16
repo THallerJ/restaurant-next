@@ -3,7 +3,7 @@ import MenuHeader from "./components/MenuHeader";
 
 const layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="flex min-h-[70%] flex-col items-center bg-offwhite">
+    <div className="flex min-h-[70%] flex-col items-center bg-offwhite py-2">
       <MenuHeader />
       <div className="page-scale">{children}</div>
     </div>
