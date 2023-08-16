@@ -4,13 +4,13 @@ import Image from "next/image";
 
 const MenuItem = ({ item }: { item: menuItem }) => {
   return (
-    <div className="flex h-64 w-64 flex-col justify-between rounded-lg bg-white p-2 shadow-md">
+    <div className="flex  w-64 flex-col justify-between gap-3 rounded-xl bg-white p-3 shadow-md">
       {item.image ? (
         <Image src={item.image} alt={item.name} className="rounded-lg" />
       ) : null}
-      <div>
+      <div className="h-full">
         <span className="font-semibold text-dark">{item.name}</span>
-        <p className="text-sm text-dark">{item.details}</p>
+        <p className="text-xs text-dark">{item.details}</p>
       </div>
     </div>
   );
