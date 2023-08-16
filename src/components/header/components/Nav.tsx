@@ -1,6 +1,6 @@
 "use client";
 import { Logo } from "../../../assets";
-import { navItemType } from "../types";
+import { navItemType } from "@/types";
 import SocialMediaIcons from "../../../components/SocialMediaIcons";
 import { MenuButton } from "../../../components";
 import { useHeaderLayoutContext } from "../../../contexts";

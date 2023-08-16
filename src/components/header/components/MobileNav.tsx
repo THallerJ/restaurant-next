@@ -1,7 +1,7 @@
 "use client";
 import { useHeaderLayoutContext } from "../../../contexts";
 import SocialMediaIcons from "../../../components/SocialMediaIcons";
-import { navItemType } from "../types";
+import { navItemType } from "@/types";
 import Link from "next/link";
 
 type MobileNavProps = {

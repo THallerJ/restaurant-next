@@ -11,7 +11,7 @@ import MenuItems from "./MenuItems";
 import DailySpecial from "./DailySpecial";
 
 const Menu = () => {
-  const cols = "space-y-8 sm:w-[45%] md:w-[40%] lg:w-[35%]";
+  const cols = "gap-8 sm:w-[45%] md:w-[40%] lg:w-[35%]";
 
   return (
     <div className="page-scale flex h-full flex-col justify-between pb-8 sm:flex-row">

@@ -29,4 +29,9 @@ type menuItem = {
   image?: StaticImageData;
 };
 
-export type { imageType, layoutType, breadCrumbs, menuItem };
+type navItemType = {
+  to: string;
+  text: string;
+};
+
+export type { imageType, layoutType, breadCrumbs, menuItem, navItemType };

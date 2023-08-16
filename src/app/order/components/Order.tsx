@@ -11,7 +11,7 @@ import MenuListHeading from "./MenuListHeading";
 
 const Order = () => {
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-8">
       <MenuListHeading title="Starters">
         <MenuList items={starterItems} />
       </MenuListHeading>

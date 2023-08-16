@@ -1,15 +1,49 @@
-import React from "react";
+"use client";
 import Link from "next/link";
+import { navItemType } from "@/types";
+import { usePathname } from "next/navigation";
 
 const MenuHeader = () => {
+  const pathname = usePathname();
+
+  const navItems: navItemType[] = [
+    {
+      to: "/order",
+      text: "All",
+    },
+    {
+      to: "/order/starters",
+      text: "Starters",
+    },
+    {
+      to: "/order/breakfast",
+      text: "Breakfast",
+    },
+    {
+      to: "/order/lunch",
+      text: "Lunch",
+    },
+    {
+      to: "/order/dinner",
+      text: "Dinner",
+    },
+    {
+      to: "/order/drinks",
+      text: "Drinks",
+    },
+  ];
+
   return (
-    <div className="flex space-x-6 font-semibold uppercase text-dark">
-      <Link href="/order">All</Link>
-      <Link href="/order/starters">Starters</Link>
-      <Link href="/order/breakfast">Breakfast</Link>
-      <Link href="/order/lunch">Lunch</Link>
-      <Link href="/order/dinner">Dinner</Link>
-      <Link href="/order/drinks">Drinks</Link>
+    <div className="flex flex-row gap-4 font-semibold uppercase text-dark">
+      {navItems.map((item) => (
+        <Link
+          href={item.to}
+          key={item.to}
+          className={`${pathname === item.to ? "underline" : null}`}
+        >
+          {item.text}
+        </Link>
+      ))}
     </div>
   );
 };

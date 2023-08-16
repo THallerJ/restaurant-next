@@ -1,4 +1,4 @@
-import { navItemType } from "../types";
+import { navItemType } from "@/types";
 
 const navItems: navItemType[] = [
   {
