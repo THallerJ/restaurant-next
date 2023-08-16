@@ -51,7 +51,9 @@ const Nav = ({
                 className={`font-poppins text-lg font-medium uppercase ${
                   doShrinkNav ? "text-fourth" : "text-fourth"
                 } hover:cursor-pointer hover:text-third ${
-                  item.to === pathname ? "underline underline-offset-4" : ""
+                  pathname.startsWith(item.to)
+                    ? "underline underline-offset-4"
+                    : ""
                 }`}
               >
                 <Link href={item.to} onClick={onNavSelected}>

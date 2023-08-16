@@ -35,7 +35,11 @@ const MobileNav = ({
             <li
               key={`mobile-${item.to}`}
               className={`text-center text-4xl text-fourth 
-            	  ${item.to === pathname ? "underline underline-offset-4" : ""}`}
+            	  ${
+                  pathname.startsWith(item.to)
+                    ? "underline underline-offset-4"
+                    : ""
+                }`}
             >
               <Link href={item.to} onClick={onNavSelected}>
                 {item.text}
