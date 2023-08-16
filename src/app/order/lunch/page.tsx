@@ -1,12 +1,14 @@
 import React from "react";
 import { lunchItems } from "@/constants";
-import MenuItem from "../components/MenuItem";
 import MenuList from "../components/MenuList";
+import MenuListHeading from "../components/MenuListHeading";
 
 const page = () => {
   return (
     <div>
-      <MenuList items={lunchItems} />
+      <MenuListHeading title="Lunch">
+        <MenuList items={lunchItems} />
+      </MenuListHeading>
     </div>
   );
 };

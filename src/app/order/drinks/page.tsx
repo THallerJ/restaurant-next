@@ -1,10 +1,13 @@
 import { drinkItems } from "@/constants";
 import MenuList from "../components/MenuList";
+import MenuListHeading from "../components/MenuListHeading";
 
 const page = () => {
   return (
     <div>
-      <MenuList items={drinkItems} />
+      <MenuListHeading title="Drinks">
+        <MenuList items={drinkItems} />
+      </MenuListHeading>
     </div>
   );
 };
