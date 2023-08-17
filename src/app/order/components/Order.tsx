@@ -7,26 +7,15 @@ import {
   dinnerItems,
   drinkItems,
 } from "@/constants";
-import MenuListHeading from "./MenuListHeading";
 
 const Order = () => {
   return (
     <div className="flex flex-col gap-8">
-      <MenuListHeading title="Starters">
-        <MenuList items={starterItems} />
-      </MenuListHeading>
-      <MenuListHeading title="Breakfast">
-        <MenuList items={breakfastItems} />
-      </MenuListHeading>
-      <MenuListHeading title="Lunch">
-        <MenuList items={lunchItems} />
-      </MenuListHeading>
-      <MenuListHeading title="Dinner">
-        <MenuList items={dinnerItems} />
-      </MenuListHeading>
-      <MenuListHeading title="Drinks">
-        <MenuList items={drinkItems} />
-      </MenuListHeading>
+      <MenuList items={starterItems} title="Starters" />
+      <MenuList items={breakfastItems} title="Breakfast" />
+      <MenuList items={lunchItems} title="Lunch" />
+      <MenuList items={dinnerItems} title="Dinner" />
+      <MenuList items={drinkItems} title="Drinks" />
     </div>
   );
 };

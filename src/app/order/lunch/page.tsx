@@ -1,16 +1,9 @@
 import React from "react";
 import { lunchItems } from "@/constants";
 import MenuList from "../components/MenuList";
-import MenuListHeading from "../components/MenuListHeading";
 
 const page = () => {
-  return (
-    <div>
-      <MenuListHeading title="Lunch">
-        <MenuList items={lunchItems} />
-      </MenuListHeading>
-    </div>
-  );
+  return <MenuList items={lunchItems} title="Lunch" />;
 };
 
 export default page;
