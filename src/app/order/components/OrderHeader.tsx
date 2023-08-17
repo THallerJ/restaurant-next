@@ -3,7 +3,7 @@ import Link from "next/link";
 import { navItemType } from "@/types";
 import { usePathname } from "next/navigation";
 
-const MenuHeader = () => {
+const OrderHeader = () => {
   const pathname = usePathname();
 
   const navItems: navItemType[] = [
@@ -50,4 +50,4 @@ const MenuHeader = () => {
   );
 };
 
-export default MenuHeader;
+export default OrderHeader;

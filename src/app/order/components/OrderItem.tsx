@@ -1,7 +1,7 @@
 import { menuItem } from "@/types";
 import Image from "next/image";
 
-const MenuItem = ({ item }: { item: menuItem }) => {
+const OrderItem = ({ item }: { item: menuItem }) => {
   return (
     <div className="flex w-full flex-col justify-between gap-3 rounded-xl bg-white p-3 shadow-md xs:w-48 md:w-72">
       {item.image ? (
@@ -18,4 +18,4 @@ const MenuItem = ({ item }: { item: menuItem }) => {
   );
 };
 
-export default MenuItem;
+export default OrderItem;

@@ -1,7 +1,7 @@
 import { menuItem } from "@/types";
-import MenuItem from "./MenuItem";
+import MenuItem from "./OrderItem";
 
-const MenuList = ({ title, items }: { title: string; items: menuItem[] }) => {
+const OrderList = ({ title, items }: { title: string; items: menuItem[] }) => {
   return (
     <div className="flex flex-col gap-1">
       <h2 className="heading-sm text-center xxl:text-start">{title}</h2>
@@ -14,4 +14,4 @@ const MenuList = ({ title, items }: { title: string; items: menuItem[] }) => {
   );
 };
 
-export default MenuList;
+export default OrderList;

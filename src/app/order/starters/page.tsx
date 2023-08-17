@@ -1,8 +1,8 @@
 import { starterItems } from "@/constants";
-import MenuList from "../components/MenuList";
+import OrderList from "../components/OrderList";
 
 const page = () => {
-  return <MenuList items={starterItems} title="Starters" />;
+  return <OrderList items={starterItems} title="Starters" />;
 };
 
 export default page;

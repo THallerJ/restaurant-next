@@ -1,4 +1,4 @@
-import MenuList from "./MenuList";
+import OrderList from "./OrderList";
 import {
   starterItems,
   breakfastItems,
@@ -10,11 +10,11 @@ import {
 const Order = () => {
   return (
     <div className="flex flex-col gap-8">
-      <MenuList items={starterItems} title="Starters" />
-      <MenuList items={breakfastItems} title="Breakfast" />
-      <MenuList items={lunchItems} title="Lunch" />
-      <MenuList items={dinnerItems} title="Dinner" />
-      <MenuList items={drinkItems} title="Drinks" />
+      <OrderList items={starterItems} title="Starters" />
+      <OrderList items={breakfastItems} title="Breakfast" />
+      <OrderList items={lunchItems} title="Lunch" />
+      <OrderList items={dinnerItems} title="Dinner" />
+      <OrderList items={drinkItems} title="Drinks" />
     </div>
   );
 };

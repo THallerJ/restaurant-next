@@ -1,8 +1,8 @@
 import { drinkItems } from "@/constants";
-import MenuList from "../components/MenuList";
+import OrderList from "../components/OrderList";
 
 const page = () => {
-  return <MenuList items={drinkItems} title="Drinks" />;
+  return <OrderList items={drinkItems} title="Drinks" />;
 };
 
 export default page;
