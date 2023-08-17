@@ -1,4 +1,3 @@
-import React from "react";
 import { menuItem } from "@/types";
 import Image from "next/image";
 

@@ -1,4 +1,3 @@
-import React from "react";
 import MenuHeader from "./components/MenuHeader";
 
 const layout = ({ children }: { children: React.ReactNode }) => {
