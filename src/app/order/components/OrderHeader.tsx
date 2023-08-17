@@ -35,7 +35,8 @@ const OrderHeader = () => {
   ];
 
   return (
-    <div className="flex w-full flex-row items-center justify-center">
+    <div className="flex w-[75%] flex-row items-center justify-between">
+      <div className="w-8" />
       <div className="flex flex-row gap-4 font-semibold uppercase text-dark">
         {navItems.map((item) => (
           <Link
@@ -50,7 +51,7 @@ const OrderHeader = () => {
         ))}
       </div>
       <button>
-        <Cart className="h-9 w-9" />
+        <Cart className="h-8 w-8" />
       </button>
     </div>
   );
