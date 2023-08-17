@@ -23,6 +23,7 @@ import owner1 from "./images/misc/owner1.jpg";
 import owner2 from "./images/misc/owner2.jpg";
 import People from "./icons/people.svg";
 import Time from "./icons/time.svg";
+import Cart from "./icons/cart.svg";
 
 export {
   Logo,
@@ -50,4 +51,5 @@ export {
   owner2,
   People,
   Time,
+  Cart,
 };
