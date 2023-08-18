@@ -1,4 +1,4 @@
-import OrderHeader from "./components/OrderHeader";
+import OrderHeader from "./components/OrderHeader/OrderHeader";
 
 const layout = ({ children }: { children: React.ReactNode }) => {
   return (

@@ -12,6 +12,7 @@ type InputListProps<T> = {
   format?: (item: T) => string;
   style?: string;
   Icon?: React.FC<React.SVGProps<SVGSVGElement>>;
+  wrapperStyle?: string;
 };
 
 const InputList = <T,>({
@@ -23,6 +24,7 @@ const InputList = <T,>({
   format,
   style,
   Icon,
+  wrapperStyle,
 }: InputListProps<T>) => {
   const [toggled, setToggled] = useState(false);
 
@@ -61,7 +63,7 @@ const InputList = <T,>({
   );
 
   return (
-    <div className="flex flex-col">
+    <div className={`flex flex-col ${wrapperStyle}`}>
       <ClickAway callback={() => setToggled(false)}>
         <button
           id={id}
