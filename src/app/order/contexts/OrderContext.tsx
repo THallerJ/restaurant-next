@@ -1,6 +1,7 @@
 "use client";
 import { menuItem } from "@/types";
 import { createContext, useContext, useState } from "react";
+import useOrderReducer from "./hooks/useOrderReducer";
 
 type orderItem = {
   item: menuItem;
@@ -27,6 +28,7 @@ export const OrderContextProvider = ({
   children,
 }: OrderContextProviderProps) => {
   const [orderItems, setOrderItems] = useState<orderItem[]>([]);
+  const reducer = useOrderReducer();
 
   const value = {
     orderItems,
