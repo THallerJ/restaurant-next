@@ -2,9 +2,14 @@
 import { menuItem } from "@/types";
 import { createContext, useContext, useState } from "react";
 
+type orderItem = {
+  item: menuItem;
+  count: number;
+};
+
 type OrderContextProps = {
-  orderItems: menuItem[];
-  setOrderItems: React.Dispatch<React.SetStateAction<menuItem[]>>;
+  orderItems: orderItem[];
+  setOrderItems: React.Dispatch<React.SetStateAction<orderItem[]>>;
 };
 
 const initialState: OrderContextProps = {
@@ -21,7 +26,7 @@ type OrderContextProviderProps = {
 export const OrderContextProvider = ({
   children,
 }: OrderContextProviderProps) => {
-  const [orderItems, setOrderItems] = useState<menuItem[]>([]);
+  const [orderItems, setOrderItems] = useState<orderItem[]>([]);
 
   const value = {
     orderItems,
