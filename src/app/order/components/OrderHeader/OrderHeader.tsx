@@ -36,8 +36,11 @@ const OrderHeader = () => {
           </Link>
         ))}
       </div>
-      <button>
+      <button className="relative">
         <Cart className="h-8 w-8" />
+        <div className="absolute left-5 top-5 flex h-6 w-6 items-center justify-center rounded-full bg-primary">
+          <span className="text-white">4</span>
+        </div>
       </button>
     </div>
   );
