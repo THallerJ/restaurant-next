@@ -5,4 +5,9 @@ type orderItem = {
   count: number;
 };
 
-export type { orderItem };
+type cartItems = {
+  total: number;
+  items: orderItem[];
+};
+
+export type { orderItem, cartItems };

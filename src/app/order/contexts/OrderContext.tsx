@@ -1,21 +1,17 @@
 "use client";
-import { menuItem } from "@/types";
-import { createContext, useContext, useState } from "react";
-import useOrderReducer from "./hooks/useOrderReducer";
-
-type orderItem = {
-  item: menuItem;
-  count: number;
-};
+import { cartItems } from "../types";
+import { reducerAction } from "./types";
+import { createContext, useContext } from "react";
+import useCartReducer from "./hooks/useCartReducer";
 
 type OrderContextProps = {
-  orderItems: orderItem[];
-  setOrderItems: React.Dispatch<React.SetStateAction<orderItem[]>>;
+  cartItems: cartItems;
+  cartDispatch: React.Dispatch<reducerAction>;
 };
 
 const initialState: OrderContextProps = {
-  orderItems: [],
-  setOrderItems: () => {},
+  cartItems: { total: 0, items: [] },
+  cartDispatch: () => {},
 };
 
 const OrderContext = createContext<OrderContextProps>(initialState);
@@ -27,13 +23,9 @@ type OrderContextProviderProps = {
 export const OrderContextProvider = ({
   children,
 }: OrderContextProviderProps) => {
-  const [orderItems, setOrderItems] = useState<orderItem[]>([]);
-  const [reducer, dispatch] = useOrderReducer();
+  const [state, dispatch] = useCartReducer();
 
-  const value = {
-    orderItems,
-    setOrderItems,
-  };
+  const value = { cartItems: state, cartDispatch: dispatch };
 
   return (
     <OrderContext.Provider value={value}>{children}</OrderContext.Provider>

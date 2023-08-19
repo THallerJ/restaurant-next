@@ -1,21 +1,17 @@
 import { menuItem } from "@/types";
-import { orderItem } from "../../types";
+import { cartItems } from "../../types";
+import { cartActions } from "../types";
 import { useReducer } from "react";
 
-const useOrderReducer = () => {
-  type action = { type: "addItem" | "deleteItem"; payload: menuItem };
+const useCartReducer = () => {
+  type reducerAction = { type: cartActions; payload: menuItem };
 
-  type reducerState = {
-    total: number;
-    items: orderItem[];
-  };
-
-  const initialState: reducerState = {
+  const initialState: cartItems = {
     total: 0,
     items: [],
   };
 
-  const orderReducer = (state: reducerState, action: action): reducerState => {
+  const orderReducer = (state: cartItems, action: reducerAction): cartItems => {
     switch (action.type) {
       case "addItem": {
         const newItem = action.payload;
@@ -44,9 +40,8 @@ const useOrderReducer = () => {
     }
   };
 
-  const [reducer, dispatch] = useReducer(orderReducer, initialState);
-
-  return [reducer, dispatch];
+  const [state, dispatch] = useReducer(orderReducer, initialState);
+  return [state, dispatch] as const;
 };
 
-export default useOrderReducer;
+export default useCartReducer;
