@@ -1,4 +1,3 @@
-"use client";
 import { cartItems } from "../../types";
 import { useEffect, useReducer } from "react";
 import { reducerAction } from "../types";
@@ -16,9 +15,9 @@ const useCartReducer = () => {
         let total = state.total;
 
         const temp = state.items.map((orderItem) => {
-          if ((orderItem.item.name = newItem.name)) {
-            orderItem.count++;
+          if (orderItem.item.name === newItem.name) {
             total++;
+            return { ...orderItem, count: orderItem.count + 1 };
           }
 
           return orderItem;
@@ -28,8 +27,6 @@ const useCartReducer = () => {
           total === state.total ? [...temp, { item: newItem, count: 1 }] : temp;
 
         if (total === state.total) total++;
-
-        console.log({ total: total, items: array });
 
         return { total: total, items: array };
       }
@@ -43,6 +40,10 @@ const useCartReducer = () => {
   };
 
   const [state, dispatch] = useReducer(orderReducer, initialState);
+
+  useEffect(() => {
+    console.log(state);
+  }, [state]);
 
   return [state, dispatch] as const;
 };
