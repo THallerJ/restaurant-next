@@ -28,7 +28,7 @@ export const OrderContextProvider = ({
   children,
 }: OrderContextProviderProps) => {
   const [orderItems, setOrderItems] = useState<orderItem[]>([]);
-  const reducer = useOrderReducer();
+  const [reducer, dispatch] = useOrderReducer();
 
   const value = {
     orderItems,

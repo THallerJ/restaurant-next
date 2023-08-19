@@ -17,12 +17,28 @@ const useOrderReducer = () => {
 
   const orderReducer = (state: reducerState, action: action): reducerState => {
     switch (action.type) {
-      case "addItem":
-      // TODO: search if item already in cart, iterate count if exists, otherwise set to 1
-      // return state;
-      case "deleteItem":
-      // TODO: Deiterate count of item if exists, remove entirely if count 0, if item not in cart do nothing
-      // return state;
+      case "addItem": {
+        const newItem = action.payload;
+        let total = state.total;
+
+        const temp = state.items.map((orderItem) => {
+          if ((orderItem.item.name = newItem.name)) {
+            orderItem.count++;
+            total++;
+          }
+
+          return orderItem;
+        });
+
+        const array =
+          total === state.total ? [...temp, { item: newItem, count: 1 }] : temp;
+
+        return { total: total, items: array };
+      }
+      case "deleteItem": {
+        // TODO: Deiterate count of item if exists, remove entirely if count 0, if item not in cart do nothing
+        // return state;
+      }
       default:
         throw new Error(`Unhandled action type: ${action.type}`);
     }
