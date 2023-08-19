@@ -1,5 +1,6 @@
+"use client";
 import { cartItems } from "../../types";
-import { useReducer } from "react";
+import { useEffect, useReducer } from "react";
 import { reducerAction } from "../types";
 
 const useCartReducer = () => {
@@ -26,6 +27,8 @@ const useCartReducer = () => {
         const array =
           total === state.total ? [...temp, { item: newItem, count: 1 }] : temp;
 
+        if (total === state.total) total++;
+
         console.log({ total: total, items: array });
 
         return { total: total, items: array };
@@ -40,6 +43,7 @@ const useCartReducer = () => {
   };
 
   const [state, dispatch] = useReducer(orderReducer, initialState);
+
   return [state, dispatch] as const;
 };
 
