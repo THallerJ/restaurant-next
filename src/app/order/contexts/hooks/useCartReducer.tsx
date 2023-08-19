@@ -1,11 +1,8 @@
-import { menuItem } from "@/types";
 import { cartItems } from "../../types";
-import { cartActions } from "../types";
 import { useReducer } from "react";
+import { reducerAction } from "../types";
 
 const useCartReducer = () => {
-  type reducerAction = { type: cartActions; payload: menuItem };
-
   const initialState: cartItems = {
     total: 0,
     items: [],
@@ -28,6 +25,8 @@ const useCartReducer = () => {
 
         const array =
           total === state.total ? [...temp, { item: newItem, count: 1 }] : temp;
+
+        console.log({ total: total, items: array });
 
         return { total: total, items: array };
       }
