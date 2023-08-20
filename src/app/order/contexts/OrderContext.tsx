@@ -1,7 +1,7 @@
 "use client";
 import { cartItems } from "../types";
 import { reducerAction } from "./types";
-import { createContext, useContext, useEffect } from "react";
+import { createContext, useContext } from "react";
 import useCartReducer from "./hooks/useCartReducer";
 
 type OrderContextProps = {

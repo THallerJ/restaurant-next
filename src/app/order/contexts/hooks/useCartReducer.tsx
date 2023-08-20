@@ -1,5 +1,5 @@
 import { cartItems } from "../../types";
-import { useEffect, useReducer } from "react";
+import { useReducer } from "react";
 import { reducerAction } from "../types";
 
 const useCartReducer = () => {
@@ -40,10 +40,6 @@ const useCartReducer = () => {
   };
 
   const [state, dispatch] = useReducer(orderReducer, initialState);
-
-  useEffect(() => {
-    console.log(state);
-  }, [state]);
 
   return [state, dispatch] as const;
 };
