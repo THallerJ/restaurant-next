@@ -32,7 +32,7 @@ const CartButton = () => {
                   <button
                     className="mr-4"
                     onClick={() =>
-                      cartDispatch({ type: "addItem", payload: item.item })
+                      cartDispatch({ type: "deleteItem", payload: item.item })
                     }
                   >
                     -
@@ -47,6 +47,8 @@ const CartButton = () => {
                     +
                   </button>
                 </div>
+
+                <span>{`$${item.item.price}`}</span>
               </div>
             ))}
           </div>

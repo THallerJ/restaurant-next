@@ -1,4 +1,4 @@
-import { cartItems } from "../../types";
+import { cartItems, orderItem } from "../../types";
 import { useReducer } from "react";
 import { reducerAction } from "../types";
 
@@ -31,8 +31,14 @@ const useCartReducer = () => {
         return { total: total, items: array };
       }
       case "deleteItem": {
-        // TODO: Deiterate count of item if exists, remove entirely if count 0, if item not in cart do nothing
-        // return state;
+        const del = action.payload.name;
+        state.items.reduce((acc, curr) => {
+          if (curr.item.name === del && curr.count !== 1) {
+            return [...acc, { ...curr, count: curr.count - 1 }];
+          }
+
+          return acc;
+        }, [] as orderItem[]);
       }
       default:
         throw new Error(`Unhandled action type: ${action.type}`);
