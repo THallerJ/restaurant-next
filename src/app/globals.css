@@ -26,6 +26,7 @@
   font-family: var(--font-bebas);
   @apply text-4xl uppercase text-dark;
 }
+
 .heading-sm {
   font-family: var(--font-bebas);
   @apply text-3xl uppercase text-dark;
