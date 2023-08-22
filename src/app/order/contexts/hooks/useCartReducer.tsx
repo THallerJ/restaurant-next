@@ -1,7 +1,6 @@
 import { cartItems, orderItem } from "../../types";
 import { useReducer } from "react";
 import { reducerAction } from "../types";
-import { accessSync } from "fs";
 
 const useCartReducer = () => {
   const initialState: cartItems = {
@@ -36,10 +35,12 @@ const useCartReducer = () => {
         let total = state.total;
 
         const array = state.items.reduce((acc, curr) => {
-          if (curr.item.name === del) total--;
-          if (curr.item.name === del && curr.count !== 1)
-            return [...acc, { ...curr, count: curr.count - 1 }];
-          if (curr.item.name === del && curr.count === 1) return acc;
+          if (curr.item.name === del) {
+            total--;
+            if (curr.count !== 1)
+              return [...acc, { ...curr, count: curr.count - 1 }];
+            if (curr.count === 1) return acc;
+          }
 
           return [...acc, curr];
         }, [] as orderItem[]);
