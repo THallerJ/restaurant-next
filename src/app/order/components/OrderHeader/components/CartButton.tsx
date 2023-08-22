@@ -12,10 +12,10 @@ const CartButton = () => {
       <div className="relative">
         <button onClick={() => setOpen((prev) => !prev)}>
           <Cart className="h-8 w-8" />
-          {cartItems.total > 0 ? (
+          {cartItems.count > 0 ? (
             <div className="absolute bottom-2 left-4 flex h-5 w-5 items-center justify-center rounded-full bg-dark">
               <span className="text-sm font-semibold text-offwhite">
-                {cartItems.total}
+                {cartItems.count}
               </span>
             </div>
           ) : null}
@@ -51,6 +51,7 @@ const CartButton = () => {
                 <span>{`$${item.item.price}`}</span>
               </div>
             ))}
+            <p>{`Total: $${cartItems.total}`}</p>
           </div>
         ) : null}
       </div>

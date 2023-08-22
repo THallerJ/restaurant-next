@@ -6,6 +6,7 @@ type orderItem = {
 };
 
 type cartItems = {
+  count: number;
   total: number;
   items: orderItem[];
 };

@@ -10,7 +10,7 @@ type OrderContextProps = {
 };
 
 const initialState: OrderContextProps = {
-  cartItems: { total: 0, items: [] },
+  cartItems: { count: 0, total: 0, items: [] },
   cartDispatch: () => {},
 };
 

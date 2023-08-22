@@ -4,6 +4,7 @@ import { reducerAction } from "../types";
 
 const useCartReducer = () => {
   const initialState: cartItems = {
+    count: 0,
     total: 0,
     items: [],
   };
@@ -12,11 +13,12 @@ const useCartReducer = () => {
     switch (action.type) {
       case "add": {
         const newItem = action.payload;
+        let count = state.count;
         let total = state.total;
 
         const temp = state.items.map((orderItem) => {
           if (orderItem.item.name === newItem.name) {
-            total++;
+            count++;
             return { ...orderItem, count: orderItem.count + 1 };
           }
 
@@ -24,19 +26,23 @@ const useCartReducer = () => {
         });
 
         const array =
-          total === state.total ? [...temp, { item: newItem, count: 1 }] : temp;
+          count === state.count ? [...temp, { item: newItem, count: 1 }] : temp;
 
-        if (total === state.total) total++;
+        if (count === state.count) count++;
 
-        return { total: total, items: array };
+        total += newItem.price;
+
+        return { count: count, total: total, items: array };
       }
       case "delete": {
-        const del = action.payload.name;
+        const delItem = action.payload;
+        let count = state.count;
         let total = state.total;
 
         const array = state.items.reduce((acc, curr) => {
-          if (curr.item.name === del) {
-            total--;
+          if (curr.item.name === delItem.name) {
+            count--;
+            total -= delItem.price;
             if (curr.count !== 1)
               return [...acc, { ...curr, count: curr.count - 1 }];
             if (curr.count === 1) return acc;
@@ -45,7 +51,7 @@ const useCartReducer = () => {
           return [...acc, curr];
         }, [] as orderItem[]);
 
-        return { total: total, items: array };
+        return { count: count, total: total, items: array };
       }
       default:
         return state;
