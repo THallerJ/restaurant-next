@@ -2,9 +2,10 @@ import { useState } from "react";
 import { Cart } from "@/assets";
 import { useOrder } from "@/app/order/contexts/OrderContext";
 import ClickAway from "@/wrappers/ClickAway";
+import CartContent from "./CartContent";
 
 const CartButton = () => {
-  const { cartItems, cartDispatch } = useOrder();
+  const { cartItems } = useOrder();
   const [open, setOpen] = useState(false);
 
   return (
@@ -22,36 +23,7 @@ const CartButton = () => {
         </button>
         {open ? (
           <div className="absolute right-0 top-full h-48 min-w-full space-y-3 rounded-lg bg-dark p-4 text-white">
-            {cartItems.items.map((item) => (
-              <div
-                key={item.item.name}
-                className="flex justify-between gap-12 text-sm"
-              >
-                <p className="w-48">{item.item.name}</p>
-                <div className="flex">
-                  <button
-                    className="mr-4"
-                    onClick={() =>
-                      cartDispatch({ type: "delete", payload: item.item })
-                    }
-                  >
-                    -
-                  </button>
-                  <span>{item.count}</span>
-                  <button
-                    className="ml-4"
-                    onClick={() =>
-                      cartDispatch({ type: "add", payload: item.item })
-                    }
-                  >
-                    +
-                  </button>
-                </div>
-
-                <span>{`$${item.item.price}`}</span>
-              </div>
-            ))}
-            <p>{`Total: $${cartItems.total}`}</p>
+            <CartContent />
           </div>
         ) : null}
       </div>
