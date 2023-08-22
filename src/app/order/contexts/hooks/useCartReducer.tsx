@@ -1,6 +1,7 @@
 import { cartItems, orderItem } from "../../types";
 import { useReducer } from "react";
 import { reducerAction } from "../types";
+import { accessSync } from "fs";
 
 const useCartReducer = () => {
   const initialState: cartItems = {
@@ -10,7 +11,7 @@ const useCartReducer = () => {
 
   const orderReducer = (state: cartItems, action: reducerAction): cartItems => {
     switch (action.type) {
-      case "addItem": {
+      case "add": {
         const newItem = action.payload;
         let total = state.total;
 
@@ -30,18 +31,22 @@ const useCartReducer = () => {
 
         return { total: total, items: array };
       }
-      case "deleteItem": {
+      case "delete": {
         const del = action.payload.name;
-        state.items.reduce((acc, curr) => {
-          if (curr.item.name === del && curr.count !== 1) {
+        let total = state.total;
+
+        const array = state.items.reduce((acc, curr) => {
+          if (curr.item.name === del) total--;
+          if (curr.item.name === del && curr.count !== 1)
             return [...acc, { ...curr, count: curr.count - 1 }];
-          }
 
           return acc;
         }, [] as orderItem[]);
+
+        return { total: total, items: array };
       }
       default:
-        throw new Error(`Unhandled action type: ${action.type}`);
+        return state;
     }
   };
 

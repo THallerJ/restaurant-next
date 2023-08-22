@@ -18,7 +18,7 @@ const OrderItem = ({ item }: { item: menuItem }) => {
         <button
           className="btn mt-3"
           onClick={() => {
-            cartDispatch({ type: "addItem", payload: item });
+            cartDispatch({ type: "add", payload: item });
           }}
         >
           Add to cart

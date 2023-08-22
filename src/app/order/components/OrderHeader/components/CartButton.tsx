@@ -32,7 +32,7 @@ const CartButton = () => {
                   <button
                     className="mr-4"
                     onClick={() =>
-                      cartDispatch({ type: "deleteItem", payload: item.item })
+                      cartDispatch({ type: "delete", payload: item.item })
                     }
                   >
                     -
@@ -41,7 +41,7 @@ const CartButton = () => {
                   <button
                     className="ml-4"
                     onClick={() =>
-                      cartDispatch({ type: "addItem", payload: item.item })
+                      cartDispatch({ type: "add", payload: item.item })
                     }
                   >
                     +
