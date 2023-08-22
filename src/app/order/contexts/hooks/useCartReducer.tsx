@@ -39,8 +39,9 @@ const useCartReducer = () => {
           if (curr.item.name === del) total--;
           if (curr.item.name === del && curr.count !== 1)
             return [...acc, { ...curr, count: curr.count - 1 }];
+          if (curr.item.name === del && curr.count === 1) return acc;
 
-          return acc;
+          return [...acc, curr];
         }, [] as orderItem[]);
 
         return { total: total, items: array };
