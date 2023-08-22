@@ -22,7 +22,7 @@ const CartButton = () => {
           ) : null}
         </button>
         {open ? (
-          <div className="absolute right-0 top-full h-48 min-w-full space-y-3 rounded-lg bg-dark p-4 text-white">
+          <div className="absolute right-0 top-full h-72 w-80 rounded-lg bg-dark p-4 text-white">
             <CartContent />
           </div>
         ) : null}
