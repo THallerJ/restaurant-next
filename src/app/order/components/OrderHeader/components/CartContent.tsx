@@ -5,10 +5,10 @@ const CartContent = () => {
 
   return (
     <div className="flex h-full flex-col justify-between">
-      <div className="overflow-auto">
+      <div className="flex flex-col gap-1 overflow-auto p-4 ">
         {cartItems.items.map((item) => (
           <div key={item.item.name} className="flex justify-between text-sm">
-            <p className="w-36">{item.item.name}</p>
+            <p className="w-44">{item.item.name}</p>
             <div className="flex">
               <button
                 className="mr-4"
@@ -29,11 +29,11 @@ const CartContent = () => {
               </button>
             </div>
 
-            <span>{`$${item.item.price}`}</span>
+            <span className="w-8">{`$${item.item.price}`}</span>
           </div>
         ))}
       </div>
-      <p className="self-end">{`Total: $${cartItems.total}`}</p>
+      <p className="self-end p-4">{`Total: $${cartItems.total}`}</p>
     </div>
   );
 };
