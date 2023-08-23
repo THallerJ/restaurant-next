@@ -1,28 +1,27 @@
 import { useOrder } from "@/app/order/contexts/OrderContext";
+import { Divider } from "@/components";
 
 const CartContent = () => {
   const { cartItems, cartDispatch } = useOrder();
 
   return (
     <div className="flex h-full flex-col justify-between font-semibold text-black">
-      <h2 className="heading-sm  px-4 pt-4 font-normal">Cart</h2>
+      <h2 className="heading-sm px-4 pt-4 font-normal">Cart</h2>
 
-      <div className="flex flex-col gap-1 overflow-auto p-4">
+      <div className="flex flex-col gap-3 overflow-auto p-4">
         {cartItems.items.map((item) => (
           <div key={item.item.name} className="flex justify-between text-sm">
-            <p className="w-44">{item.item.name}</p>
-            <div className="flex">
+            <p className="w-[45%]">{item.item.name}</p>
+            <div className="flex items-center">
               <button
-                className="mr-4"
                 onClick={() =>
                   cartDispatch({ type: "delete", payload: item.item })
                 }
               >
                 -
               </button>
-              <span>{item.count}</span>
+              <span className="w-[3ch] text-center">{item.count}</span>
               <button
-                className="ml-4"
                 onClick={() =>
                   cartDispatch({ type: "add", payload: item.item })
                 }
@@ -31,7 +30,7 @@ const CartContent = () => {
               </button>
             </div>
 
-            <span className="w-8">{`$${item.item.price}`}</span>
+            <span className="w-[5%] text-end">{`$${item.item.price}`}</span>
           </div>
         ))}
       </div>
