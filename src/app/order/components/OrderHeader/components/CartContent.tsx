@@ -9,7 +9,10 @@ const CartContent = () => {
       <h2 className="heading-sm px-4 pt-4 font-normal">Cart</h2>
       <div className="flex h-full flex-col gap-3 overflow-auto p-4">
         {cartItems.items.map((item) => (
-          <div key={item.item.name} className="flex justify-between text-sm">
+          <div
+            key={item.item.name}
+            className="flex items-center justify-between text-sm"
+          >
             <p className="w-[45%]">{item.item.name}</p>
             <div className="flex items-center">
               <button
@@ -28,7 +31,6 @@ const CartContent = () => {
                 +
               </button>
             </div>
-
             <span className="w-[3ch] text-end">{`$${item.item.price}`}</span>
             <button
               onClick={() =>
@@ -41,7 +43,9 @@ const CartContent = () => {
         ))}
       </div>
       <div className="flex items-end justify-between px-4 py-2">
-        <button className="btn">Checkout</button>
+        <button className="btn" aria-label="checkout">
+          Checkout
+        </button>
         <p className="">{`Total: $${cartItems.total}`}</p>
       </div>
     </div>
