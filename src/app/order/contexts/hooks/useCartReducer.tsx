@@ -55,7 +55,7 @@ const useCartReducer = () => {
       }
       case "remove": {
         const remItem = action.payload;
-        let count = state.total;
+        let count = state.count;
         let total = state.total;
 
         const items = state.items.reduce((acc, curr) => {

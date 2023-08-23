@@ -26,6 +26,14 @@ const CartContent = () => {
               >
                 +
               </button>
+              <button
+                className="mx-4"
+                onClick={() =>
+                  cartDispatch({ type: "remove", payload: item.item })
+                }
+              >
+                X
+              </button>
             </div>
 
             <span className="w-[3ch] text-end">{`$${item.item.price}`}</span>
