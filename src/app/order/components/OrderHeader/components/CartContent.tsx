@@ -1,4 +1,5 @@
 import { useOrder } from "@/app/order/contexts/OrderContext";
+import { Close } from "@/assets";
 
 const CartContent = () => {
   const { cartItems, cartDispatch } = useOrder();
@@ -26,17 +27,16 @@ const CartContent = () => {
               >
                 +
               </button>
-              <button
-                className="mx-4"
-                onClick={() =>
-                  cartDispatch({ type: "remove", payload: item.item })
-                }
-              >
-                X
-              </button>
             </div>
 
             <span className="w-[3ch] text-end">{`$${item.item.price}`}</span>
+            <button
+              onClick={() =>
+                cartDispatch({ type: "remove", payload: item.item })
+              }
+            >
+              <Close className="h-6 w-6 stroke-dark" />
+            </button>
           </div>
         ))}
       </div>
