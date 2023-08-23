@@ -25,21 +25,21 @@ const useCartReducer = () => {
           return orderItem;
         });
 
-        const array =
+        const items =
           count === state.count ? [...temp, { item: newItem, count: 1 }] : temp;
 
         if (count === state.count) count++;
 
         total += newItem.price;
 
-        return { count: count, total: total, items: array };
+        return { count, total, items };
       }
       case "delete": {
         const delItem = action.payload;
         let count = state.count;
         let total = state.total;
 
-        const array = state.items.reduce((acc, curr) => {
+        const items = state.items.reduce((acc, curr) => {
           if (curr.item.name === delItem.name) {
             count--;
             total -= delItem.price;
@@ -51,7 +51,24 @@ const useCartReducer = () => {
           return [...acc, curr];
         }, [] as orderItem[]);
 
-        return { count: count, total: total, items: array };
+        return { count, total, items };
+      }
+      case "remove": {
+        const remItem = action.payload;
+        let count = state.total;
+        let total = state.total;
+
+        const items = state.items.reduce((acc, curr) => {
+          if (curr.item.name === remItem.name) {
+            count -= curr.count;
+            total -= curr.count * curr.item.price;
+            return acc;
+          }
+
+          return [...acc, curr];
+        }, [] as orderItem[]);
+
+        return { count, total, items };
       }
       default:
         return state;
