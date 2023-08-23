@@ -1,5 +1,4 @@
 import { useOrder } from "@/app/order/contexts/OrderContext";
-import { Divider } from "@/components";
 
 const CartContent = () => {
   const { cartItems, cartDispatch } = useOrder();
@@ -7,8 +6,7 @@ const CartContent = () => {
   return (
     <div className="flex h-full flex-col justify-between font-semibold text-black">
       <h2 className="heading-sm px-4 pt-4 font-normal">Cart</h2>
-
-      <div className="flex flex-col gap-3 overflow-auto p-4">
+      <div className="flex h-full flex-col gap-3 overflow-auto p-4">
         {cartItems.items.map((item) => (
           <div key={item.item.name} className="flex justify-between text-sm">
             <p className="w-[45%]">{item.item.name}</p>
@@ -30,7 +28,7 @@ const CartContent = () => {
               </button>
             </div>
 
-            <span className="w-[5%] text-end">{`$${item.item.price}`}</span>
+            <span className="w-[3ch] text-end">{`$${item.item.price}`}</span>
           </div>
         ))}
       </div>
