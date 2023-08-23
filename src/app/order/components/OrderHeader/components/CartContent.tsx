@@ -4,7 +4,7 @@ const CartContent = () => {
   const { cartItems, cartDispatch } = useOrder();
 
   return (
-    <div className="flex h-full flex-col justify-between font-semibold text-black">
+    <div className="flex h-full flex-col justify-between font-semibold">
       <h2 className="heading-sm px-4 pt-4 font-normal">Cart</h2>
       <div className="flex h-full flex-col gap-3 overflow-auto p-4">
         {cartItems.items.map((item) => (
@@ -32,7 +32,10 @@ const CartContent = () => {
           </div>
         ))}
       </div>
-      <p className="self-end p-4">{`Total: $${cartItems.total}`}</p>
+      <div className="flex items-end justify-between px-4 py-2">
+        <button className="btn">Checkout</button>
+        <p className="">{`Total: $${cartItems.total}`}</p>
+      </div>
     </div>
   );
 };
