@@ -6,24 +6,27 @@ const CartButton = () => {
   const { cartItems } = useOrder();
 
   return (
-    <div className="group peer relative">
-      <button className="peer">
-        <Cart className="h-8 w-8" />
-        {cartItems.count > 0 ? (
-          <div className="absolute bottom-2 left-4 flex h-5 w-5 items-center justify-center rounded-full bg-dark">
-            <span className="text-sm font-semibold text-offwhite">
-              {cartItems.count}
-            </span>
-          </div>
-        ) : null}
-      </button>
-      <div
-        className="absolute right-0 top-full h-96 w-80 scale-0 rounded-lg border-2 border-dark
+    <>
+      <div className="group peer relative z-[2000000]">
+        <button>
+          <Cart className="h-8 w-8" />
+          {cartItems.count > 0 ? (
+            <div className="absolute bottom-2 left-4 flex h-5 w-5 items-center justify-center rounded-full bg-dark">
+              <span className="text-sm font-semibold text-offwhite">
+                {cartItems.count}
+              </span>
+            </div>
+          ) : null}
+        </button>
+        <div
+          className="absolute right-0 top-full h-96 w-80 scale-0 rounded-lg border-2 border-dark
           bg-white text-dark shadow-lg group-hover:scale-100"
-      >
-        <CartContent />
+        >
+          <CartContent />
+        </div>
       </div>
-    </div>
+      <div className="fixed right-0 top-0 z-[100000] h-full w-full scale-0 bg-dark/50 peer-hover:scale-100" />
+    </>
   );
 };
 
