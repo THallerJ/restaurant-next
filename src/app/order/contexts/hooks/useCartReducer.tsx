@@ -70,6 +70,9 @@ const useCartReducer = () => {
 
         return { count, total, items };
       }
+      case "clear": {
+        return { count: 0, total: 0, items: [] };
+      }
       default:
         return state;
     }

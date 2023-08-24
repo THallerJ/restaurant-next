@@ -6,7 +6,17 @@ const CartContent = () => {
 
   return (
     <div className="flex h-full flex-col justify-between font-semibold">
-      <h2 className="heading-sm px-4 pt-4 font-normal">Cart</h2>
+      <div className="flex justify-between px-4 pt-4">
+        <h2 className="heading-sm font-normal">Cart</h2>
+        {cartItems.count > 0 ? (
+          <button
+            className="text-sm font-normal"
+            onClick={() => cartDispatch({ type: "clear" })}
+          >
+            Clear Cart
+          </button>
+        ) : null}
+      </div>
       <div className="flex h-full flex-col gap-3 overflow-auto p-4">
         {cartItems.items.map((item) => (
           <div
