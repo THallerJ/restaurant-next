@@ -2,9 +2,13 @@
 import { menuItem } from "@/types";
 import Image from "next/image";
 import { useOrder } from "../contexts/OrderContext";
-//add price to OrderItem, liekley as overlay in bottom right corner with triangle shadow
+import { Checkmark } from "@/assets";
+import { useState } from "react";
+
 const OrderItem = ({ item }: { item: menuItem }) => {
   const { cartDispatch } = useOrder();
+  const [clicked, setClicked] = useState(false);
+
   return (
     <div className="flex w-full flex-col justify-between gap-3 rounded-xl bg-white p-3 text-dark shadow-md xs:w-48 md:w-72">
       {item.image ? (
@@ -19,12 +23,23 @@ const OrderItem = ({ item }: { item: menuItem }) => {
           <span className="font-semibold">{`$${item.price}`}</span>
         </div>
         <button
-          className="btn mt-3"
+          className={`mt-3 rounded border bg-primary px-[1em] py-[0.5em] font-bold text-white shadow-md 
+            transition-all duration-700 hover:border-dark ${
+              clicked ? "bg-[#252A34]" : null
+            }`}
           onClick={() => {
+            setClicked(true);
             cartDispatch({ type: "add", payload: item });
           }}
+          onTransitionEnd={() => setClicked(false)}
         >
-          Add to cart
+          {clicked ? (
+            <div className=" flex justify-center">
+              <Checkmark className="h-6 w-6 fill-white stroke-white" />
+            </div>
+          ) : (
+            <span>Add to cart</span>
+          )}
         </button>
       </div>
     </div>
