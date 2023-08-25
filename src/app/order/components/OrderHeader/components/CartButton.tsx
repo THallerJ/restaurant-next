@@ -7,7 +7,7 @@ const CartButton = () => {
 
   return (
     <>
-      <div className="group peer relative z-[2000000]">
+      <div className="group peer relative z-[5]">
         <button>
           <Cart className="h-8 w-8" />
           {cartItems.count > 0 ? (
@@ -25,7 +25,7 @@ const CartButton = () => {
           <CartContent />
         </div>
       </div>
-      <div className="fixed right-0 top-0 z-[100000] h-full w-full scale-0 bg-dark/50 peer-focus-within:scale-100 peer-hover:scale-100" />
+      <div className="fixed right-0 top-0 h-full w-full scale-0 bg-dark/50 peer-focus-within:scale-100 peer-hover:scale-100" />
     </>
   );
 };

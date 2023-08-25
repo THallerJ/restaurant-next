@@ -64,7 +64,7 @@ const CartContent = () => {
             <button className="btn" aria-label="checkout">
               Checkout
             </button>
-            <p className="">{`Total: $${cartItems.total}`}</p>
+            <p>{`Total: $${cartItems.total}`}</p>
           </div>
         </>
       ) : (
