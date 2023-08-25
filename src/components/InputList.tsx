@@ -12,6 +12,7 @@ type InputListProps<T> = {
   format?: (item: T) => string;
   style?: string;
   Icon?: React.FC<React.SVGProps<SVGSVGElement>>;
+  center?: boolean;
   wrapperStyle?: string;
 };
 
@@ -25,6 +26,7 @@ const InputList = <T,>({
   style,
   Icon,
   wrapperStyle,
+  center,
 }: InputListProps<T>) => {
   const [toggled, setToggled] = useState(false);
 
@@ -39,7 +41,7 @@ const InputList = <T,>({
   const content = (
     <div
       onClick={(e) => e.stopPropagation()}
-      className={`right-0 top-full z-10 flex max-h-96 w-full 
+      className={`right-0 top-full z-10 flex max-h-96 w-full
         flex-col overflow-auto bg-dark shadow-lg
         ease-in-out ${toggled ? "absolute" : "hidden"}`}
     >
@@ -47,7 +49,9 @@ const InputList = <T,>({
         ? items.map((item, i) => {
             return (
               <span
-                className="p-3 tracking-wider text-white hover:bg-third  hover:text-black"
+                className={`p-3 text-white hover:bg-third hover:text-black ${
+                  center ? "text-center" : "text-start"
+                }`}
                 key={(text ? text : "") + i}
                 onClick={() => {
                   onSelect(item);

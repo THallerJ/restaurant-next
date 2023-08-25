@@ -31,7 +31,7 @@ const OrderItem = ({ item }: { item: menuItem }) => {
         </div>
         <button
           className={`mt-3 rounded border px-[1em] py-[0.5em] font-bold text-white shadow-md 
-            transition-all duration-700 hover:border-dark ${
+            transition-colors duration-700 hover:border-dark ${
               clicked ? "bg-primaryLight" : "bg-primary"
             }`}
           onClick={onClick}

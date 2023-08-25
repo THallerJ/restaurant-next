@@ -45,6 +45,7 @@ const DateTime = () => {
           onSelect={updateGuestNum}
           format={(item) => `${getGuest(item)}`}
           Icon={People}
+          center
         />
         <input
           id="selectDate"
@@ -62,6 +63,7 @@ const DateTime = () => {
           onSelect={updateTime}
           format={(item) => formatTime(item[0], item[1])}
           Icon={Time}
+          center
         />
       </div>
     </div>
