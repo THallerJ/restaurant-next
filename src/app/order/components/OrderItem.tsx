@@ -9,6 +9,13 @@ const OrderItem = ({ item }: { item: menuItem }) => {
   const { cartDispatch } = useOrder();
   const [clicked, setClicked] = useState(false);
 
+  const onClick = () => {
+    if (!clicked) {
+      setClicked(true);
+      cartDispatch({ type: "add", payload: item });
+    }
+  };
+
   return (
     <div className="flex w-full flex-col justify-between gap-3 rounded-xl bg-white p-3 text-dark shadow-md xs:w-48 md:w-72">
       {item.image ? (
@@ -23,14 +30,11 @@ const OrderItem = ({ item }: { item: menuItem }) => {
           <span className="font-semibold">{`$${item.price}`}</span>
         </div>
         <button
-          className={`mt-3 rounded border bg-primary px-[1em] py-[0.5em] font-bold text-white shadow-md 
+          className={`mt-3 rounded border px-[1em] py-[0.5em] font-bold text-white shadow-md 
             transition-all duration-700 hover:border-dark ${
-              clicked ? "bg-[#252A34]" : null
+              clicked ? "bg-primaryLight" : "bg-primary"
             }`}
-          onClick={() => {
-            setClicked(true);
-            cartDispatch({ type: "add", payload: item });
-          }}
+          onClick={onClick}
           onTransitionEnd={() => setClicked(false)}
         >
           {clicked ? (
