@@ -12,14 +12,14 @@ const CartContent = () => {
     >
       <div className="flex justify-between px-4 pt-4">
         <h2 className="heading-sm font-normal">Cart</h2>
-        {cartItems.count > 0 ? (
-          <button
-            className="text-sm font-normal"
-            onClick={() => cartDispatch({ type: "clear" })}
-          >
-            Clear Cart
-          </button>
-        ) : null}
+        <button
+          className={`text-sm font-normal ${
+            cartItems.count > 0 ? "block" : "hidden"
+          }`}
+          onClick={() => cartDispatch({ type: "clear" })}
+        >
+          Clear Cart
+        </button>
       </div>
       {cartItems.count > 0 ? (
         <>
