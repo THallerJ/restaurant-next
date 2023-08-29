@@ -29,8 +29,8 @@ const CartButton = () => {
           ) : null}
         </button>
         <div
-          className={`absolute right-0 top-full h-96 w-80 scale-0 rounded-lg border-2 border-dark 
-            bg-white text-dark shadow-lg ${
+          className={`absolute right-0 top-full h-96 w-80 origin-top-right scale-0 rounded-lg border-2 border-dark
+            bg-white text-dark shadow-lg transition-all  ${
               clicked || hover ? "scale-100" : null
             }`}
         >
@@ -38,7 +38,10 @@ const CartButton = () => {
         </div>
       </div>
       <div
-        onClick={() => setClicked(false)}
+        onClick={() => {
+          setClicked(false);
+          setHover(false);
+        }}
         className={`fixed right-0 top-0 h-full w-full scale-0 bg-dark/50 ${
           clicked || hover ? "scale-100" : null
         }`}
