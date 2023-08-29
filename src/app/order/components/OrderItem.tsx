@@ -25,7 +25,7 @@ const OrderItem = ({ item }: { item: menuItem }) => {
         <div className="flex gap-8">
           <div>
             <span className="font-semibold">{item.name}</span>
-            <p className="text-xs">{item.details}</p>
+            <p className="h-12 text-xs">{item.details}</p>
           </div>
           <span className="font-semibold">{`$${item.price}`}</span>
         </div>
@@ -38,7 +38,7 @@ const OrderItem = ({ item }: { item: menuItem }) => {
           onTransitionEnd={() => setClicked(false)}
         >
           {clicked ? (
-            <div className=" flex justify-center">
+            <div className="flex justify-center">
               <Checkmark className="h-6 w-6 fill-white stroke-white" />
             </div>
           ) : (
