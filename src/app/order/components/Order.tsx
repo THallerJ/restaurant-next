@@ -9,7 +9,7 @@ import {
 
 const Order = () => {
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex w-full flex-col gap-8">
       <OrderList items={starterItems} title="Starters" />
       <OrderList items={breakfastItems} title="Breakfast" />
       <OrderList items={lunchItems} title="Lunch" />
