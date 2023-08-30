@@ -11,7 +11,7 @@ const CartContent = () => {
     <div
       className={`flex h-full flex-col ${
         cartItems.count > 0 ? "justify-between" : "justify-start"
-      } `}
+      }`}
     >
       <div className="flex justify-between px-4 pt-4">
         <h2 className="heading-sm font-normal">Cart</h2>

@@ -20,7 +20,7 @@ const DailySpecialModal = ({
           alt="daily-special"
         />
       ) : null}
-      <div className="lg:w-[65%]">
+      <div className="flex flex-col gap-1 lg:w-[65%]">
         <h4 className="text-2xl font-semibold text-dark">
           {dailySpecial.name}
         </h4>

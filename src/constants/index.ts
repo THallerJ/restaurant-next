@@ -6,6 +6,7 @@ import {
   dessertItems,
   dinnerItems,
   starterItems,
+  dailySpecial,
 } from "./Menu";
 
 export {
@@ -18,4 +19,5 @@ export {
   dinnerItems,
   dessertItems,
   starterItems,
+  dailySpecial,
 };
