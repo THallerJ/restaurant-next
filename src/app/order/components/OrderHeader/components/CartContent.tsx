@@ -1,8 +1,11 @@
+"use client";
 import { useOrder } from "@/app/order/contexts/OrderContext";
 import { Close } from "@/assets";
+import { useRouter } from "next/navigation";
 
 const CartContent = () => {
   const { cartItems, cartDispatch } = useOrder();
+  const router = useRouter();
 
   return (
     <div
@@ -61,7 +64,11 @@ const CartContent = () => {
             ))}
           </div>
           <div className="flex items-end justify-between px-4 py-2">
-            <button className="btn" aria-label="checkout">
+            <button
+              className="btn"
+              aria-label="checkout"
+              onClick={() => router.push("order/cart")}
+            >
               Checkout
             </button>
             <p className="font-semibold">{`Total: $${cartItems.total}`}</p>
