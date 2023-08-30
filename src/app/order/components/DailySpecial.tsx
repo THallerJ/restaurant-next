@@ -11,8 +11,8 @@ const DailySpecial = () => {
       <div className="flex flex-col gap-1">
         <h2 className="heading-sm">Today&apos;s Daily Special</h2>
         <div
-          className="flex flex-col items-center gap-4 rounded-2xl border-2 border-dark p-4
-        sm:flex-row sm:items-start"
+          className="flex flex-col items-center gap-4 rounded-2xl bg-white p-4 shadow-md
+            sm:flex-row sm:items-start"
         >
           {dailySpecial.image ? (
             <Image
