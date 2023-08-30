@@ -21,9 +21,7 @@ const DailySpecialModal = ({
         />
       ) : null}
       <div className="flex flex-col gap-1 lg:w-[65%]">
-        <h4 className="text-2xl font-semibold text-dark">
-          {dailySpecial.name}
-        </h4>
+        <h4 className="text-xl font-semibold text-dark">{dailySpecial.name}</h4>
         <p className="text-base">{dailySpecial.details}</p>
       </div>
     </div>
