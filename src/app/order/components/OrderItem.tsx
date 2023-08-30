@@ -17,7 +17,7 @@ const OrderItem = ({ item }: { item: menuItem }) => {
   };
 
   return (
-    <div className="flex w-full flex-col gap-3 rounded-xl bg-white p-3 text-dark shadow-md ">
+    <div className="flex w-full flex-col gap-3 rounded-xl bg-white p-3 text-dark shadow-md">
       {item.image ? (
         <Image src={item.image} alt={item.name} className="rounded-lg" />
       ) : null}
