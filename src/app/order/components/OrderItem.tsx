@@ -42,7 +42,7 @@ const OrderItem = ({ item }: { item: menuItem }) => {
               <Checkmark className="h-6 w-6 fill-white stroke-white" />
             </div>
           ) : (
-            <span>Add to cart</span>
+            <span>add to cart</span>
           )}
         </button>
       </div>
