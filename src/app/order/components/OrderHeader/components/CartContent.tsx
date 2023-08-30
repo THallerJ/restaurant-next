@@ -8,7 +8,7 @@ const CartContent = () => {
     <div
       className={`flex h-full flex-col ${
         cartItems.count > 0 ? "justify-between" : "justify-start"
-      }  font-semibold`}
+      } `}
     >
       <div className="flex justify-between px-4 pt-4">
         <h2 className="heading-sm font-normal">Cart</h2>
@@ -64,7 +64,7 @@ const CartContent = () => {
             <button className="btn" aria-label="checkout">
               Checkout
             </button>
-            <p>{`Total: $${cartItems.total}`}</p>
+            <p className="font-semibold">{`Total: $${cartItems.total}`}</p>
           </div>
         </>
       ) : (
