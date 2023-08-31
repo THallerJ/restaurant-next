@@ -11,9 +11,9 @@ const DailySpecial = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <>
+    <div className="flex flex-col gap-1">
+      <h2 className="heading-sm">Today&apos;s Daily Special</h2>
       <div className="hidden flex-col gap-1 sm:flex">
-        <h2 className="heading-sm">Today&apos;s Daily Special</h2>
         <div
           className="flex flex-row items-start gap-4 rounded-2xl bg-white
             p-4 shadow-md"
@@ -55,7 +55,7 @@ const DailySpecial = () => {
         </OrderItem>
         <DailySpecialModal showDialog={open} setShowDialog={setOpen} />
       </div>
-    </>
+    </div>
   );
 };
 
