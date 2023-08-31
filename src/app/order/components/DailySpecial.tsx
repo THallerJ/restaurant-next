@@ -44,7 +44,7 @@ const DailySpecial = () => {
           </div>
         </div>
       </div>
-      <div className="flex md:hidden">
+      <div className="flex sm:hidden">
         <OrderItem item={dailySpecial}>
           <button
             onClick={() => setOpen((prev) => !prev)}
