@@ -1,18 +1,22 @@
 "use client";
+import { useState } from "react";
 import { dailySpecial } from "@/constants";
 import Image from "next/image";
 import { useOrder } from "../contexts/OrderContext";
-
+import { DailySpecialModal } from "@/components";
+import OrderItem from "./OrderItem";
+//make work on mobile and make cartitems stored in local
 const DailySpecial = () => {
   const { cartDispatch } = useOrder();
+  const [open, setShow] = useState(false);
 
   return (
     <>
-      <div className="flex flex-col gap-1">
+      <div className="hidden flex-col gap-1 sm:flex">
         <h2 className="heading-sm">Today&apos;s Daily Special</h2>
         <div
-          className="flex flex-col items-center gap-4 rounded-2xl bg-white p-4 shadow-md
-            sm:flex-row sm:items-start"
+          className="flex flex-row items-start gap-4 rounded-2xl bg-white
+            p-4 shadow-md"
         >
           {dailySpecial.image ? (
             <Image
@@ -39,6 +43,9 @@ const DailySpecial = () => {
             </button>
           </div>
         </div>
+      </div>
+      <div className="flex md:hidden">
+        <OrderItem item={dailySpecial} />
       </div>
     </>
   );
