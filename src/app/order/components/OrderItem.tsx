@@ -27,7 +27,7 @@ const OrderItem = ({ item, children }: OrderItemProps) => {
         <Image
           src={item.image}
           alt={item.name}
-          className="h-48 rounded-lg object-cover pb-3"
+          className="h-64 rounded-lg object-cover pb-3"
         />
       ) : null}
       <div className="flex w-full flex-row justify-between pb-1">
