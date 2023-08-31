@@ -5,10 +5,10 @@ import Image from "next/image";
 import { useOrder } from "../contexts/OrderContext";
 import { DailySpecialModal } from "@/components";
 import OrderItem from "./OrderItem";
-//make work on mobile and make cartitems stored in local
+
 const DailySpecial = () => {
   const { cartDispatch } = useOrder();
-  const [open, setShow] = useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
     <>
@@ -45,7 +45,15 @@ const DailySpecial = () => {
         </div>
       </div>
       <div className="flex md:hidden">
-        <OrderItem item={dailySpecial} />
+        <OrderItem item={dailySpecial}>
+          <button
+            onClick={() => setOpen((prev) => !prev)}
+            className="text-dark"
+          >
+            click to learn more!
+          </button>
+        </OrderItem>
+        <DailySpecialModal showDialog={open} setShowDialog={setOpen} />
       </div>
     </>
   );
