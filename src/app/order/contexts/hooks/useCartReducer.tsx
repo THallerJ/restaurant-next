@@ -1,12 +1,17 @@
 import { cartItems, orderItem } from "../../types";
-import { useReducer } from "react";
+import { useEffect, useReducer } from "react";
 import { reducerAction } from "../types";
 
 const useCartReducer = () => {
-  const initialState: cartItems = {
-    count: 0,
-    total: 0,
-    items: [],
+  const key = "restaurant-next-cart";
+  const init: cartItems = { count: 0, total: 0, items: [] };
+
+  const getIntitialState = (): cartItems => {
+    const jsonValue = localStorage.getItem(key);
+
+    if (jsonValue) return JSON.parse(jsonValue);
+
+    return init;
   };
 
   const orderReducer = (state: cartItems, action: reducerAction): cartItems => {
@@ -71,14 +76,18 @@ const useCartReducer = () => {
         return { count, total, items };
       }
       case "clear": {
-        return { count: 0, total: 0, items: [] };
+        return init;
       }
       default:
         return state;
     }
   };
 
-  const [state, dispatch] = useReducer(orderReducer, initialState);
+  const [state, dispatch] = useReducer(orderReducer, getIntitialState());
+
+  useEffect(() => {
+    localStorage.setItem(key, JSON.stringify(state));
+  }, [state]);
 
   return [state, dispatch] as const;
 };
