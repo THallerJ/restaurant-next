@@ -7,13 +7,13 @@ const useCartReducer = () => {
   const key = "restaurant-next-cart";
   const init: cartItems = { count: 0, total: 0, items: [] };
 
-  const getIntitialState = (): cartItems => {
+  /*const getIntitialState = (): cartItems => {
     const jsonValue = localStorage.getItem(key);
 
     if (jsonValue) return JSON.parse(jsonValue);
 
     return init;
-  };
+  }; */
 
   const orderReducer = (state: cartItems, action: reducerAction): cartItems => {
     switch (action.type) {
@@ -84,11 +84,12 @@ const useCartReducer = () => {
     }
   };
 
-  const [state, dispatch] = useReducer(orderReducer, getIntitialState());
+  //const [state, dispatch] = useReducer(orderReducer, getIntitialState());
+  const [state, dispatch] = useLocalReducer(key, init, orderReducer);
 
-  useEffect(() => {
+  /* useEffect(() => {
     localStorage.setItem(key, JSON.stringify(state));
-  }, [state]);
+  }, [state]); */
 
   return [state, dispatch] as const;
 };

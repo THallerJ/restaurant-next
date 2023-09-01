@@ -1,15 +1,9 @@
 import { useEffect, useReducer } from "react";
 
-type useLocalReducerProps<T, S, R> = {
-  initialState: T;
-  reducer: (state: S, action: R) => T;
-  key: string;
-};
-
-const useLocalReducer = <T, S, R>(
+const useLocalReducer = <T,>(
   key: string,
   initialState: T,
-  reducer: (state: S, action: R) => T,
+  reducer: (state: any, action: any) => T,
 ) => {
   const getIntitialState = (): T => {
     const jsonValue = localStorage.getItem(key);
@@ -19,13 +13,16 @@ const useLocalReducer = <T, S, R>(
     return initialState;
   };
 
-  const [reducerState, reducerDispatch] = useReducer(reducer, initialState);
+  const [reducerState, reducerDispatch] = useReducer(
+    reducer,
+    getIntitialState(),
+  );
 
   useEffect(() => {
     localStorage.setItem(key, JSON.stringify(reducerState));
   }, [reducerState, key]);
 
-  return [reducerState, reducerDispatch];
+  return [reducerState, reducerDispatch] as const;
 };
 
 export default useLocalReducer;
