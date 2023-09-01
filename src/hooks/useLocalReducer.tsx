@@ -1,9 +1,9 @@
 import { useEffect, useReducer } from "react";
 
-const useLocalReducer = <T,>(
+const useLocalReducer = <T, S>(
   key: string,
   initialState: T,
-  reducer: (state: any, action: any) => T,
+  reducer: (state: T, action: S) => T,
 ) => {
   const getIntitialState = (): T => {
     const jsonValue = localStorage.getItem(key);
