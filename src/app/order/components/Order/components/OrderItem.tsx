@@ -1,7 +1,7 @@
 "use client";
 import { menuItem } from "@/types";
 import Image from "next/image";
-import { useOrder } from "../contexts/OrderContext";
+import { useOrder } from "../../../contexts/OrderContext";
 import { Checkmark } from "@/assets";
 import { useState } from "react";
 

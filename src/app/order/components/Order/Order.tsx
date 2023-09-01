@@ -1,4 +1,4 @@
-import OrderList from "./OrderList";
+import OrderList from "./components/OrderList";
 import {
   starterItems,
   breakfastItems,
@@ -6,7 +6,7 @@ import {
   dinnerItems,
   drinkItems,
 } from "@/constants";
-import DailySpecial from "./DailySpecial";
+import DailySpecial from "./components/DailySpecial";
 
 const Order = () => {
   return (

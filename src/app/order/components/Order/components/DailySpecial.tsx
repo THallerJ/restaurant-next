@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { dailySpecial } from "@/constants";
 import Image from "next/image";
-import { useOrder } from "../contexts/OrderContext";
+import { useOrder } from "../../../contexts/OrderContext";
 import { DailySpecialModal } from "@/components";
 import OrderItem from "./OrderItem";
 
