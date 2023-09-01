@@ -16,7 +16,7 @@ const CartContent = () => {
       <div className="flex justify-between px-4 pt-4">
         <h2 className="heading-sm font-normal">Cart</h2>
         <button
-          className={`text-sm font-normal lowercase ${
+          className={`text-sm font-normal lowercase text-dark ${
             cartItems.count > 0 ? "block" : "hidden"
           }`}
           onClick={() => cartDispatch({ type: "clear" })}
@@ -71,7 +71,7 @@ const CartContent = () => {
             >
               Checkout
             </button>
-            <p className="font-semibold">{`Total: $${cartItems.total}`}</p>
+            <p className="font-semibold text-dark">{`Total: $${cartItems.total}`}</p>
           </div>
         </>
       ) : (

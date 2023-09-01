@@ -29,10 +29,10 @@ const CartButton = () => {
           ) : null}
         </button>
         <div
-          className={`absolute right-0 top-full h-96 w-80 origin-top-right scale-0 rounded-lg border-2 border-dark
-            bg-white text-dark shadow-lg transition-all ${
-              clicked || hover ? "scale-100" : null
-            }`}
+          className={`absolute right-0 top-full h-96 w-80 origin-top-right scale-0 rounded-lg
+          bg-white text-black shadow-lg transition-all ${
+            clicked || hover ? "scale-100" : null
+          }`}
         >
           <CartContent />
         </div>
