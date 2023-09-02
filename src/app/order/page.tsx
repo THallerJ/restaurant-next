@@ -1,4 +1,4 @@
-import Order from "./components/allalala/Order";
+import Order from "./components/order/Order";
 
 const page = () => {
   return <Order />;

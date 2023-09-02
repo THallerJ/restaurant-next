@@ -1,5 +1,5 @@
 import { breakfastItems } from "@/constants";
-import OrderList from "../components/allalala/components/OrderList";
+import OrderList from "../components/order/components/OrderList";
 
 const page = () => {
   return <OrderList items={breakfastItems} title="Breakfast" />;
