@@ -6,6 +6,7 @@ import {
   drinkItems,
 } from "@/constants";
 import OrderList from "../components/order/components/OrderList";
+import { notFound } from "next/navigation";
 
 type Params = { params: { menuItems: string } };
 
@@ -23,7 +24,7 @@ function page({ params: { menuItems } }: Params) {
       case "drinks":
         return <OrderList title={menuItems} items={drinkItems} />;
       default:
-        return null;
+        return notFound();
     }
   };
 
