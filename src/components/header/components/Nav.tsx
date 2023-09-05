@@ -63,8 +63,8 @@ const Nav = ({
             ))}
           </ul>
           <SocialMediaIcons
-            styles="hidden lg:flex gap-8"
-            iconStyles="w-[1.5rem] h-[1.5rem] cursor-pointer hover:stroke-third"
+            className="hidden gap-8 lg:flex"
+            iconClassName="w-[1.5rem] h-[1.5rem] cursor-pointer hover:stroke-third"
           />
           <div className="flex md:hidden">
             <MenuButton

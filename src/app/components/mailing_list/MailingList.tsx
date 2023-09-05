@@ -1,13 +1,13 @@
 import MailWrapper from "./wrappers/MailWrapper";
 
 const MailingList = () => {
-  const thankYou = (
+  const ThankYou = () => (
     <p className="text-center font-bold">
       Thank you for signing up for our newsletter!
     </p>
   );
 
-  const label = (
+  const Label = () => (
     <label
       htmlFor="mailingListEmail"
       className="heading mb-2 block text-center"
@@ -16,7 +16,7 @@ const MailingList = () => {
     </label>
   );
 
-  const input = (
+  const Input = () => (
     <input
       required
       type="email"
@@ -28,7 +28,9 @@ const MailingList = () => {
     />
   );
 
-  return <MailWrapper submitted={thankYou} label={label} input={input} />;
+  return (
+    <MailWrapper submitted={<ThankYou />} label={<Label />} input={<Input />} />
+  );
 };
 
 export default MailingList;

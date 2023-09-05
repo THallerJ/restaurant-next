@@ -39,7 +39,7 @@ const DateTime = () => {
         <InputList
           id="selectGuestNum"
           text={guestNum ? `${getGuest(guestNum)}` : undefined}
-          style={inputStyle}
+          className={inputStyle}
           items={guestNums}
           placeholder="# of Guests"
           onSelect={updateGuestNum}
@@ -57,7 +57,7 @@ const DateTime = () => {
         />
         <InputList
           id="selectTime"
-          style={inputStyle}
+          className={inputStyle}
           items={times ? times : null}
           text={displaySelectedTime()}
           onSelect={updateTime}

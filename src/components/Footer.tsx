@@ -1,9 +1,9 @@
 import SocialMediaIcons from "./SocialMediaIcons";
 import Hours from "./Hours";
 
-const findContact = (styles?: string) => (
+const FindContact = ({ className }: { className?: string }) => (
   <div
-    className={`lg:flex-1 ${styles} flex flex-col items-center
+    className={`lg:flex-1 ${className} flex flex-col items-center
       text-white lg:block`}
   >
     <span className="font-poppins text-xl uppercase text-fourth">
@@ -43,8 +43,7 @@ const Footer = () => {
       className="flex w-full flex-col gap-12 bg-dark pb-4 pt-14 font-medium 
       text-white lg:px-40"
     >
-      {findContact("lg:hidden")}
-
+      <FindContact className="lg:hidden" />
       <div className="flex w-full flex-col gap-12 lg:flex-row">
         {/* Left side*/}
         <div className="flex flex-col items-center lg:flex-1 lg:items-start lg:justify-end">
@@ -53,9 +52,7 @@ const Footer = () => {
           </span>
           <Hours />
         </div>
-
-        {findContact("hidden lg:block")}
-
+        <FindContact className="hidden lg:block" />
         {/* Right side */}
         <div className="flex flex-col items-center lg:flex-1 lg:items-end ">
           <div className="flex flex-col gap-1">
@@ -66,8 +63,8 @@ const Footer = () => {
               Socials
             </span>
             <SocialMediaIcons
-              styles="text-white flex gap-4"
-              iconStyles="w-[2rem] h-[2rem] cursor-pointer hover:stroke-third"
+              className="flex gap-4 text-white"
+              iconClassName="w-[2rem] h-[2rem] cursor-pointer hover:stroke-third"
             />
           </div>
         </div>

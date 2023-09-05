@@ -11,7 +11,7 @@ const DailySpecialModal = ({
   showDialog,
   setShowDialog,
 }: DailySpecialModalProps) => {
-  const content = (
+  const Content = () => (
     <div className="flex flex-col items-center gap-4 sm:flex-row sm:items-start">
       {dailySpecial.image ? (
         <Image
@@ -30,7 +30,7 @@ const DailySpecialModal = ({
   return (
     <Modal
       title="Today's Daily Special"
-      content={content}
+      content={<Content />}
       showDialog={showDialog}
       setShowDialog={setShowDialog}
     />

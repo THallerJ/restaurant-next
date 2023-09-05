@@ -48,8 +48,8 @@ const MobileNav = ({
           ))}
         </ul>
         <SocialMediaIcons
-          styles="flex gap-10 self-center"
-          iconStyles="w-[2rem] h-[2rem]"
+          className="flex gap-10 self-center"
+          iconClassName="w-[2rem] h-[2rem]"
         />
       </nav>
     </div>

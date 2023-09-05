@@ -20,7 +20,7 @@ const Reservation = () => {
     },
   ];
 
-  const finished = (
+  const Finished = () => (
     <p className="flex h-full items-center justify-center font-bold">
       {`Your reservation for ${formatTime(
         ...getTime(selectedDate),
@@ -31,7 +31,7 @@ const Reservation = () => {
   return (
     <Breadcrumbs
       title="Make a reservation"
-      finished={finished}
+      finished={<Finished />}
       crumbs={crumbs}
       block={!guestFlag}
       blockMessage="Please select the number of guests"

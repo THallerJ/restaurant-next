@@ -35,7 +35,7 @@ const Breadcrumbs = ({
     crumbs: crumbs,
   };
 
-  const crumb = (
+  const CrumbNode = () => (
     <Crumb>
       <CrumbContent {...crumbContentProps}>
         <button className="btn m-4" onClick={onNext}>
@@ -45,7 +45,7 @@ const Breadcrumbs = ({
     </Crumb>
   );
 
-  const finalCrumb = (
+  const FinalCrumbNode = () => (
     <FinalCrumb onNext={onNext}>
       <CrumbContent {...crumbContentProps}>
         <button type="submit" className="btn m-4">
@@ -63,7 +63,7 @@ const Breadcrumbs = ({
           <div className="relative w-full rounded-xl border-4 border-dark bg-dark">
             <ul
               className="flex h-12 w-full justify-around bg-dark font-poppins
-                  text-lg font-medium uppercase text-white"
+                text-lg font-medium uppercase text-white"
             >
               {crumbs.map((item, i) => (
                 <ListItem selected={selectedCount === i} key={item.title}>
@@ -71,7 +71,11 @@ const Breadcrumbs = ({
                 </ListItem>
               ))}
             </ul>
-            {selectedCount === crumbs.length - 1 ? finalCrumb : crumb}
+            {selectedCount === crumbs.length - 1 ? (
+              <FinalCrumbNode />
+            ) : (
+              <CrumbNode />
+            )}
             {notified && blockMessage ? (
               <label className="message top-[105%]">
                 {blockMessage ? blockMessage : ""}

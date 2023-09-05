@@ -10,10 +10,10 @@ type InputListProps<T> = {
   placeholder?: string;
   onSelect: (item: T) => void;
   format?: (item: T) => string;
-  style?: string;
+  className?: string;
   Icon?: React.FC<React.SVGProps<SVGSVGElement>>;
   center?: boolean;
-  wrapperStyle?: string;
+  wrapperClassName?: string;
 };
 
 const InputList = <T,>({
@@ -23,9 +23,9 @@ const InputList = <T,>({
   placeholder,
   onSelect,
   format,
-  style,
+  className,
   Icon,
-  wrapperStyle,
+  wrapperClassName,
   center,
 }: InputListProps<T>) => {
   const [toggled, setToggled] = useState(false);
@@ -38,7 +38,7 @@ const InputList = <T,>({
 
   const iconStyle = "ml-4 h-5 w-5  stroke-dark";
 
-  const content = (
+  const Content = () => (
     <div
       onClick={(e) => e.stopPropagation()}
       className={`right-0 top-full z-10 flex max-h-96 w-full
@@ -67,11 +67,11 @@ const InputList = <T,>({
   );
 
   return (
-    <div className={`flex flex-col ${wrapperStyle}`}>
+    <div className={`flex flex-col ${wrapperClassName}`}>
       <ClickAway callback={() => setToggled(false)}>
         <button
           id={id}
-          className={`group relative bg-white ${style} `}
+          className={`group relative bg-white ${className} `}
           onClick={() => setToggled((prev) => !prev)}
         >
           <div className="flex h-full items-center justify-between">
@@ -82,7 +82,7 @@ const InputList = <T,>({
               <DownArrow className={iconStyle} />
             )}
           </div>
-          {content}
+          <Content />
         </button>
       </ClickAway>
     </div>

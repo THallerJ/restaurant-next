@@ -7,15 +7,15 @@ type ModalProps = {
   content?: React.ReactNode;
 };
 const Modal = ({ showDialog, setShowDialog, title, content }: ModalProps) => {
-  const renderClose = (imgStyle?: string) => (
+  const CloseDiv = ({ className }: { className?: string }) => (
     <div className="flex justify-end">
       <button onClick={() => setShowDialog(false)}>
-        <Close className={imgStyle} />
+        <Close className={className} />
       </button>
     </div>
   );
 
-  const renderHeader = (
+  const Header = () => (
     <div className="flex h-full w-full items-center justify-center">
       <div className="flex w-[90%] flex-col xs:w-[70%] md:w-[60%]">
         <div
@@ -28,7 +28,7 @@ const Modal = ({ showDialog, setShowDialog, title, content }: ModalProps) => {
           >
             {title}
           </h3>
-          {renderClose("mr-3 mt-3 w-[3rem] h-[3rem]")}
+          <CloseDiv className="mr-3 mt-3 h-[3rem] w-[3rem]" />
         </div>
         <div
           className="max-h-[75vh] overflow-auto bg-offwhite px-6 py-4"
@@ -42,7 +42,7 @@ const Modal = ({ showDialog, setShowDialog, title, content }: ModalProps) => {
     </div>
   );
 
-  const renderNoHeader = (
+  const NoHeader = () => (
     <div className="flex h-full w-full justify-center">{content}</div>
   );
 
@@ -54,10 +54,8 @@ const Modal = ({ showDialog, setShowDialog, title, content }: ModalProps) => {
         setShowDialog(false);
       }}
     >
-      {!title
-        ? renderClose("w-[3rem] h-[3rem] stroke-accent fill-fourth")
-        : null}
-      {title ? renderHeader : renderNoHeader}
+      {!title ? <CloseDiv className=" h-[3rem] w-[3rem] fill-fourth" /> : null}
+      {title ? <Header /> : <NoHeader />}
     </div>
   ) : null;
 };
