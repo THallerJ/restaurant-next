@@ -3,9 +3,17 @@ import { useOrder } from "@/app/order/contexts/OrderContext";
 import { Close } from "@/assets";
 import { useRouter } from "next/navigation";
 
-const CartContent = () => {
+type CartContentProps = {
+  closeCart: () => void;
+};
+const CartContent = ({ closeCart }: CartContentProps) => {
   const { cartItems, cartDispatch } = useOrder();
   const router = useRouter();
+
+  const onCheckout = () => {
+    closeCart();
+    router.push("order/cart");
+  };
 
   return (
     <div
@@ -67,7 +75,7 @@ const CartContent = () => {
             <button
               className="btn"
               aria-label="checkout"
-              onClick={() => router.push("order/cart")}
+              onClick={() => onCheckout()}
             >
               Checkout
             </button>

@@ -8,6 +8,11 @@ const CartButton = () => {
   const [hover, setHover] = useState(false);
   const [clicked, setClicked] = useState(false);
 
+  const closeCart = () => {
+    setClicked(false);
+    setHover(false);
+  };
+
   return (
     <>
       <div
@@ -34,14 +39,11 @@ const CartButton = () => {
             clicked || hover ? "scale-100" : null
           }`}
         >
-          <CartContent />
+          <CartContent closeCart={closeCart} />
         </div>
       </div>
       <div
-        onClick={() => {
-          setClicked(false);
-          setHover(false);
-        }}
+        onClick={() => closeCart()}
         className={`fixed right-0 top-0 h-full w-full scale-0 bg-dark/50 ${
           clicked || hover ? "scale-100" : null
         }`}
