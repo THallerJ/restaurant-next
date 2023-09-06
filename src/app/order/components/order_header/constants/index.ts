@@ -2,7 +2,7 @@ import { navItemType } from "@/types";
 
 const navItems: navItemType[] = [
   {
-    to: "/order",
+    to: "/order/all",
     text: "All",
   },
   {

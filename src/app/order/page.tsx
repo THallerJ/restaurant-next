@@ -1,7 +1,7 @@
-import Order from "./components/order/Order";
+import { redirect } from "next/navigation";
 
 const page = () => {
-  return <Order />;
+  return redirect("order/all");
 };
 
 export default page;

@@ -14,7 +14,7 @@ const navItems: navItemType[] = [
     text: "Reservations",
   },
   {
-    to: "/order",
+    to: "/order/all",
     text: "Order Online",
   },
 ];

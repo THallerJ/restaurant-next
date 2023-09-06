@@ -12,7 +12,7 @@ const CartContent = ({ closeCart }: CartContentProps) => {
 
   const onCheckout = () => {
     closeCart();
-    router.push("order/cart");
+    router.push("cart");
   };
 
   return (
