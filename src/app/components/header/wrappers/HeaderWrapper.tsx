@@ -1,9 +1,9 @@
 "use client";
 import { useState } from "react";
-import { useDetectScroll, useStateToRef } from "../../../hooks";
+import { useDetectScroll, useStateToRef } from "@/hooks";
 import useNavItemSelected from "../hooks/useNavItemSelected";
 import { navItems } from "../constants";
-import { useHeaderLayoutContext } from "../../../contexts";
+import { useHeaderLayoutContext } from "@/app/contexts";
 import useSmoothScroll from "../hooks/useSmoothScroll";
 import MobileNav from "../components/MobileNav";
 import Nav from "../components/Nav";

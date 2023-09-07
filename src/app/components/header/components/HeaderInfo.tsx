@@ -1,4 +1,4 @@
-import { Phone, Location } from "../../../assets";
+import { Phone, Location } from "@/assets";
 
 const HeaderInfo = () => {
   return (

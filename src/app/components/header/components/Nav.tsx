@@ -1,9 +1,9 @@
 "use client";
-import { Logo } from "../../../assets";
+import { Logo } from "@/assets";
 import { navItemType } from "@/types";
-import SocialMediaIcons from "../../../components/SocialMediaIcons";
-import { MenuButton } from "../../../components";
-import { useHeaderLayoutContext } from "../../../contexts";
+import SocialMediaIcons from "@/components/SocialMediaIcons";
+import { MenuButton } from "@/components";
+import { useHeaderLayoutContext } from "@/app/contexts";
 import Link from "next/link";
 
 type NavProps = {

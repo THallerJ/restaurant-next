@@ -1,5 +1,6 @@
 import "./globals.css";
-import { Header, Footer } from "../components";
+import Header from "./components/header/Header";
+import Footer from "./components/Footer";
 import fonts from "./fonts";
 import HeaderLayoutWrapper from "./wrappers/HeaderLayoutWrapper";
 import ScrollTopWrapper from "./wrappers/ScrollTopWrapper";

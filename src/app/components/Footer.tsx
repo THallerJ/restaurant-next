@@ -1,5 +1,5 @@
-import SocialMediaIcons from "./SocialMediaIcons";
-import Hours from "./Hours";
+import SocialMediaIcons from "@/components/SocialMediaIcons";
+import { Hours } from "@/components";
 
 const FindContact = ({ className }: { className?: string }) => (
   <div
