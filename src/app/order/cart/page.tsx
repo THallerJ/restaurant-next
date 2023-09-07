@@ -1,5 +1,7 @@
+import Cart from "./Cart";
+
 const page = () => {
-  return <div>this is the cart</div>;
+  return <Cart />;
 };
 
 export default page;
