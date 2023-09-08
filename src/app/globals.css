@@ -19,7 +19,7 @@
 }
 
 .message {
-  @apply absolute rounded-lg border-2 border-primary bg-dark px-4 py-1 text-white;
+  @apply absolute rounded-lg bg-white p-3 text-black shadow-md;
 }
 
 .heading {
