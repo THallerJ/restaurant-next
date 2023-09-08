@@ -2,8 +2,9 @@
 import { menuItem } from "@/types";
 import Image from "next/image";
 import { useOrder } from "../../contexts/OrderContext";
-import { Checkmark } from "@/assets";
 import { useState } from "react";
+import { AnimatedButton } from "@/components";
+import { DownArrow } from "@/assets";
 
 type OrderItemProps = {
   item: menuItem;
@@ -35,22 +36,7 @@ const OrderItem = ({ item, children }: OrderItemProps) => {
         <span className="font-semibold">{`$${item.price}`}</span>
       </div>
       {children ? children : <p className="h-12 text-xs">{item.details}</p>}
-      <button
-        className={`mt-3 rounded border px-[1em] py-[0.5em] font-bold text-white shadow-md 
-          transition-colors duration-700 hover:border-dark ${
-            clicked ? "bg-primaryLight" : "bg-primary"
-          }`}
-        onClick={onClick}
-        onTransitionEnd={() => setClicked(false)}
-      >
-        {clicked ? (
-          <div className="flex justify-center">
-            <Checkmark className="h-6 w-6 fill-white stroke-white" />
-          </div>
-        ) : (
-          <span>add to cart</span>
-        )}
-      </button>
+      <AnimatedButton onClick={onClick}>add to cart</AnimatedButton>
     </div>
   );
 };

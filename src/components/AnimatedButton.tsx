@@ -5,7 +5,7 @@ import { Checkmark } from "@/assets";
 type AnimatedButtonProps = {
   children: React.ReactNode;
   onClick: () => void;
-  Icon?: null;
+  Icon?: React.FC<React.SVGProps<SVGSVGElement>>;
 };
 const AnimatedButton = ({ children, onClick, Icon }: AnimatedButtonProps) => {
   const [clicked, setClicked] = useState(false);
@@ -17,16 +17,20 @@ const AnimatedButton = ({ children, onClick, Icon }: AnimatedButtonProps) => {
 
   return (
     <button
-      className={`btn mt-3 font-bold uppercase text-white shadow-md 
-      transition-colors duration-700 hover:border-dark ${
-        clicked ? "bg-primaryLight" : "bg-primary"
-      }`}
+      className={`mt-3 border px-[1em] py-[0.5em] font-bold uppercase text-white shadow-md 
+        transition-colors duration-700 hover:border-dark ${
+          clicked ? "bg-primaryLight" : "bg-primary"
+        }`}
       onClick={onButtonCLick}
       onTransitionEnd={() => setClicked(false)}
     >
       {clicked ? (
         <div className="flex justify-center">
-          <Checkmark className="h-6 w-6 fill-white stroke-white" />
+          {Icon ? (
+            <Icon className="h-6 w-6" />
+          ) : (
+            <Checkmark className="h-6 w-6 fill-white stroke-white" />
+          )}
         </div>
       ) : (
         <span>{children}</span>

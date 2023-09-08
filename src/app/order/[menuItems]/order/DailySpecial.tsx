@@ -3,7 +3,7 @@ import { useState } from "react";
 import { dailySpecial } from "@/constants";
 import Image from "next/image";
 import { useOrder } from "../../contexts/OrderContext";
-import { DailySpecialModal } from "@/components";
+import { AnimatedButton, DailySpecialModal } from "@/components";
 import OrderItem from "./OrderItem";
 
 const DailySpecial = () => {
@@ -33,14 +33,13 @@ const DailySpecial = () => {
               <span className="text-xl font-semibold text-dark">{`$${dailySpecial.price}`}</span>
             </div>
             <p>{dailySpecial.details}</p>
-            <button
-              className="btn mt-4 w-48 self-end"
+            <AnimatedButton
               onClick={() =>
                 cartDispatch({ type: "add", payload: dailySpecial })
               }
             >
-              Add to Cart
-            </button>
+              Add to cart
+            </AnimatedButton>
           </div>
         </div>
       </div>
