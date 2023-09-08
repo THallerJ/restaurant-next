@@ -35,6 +35,7 @@ const Reservation = () => {
       crumbs={crumbs}
       block={!guestFlag}
       blockMessage="Please select the number of guests"
+      submitText="book reservation"
     />
   );
 };

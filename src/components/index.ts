@@ -6,6 +6,7 @@ import { imageType } from "../types";
 import InputList from "./InputList";
 import Breadcrumbs from "./Breadcrumbs/Breadcrumbs";
 import Hours from "./Hours";
+import AnimatedButton from "./AnimatedButton";
 
 export {
   MenuButton,
@@ -15,6 +16,7 @@ export {
   InputList,
   Breadcrumbs,
   Hours,
+  AnimatedButton,
 };
 
 export type { imageType };

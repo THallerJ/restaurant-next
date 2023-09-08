@@ -7,7 +7,7 @@
 }
 
 .btn {
-  @apply rounded border bg-primary px-[1em] py-[0.5em] font-bold lowercase text-white shadow-md hover:border-dark;
+  @apply rounded border bg-primary px-[1em] py-[0.5em] font-bold uppercase text-white shadow-md hover:border-dark;
 }
 
 .pair {

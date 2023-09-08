@@ -13,6 +13,7 @@ type BreadcrumbsProps = {
   crumbs: breadCrumbs[];
   block?: boolean; // condition that, when true, blocks progressing to next crumb
   blockMessage?: string;
+  submitText?: string;
 };
 
 const Breadcrumbs = ({
@@ -21,6 +22,7 @@ const Breadcrumbs = ({
   crumbs,
   block,
   blockMessage,
+  submitText,
 }: BreadcrumbsProps) => {
   const [selectedCount, setSelectedCount] = useState(0);
   const { onNext, onBack, notified } = useButtonEvents(
@@ -49,7 +51,7 @@ const Breadcrumbs = ({
     <FinalCrumb onNext={onNext}>
       <CrumbContent {...crumbContentProps}>
         <button type="submit" className="btn m-4">
-          Submit
+          {submitText ? submitText : "submit"}
         </button>
       </CrumbContent>
     </FinalCrumb>
