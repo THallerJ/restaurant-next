@@ -10,7 +10,7 @@ type AnimatedButtonProps = {
 const AnimatedButton = ({ children, onClick, Icon }: AnimatedButtonProps) => {
   const [clicked, setClicked] = useState(false);
 
-  const onButtonCLick = () => {
+  const onButtonClick = () => {
     setClicked(true);
     onClick();
   };
@@ -21,7 +21,7 @@ const AnimatedButton = ({ children, onClick, Icon }: AnimatedButtonProps) => {
         transition-colors duration-700 hover:border-dark ${
           clicked ? "bg-primaryLight" : "bg-primary"
         }`}
-      onClick={onButtonCLick}
+      onClick={onButtonClick}
       onTransitionEnd={() => setClicked(false)}
     >
       {clicked ? (
