@@ -1,9 +1,14 @@
 "use client";
+import { ImportsNotUsedAsValues } from "typescript";
 import { useOrder } from "../contexts/OrderContext";
 import { InputList } from "@/components";
 
 const Cart = () => {
   const { cartItems } = useOrder();
+
+  const inputStyle =
+    "rounded-2xl border-2 border-darkLight p-2  shadow-md active:border-dark";
+
   return (
     <div className="flex w-full items-center justify-center">
       <div
@@ -23,27 +28,19 @@ const Cart = () => {
         <div>
           <h2 className="heading-sm pb-1">Your information</h2>
           <div className="flex flex-col gap-4">
-            <input
-              required
-              placeholder="First Name"
-              className="rounded-2xl border-2 border-dark p-2 shadow-md"
-            />
-            <input
-              required
-              placeholder="First Name"
-              className="rounded-2xl border-2 border-dark p-2 shadow-md"
-            />
+            <input required placeholder="First Name" className={inputStyle} />
+            <input required placeholder="First Name" className={inputStyle} />
             <input
               required
               placeholder="Email Address"
               type="email"
-              className="rounded-2xl border-2 border-dark p-2 shadow-md"
+              className={inputStyle}
             />
             <input
               required
               placeholder="Phone Number"
               type="tele"
-              className="rounded-2xl border-2 border-dark p-2 shadow-md"
+              className={inputStyle}
             />
             <button className="btn self-end">Finish order</button>
           </div>
