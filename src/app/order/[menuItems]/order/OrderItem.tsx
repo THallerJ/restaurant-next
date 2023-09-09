@@ -13,9 +13,14 @@ type OrderItemProps = {
 const OrderItem = ({ item, children, large }: OrderItemProps) => {
   const { cartDispatch } = useOrder();
 
-  const onClick = () => cartDispatch({ type: "add", payload: item });
+  const onClick = () => {
+    cartDispatch({ type: "add", payload: item });
+  };
 
-  const SmallCard = () => (
+  {
+    /* TODO: Convert into a functional component. Doing so breaks AnimatedButton */
+  }
+  const smallCard = (
     <div className="flex w-full flex-col rounded-xl bg-white p-3 text-dark shadow-md">
       {item.image ? (
         <Image
@@ -33,37 +38,41 @@ const OrderItem = ({ item, children, large }: OrderItemProps) => {
     </div>
   );
 
-  const LargeCard = () => (
-    <div className="flex flex-col gap-1">
-      <div className="hidden flex-col gap-1 sm:flex">
-        <div
-          className="flex flex-row items-start gap-4 rounded-2xl bg-white
-            p-4 shadow-md"
-        >
-          {item.image ? (
-            <Image
-              src={item.image}
-              className="w-44 rounded-lg"
-              alt="daily-special"
-            />
-          ) : null}
-          <div className="flex flex-col gap-1">
-            <div className="flex justify-between">
-              <h4 className="text-xl font-semibold text-dark">{item.name}</h4>
-              <span className="text-xl font-semibold text-dark">{`$${item.price}`}</span>
+  return (
+    <div>
+      {large ? (
+        <div>
+          <div className="hidden flex-col gap-1 sm:flex">
+            <div
+              className="flex flex-row items-start gap-4 rounded-2xl bg-white
+                p-4 shadow-md"
+            >
+              {item.image ? (
+                <Image
+                  src={item.image}
+                  className="w-44 rounded-lg"
+                  alt="daily-special"
+                />
+              ) : null}
+              <div className="flex flex-col gap-1">
+                <div className="flex justify-between">
+                  <h4 className="text-xl font-semibold text-dark">
+                    {item.name}
+                  </h4>
+                  <span className="text-xl font-semibold text-dark">{`$${item.price}`}</span>
+                </div>
+                <p>{item.details}</p>
+                <AnimatedButton onClick={onClick}>Add to cart</AnimatedButton>
+              </div>
             </div>
-            <p>{item.details}</p>
-            <AnimatedButton onClick={onClick}>Add to cart</AnimatedButton>
           </div>
+          <div className="flex sm:hidden">{smallCard}</div>
         </div>
-      </div>
-      <div className="flex sm:hidden">
-        <SmallCard />
-      </div>
+      ) : (
+        <>{smallCard}</>
+      )}
     </div>
   );
-
-  return <>{large ? <LargeCard /> : <SmallCard />}</>;
 };
 
 export default OrderItem;

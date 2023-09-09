@@ -4,7 +4,7 @@ import { Checkmark } from "@/assets";
 
 type AnimatedButtonProps = {
   children: React.ReactNode;
-  onClick: () => void;
+  onClick?: () => void;
   Icon?: React.FC<React.SVGProps<SVGSVGElement>>;
 };
 const AnimatedButton = ({ children, onClick, Icon }: AnimatedButtonProps) => {
@@ -12,7 +12,7 @@ const AnimatedButton = ({ children, onClick, Icon }: AnimatedButtonProps) => {
 
   const onButtonClick = () => {
     setClicked(true);
-    onClick();
+    if (onClick) onClick();
   };
 
   return (
