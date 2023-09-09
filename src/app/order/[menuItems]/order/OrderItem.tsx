@@ -11,72 +11,76 @@ type OrderItemProps = {
 };
 
 const OrderItem = ({ item, children, large }: OrderItemProps) => {
-  const { cartDispatch } = useOrder();
-
-  const onClick = () => {
-    cartDispatch({ type: "add", payload: item });
+  {
+    /**
+     * Tried to pass cartDispatch and onClick from OrderItem into subcomponents, but this breaks
+     * AnimatedButton for some reason
+     */
+  }
+  const SmallCard = () => {
+    const { cartDispatch } = useOrder();
+    return (
+      <div className="flex w-full flex-col rounded-xl bg-white p-3 text-dark shadow-md">
+        {item.image ? (
+          <Image
+            src={item.image}
+            alt={item.name}
+            className="h-64 rounded-lg object-cover pb-3"
+          />
+        ) : null}
+        <div className="flex w-full flex-row justify-between pb-1">
+          <span className="font-semibold">{item.name}</span>
+          <span className="font-semibold">{`$${item.price}`}</span>
+        </div>
+        {children ? children : <p className="h-12 text-xs">{item.details}</p>}
+        <AnimatedButton
+          onClick={() => cartDispatch({ type: "add", payload: item })}
+          fullSize
+        >
+          add to cart
+        </AnimatedButton>
+      </div>
+    );
   };
 
-  {
-    /* TODO: Convert into a functional component. Doing so breaks AnimatedButton */
-  }
-  const smallCard = (
-    <div className="flex w-full flex-col rounded-xl bg-white p-3 text-dark shadow-md">
-      {item.image ? (
-        <Image
-          src={item.image}
-          alt={item.name}
-          className="h-64 rounded-lg object-cover pb-3"
-        />
-      ) : null}
-      <div className="flex w-full flex-row justify-between pb-1">
-        <span className="font-semibold">{item.name}</span>
-        <span className="font-semibold">{`$${item.price}`}</span>
-      </div>
-      {children ? children : <p className="h-12 text-xs">{item.details}</p>}
-      <AnimatedButton onClick={onClick} fullSize>
-        add to cart
-      </AnimatedButton>
-    </div>
-  );
-
-  return (
-    <div>
-      {large ? (
-        <div>
-          <div className="hidden flex-col gap-1 sm:flex">
-            <div
-              className="flex flex-row items-start gap-4 rounded-2xl bg-white
-                p-4 shadow-md"
-            >
-              {item.image ? (
-                <Image
-                  src={item.image}
-                  className="w-44 rounded-lg"
-                  alt="daily-special"
-                />
-              ) : null}
-              <div className="flex flex-col gap-1">
-                <div className="flex justify-between">
-                  <h4 className="text-xl font-semibold text-dark">
-                    {item.name}
-                  </h4>
-                  <span className="text-xl font-semibold text-dark">{`$${item.price}`}</span>
-                </div>
-                <p>{item.details}</p>
-                <div className="flex justify-end">
-                  <AnimatedButton onClick={onClick}>Add to cart</AnimatedButton>
-                </div>
+  const LargeCard = () => {
+    const { cartDispatch } = useOrder();
+    return (
+      <div>
+        <div className="hidden flex-col gap-1 sm:flex">
+          <div
+            className="flex flex-row items-start gap-4 rounded-2xl bg-white
+          p-4 shadow-md"
+          >
+            {item.image ? (
+              <Image
+                src={item.image}
+                className="w-44 rounded-lg"
+                alt="daily-special"
+              />
+            ) : null}
+            <div className="flex flex-col gap-1">
+              <div className="flex justify-between">
+                <h4 className="text-xl font-semibold text-dark">{item.name}</h4>
+                <span className="text-xl font-semibold text-dark">{`$${item.price}`}</span>
+              </div>
+              <p>{item.details}</p>
+              <div className="flex justify-end">
+                <AnimatedButton
+                  onClick={() => cartDispatch({ type: "add", payload: item })}
+                >
+                  Add to cart
+                </AnimatedButton>
               </div>
             </div>
           </div>
-          <div className="flex sm:hidden">{smallCard}</div>
         </div>
-      ) : (
-        <>{smallCard}</>
-      )}
-    </div>
-  );
+        <div className="flex sm:hidden">{<SmallCard />}</div>
+      </div>
+    );
+  };
+
+  return <div>{large ? <LargeCard /> : <>{<SmallCard />}</>}</div>;
 };
 
 export default OrderItem;
