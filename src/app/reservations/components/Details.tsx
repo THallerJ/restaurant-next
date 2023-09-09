@@ -6,7 +6,7 @@ import { getTime, formatTime, formatDateLong } from "../utils";
 const Details = () => {
   const { selectedDate, guestNum } = useReservation();
   const inputStyle =
-    "w-full p-2 outline-2 shadow-md rounded-lg outline-dark focus:outline";
+    "w-full p-2 border-2 shadow-md rounded-lg border-darkLight hover:border-dark focus:outline";
 
   return (
     <div className="flex h-full w-full flex-col p-4">
