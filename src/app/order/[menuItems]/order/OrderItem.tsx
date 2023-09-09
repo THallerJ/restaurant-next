@@ -34,7 +34,9 @@ const OrderItem = ({ item, children, large }: OrderItemProps) => {
         <span className="font-semibold">{`$${item.price}`}</span>
       </div>
       {children ? children : <p className="h-12 text-xs">{item.details}</p>}
-      <AnimatedButton onClick={onClick}>add to cart</AnimatedButton>
+      <AnimatedButton onClick={onClick} fullSize>
+        add to cart
+      </AnimatedButton>
     </div>
   );
 
@@ -62,7 +64,9 @@ const OrderItem = ({ item, children, large }: OrderItemProps) => {
                   <span className="text-xl font-semibold text-dark">{`$${item.price}`}</span>
                 </div>
                 <p>{item.details}</p>
-                <AnimatedButton onClick={onClick}>Add to cart</AnimatedButton>
+                <div className="flex justify-end">
+                  <AnimatedButton onClick={onClick}>Add to cart</AnimatedButton>
+                </div>
               </div>
             </div>
           </div>

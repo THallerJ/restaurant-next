@@ -6,8 +6,14 @@ type AnimatedButtonProps = {
   children: React.ReactNode;
   onClick?: () => void;
   Icon?: React.FC<React.SVGProps<SVGSVGElement>>;
+  fullSize?: boolean;
 };
-const AnimatedButton = ({ children, onClick, Icon }: AnimatedButtonProps) => {
+const AnimatedButton = ({
+  children,
+  onClick,
+  Icon,
+  fullSize,
+}: AnimatedButtonProps) => {
   const [clicked, setClicked] = useState(false);
 
   const onButtonClick = () => {
@@ -20,7 +26,7 @@ const AnimatedButton = ({ children, onClick, Icon }: AnimatedButtonProps) => {
       className={`mt-3 border px-[1em] py-[0.5em] font-bold uppercase text-white shadow-md 
         transition-colors duration-700 hover:border-dark ${
           clicked ? "bg-primaryLight" : "bg-primary"
-        }`}
+        }  ${fullSize ? "w-full" : "w-48"}`}
       onClick={onButtonClick}
       onTransitionEnd={() => setClicked(false)}
     >
