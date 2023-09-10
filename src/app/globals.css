@@ -32,6 +32,10 @@
   @apply text-3xl uppercase text-dark;
 }
 
+.input {
+  @apply h-[2.5em] rounded-lg border-2 border-darkLight px-3 shadow-md active:border-dark;
+}
+
 @keyframes zoom-in-zoom-out {
   0% {
     transform: scale(1, 1);

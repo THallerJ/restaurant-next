@@ -6,9 +6,6 @@ import { InputList } from "@/components";
 const Cart = () => {
   const { cartItems } = useOrder();
 
-  const inputStyle =
-    "rounded-lg border-2 border-darkLight h-[3em] px-3 w-full shadow-md active:border-dark";
-
   const inputGroup = "flex flex-col gap-4 sm:flex-row";
 
   return (
@@ -33,25 +30,33 @@ const Cart = () => {
               items={[]}
               onSelect={() => {}}
               placeholder="Select Pickup Time"
-              className={`mb-5 w-56 ${inputStyle}`}
+              className={`input mb-5 w-full sm:w-56`}
               Icon={Time}
             />
             <div className={inputGroup}>
-              <input required placeholder="First Name" className={inputStyle} />
-              <input required placeholder="Last Name" className={inputStyle} />
+              <input
+                required
+                placeholder="First Name"
+                className="input w-full"
+              />
+              <input
+                required
+                placeholder="Last Name"
+                className="input w-full"
+              />
             </div>
             <div className={inputGroup}>
               <input
                 required
                 placeholder="Email Address"
                 type="email"
-                className={inputStyle}
+                className="input w-full"
               />
               <input
                 required
                 placeholder="Phone Number"
                 type="tele"
-                className={inputStyle}
+                className="input w-full"
               />
             </div>
             <button className="btn self-end">Finish order</button>

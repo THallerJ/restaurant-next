@@ -5,8 +5,6 @@ import { getTime, formatTime, formatDateLong } from "../utils";
 
 const Details = () => {
   const { selectedDate, guestNum } = useReservation();
-  const inputStyle =
-    "w-full p-2 border-2 shadow-md rounded-lg border-darkLight hover:border-dark focus:outline";
 
   return (
     <div className="flex h-full w-full flex-col p-4">
@@ -27,27 +25,27 @@ const Details = () => {
           id="firstName"
           placeholder="First Name"
           required
-          className={inputStyle}
+          className="input w-full"
         />
         <input
           id="lastName"
           placeholder="Last Name"
           required
-          className={inputStyle}
+          className="input w-full"
         />
         <input
           id="email"
           placeholder="Email Address"
           required
           type="email"
-          className={inputStyle}
+          className="input w-full"
         />
         <input
           id="phone number"
           placeholder="Phone Number"
           required
           type="tel"
-          className={inputStyle}
+          className="input w-full"
         />
       </div>
     </div>
