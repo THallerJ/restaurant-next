@@ -6,7 +6,7 @@ const Location = () => {
           Where are We?
         </h2>
         <iframe
-          className="h-96 w-full rounded-2xl border-4 border-dark"
+          className="h-96 w-full rounded-lg border-4 border-dark"
           referrerPolicy="no-referrer-when-downgrade"
           loading="lazy"
           src={`https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_GOOGLE_API_KEY}

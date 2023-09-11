@@ -11,8 +11,8 @@ const Cart = () => {
   return (
     <div className="flex w-full items-center justify-center">
       <div
-        className="flex h-full w-full flex-col gap-4 rounded-2xl 
-        border-4 border-dark bg-white p-4"
+        className="flex h-full w-full flex-col gap-4 rounded-lg 
+          border-4 border-dark bg-white p-4"
       >
         <div>
           <h2 className="heading-sm pb-1">Your order</h2>

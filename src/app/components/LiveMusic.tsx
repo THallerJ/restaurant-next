@@ -10,7 +10,7 @@ const LiveMusic = () => {
     >
       <Image
         src={artist}
-        className="pair max-w-[20rem] rounded-3xl shadow-md"
+        className="pair max-w-[20rem] rounded-lg shadow-md"
         alt="artist"
       />
 

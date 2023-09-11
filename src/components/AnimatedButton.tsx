@@ -23,8 +23,8 @@ const AnimatedButton = ({
 
   return (
     <button
-      className={`mt-3 border px-[1em] py-[0.5em] font-bold uppercase text-white shadow-md 
-        transition-colors duration-700 hover:border-dark ${
+      className={`mt-3 rounded-lg border px-[1em] py-[0.5em] font-bold uppercase text-white 
+        shadow-md transition-colors duration-700 hover:border-dark ${
           clicked ? "bg-primaryLight" : "bg-primary"
         }  ${fullSize ? "w-full" : "w-48"}`}
       onClick={onButtonClick}

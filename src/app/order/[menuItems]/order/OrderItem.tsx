@@ -20,7 +20,7 @@ const OrderItem = ({ item, children, large }: OrderItemProps) => {
   const SmallCard = () => {
     const { cartDispatch } = useOrder();
     return (
-      <div className="flex w-full flex-col rounded-xl bg-white p-3 text-dark shadow-md">
+      <div className="flex w-full flex-col rounded-lg bg-white p-2 text-dark shadow-md">
         {item.image ? (
           <Image
             src={item.image}
@@ -49,8 +49,8 @@ const OrderItem = ({ item, children, large }: OrderItemProps) => {
       <div>
         <div className="hidden flex-col gap-1 sm:flex">
           <div
-            className="flex flex-row items-start gap-4 rounded-2xl bg-white
-          p-4 shadow-md"
+            className="flex flex-row items-start gap-4 rounded-lg bg-white
+              p-2 shadow-md"
           >
             {item.image ? (
               <Image

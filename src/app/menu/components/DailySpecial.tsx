@@ -6,7 +6,7 @@ const DailySpecial = () => {
   const [showDialog, setShowDialog] = useState(false);
 
   return (
-    <div className="mt-8 rounded-2xl border-2 border-dark p-4">
+    <div className="mt-8 rounded-lg border-2 border-dark p-4">
       <h2 className="heading-sm">Daily special</h2>
       <p>
         Nulla cursus felis nec quam scelerisque hendrerit at vitae massa. Donec

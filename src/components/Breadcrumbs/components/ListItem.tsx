@@ -7,7 +7,7 @@ const ListItem = ({
 }) => {
   return (
     <li
-      className={`flex h-full w-full items-center justify-center rounded-t-xl 
+      className={`flex h-full w-full items-center justify-center rounded-t-lg 
           text-center text-sm md:text-lg ${selected ? "bg-primary" : null}`}
     >
       {children}

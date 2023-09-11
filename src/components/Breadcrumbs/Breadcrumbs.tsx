@@ -63,7 +63,7 @@ const Breadcrumbs = ({
       {selectedCount !== crumbs.length ? (
         <>
           {title ? <h2 className="heading pb-1"> {title}</h2> : null}
-          <div className="relative w-full rounded-xl border-4 border-dark bg-dark">
+          <div className="relative w-full rounded-lg border-4 border-dark bg-dark">
             <ul
               className="flex h-12 w-full justify-around bg-dark font-poppins
                 text-lg font-medium uppercase text-white"
