@@ -4,7 +4,7 @@ import { breadCrumbs } from "@/types";
 import DateTime from "./DateTime";
 import Details from "./Details";
 import { useReservation } from "../contexts/ReservationContext";
-import { formatDateLong, formatTime, getTime } from "../utils";
+import { formatDateLong, formatTime, getTime } from "@/utils";
 
 const Reservation = () => {
   const { guestFlag, selectedDate } = useReservation();

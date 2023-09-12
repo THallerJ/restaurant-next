@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { useReservation } from "../contexts/ReservationContext";
-import { getTime, formatTime, formatDateLong } from "../utils";
+import { getTime, formatTime, formatDateLong } from "@/utils";
 
 const Details = () => {
   const { selectedDate, guestNum } = useReservation();

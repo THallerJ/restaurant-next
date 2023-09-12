@@ -1,7 +1,7 @@
 "use client";
 import { InputList } from "@/components";
 import { useReservation } from "../contexts/ReservationContext";
-import { formatDate, formatTime } from "../utils";
+import { formatDate, formatTime } from "@/utils";
 import { People, Time } from "@/assets";
 
 const DateTime = () => {
