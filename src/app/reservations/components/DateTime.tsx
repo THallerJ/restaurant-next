@@ -61,7 +61,7 @@ const DateTime = () => {
           items={times ? times : null}
           text={displaySelectedTime()}
           onSelect={updateTime}
-          format={(item) => formatTime(item[0], item[1])}
+          format={(item) => formatTime(...item)}
           Icon={Time}
           center
         />

@@ -3,9 +3,11 @@ import { Time } from "@/assets";
 import { useOrder } from "../contexts/OrderContext";
 import { InputList } from "@/components";
 import { generateTimes, formatTime } from "@/utils";
+import { useState } from "react";
 
 const Cart = () => {
   const { cartItems } = useOrder();
+  const [time, setTime] = useState<[number, number] | null>(null);
 
   const inputGroup = "flex flex-col gap-4 sm:flex-row";
 
@@ -28,9 +30,12 @@ const Cart = () => {
 
           <div className="flex flex-col gap-4">
             <InputList
+              text={time !== null ? formatTime(...time) : undefined}
               items={generateTimes(new Date())}
-              format={(item) => formatTime(item[0], item[1])}
-              onSelect={(item) => {}}
+              format={(item) => formatTime(...item)}
+              onSelect={(item) => {
+                setTime(item);
+              }}
               placeholder="Pickup Time"
               className={`input mb-5 w-full sm:w-40`}
               Icon={Time}
