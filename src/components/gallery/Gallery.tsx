@@ -25,7 +25,7 @@ const Gallery = ({ layout = "diag-end", images }: GalleryProps) => {
         {images.map((item, i) => (
           <div
             key={`${i}gallery`}
-            className={`${getLayout(i, layout)} relative h-96 overflow-hidden`}
+            className={`${getLayout(i, layout)} relative h-80 overflow-hidden`}
           >
             <div
               className="peer absolute top-0 z-10 h-full w-full hover:cursor-pointer"

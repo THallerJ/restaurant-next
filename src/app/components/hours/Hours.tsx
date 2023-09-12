@@ -8,7 +8,7 @@ const Hours = () => {
     <section
       id="hours"
       className="flex flex-col items-center justify-center 
-        gap-10 py-12 md:flex-row md:px-12"
+        gap-10 py-12 md:flex-row md:px-12 md:pb-24"
     >
       <div className="pair flex flex-col items-center">
         <span className="heading">Hours</span>
@@ -22,7 +22,7 @@ const Hours = () => {
       </div>
       <Image
         src={open}
-        className="pair max-w-[20rem] self-center rounded-lg shadow-md lg:self-start"
+        className="pair max-w-[15rem] self-center rounded-lg shadow-md lg:self-start"
         alt="open"
       />
     </section>
