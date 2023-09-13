@@ -12,7 +12,7 @@ const Cart = () => {
   const inputGroup = "flex flex-col gap-4 sm:flex-row";
 
   return (
-    <div className="flex w-full items-center justify-center">
+    <form className="flex w-full items-center justify-center">
       <div
         className="flex h-full w-full flex-col gap-4 rounded-lg 
           border-4 border-dark bg-white p-4"
@@ -27,7 +27,6 @@ const Cart = () => {
         </div>
         <div>
           <h2 className="heading-sm pb-1">Your information</h2>
-
           <div className="flex flex-col gap-4">
             <InputList
               text={time !== null ? formatTime(...time) : undefined}
@@ -71,7 +70,7 @@ const Cart = () => {
           </div>
         </div>
       </div>
-    </div>
+    </form>
   );
 };
 

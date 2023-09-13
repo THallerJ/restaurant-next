@@ -67,25 +67,38 @@ const InputList = <T,>({
   );
 
   return (
-    <div className={`flex flex-col ${wrapperClassName}`}>
-      <button
-        id={id}
-        className={`group relative bg-white ${className} `}
-        onClick={() => setToggled((prev) => !prev)}
-      >
-        <ClickAway callback={() => setToggled(false)}>
-          <div className="flex h-full items-center justify-between">
-            {text ? text : <span className="text-gray-400">{placeholder}</span>}
-            {Icon ? (
-              <Icon className={iconStyle} />
-            ) : (
-              <DownArrow className={iconStyle} />
-            )}
-          </div>
-          <Content />
-        </ClickAway>
-      </button>
-    </div>
+    <>
+      <div className={`flex flex-col ${wrapperClassName}`}>
+        <button
+          id={id}
+          className={`group relative bg-white ${className} `}
+          onClick={() => setToggled((prev) => !prev)}
+        >
+          <ClickAway callback={() => setToggled(false)}>
+            <div className="flex h-full items-center justify-between">
+              {text ? (
+                text
+              ) : (
+                <span className="text-gray-400">{placeholder}</span>
+              )}
+              {Icon ? (
+                <Icon className={iconStyle} />
+              ) : (
+                <DownArrow className={iconStyle} />
+              )}
+            </div>
+            <Content />
+          </ClickAway>
+          <input
+            type="text"
+            contentEditable={false}
+            className={`absolute top-0 w-1 opacity-0`}
+            required
+            value={text || undefined}
+          />
+        </button>
+      </div>
+    </>
   );
 };
 

@@ -6,7 +6,6 @@ import ListItem from "./components/ListItem";
 import Crumb from "./components/Crumb";
 import CrumbContent from "./components/CrumbContent";
 import FinalCrumb from "./components/FinalCrumb";
-import { Warning } from "@/assets";
 
 type BreadcrumbsProps = {
   title?: string;
@@ -80,8 +79,7 @@ const Breadcrumbs = ({
               <CrumbNode />
             )}
             {notified && blockMessage ? (
-              <label className="message top-[105%] flex items-center gap-4">
-                <Warning className="h-6 w-6" />
+              <label className="message top-[105%] ">
                 {blockMessage ? blockMessage : ""}
               </label>
             ) : null}
