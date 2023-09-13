@@ -68,12 +68,12 @@ const InputList = <T,>({
 
   return (
     <div className={`flex flex-col ${wrapperClassName}`}>
-      <ClickAway callback={() => setToggled(false)}>
-        <button
-          id={id}
-          className={`group relative bg-white ${className} `}
-          onClick={() => setToggled((prev) => !prev)}
-        >
+      <button
+        id={id}
+        className={`group relative bg-white ${className} `}
+        onClick={() => setToggled((prev) => !prev)}
+      >
+        <ClickAway callback={() => setToggled(false)}>
           <div className="flex h-full items-center justify-between">
             {text ? text : <span className="text-gray-400">{placeholder}</span>}
             {Icon ? (
@@ -83,8 +83,8 @@ const InputList = <T,>({
             )}
           </div>
           <Content />
-        </button>
-      </ClickAway>
+        </ClickAway>
+      </button>
     </div>
   );
 };
