@@ -36,7 +36,7 @@ const Cart = () => {
                 setTime(item);
               }}
               placeholder="Pickup Time"
-              className={`input mb-5 w-full sm:w-40`}
+              className={`input mb-5 w-full sm:w-44`}
               Icon={Time}
               center
             />
