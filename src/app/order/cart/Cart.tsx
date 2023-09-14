@@ -12,6 +12,59 @@ const Cart = () => {
   const inputGroup = "flex flex-col gap-4 sm:flex-row";
   const inputStyle = "input w-full";
 
+  const YourOrder = () => {
+    return (
+      <div>
+        <h2 className="heading-sm pb-1">Your order</h2>
+        {cartItems.items.map((item) => (
+          <div key={item.item.name}>
+            <span className="text-sm">{item.item.name}</span>
+          </div>
+        ))}
+      </div>
+    );
+  };
+
+  const YourInformation = () => {
+    return (
+      <div>
+        <h2 className="heading-sm pb-1">Your information</h2>
+        <div className="flex flex-col gap-4">
+          <InputList
+            text={time !== null ? formatTime(...time) : undefined}
+            items={generateTimes(new Date())}
+            format={(item) => formatTime(...item)}
+            onSelect={(item) => {
+              setTime(item);
+            }}
+            placeholder="Pickup Time"
+            className={`${inputStyle} mb-5 sm:w-44`}
+            Icon={Time}
+            center
+          />
+          <div className={inputGroup}>
+            <input required placeholder="First Name" className={inputStyle} />
+            <input required placeholder="Last Name" className={inputStyle} />
+          </div>
+          <div className={inputGroup}>
+            <input
+              required
+              placeholder="Email Address"
+              type="email"
+              className={inputStyle}
+            />
+            <input
+              required
+              placeholder="Phone Number"
+              type="tele"
+              className={inputStyle}
+            />
+          </div>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <form
       className="flex w-full items-center justify-center"
@@ -21,52 +74,11 @@ const Cart = () => {
         className="flex h-full w-full flex-col gap-4 rounded-lg 
           border-4 border-dark bg-white p-4"
       >
-        <div>
-          <h2 className="heading-sm pb-1">Your order</h2>
-          {cartItems.items.map((item) => (
-            <div key={item.item.name}>
-              <span className="text-sm">{item.item.name}</span>
-            </div>
-          ))}
-        </div>
-        <div>
-          <h2 className="heading-sm pb-1">Your information</h2>
-          <div className="flex flex-col gap-4">
-            <InputList
-              text={time !== null ? formatTime(...time) : undefined}
-              items={generateTimes(new Date())}
-              format={(item) => formatTime(...item)}
-              onSelect={(item) => {
-                setTime(item);
-              }}
-              placeholder="Pickup Time"
-              className={`${inputStyle} mb-5 sm:w-44`}
-              Icon={Time}
-              center
-            />
-            <div className={inputGroup}>
-              <input required placeholder="First Name" className={inputStyle} />
-              <input required placeholder="Last Name" className={inputStyle} />
-            </div>
-            <div className={inputGroup}>
-              <input
-                required
-                placeholder="Email Address"
-                type="email"
-                className={inputStyle}
-              />
-              <input
-                required
-                placeholder="Phone Number"
-                type="tele"
-                className={inputStyle}
-              />
-            </div>
-            <button className="btn self-end" type="submit">
-              Finish order
-            </button>
-          </div>
-        </div>
+        <YourOrder />
+        <YourInformation />
+        <button className="btn self-end" type="submit">
+          Finish order
+        </button>
       </div>
     </form>
   );
