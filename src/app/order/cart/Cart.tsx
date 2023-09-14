@@ -10,6 +10,7 @@ const Cart = () => {
   const [time, setTime] = useState<[number, number] | null>(null);
 
   const inputGroup = "flex flex-col gap-4 sm:flex-row";
+  const inputStyle = "input w-full";
 
   return (
     <form className="flex w-full items-center justify-center">
@@ -36,34 +37,26 @@ const Cart = () => {
                 setTime(item);
               }}
               placeholder="Pickup Time"
-              className={`input mb-5 w-full sm:w-40`}
+              className={`${inputStyle} mb-5 sm:w-44`}
               Icon={Time}
               center
             />
             <div className={inputGroup}>
-              <input
-                required
-                placeholder="First Name"
-                className="input w-full"
-              />
-              <input
-                required
-                placeholder="Last Name"
-                className="input w-full"
-              />
+              <input required placeholder="First Name" className={inputStyle} />
+              <input required placeholder="Last Name" className={inputStyle} />
             </div>
             <div className={inputGroup}>
               <input
                 required
                 placeholder="Email Address"
                 type="email"
-                className="input w-full"
+                className={inputStyle}
               />
               <input
                 required
                 placeholder="Phone Number"
                 type="tele"
-                className="input w-full"
+                className={inputStyle}
               />
             </div>
             <button className="btn self-end">Finish order</button>

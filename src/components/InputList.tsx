@@ -36,7 +36,7 @@ const InputList = <T,>({
 
   const iconStyle = "ml-4 h-5 w-5 stroke-dark";
 
-  const Content = () => (
+  const List = () => (
     <div
       onClick={(e) => e.stopPropagation()}
       className={`right-0 top-full z-10 flex max-h-96 w-full
@@ -64,19 +64,8 @@ const InputList = <T,>({
     </div>
   );
 
-  return (
-    <div
-      id={id}
-      className={`group relative flex items-center hover:cursor-pointer ${className} `}
-      onClick={() => setToggled((prev) => !prev)}
-    >
-      <input
-        type="text"
-        contentEditable={false}
-        className={`absolute top-0 w-1 opacity-0`}
-        required
-        value={text || undefined}
-      />
+  const Content = () => {
+    return (
       <ClickAway callback={() => setToggled(false)}>
         <div className="flex h-full items-center justify-between">
           {text ? text : <span className="text-gray-400">{placeholder}</span>}
@@ -86,8 +75,25 @@ const InputList = <T,>({
             <DownArrow className={iconStyle} />
           )}
         </div>
-        <Content />
+        <List />
       </ClickAway>
+    );
+  };
+
+  return (
+    <div
+      id={id}
+      className={`relative flex items-center hover:cursor-pointer ${className} `}
+      onClick={() => setToggled((prev) => !prev)}
+    >
+      <input
+        type="text"
+        contentEditable={false}
+        className="absolute top-0 w-1 opacity-0"
+        required
+        value={text || undefined}
+      />
+      <Content />
     </div>
   );
 };
