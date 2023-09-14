@@ -24,8 +24,7 @@ const DateTime = () => {
     return formatTime(selectedDate.getHours(), selectedDate.getMinutes());
   };
 
-  const inputStyle =
-    "h-full min-h-[3.5em] w-44 rounded-lg border-2 border-dark px-3 shadow-md";
+  const inputStyle = "input w-44";
 
   const guestNums = [1, 2, 3, 4, 5, 6, 7, 8];
 

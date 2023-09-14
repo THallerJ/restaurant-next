@@ -13,7 +13,6 @@ type InputListProps<T> = {
   className?: string;
   Icon?: React.FC<React.SVGProps<SVGSVGElement>>;
   center?: boolean;
-  wrapperClassName?: string;
 };
 
 const InputList = <T,>({
@@ -25,7 +24,6 @@ const InputList = <T,>({
   format,
   className,
   Icon,
-  wrapperClassName,
   center,
 }: InputListProps<T>) => {
   const [toggled, setToggled] = useState(false);
@@ -36,7 +34,7 @@ const InputList = <T,>({
     return "";
   };
 
-  const iconStyle = "ml-4 h-5 w-5  stroke-dark";
+  const iconStyle = "ml-4 h-5 w-5 stroke-dark";
 
   const Content = () => (
     <div
@@ -67,38 +65,30 @@ const InputList = <T,>({
   );
 
   return (
-    <>
-      <div className={`flex flex-col ${wrapperClassName}`}>
-        <button
-          id={id}
-          className={`group relative bg-white ${className} `}
-          onClick={() => setToggled((prev) => !prev)}
-        >
-          <ClickAway callback={() => setToggled(false)}>
-            <div className="flex h-full items-center justify-between">
-              {text ? (
-                text
-              ) : (
-                <span className="text-gray-400">{placeholder}</span>
-              )}
-              {Icon ? (
-                <Icon className={iconStyle} />
-              ) : (
-                <DownArrow className={iconStyle} />
-              )}
-            </div>
-            <Content />
-          </ClickAway>
-          <input
-            type="text"
-            contentEditable={false}
-            className={`absolute top-0 w-1 opacity-0`}
-            required
-            value={text || undefined}
-          />
-        </button>
-      </div>
-    </>
+    <div
+      id={id}
+      className={`group relative flex items-center hover:cursor-pointer ${className} `}
+      onClick={() => setToggled((prev) => !prev)}
+    >
+      <input
+        type="text"
+        contentEditable={false}
+        className={`absolute top-0 w-1 opacity-0`}
+        required
+        value={text || undefined}
+      />
+      <ClickAway callback={() => setToggled(false)}>
+        <div className="flex h-full items-center justify-between">
+          {text ? text : <span className="text-gray-400">{placeholder}</span>}
+          {Icon ? (
+            <Icon className={iconStyle} />
+          ) : (
+            <DownArrow className={iconStyle} />
+          )}
+        </div>
+        <Content />
+      </ClickAway>
+    </div>
   );
 };
 

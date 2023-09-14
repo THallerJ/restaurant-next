@@ -33,7 +33,7 @@
 }
 
 .input {
-  @apply h-[2.5em] rounded-lg border-2 border-darkLight px-3 shadow-md focus:border-dark focus:outline-none;
+  @apply h-[2.5em] rounded-lg border-2 border-darkLight bg-white px-3 shadow-md focus:border-dark focus:outline-none;
 }
 
 @keyframes zoom-in-zoom-out {

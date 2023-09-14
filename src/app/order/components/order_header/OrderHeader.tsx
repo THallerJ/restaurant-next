@@ -20,8 +20,7 @@ const OrderHeader = () => {
         onSelect={(item) => router.push(item.to)}
         text={headerInputText}
         format={(item) => item.text}
-        className="w-32 rounded-lg p-3 shadow-md"
-        wrapperClassName="sm:hidden"
+        className="w-32 rounded-lg bg-white p-3 shadow-md sm:hidden"
       />
       <div className="hidden flex-row gap-4 font-semibold uppercase text-dark sm:flex">
         {navItems.map((item) => (

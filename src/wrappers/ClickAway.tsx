@@ -24,7 +24,11 @@ export const ClickAway = ({ callback, children }: ClickAwayProps) => {
     };
   }, [callback]);
 
-  return <div ref={ref}>{children}</div>;
+  return (
+    <div className="h-full w-full" ref={ref}>
+      {children}
+    </div>
+  );
 };
 
 export default ClickAway;
