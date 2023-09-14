@@ -13,7 +13,10 @@ const Cart = () => {
   const inputStyle = "input w-full";
 
   return (
-    <form className="flex w-full items-center justify-center">
+    <form
+      className="flex w-full items-center justify-center"
+      onSubmit={(e) => e.preventDefault()}
+    >
       <div
         className="flex h-full w-full flex-col gap-4 rounded-lg 
           border-4 border-dark bg-white p-4"
@@ -59,7 +62,9 @@ const Cart = () => {
                 className={inputStyle}
               />
             </div>
-            <button className="btn self-end">Finish order</button>
+            <button className="btn self-end" type="submit">
+              Finish order
+            </button>
           </div>
         </div>
       </div>
