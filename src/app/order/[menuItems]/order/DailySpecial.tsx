@@ -11,9 +11,14 @@ const DailySpecial = () => {
     <div className="flex flex-col gap-1">
       <h2 className="heading-sm">Today&apos;s Daily Special</h2>
       <OrderItem item={dailySpecial} large>
-        <button onClick={() => setOpen((prev) => !prev)} className="text-dark">
-          click to learn more!
-        </button>
+        <div className="flex justify-center">
+          <button
+            onClick={() => setOpen((prev) => !prev)}
+            className="text-dark"
+          >
+            click to learn more!
+          </button>
+        </div>
         <DailySpecialModal showDialog={open} setShowDialog={setOpen} />
       </OrderItem>
     </div>

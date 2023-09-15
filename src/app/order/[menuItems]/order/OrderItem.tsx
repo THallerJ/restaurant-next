@@ -20,19 +20,24 @@ const OrderItem = ({ item, children, large }: OrderItemProps) => {
   const SmallCard = () => {
     const { cartDispatch } = useOrder();
     return (
-      <div className="flex w-full flex-col rounded-lg bg-white p-2 text-dark shadow-md">
+      <div
+        className="flex w-full flex-col justify-between gap-2 rounded-lg
+        bg-white p-2 text-dark shadow-md"
+      >
         {item.image ? (
           <Image
             src={item.image}
             alt={item.name}
-            className="h-64 rounded-lg object-cover pb-3"
+            className="h-64 rounded-lg object-cover"
           />
         ) : null}
-        <div className="flex w-full flex-row justify-between pb-1">
-          <span className="font-semibold">{item.name}</span>
-          <span className="font-semibold">{`$${item.price}`}</span>
+        <div>
+          <div className="flex w-full flex-row justify-between pb-1">
+            <span className="font-semibold">{item.name}</span>
+            <span className="font-semibold">{`$${item.price}`}</span>
+          </div>
+          {children ? children : <p className="h-12 text-xs">{item.details}</p>}
         </div>
-        {children ? children : <p className="h-12 text-xs">{item.details}</p>}
         <AnimatedButton
           onClick={() => cartDispatch({ type: "add", payload: item })}
           fullSize
