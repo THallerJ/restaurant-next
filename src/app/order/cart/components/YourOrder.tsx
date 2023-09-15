@@ -27,7 +27,7 @@ const YourOrder = () => {
 
   const DiscountCode = () => {
     return (
-      <div className="flex w-full flex-col items-center justify-center py-4 sm:py-0">
+      <div className="flex w-full flex-col items-center justify-center">
         <input
           maxLength={5}
           minLength={5}
@@ -45,7 +45,7 @@ const YourOrder = () => {
   return (
     <div className="flex flex-col">
       <h2 className="heading-sm self-start pb-1">Your order</h2>
-      <div className="flex flex-col gap-0 sm:flex-row sm:gap-4">
+      <div className="flex flex-col gap-4 sm:flex-row">
         <OrderList />
         <DiscountCode />
       </div>

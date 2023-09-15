@@ -7,8 +7,8 @@ const Cart = () => {
     <div className="flex w-full items-center justify-center">
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="flex h-full w-full flex-col gap-4 rounded-lg 
-          border-4 border-dark bg-white p-4"
+        className="flex h-full w-full flex-col gap-4
+          rounded-lg border-4 border-dark bg-white p-4"
       >
         <YourOrder />
         <YourInformation />
