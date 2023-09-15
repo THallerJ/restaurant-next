@@ -47,19 +47,16 @@ const OrderItem = ({ item, children, large }: OrderItemProps) => {
     const { cartDispatch } = useOrder();
     return (
       <div>
-        <div className="hidden flex-col gap-1 sm:flex">
-          <div
-            className="flex flex-row items-start gap-4 rounded-lg bg-white
-              p-2 shadow-md"
-          >
+        <div className="hidden flex-col sm:flex">
+          <div className="flex h-64 flex-row gap-4 rounded-lg bg-white p-2 shadow-md">
             {item.image ? (
               <Image
                 src={item.image}
-                className="w-44 rounded-lg"
+                className="w-[20%] rounded-lg object-cover"
                 alt="daily-special"
               />
             ) : null}
-            <div className="flex flex-col gap-1">
+            <div className="flex h-full flex-col justify-between">
               <div className="flex justify-between">
                 <h4 className="text-xl font-semibold text-dark">{item.name}</h4>
                 <span className="text-xl font-semibold text-dark">{`$${item.price}`}</span>

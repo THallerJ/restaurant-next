@@ -7,7 +7,7 @@ type AnimatedButtonProps = {
   onClick?: () => void;
   Icon?: React.FC<React.SVGProps<SVGSVGElement>>;
   fullSize?: boolean;
-  className: string;
+  className?: string;
 };
 const AnimatedButton = ({
   children,
@@ -26,7 +26,7 @@ const AnimatedButton = ({
   return (
     <button
       type="button"
-      className={`mt-3 rounded-lg border px-[1em] py-[0.5em] font-bold uppercase text-white 
+      className={`rounded-lg border px-3 py-2 font-bold uppercase text-white 
         shadow-md transition-colors duration-700 hover:border-dark ${
           clicked ? "bg-primaryLight" : "bg-primary"
         }  ${fullSize ? "w-full" : "w-48"} ${className}`}

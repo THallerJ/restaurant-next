@@ -31,10 +31,11 @@ const YourOrder = () => {
         <input
           maxLength={5}
           minLength={5}
-          className="input w-full sm:w-[85%] md:w-[75%] lg:w-[60%]"
+          size={5}
+          className="input py-2 text-center sm:w-[85%] md:w-[75%] lg:w-[60%]"
           placeholder="Discount Code"
         />
-        <AnimatedButton className=" w-full sm:w-[85%] md:w-[75%] lg:w-[60%]">
+        <AnimatedButton className="mt-2 w-full sm:w-[85%] md:w-[75%] lg:w-[60%]">
           Apply code
         </AnimatedButton>
       </div>
