@@ -7,12 +7,14 @@ type AnimatedButtonProps = {
   onClick?: () => void;
   Icon?: React.FC<React.SVGProps<SVGSVGElement>>;
   fullSize?: boolean;
+  className: string;
 };
 const AnimatedButton = ({
   children,
   onClick,
   Icon,
   fullSize,
+  className,
 }: AnimatedButtonProps) => {
   const [clicked, setClicked] = useState(false);
 
@@ -23,10 +25,11 @@ const AnimatedButton = ({
 
   return (
     <button
+      type="button"
       className={`mt-3 rounded-lg border px-[1em] py-[0.5em] font-bold uppercase text-white 
         shadow-md transition-colors duration-700 hover:border-dark ${
           clicked ? "bg-primaryLight" : "bg-primary"
-        }  ${fullSize ? "w-full" : "w-48"}`}
+        }  ${fullSize ? "w-full" : "w-48"} ${className}`}
       onClick={onButtonClick}
       onTransitionEnd={() => setClicked(false)}
     >
