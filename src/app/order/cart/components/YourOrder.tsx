@@ -29,6 +29,8 @@ const YourOrder = () => {
     return (
       <div className="flex w-full flex-col items-center justify-center py-4 sm:py-0">
         <input
+          maxLength={5}
+          minLength={5}
           className="input w-full sm:w-[85%] md:w-[75%] lg:w-[60%]"
           placeholder="Discount Code"
         />
