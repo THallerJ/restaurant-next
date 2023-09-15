@@ -1,6 +1,7 @@
 "use client";
 import { useOrder } from "@/app/order/contexts/OrderContext";
 import { Close } from "@/assets";
+import { ListDivider } from "@/components";
 import { useRouter } from "next/navigation";
 
 type CartContentProps = {
@@ -65,9 +66,7 @@ const CartContent = ({ closeCart }: CartContentProps) => {
                     <Close className="h-6 w-6 stroke-dark" />
                   </button>
                 </div>
-                {index !== cartItems.items.length - 1 ? (
-                  <div className="h-[1px] w-full bg-dark/[10%]" />
-                ) : null}
+                <ListDivider show={index !== cartItems.items.length - 1} />
               </div>
             ))}
           </div>

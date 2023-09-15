@@ -1,7 +1,7 @@
 "use client";
 import { Time } from "@/assets";
 import { useOrder } from "../contexts/OrderContext";
-import { InputList } from "@/components";
+import { InputList, ListDivider } from "@/components";
 import { generateTimes, formatTime } from "@/utils";
 import { useState } from "react";
 
@@ -14,13 +14,23 @@ const Cart = () => {
 
   const YourOrder = () => {
     return (
-      <div>
-        <h2 className="heading-sm pb-1">Your order</h2>
-        {cartItems.items.map((item) => (
-          <div key={item.item.name}>
-            <span className="text-sm">{item.item.name}</span>
+      <div className="flex flex-col ">
+        <h2 className="heading-sm self-start pb-1">Your order</h2>
+        <div className="flex w-[60%] flex-col">
+          {cartItems.items.map((item, index) => (
+            <>
+              <div key={item.item.name} className="flex justify-between p-1">
+                <span className="w-[50%]">{item.item.name}</span>
+                <span className="w-[3ch]">{item.count}</span>
+                <span className=" ">{`$${item.item.price}`}</span>
+              </div>
+              <ListDivider show={index !== cartItems.items.length - 1} />
+            </>
+          ))}
+          <div className="self-end pt-4">
+            <p className="text-lg font-semibold">{`Total: $${cartItems.total}`}</p>
           </div>
-        ))}
+        </div>
       </div>
     );
   };
