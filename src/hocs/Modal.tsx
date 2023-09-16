@@ -7,8 +7,8 @@ type ModalProps = {
   content?: React.ReactNode;
 };
 const Modal = ({ showDialog, setShowDialog, title, content }: ModalProps) => {
-  const CloseDiv = ({ className }: { className?: string }) => (
-    <div className="flex justify-end">
+  /*const CloseDiv = ({ className }: { className?: string }) => (
+    <div className="flex h-10 w-10 justify-end">
       <button onClick={() => setShowDialog(false)}>
         <Close className={className} />
       </button>
@@ -45,7 +45,7 @@ const Modal = ({ showDialog, setShowDialog, title, content }: ModalProps) => {
   const NoHeader = () => (
     <div className="flex h-full w-full justify-center">{content}</div>
   );
-
+  /*
   return showDialog ? (
     <div
       className="fixed left-0 top-0 z-[1000] h-screen w-screen bg-dark/95"
@@ -57,7 +57,42 @@ const Modal = ({ showDialog, setShowDialog, title, content }: ModalProps) => {
       {!title ? <CloseDiv className=" h-[3rem] w-[3rem] fill-fourth" /> : null}
       {title ? <Header /> : <NoHeader />}
     </div>
-  ) : null;
+  ) : */
+  /*
+  const MobileHeader = () => {
+    return (
+      <div
+        className={`fixed left-0 top-0 z-[2000] flex h-full w-full items-center justify-center bg-cyan-400 transition-transform duration-500 ${
+          showDialog ? "translate-y-0" : "translate-y-[100vh]"
+        }`}
+      >
+        <button onClick={() => setShowDialog(false)}>
+          <Close className="h-10 w-10" />
+        </button>
+      </div>
+    );
+  }; */
+
+  const Header = () => {
+    return (
+      <div className="flex items-center justify-between bg-second px-2 py-3">
+        <h3 className="heading-sm">{title}</h3>
+        <button onClick={() => setShowDialog(false)}>
+          <Close className="h-12 w-12" />
+        </button>
+      </div>
+    );
+  };
+
+  return (
+    <div
+      className={`fixed left-0 top-0 z-[2000] h-full w-full bg-dark transition-transform duration-500 ${
+        showDialog ? "translate-y-0" : "translate-y-[100vh]"
+      }`}
+    >
+      <Header />
+    </div>
+  );
 };
 
 export default Modal;
