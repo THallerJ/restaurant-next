@@ -84,7 +84,7 @@ const Modal = ({ showDialog, setShowDialog, title, content }: ModalProps) => {
 
   const Header = () => {
     return (
-      <div className="flex items-center justify-between bg-second px-2 py-3">
+      <div className="flex w-full items-center justify-between bg-second px-2 py-3">
         <h3 className="heading-sm">{title}</h3>
         <button onClick={() => setShowDialog(false)}>
           <Close className="h-12 w-12" />
@@ -94,10 +94,12 @@ const Modal = ({ showDialog, setShowDialog, title, content }: ModalProps) => {
   };
 
   const Body = ({ children }: { children: React.ReactNode }) => {
-    return (
-      <div className=" h-full w-full bg-dark sm:h-[60%] sm:w-[60%]">
+    return title ? (
+      <div className="h-full w-full bg-offwhite sm:h-[60%] sm:w-[60%]">
         {children}
       </div>
+    ) : (
+      content
     );
   };
 
@@ -105,12 +107,14 @@ const Modal = ({ showDialog, setShowDialog, title, content }: ModalProps) => {
     <>
       <Background />
       <div
-        className={`fixed inset-0 z-[2000] m-auto h-full w-full bg-dark transition-transform duration-500 sm:h-[60%] sm:w-[60%] ${
+        className={`fixed inset-0 z-[2000] m-auto flex h-full w-full flex-col items-center ${
+          title ? "bg-dark" : ""
+        } transition-transform duration-500 sm:h-[60%] sm:w-[60%] ${
           showDialog ? "translate-y-0" : "translate-y-[100vh]"
         }`}
       >
         {title ? <Header /> : null}
-        {content}
+        <Body>{content}</Body>
       </div>
     </>
   );
