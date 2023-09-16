@@ -5,74 +5,15 @@ type ModalProps = {
   setShowDialog: React.Dispatch<React.SetStateAction<boolean>>;
   title?: string;
   content?: React.ReactNode;
+  hide?: boolean;
 };
-const Modal = ({ showDialog, setShowDialog, title, content }: ModalProps) => {
-  /*const CloseDiv = ({ className }: { className?: string }) => (
-    <div className="flex h-10 w-10 justify-end">
-      <button onClick={() => setShowDialog(false)}>
-        <Close className={className} />
-      </button>
-    </div>
-  );
-
-  const Header = () => (
-    <div className="flex h-full w-full items-center justify-center">
-      <div className="flex w-[90%] flex-col xs:w-[70%] md:w-[60%]">
-        <div
-          className="flex flex-row items-center
-            justify-between bg-second py-3"
-        >
-          <h3
-            className=" px-3 align-text-bottom font-bebas text-3xl
-              uppercase text-dark sm:text-4xl"
-          >
-            {title}
-          </h3>
-          <CloseDiv className=" h-10 w-10 px-1" />
-        </div>
-        <div
-          className="max-h-[75vh] overflow-auto bg-offwhite px-3 py-4"
-          onClick={(e) => e.stopPropagation()}
-        >
-          <div className="flex h-full w-full items-center justify-center">
-            {content}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-
-  const NoHeader = () => (
-    <div className="flex h-full w-full justify-center">{content}</div>
-  );
-  /*
-  return showDialog ? (
-    <div
-      className="fixed left-0 top-0 z-[1000] h-screen w-screen bg-dark/95"
-      autoFocus
-      onClick={() => {
-        setShowDialog(false);
-      }}
-    >
-      {!title ? <CloseDiv className=" h-[3rem] w-[3rem] fill-fourth" /> : null}
-      {title ? <Header /> : <NoHeader />}
-    </div>
-  ) : */
-  /*
-  const MobileHeader = () => {
-    return (
-      <div
-        className={`fixed left-0 top-0 z-[2000] flex h-full w-full items-center justify-center bg-cyan-400 transition-transform duration-500 ${
-          showDialog ? "translate-y-0" : "translate-y-[100vh]"
-        }`}
-      >
-        <button onClick={() => setShowDialog(false)}>
-          <Close className="h-10 w-10" />
-        </button>
-      </div>
-    );
-  }; */
-
+const Modal = ({
+  showDialog,
+  setShowDialog,
+  title,
+  content,
+  hide,
+}: ModalProps) => {
   const Background = () => {
     return showDialog ? (
       <div
@@ -99,7 +40,7 @@ const Modal = ({ showDialog, setShowDialog, title, content }: ModalProps) => {
         {children}
       </div>
     ) : (
-      content
+      <div onClick={() => (hide ? setShowDialog(false) : null)}>{content}</div>
     );
   };
 

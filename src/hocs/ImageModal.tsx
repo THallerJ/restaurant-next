@@ -21,6 +21,7 @@ const ImageModal = ({ showImage, setShowImage, image }: ImageModalProps) => {
       showDialog={showImage}
       setShowDialog={setShowImage}
       content={content}
+      hide
     />
   );
 };
