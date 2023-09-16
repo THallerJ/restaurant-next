@@ -73,6 +73,15 @@ const Modal = ({ showDialog, setShowDialog, title, content }: ModalProps) => {
     );
   }; */
 
+  const Background = () => {
+    return showDialog ? (
+      <div
+        className="fixed left-0 top-0 z-[1000] flex h-full w-full items-center justify-center bg-dark  sm:bg-dark/80"
+        onClick={() => setShowDialog(false)}
+      />
+    ) : null;
+  };
+
   const Header = () => {
     return (
       <div className="flex items-center justify-between bg-second px-2 py-3">
@@ -93,14 +102,17 @@ const Modal = ({ showDialog, setShowDialog, title, content }: ModalProps) => {
   };
 
   return (
-    <div
-      className={`fixed left-0 top-0 z-[2000] flex h-full w-full items-center justify-center bg-dark transition-transform duration-500 sm:bg-dark/80  ${
-        showDialog ? "translate-y-0" : "translate-y-[100vh]"
-      }`}
-      onClick={() => setShowDialog(false)}
-    >
-      <Body>{title ? <Header /> : null}</Body>
-    </div>
+    <>
+      <Background />
+      <div
+        className={`fixed inset-0 z-[2000] m-auto h-full w-full bg-dark transition-transform duration-500 sm:h-[60%] sm:w-[60%] ${
+          showDialog ? "translate-y-0" : "translate-y-[100vh]"
+        }`}
+      >
+        {title ? <Header /> : null}
+        {content}
+      </div>
+    </>
   );
 };
 
