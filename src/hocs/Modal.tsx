@@ -84,13 +84,22 @@ const Modal = ({ showDialog, setShowDialog, title, content }: ModalProps) => {
     );
   };
 
+  const Body = ({ children }: { children: React.ReactNode }) => {
+    return (
+      <div className=" h-full w-full bg-red-400 sm:h-[60%] sm:w-[60%]">
+        {children}
+      </div>
+    );
+  };
+
   return (
     <div
-      className={`fixed left-0 top-0 z-[2000] h-full w-full bg-dark transition-transform duration-500 ${
+      className={`fixed left-0 top-0 z-[2000] flex h-full w-full items-center justify-center bg-dark transition-transform duration-500 sm:bg-dark/80  ${
         showDialog ? "translate-y-0" : "translate-y-[100vh]"
       }`}
+      onClick={() => setShowDialog(false)}
     >
-      <Header />
+      <Body>{title ? <Header /> : null}</Body>
     </div>
   );
 };

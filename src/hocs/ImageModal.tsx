@@ -11,7 +11,7 @@ const ImageModal = ({ showImage, setShowImage, image }: ImageModalProps) => {
   const content = image ? (
     <Image
       src={image}
-      className="max-h-[95%] max-w-[95%] object-contain sm:max-h-[90%] sm:max-w-[90%]"
+      className="max-h-[95%] max-w-[95%] object-contain sm:max-h-[50%] sm:max-w-[50%]"
       alt="displayed-image"
     />
   ) : null;
