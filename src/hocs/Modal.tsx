@@ -86,7 +86,7 @@ const Modal = ({ showDialog, setShowDialog, title, content }: ModalProps) => {
 
   const Body = ({ children }: { children: React.ReactNode }) => {
     return (
-      <div className=" h-full w-full bg-red-400 sm:h-[60%] sm:w-[60%]">
+      <div className=" h-full w-full bg-dark sm:h-[60%] sm:w-[60%]">
         {children}
       </div>
     );
