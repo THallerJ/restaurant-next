@@ -19,19 +19,19 @@ const Modal = ({ showDialog, setShowDialog, title, content }: ModalProps) => {
     <div className="flex h-full w-full items-center justify-center">
       <div className="flex w-[90%] flex-col xs:w-[70%] md:w-[60%]">
         <div
-          className="flex flex-row items-start
-            justify-between bg-second"
+          className="flex flex-row items-center
+            justify-between bg-second py-3"
         >
           <h3
-            className="p-6 align-text-bottom font-bebas text-3xl
+            className=" px-3 align-text-bottom font-bebas text-3xl
               uppercase text-dark sm:text-4xl"
           >
             {title}
           </h3>
-          <CloseDiv className="mr-3 mt-3 h-[3rem] w-[3rem]" />
+          <CloseDiv className=" h-10 w-10 px-1" />
         </div>
         <div
-          className="max-h-[75vh] overflow-auto bg-offwhite px-6 py-4"
+          className="max-h-[75vh] overflow-auto bg-offwhite px-3 py-4"
           onClick={(e) => e.stopPropagation()}
         >
           <div className="flex h-full w-full items-center justify-center">
