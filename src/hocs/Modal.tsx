@@ -7,6 +7,7 @@ type ModalProps = {
   content?: React.ReactNode;
   hide?: boolean;
 };
+
 const Modal = ({
   showDialog,
   setShowDialog,
@@ -17,7 +18,7 @@ const Modal = ({
   const Background = () => {
     return showDialog ? (
       <div
-        className="fixed left-0 top-0 z-[1000] flex h-full w-full items-center justify-center bg-dark  sm:bg-dark/80"
+        className="fixed left-0 top-0 z-[1000] flex h-full w-full items-center justify-center bg-dark/90"
         onClick={() => setShowDialog(false)}
       />
     ) : null;
@@ -40,7 +41,12 @@ const Modal = ({
         {children}
       </div>
     ) : (
-      <div onClick={() => (hide ? setShowDialog(false) : null)}>{content}</div>
+      <div
+        onClick={() => (hide ? setShowDialog(false) : null)}
+        className="h-full w-full"
+      >
+        {content}
+      </div>
     );
   };
 
@@ -48,11 +54,10 @@ const Modal = ({
     <>
       <Background />
       <div
-        className={`fixed inset-0 z-[2000] m-auto flex h-full w-full flex-col items-center ${
-          title ? "bg-dark" : ""
-        } transition-transform duration-500 sm:h-[60%] sm:w-[60%] ${
-          showDialog ? "translate-y-0" : "translate-y-[100vh]"
-        }`}
+        className={`fixed inset-0 z-[2000] m-auto flex h-full w-full flex-col items-center 
+          justify-center transition-transform duration-500 sm:h-[60%] sm:w-[60%] ${
+            title ? "bg-dark" : null
+          } ${showDialog ? "translate-y-0" : "translate-y-[100vh]"}`}
       >
         {title ? <Header /> : null}
         <Body>{content}</Body>
