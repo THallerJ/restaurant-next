@@ -35,7 +35,7 @@ const Gallery = ({ layout = "diag-end", images }: GalleryProps) => {
             {item.title ? (
               <div
                 className="peer absolute inset-x-0 bottom-0 z-[20] m-auto flex h-16 w-full
-                  items-center justify-center bg-dark/75 hover:cursor-pointer md:w-[90%] 
+                  items-center justify-center bg-dark/75 hover:cursor-pointer md:w-11/12 
                   md:rounded-t-3xl"
                 onClick={() => onClick(item)}
               >

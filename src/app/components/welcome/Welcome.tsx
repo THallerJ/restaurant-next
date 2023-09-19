@@ -18,7 +18,7 @@ const Welcome = () => {
           to <br className="xl:hidden" />
           Restaurant!
         </h2>
-        <p className="w-[90%] md:w-[50%]">
+        <p className="w-11/12 md:w-1/2">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet
           cursus sit amet dictum sit amet justo donec enim.

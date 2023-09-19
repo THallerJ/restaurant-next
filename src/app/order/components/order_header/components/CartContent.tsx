@@ -39,7 +39,7 @@ const CartContent = ({ closeCart }: CartContentProps) => {
             {cartItems.items.map((item, index) => (
               <div key={item.item.name} className="flex flex-col">
                 <div className="flex items-center justify-between py-2 text-sm">
-                  <p className="w-[45%]">{item.item.name}</p>
+                  <p className="w-5/12">{item.item.name}</p>
                   <div className="flex items-center">
                     <button
                       onClick={() =>

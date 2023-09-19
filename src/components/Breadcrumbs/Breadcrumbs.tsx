@@ -79,7 +79,7 @@ const Breadcrumbs = ({
               <CrumbNode />
             )}
             {notified && blockMessage ? (
-              <label className="message top-[105%] ">
+              <label className="message top-[105%]">
                 {blockMessage ? blockMessage : ""}
               </label>
             ) : null}

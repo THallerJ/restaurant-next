@@ -16,7 +16,7 @@ const DailySpecialModal = ({
       {dailySpecial.image ? (
         <Image
           src={dailySpecial.image}
-          className="w-full rounded-lg sm:w-3/6 lg:w-[20%]"
+          className="w-full rounded-lg sm:w-1/2 lg:w-1/5"
           alt="daily-special"
         />
       ) : null}

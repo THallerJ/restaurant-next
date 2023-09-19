@@ -57,7 +57,7 @@ const OrderItem = ({ item, children, large }: OrderItemProps) => {
             {item.image ? (
               <Image
                 src={item.image}
-                className="w-[20%] rounded-lg object-cover"
+                className="w-1/5 rounded-lg object-cover"
                 alt="daily-special"
               />
             ) : null}
