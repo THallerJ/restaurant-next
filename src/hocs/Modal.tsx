@@ -26,10 +26,10 @@ const Modal = ({
 
   const Header = () => {
     return (
-      <div className="flex w-full items-center justify-between bg-second px-4 py-3">
+      <div className="flex w-full items-center justify-between bg-second px-4 py-5">
         <h3 className="heading-sm">{title}</h3>
         <button onClick={() => setShowDialog(false)}>
-          <Close className="h-12 w-12" />
+          <Close className="h-6 w-6" />
         </button>
       </div>
     );
