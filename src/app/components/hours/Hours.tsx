@@ -10,7 +10,7 @@ const Hours = () => {
       className="flex flex-col items-center justify-center 
         gap-10 py-12 md:flex-row md:px-12 md:pb-24"
     >
-      <div className="pair flex flex-col items-center">
+      <div className="pair flex max-w-xs flex-col items-center">
         <span className="heading">Hours</span>
         <div
           className="flex w-full flex-col items-center gap-2 overflow-hidden 
@@ -22,7 +22,7 @@ const Hours = () => {
       </div>
       <Image
         src={open}
-        className="pair max-w-[15rem] self-center rounded-lg shadow-md lg:self-start"
+        className="pair max-w-xs self-center rounded-lg shadow-md lg:self-start"
         alt="open"
       />
     </section>

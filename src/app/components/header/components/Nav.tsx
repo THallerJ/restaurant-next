@@ -37,10 +37,7 @@ const Nav = ({
         >
           <h1>
             <Link href="/" onClick={onNavSelected}>
-              <Logo
-                alt="logo"
-                className="mr-4 h-[4rem] w-[9rem] p-4 sm:w-[12rem]"
-              />
+              <Logo alt="logo" className="mr-4 h-16 w-36 p-4 sm:w-48" />
             </Link>
           </h1>
 
@@ -64,7 +61,7 @@ const Nav = ({
           </ul>
           <SocialMediaIcons
             className="hidden gap-8 lg:flex"
-            iconClassName="w-[1.5rem] h-[1.5rem] cursor-pointer hover:stroke-third"
+            iconClassName="w-6 h-6 cursor-pointer hover:stroke-third"
           />
           <div className="flex md:hidden">
             <MenuButton

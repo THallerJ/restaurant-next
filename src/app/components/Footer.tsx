@@ -64,7 +64,7 @@ const Footer = () => {
             </span>
             <SocialMediaIcons
               className="flex gap-4 text-white"
-              iconClassName="w-[2rem] h-[2rem] cursor-pointer hover:stroke-third"
+              iconClassName="w-8 h-8 cursor-pointer hover:stroke-third"
             />
           </div>
         </div>

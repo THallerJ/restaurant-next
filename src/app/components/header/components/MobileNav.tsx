@@ -49,7 +49,7 @@ const MobileNav = ({
         </ul>
         <SocialMediaIcons
           className="flex gap-10 self-center"
-          iconClassName="w-[2rem] h-[2rem]"
+          iconClassName="w-8 h-8"
         />
       </nav>
     </div>

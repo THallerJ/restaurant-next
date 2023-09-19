@@ -10,12 +10,12 @@ const LiveMusic = () => {
     >
       <Image
         src={artist}
-        className="pair max-w-[15rem] rounded-lg shadow-md md:max-w-full"
+        className="pair max-w-xs rounded-lg shadow-md md:max-w-full"
         alt="artist"
       />
 
       <p
-        className="pair heading max-w-[15rem] text-center
+        className="pair heading max-w-xs text-center
           leading-relaxed lg:text-start"
       >
         We have <br />
