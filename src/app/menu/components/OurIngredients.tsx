@@ -1,13 +1,3 @@
-import {
-  lunchItems,
-  breakfastItems,
-  dinnerItems,
-  dessertItems,
-  drinkItems,
-  starterItems,
-} from "@/constants";
-import MenuItems from "./MenuItems";
-import DailySpecial from "./DailySpecial";
 import { Gallery } from "@/components";
 import {
   breakfast,
@@ -18,8 +8,8 @@ import {
   dessert,
 } from "@/assets/images/menu";
 import { imageType } from "@/types";
-const Menu = () => {
-  const cols = "space-y-8 sm:w-[45%] md:w-[40%] lg:w-[35%]";
+
+const OurIngredients = () => {
   const images: imageType[] = [
     { image: breakfast, x: 45, y: 40 },
     { image: dinner, x: 45, y: 25 },
@@ -30,25 +20,7 @@ const Menu = () => {
   ];
 
   return (
-    <div className="flex w-full flex-col items-center">
-      <div className="page-scale flex h-full flex-col justify-between pb-8 sm:flex-row">
-        <div className={cols}>
-          <div className="sm:hidden">
-            <DailySpecial />
-          </div>
-          <MenuItems title="Starters" menuItems={starterItems} />
-          <MenuItems title="Breakfast" menuItems={breakfastItems} />
-          <MenuItems title="Lunch" menuItems={lunchItems} />
-          <MenuItems title="Dinner" menuItems={dinnerItems} />
-        </div>
-        <div className={cols}>
-          <div className="hidden sm:block">
-            <DailySpecial />
-          </div>
-          <MenuItems title="Desserts" menuItems={dessertItems} />
-          <MenuItems title="Drinks" menuItems={drinkItems} />
-        </div>
-      </div>
+    <>
       <Gallery images={images} layout="cross" />
       <div className="flex w-full flex-col items-center bg-second p-8">
         <div className="page-scale">
@@ -69,8 +41,8 @@ const Menu = () => {
           </p>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
-export default Menu;
+export default OurIngredients;
