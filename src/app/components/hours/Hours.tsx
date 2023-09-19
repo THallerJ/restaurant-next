@@ -12,12 +12,12 @@ const Hours = () => {
     >
       <div className="pair flex flex-col items-center">
         <span className="heading">Hours</span>
-        <ul
+        <div
           className="flex w-full flex-col items-center gap-2 overflow-hidden 
             rounded-lg border-2 border-dark p-4 text-sm font-bold sm:text-base"
         >
           <OpenHours spacing={3} />
-        </ul>
+        </div>
         <OpenDailySpecialDialog />
       </div>
       <Image

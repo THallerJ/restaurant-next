@@ -15,7 +15,7 @@ const MailWrapper = ({ submitted, label, input }: MailWrapperProps) => {
   return (
     <form
       ref={ref}
-      className="flex h-[35vh] flex-col items-center justify-center bg-second"
+      className="page-scale flex flex-col items-center justify-center bg-second py-20"
       onSubmit={(e) => {
         e.preventDefault();
         notify();
@@ -26,8 +26,8 @@ const MailWrapper = ({ submitted, label, input }: MailWrapperProps) => {
       ) : (
         <>
           {label}
-          <div className="relative">{input}</div>
-          <button type="submit" className="btn w-[19rem]">
+          {input}
+          <button type="submit" className="btn w-full xsm:w-80">
             Submit
           </button>
         </>

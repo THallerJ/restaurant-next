@@ -22,14 +22,19 @@ const MailingList = () => {
       type="email"
       id="mailingListEmail"
       name="mailingListEmail"
-      className="m-3 h-[3rem] w-[19rem] appearance-none rounded-lg border border-dark
-        bg-offwhite px-3 py-8 shadow-md outline-2 outline-dark focus:outline"
+      className="input mb-2 w-full xsm:w-80"
       placeholder="Email Address"
     />
   );
 
   return (
-    <MailWrapper submitted={<ThankYou />} label={<Label />} input={<Input />} />
+    <div className="flex h-full w-full items-center justify-center bg-second">
+      <MailWrapper
+        submitted={<ThankYou />}
+        label={<Label />}
+        input={<Input />}
+      />
+    </div>
   );
 };
 

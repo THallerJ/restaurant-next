@@ -22,7 +22,7 @@ const OurIngredients = () => {
   return (
     <>
       <Gallery images={images} layout="cross" />
-      <div className="flex w-full flex-col items-center bg-second p-8">
+      <div className="flex w-full flex-col items-center bg-second px-8 py-20">
         <div className="page-scale">
           <h2 className="heading self-start pb-1">Our Ingredients</h2>
           <p>
