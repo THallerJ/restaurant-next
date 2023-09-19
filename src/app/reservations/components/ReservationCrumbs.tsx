@@ -6,7 +6,7 @@ import Details from "./Details";
 import { useReservation } from "../contexts/ReservationContext";
 import { formatDateLong, formatTime, getTime } from "@/utils";
 
-const Reservation = () => {
+const ReservationCrumbs = () => {
   const { guestFlag, selectedDate } = useReservation();
 
   const crumbs: breadCrumbs[] = [
@@ -40,4 +40,4 @@ const Reservation = () => {
   );
 };
 
-export default Reservation;
+export default ReservationCrumbs;
