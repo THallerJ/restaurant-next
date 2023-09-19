@@ -23,7 +23,7 @@ const MobileNav = ({
       className={`pointer-events-auto fixed left-0 flex
           w-full justify-center bg-dark transition-all 
           duration-500 md:hidden 
-          ${toggled ? "translate-y-0" : "translate-y-[100vh]"}`}
+          ${toggled ? "translate-y-0" : "translate-y-full"}`}
       style={{
         top: getHeaderHeight() - 1,
         height: `calc(100vh - ${getHeaderHeight() - 1}px)`,
