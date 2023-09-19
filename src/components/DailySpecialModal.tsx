@@ -16,11 +16,11 @@ const DailySpecialModal = ({
       {dailySpecial.image ? (
         <Image
           src={dailySpecial.image}
-          className="w-full rounded-lg sm:w-[50%] lg:w-[25%]"
+          className="w-full rounded-lg sm:w-3/6 lg:w-[20%]"
           alt="daily-special"
         />
       ) : null}
-      <div className="flex flex-col gap-1 lg:w-[65%]">
+      <div className="flex flex-col gap-1">
         <h4 className="text-xl font-semibold text-dark">{dailySpecial.name}</h4>
         <p className="text-base">{dailySpecial.details}</p>
       </div>

@@ -55,7 +55,7 @@ const Modal = ({
       <Background />
       <div
         className={`fixed inset-0 z-[2000] m-auto flex h-full w-full flex-col items-center 
-          justify-center transition-transform duration-500 sm:h-[60%] sm:w-[60%] ${
+          justify-center transition-transform duration-500 sm:h-3/6 sm:w-3/6 ${
             title ? "bg-dark" : null
           } ${showDialog ? "translate-y-0" : "translate-y-[100vh]"}`}
       >
