@@ -18,7 +18,7 @@ const HomePage = () => {
     <>
       <Welcome />
       <Divider />
-      <div className="bg-offwhite">
+      <div className="flex flex-col items-center bg-offwhite">
         <Hours />
         <LiveMusic />
         <Gallery images={images} layout="middle" />

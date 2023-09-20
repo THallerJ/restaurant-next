@@ -5,7 +5,7 @@ const LiveMusic = () => {
   return (
     <section
       id="music"
-      className="flex flex-col-reverse items-center justify-center 
+      className="page-scale flex flex-col-reverse items-center justify-center
         gap-10 pb-12 md:flex-row md:px-12"
     >
       <Image
