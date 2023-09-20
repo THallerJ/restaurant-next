@@ -8,7 +8,7 @@ const Hours = () => {
     <section
       id="hours"
       className="page-scale flex flex-col items-center justify-center gap-10
-       py-12 md:flex-row md:pb-24"
+        py-12 md:flex-row md:pb-24"
     >
       <div className="pair flex flex-col items-center">
         <span className="heading">Hours</span>
