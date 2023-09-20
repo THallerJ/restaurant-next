@@ -53,15 +53,15 @@ const OrderItem = ({ item, children, large }: OrderItemProps) => {
     return (
       <div>
         <div className="hidden flex-col sm:flex">
-          <div className="flex h-64 flex-row gap-4 rounded-lg bg-white p-2 shadow-md">
+          <div className="flex flex-row gap-4 rounded-lg bg-white p-2 shadow-md">
             {item.image ? (
               <Image
                 src={item.image}
-                className="w-1/5 rounded-lg object-cover"
+                className="w-2/5 rounded-lg object-cover md:w-1/3 lg:w-1/5"
                 alt="daily-special"
               />
             ) : null}
-            <div className="flex h-full flex-col justify-between">
+            <div className="flex flex-col justify-between gap-2">
               <div className="flex justify-between">
                 <h4 className="text-xl font-semibold text-dark">{item.name}</h4>
                 <span className="text-xl font-semibold text-dark">{`$${item.price}`}</span>
