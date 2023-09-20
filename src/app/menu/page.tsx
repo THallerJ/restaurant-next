@@ -10,7 +10,7 @@ import MenuItems from ".//components/MenuItems";
 import DailySpecial from "./components//DailySpecial";
 import OurIngredients from "./components/OurIngredients";
 
-const cols = "space-y-8 sm:w-5/12 lg:w-1/3";
+const cols = "space-y-8 sm:w-5/12 lg:w-2/5";
 
 const page = () => {
   return (
