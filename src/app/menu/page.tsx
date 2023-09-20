@@ -15,7 +15,10 @@ const cols = "space-y-8 sm:w-5/12 lg:w-1/3";
 const page = () => {
   return (
     <div className="flex flex-col items-center bg-offwhite">
-      <div className="page-scale flex h-full flex-col justify-between pb-8 sm:flex-row">
+      <div
+        className="page-scale flex h-full flex-col justify-between 
+          pb-8 sm:flex-row md:pb-14"
+      >
         <div className={cols}>
           <div className="sm:hidden">
             <DailySpecial />
