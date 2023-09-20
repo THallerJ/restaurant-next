@@ -63,7 +63,7 @@ const CartContent = ({ closeCart }: CartContentProps) => {
                       cartDispatch({ type: "remove", payload: item.item })
                     }
                   >
-                    <Close className="h-6 w-6 stroke-dark" />
+                    <Close className="h-3 w-3" />
                   </button>
                 </div>
                 <ListDivider show={index !== cartItems.items.length - 1} />
