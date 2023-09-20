@@ -19,8 +19,8 @@ const DailySpecial = () => {
             click to learn more!
           </button>
         </div>
-        <DailySpecialModal showDialog={open} setShowDialog={setOpen} />
       </OrderItem>
+      <DailySpecialModal showDialog={open} setShowDialog={setOpen} />
     </div>
   );
 };
