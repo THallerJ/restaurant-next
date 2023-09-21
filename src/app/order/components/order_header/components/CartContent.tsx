@@ -3,6 +3,7 @@ import { useOrder } from "@/app/order/contexts/OrderContext";
 import { orderItem } from "@/app/order/types";
 import { Close } from "@/assets";
 import { ListDivider } from "@/components";
+import { useNotify } from "@/hooks";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -12,7 +13,7 @@ type CartContentProps = {
 const CartContent = ({ closeCart }: CartContentProps) => {
   const { cartItems, cartDispatch } = useOrder();
   const router = useRouter();
-  const [confirm, setConfirm] = useState(false);
+  const [notified, notify] = useNotify(30000);
 
   const onCheckout = () => {
     closeCart();
@@ -20,17 +21,21 @@ const CartContent = ({ closeCart }: CartContentProps) => {
   };
 
   const onDelete = (item: orderItem) => {
-    // setConfirm(true);
     cartDispatch({ type: "delete", payload: item.item });
   };
 
+  const onRemove = (item: orderItem) => {
+    notify();
+    cartDispatch({ type: "remove", payload: item.item });
+  };
+
   const onClear = () => {
+    notify();
     cartDispatch({ type: "clear" });
   };
 
   return (
     <div
-      onClick={() => setConfirm((prev) => !prev)}
       className={` relative flex h-full flex-col overflow-hidden ${
         cartItems.count > 0 ? "justify-between" : "justify-start"
       }`}
@@ -54,13 +59,7 @@ const CartContent = ({ closeCart }: CartContentProps) => {
                 <div className="flex items-center justify-between py-2 text-sm">
                   <p className="w-5/12">{item.item.name}</p>
                   <div className="flex items-center">
-                    <button
-                      onClick={() =>
-                        cartDispatch({ type: "delete", payload: item.item })
-                      }
-                    >
-                      -
-                    </button>
+                    <button onClick={() => onDelete(item)}>-</button>
                     <span className="w-[3ch] text-center">{item.count}</span>
                     <button
                       onClick={() =>
@@ -71,7 +70,7 @@ const CartContent = ({ closeCart }: CartContentProps) => {
                     </button>
                   </div>
                   <span className="w-[3ch] text-end">{`$${item.item.price}`}</span>
-                  <button onClick={() => onDelete(item)}>
+                  <button onClick={() => onRemove(item)}>
                     <Close className="h-3 w-3" />
                   </button>
                 </div>
@@ -98,7 +97,7 @@ const CartContent = ({ closeCart }: CartContentProps) => {
       <div
         className={`absolute inset-x-0 top-2 m-auto w-11/12 rounded-lg bg-offwhite 
           p-2 shadow-md transition-transform duration-300 ${
-            !confirm ? " -translate-y-96" : null
+            !notified ? " -translate-y-96" : null
           }`}
       >
         <button className="px-4 text-sm text-dark">undo</button>
