@@ -108,7 +108,9 @@ const CartContent = ({ closeCart }: CartContentProps) => {
             !notified ? " -translate-y-96" : null
           }`}
       >
-        <button className="px-4 text-sm text-dark">undo</button>
+        <button className="px-4 text-sm text-dark" onClick={restore}>
+          undo
+        </button>
       </div>
     </div>
   );

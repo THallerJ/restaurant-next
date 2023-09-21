@@ -68,6 +68,17 @@ const useCartReducer = () => {
         return { count, total, items };
       }
       case "restore": {
+        const data = action.payload;
+
+        if ("total" in data) {
+          return data;
+        } else {
+          const count = data.count + state.count;
+          const total = data.item.price * data.count + state.total;
+          const items = [...state.items, data];
+
+          return { count, total, items };
+        }
       }
       case "clear": {
         return init;
