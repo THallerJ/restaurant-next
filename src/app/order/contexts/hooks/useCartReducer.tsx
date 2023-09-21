@@ -3,9 +3,6 @@ import { reducerAction } from "../types";
 import useLocalReducer from "@/hooks/useLocalReducer";
 
 const useCartReducer = () => {
-  const key = "restaurant-next-cart";
-  const init: cartItems = { count: 0, total: 0, items: [], backup: null };
-
   const orderReducer = (state: cartItems, action: reducerAction): cartItems => {
     switch (action.type) {
       case "add": {
@@ -70,11 +67,10 @@ const useCartReducer = () => {
         return { count, total, items, backup };
       }
       case "restore": {
-        const data = action.payload;
+        const data = state.backup;
+        if (data && "total" in data) return data;
 
-        if ("total" in data) {
-          return data;
-        } else {
+        if (data && !("total" in data)) {
           const count = data.count + state.count;
           const total = data.item.price * data.count + state.total;
           const items = [...state.items, data];
@@ -84,12 +80,15 @@ const useCartReducer = () => {
         }
       }
       case "clear": {
-        return init;
+        return { count: 0, total: 0, items: [], backup: state };
       }
       default:
         return state;
     }
   };
+
+  const key = "restaurant-next-cart";
+  const init: cartItems = { count: 0, total: 0, items: [], backup: null };
 
   const [state, dispatch] = useLocalReducer(key, init, orderReducer);
 
