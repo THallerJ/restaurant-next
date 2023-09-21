@@ -13,7 +13,7 @@ type CartContentProps = {
 const CartContent = ({ closeCart }: CartContentProps) => {
   const { cartItems, cartDispatch } = useOrder();
   const router = useRouter();
-  const [notified, notify] = useNotify(50000);
+  const [notified, notify] = useNotify(100000);
 
   const restore = () => {
     cartDispatch({ type: "restore" });
