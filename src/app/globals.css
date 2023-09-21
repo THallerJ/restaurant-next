@@ -7,7 +7,11 @@
 }
 
 .btn {
-  @apply rounded-lg border bg-primary px-3 py-2 font-bold uppercase text-white shadow-md hover:border-dark;
+  @apply rounded-lg border border-transparent bg-primary px-3 py-2 font-bold uppercase text-white shadow-md hover:border-dark;
+}
+
+.btn-sm {
+  @apply rounded-lg border border-transparent bg-primary px-3 py-2 text-sm font-bold uppercase text-white shadow-md hover:border-dark;
 }
 
 .pair {

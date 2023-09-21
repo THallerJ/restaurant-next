@@ -1,8 +1,10 @@
 "use client";
 import { useOrder } from "@/app/order/contexts/OrderContext";
+import { orderItem } from "@/app/order/types";
 import { Close } from "@/assets";
 import { ListDivider } from "@/components";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 type CartContentProps = {
   closeCart: () => void;
@@ -10,15 +12,26 @@ type CartContentProps = {
 const CartContent = ({ closeCart }: CartContentProps) => {
   const { cartItems, cartDispatch } = useOrder();
   const router = useRouter();
+  const [confirm, setConfirm] = useState(false);
 
   const onCheckout = () => {
     closeCart();
     router.push("cart");
   };
 
+  const onDelete = (item: orderItem) => {
+    // setConfirm(true);
+    cartDispatch({ type: "delete", payload: item.item });
+  };
+
+  const onClear = () => {
+    cartDispatch({ type: "clear" });
+  };
+
   return (
     <div
-      className={`flex h-full flex-col ${
+      onClick={() => setConfirm((prev) => !prev)}
+      className={` relative flex h-full flex-col overflow-hidden ${
         cartItems.count > 0 ? "justify-between" : "justify-start"
       }`}
     >
@@ -28,7 +41,7 @@ const CartContent = ({ closeCart }: CartContentProps) => {
           className={`text-sm font-normal lowercase text-dark ${
             cartItems.count > 0 ? "block" : "hidden"
           }`}
-          onClick={() => cartDispatch({ type: "clear" })}
+          onClick={() => onClear()}
         >
           Clear Cart
         </button>
@@ -58,11 +71,7 @@ const CartContent = ({ closeCart }: CartContentProps) => {
                     </button>
                   </div>
                   <span className="w-[3ch] text-end">{`$${item.item.price}`}</span>
-                  <button
-                    onClick={() =>
-                      cartDispatch({ type: "remove", payload: item.item })
-                    }
-                  >
+                  <button onClick={() => onDelete(item)}>
                     <Close className="h-3 w-3" />
                   </button>
                 </div>
@@ -86,6 +95,14 @@ const CartContent = ({ closeCart }: CartContentProps) => {
           <p>Your cart is empty</p>
         </div>
       )}
+      <div
+        className={`absolute inset-x-0 top-2 m-auto w-11/12 rounded-lg bg-offwhite 
+          p-2 shadow-md transition-transform duration-300 ${
+            !confirm ? " -translate-y-96" : null
+          }`}
+      >
+        <button className="px-4 text-sm text-dark">undo</button>
+      </div>
     </div>
   );
 };
