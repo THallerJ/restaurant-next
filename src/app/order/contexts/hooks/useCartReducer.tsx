@@ -4,7 +4,7 @@ import useLocalReducer from "@/hooks/useLocalReducer";
 
 const useCartReducer = () => {
   const key = "restaurant-next-cart";
-  const init: cartItems = { count: 0, total: 0, items: [] };
+  const init: cartItems = { count: 0, total: 0, items: [], backup: null };
 
   const orderReducer = (state: cartItems, action: reducerAction): cartItems => {
     switch (action.type) {
@@ -29,12 +29,13 @@ const useCartReducer = () => {
 
         total += newItem.price;
 
-        return { count, total, items };
+        return { count, total, items, backup: null };
       }
       case "delete": {
         const delItem = action.payload;
         let count = state.count;
         let total = state.total;
+        const backup = state.backup;
 
         const items = state.items.reduce((acc, curr) => {
           if (curr.item.name === delItem.name) {
@@ -48,12 +49,13 @@ const useCartReducer = () => {
           return [...acc, curr];
         }, [] as orderItem[]);
 
-        return { count, total, items };
+        return { count, total, items, backup };
       }
       case "remove": {
         const remItem = action.payload;
         let count = state.count;
         let total = state.total;
+        const backup = state.backup;
 
         const items = state.items.reduce((acc, curr) => {
           if (curr.item.name === remItem.name) {
@@ -65,7 +67,7 @@ const useCartReducer = () => {
           return [...acc, curr];
         }, [] as orderItem[]);
 
-        return { count, total, items };
+        return { count, total, items, backup };
       }
       case "restore": {
         const data = action.payload;
@@ -76,8 +78,9 @@ const useCartReducer = () => {
           const count = data.count + state.count;
           const total = data.item.price * data.count + state.total;
           const items = [...state.items, data];
+          const backup = state.backup;
 
-          return { count, total, items };
+          return { count, total, items, backup };
         }
       }
       case "clear": {
