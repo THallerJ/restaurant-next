@@ -52,10 +52,11 @@ const useCartReducer = () => {
         const remItem = action.payload;
         let count = state.count;
         let total = state.total;
-        const backup = state.backup;
+        let backup = state.backup;
 
         const items = state.items.reduce((acc, curr) => {
           if (curr.item.name === remItem.name) {
+            backup = { item: remItem, count: curr.count };
             count -= curr.count;
             total -= curr.count * curr.item.price;
             return acc;

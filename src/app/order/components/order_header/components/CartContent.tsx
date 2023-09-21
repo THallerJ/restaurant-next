@@ -1,23 +1,22 @@
 "use client";
 import { useOrder } from "@/app/order/contexts/OrderContext";
-import { cartItems, orderItem } from "@/app/order/types";
+import { orderItem } from "@/app/order/types";
 import { Close } from "@/assets";
 import { ListDivider } from "@/components";
 import { useNotify } from "@/hooks";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
 
 type CartContentProps = {
   closeCart: () => void;
 };
+
 const CartContent = ({ closeCart }: CartContentProps) => {
   const { cartItems, cartDispatch } = useOrder();
   const router = useRouter();
-  const [notified, notify] = useNotify(30000);
-  const [backupData, setBackupData] = useState<orderItem | cartItems>();
+  const [notified, notify] = useNotify(50000);
 
   const restore = () => {
-    if (backupData) cartDispatch({ type: "restore", payload: backupData });
+    cartDispatch({ type: "restore" });
   };
 
   const onCheckout = () => {
@@ -26,18 +25,15 @@ const CartContent = ({ closeCart }: CartContentProps) => {
   };
 
   const onDelete = (item: orderItem) => {
-    setBackupData(item);
     cartDispatch({ type: "delete", payload: item.item });
   };
 
   const onRemove = (item: orderItem) => {
-    setBackupData(item);
     notify();
     cartDispatch({ type: "remove", payload: item.item });
   };
 
   const onClear = () => {
-    setBackupData(cartItems);
     notify();
     cartDispatch({ type: "clear" });
   };
