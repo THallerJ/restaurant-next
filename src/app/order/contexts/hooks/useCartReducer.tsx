@@ -67,6 +67,8 @@ const useCartReducer = () => {
 
         return { count, total, items };
       }
+      case "restore": {
+      }
       case "clear": {
         return init;
       }
