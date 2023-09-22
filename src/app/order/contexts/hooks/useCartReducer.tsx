@@ -2,24 +2,28 @@ import { cartItems, orderItem } from "../../types";
 import { reducerAction } from "../types";
 import useLocalReducer from "@/hooks/useLocalReducer";
 import { addItem } from "../utils";
+import { useState } from "react";
 
 const useCartReducer = () => {
+  type backupType = orderItem | cartItems | null;
+  const [backup, setBackup] = useState<backupType>(null);
+
   const orderReducer = (state: cartItems, action: reducerAction): cartItems => {
     switch (action.type) {
       case "add": {
+        setBackup(null);
         const res = addItem(state, action.payload);
         return {
           count: res.count,
           total: res.total,
           items: res.items,
-          backup: null,
         };
       }
       case "delete": {
         const delItem = action.payload;
         let count = state.count;
         let total = state.total;
-        const backup = { item: delItem, count: 1 };
+        setBackup({ item: delItem, count: 1 });
 
         const items = state.items.reduce((acc, curr) => {
           if (curr.item.name === delItem.name) {
@@ -33,17 +37,16 @@ const useCartReducer = () => {
           return [...acc, curr];
         }, [] as orderItem[]);
 
-        return { count, total, items, backup };
+        return { count, total, items };
       }
       case "remove": {
         const remItem = action.payload;
         let count = state.count;
         let total = state.total;
-        let backup = state.backup;
 
         const items = state.items.reduce((acc, curr) => {
           if (curr.item.name === remItem.name) {
-            backup = { item: remItem, count: curr.count };
+            setBackup({ item: remItem, count: curr.count });
             count -= curr.count;
             total -= curr.count * curr.item.price;
             return acc;
@@ -52,10 +55,12 @@ const useCartReducer = () => {
           return [...acc, curr];
         }, [] as orderItem[]);
 
-        return { count, total, items, backup };
+        return { count, total, items };
       }
       case "restore": {
-        const data = state.backup;
+        const data = backup;
+        setBackup(null);
+
         // data is type cartItems
         if (data && "total" in data) return data;
 
@@ -66,12 +71,12 @@ const useCartReducer = () => {
             count: res.count,
             total: res.total,
             items: res.items,
-            backup: null,
           };
         }
       }
       case "clear": {
-        return { count: 0, total: 0, items: [], backup: state };
+        setBackup(state);
+        return { count: 0, total: 0, items: [] };
       }
       default:
         return state;
@@ -79,7 +84,7 @@ const useCartReducer = () => {
   };
 
   const key = "restaurant-next-cart";
-  const init: cartItems = { count: 0, total: 0, items: [], backup: null };
+  const init: cartItems = { count: 0, total: 0, items: [] };
 
   const [state, dispatch] = useLocalReducer(key, init, orderReducer);
 
