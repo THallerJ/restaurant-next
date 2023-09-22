@@ -4,12 +4,14 @@ import { reducerAction } from "../types";
 import useLocalReducer from "@/hooks/useLocalReducer";
 
 const useCartReducer = () => {
-  const addItem = (state: cartItems, newItem: menuItem) => {
+  const addItem = (state: cartItems, newItem: menuItem | orderItem) => {
     let count = state.count;
     let total = state.total;
 
+    const item = "name" in newItem ? newItem : newItem.item;
+
     const temp = state.items.map((orderItem) => {
-      if (orderItem.item.name === newItem.name) {
+      if (orderItem.item.name === item.name) {
         count++;
         return { ...orderItem, count: orderItem.count + 1 };
       }
@@ -17,12 +19,11 @@ const useCartReducer = () => {
       return orderItem;
     });
 
-    const items =
-      count === state.count ? [...temp, { item: newItem, count: 1 }] : temp;
+    const items = count === state.count ? [...temp, { item, count: 1 }] : temp;
 
     if (count === state.count) count++;
 
-    total += newItem.price;
+    total += item.price;
 
     return { count, total, items };
   };
@@ -79,15 +80,18 @@ const useCartReducer = () => {
       }
       case "restore": {
         const data = state.backup;
+        // data is type cartItems
         if (data && "total" in data) return data;
 
+        // data is type orderItem
         if (data && !("total" in data)) {
-          const count = data.count + state.count;
-          const total = data.item.price * data.count + state.total;
-          const items = [...state.items, data];
-          const backup = state.backup;
-
-          return { count, total, items, backup };
+          const res = addItem(state, data);
+          return {
+            count: res.count,
+            total: res.total,
+            items: res.items,
+            backup: null,
+          };
         }
       }
       case "clear": {
