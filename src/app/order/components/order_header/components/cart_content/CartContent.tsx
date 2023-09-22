@@ -15,16 +15,13 @@ const CartContent = ({ closeCart }: CartContentProps) => {
   const router = useRouter();
   const [notified, notify] = useNotify(100000);
 
-  const restore = () => {
-    cartDispatch({ type: "restore" });
-  };
-
   const onCheckout = () => {
     closeCart();
     router.push("cart");
   };
 
   const onDelete = (item: orderItem) => {
+    if (item.count === 1) notify();
     cartDispatch({ type: "delete", payload: item.item });
   };
 
@@ -104,7 +101,10 @@ const CartContent = ({ closeCart }: CartContentProps) => {
             !notified ? " -translate-y-96" : null
           }`}
       >
-        <button className="px-4 text-sm text-dark" onClick={restore}>
+        <button
+          className="px-4 text-sm text-dark"
+          onClick={() => cartDispatch({ type: "restore" })}
+        >
           undo
         </button>
       </div>

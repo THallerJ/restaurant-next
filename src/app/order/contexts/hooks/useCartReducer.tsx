@@ -46,7 +46,7 @@ const useCartReducer = () => {
           return [...acc, curr];
         }, [] as orderItem[]);
 
-        return { count, total, items, backup };
+        return { count, total, items, backup: { item: delItem, count: 1 } };
       }
       case "remove": {
         const remItem = action.payload;
