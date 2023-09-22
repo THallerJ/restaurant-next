@@ -7,23 +7,29 @@ const useCartReducer = () => {
   const addItem = (state: cartItems, newItem: menuItem | orderItem) => {
     let count = state.count;
     let total = state.total;
+    let item: orderItem;
 
-    const item = "name" in newItem ? newItem : newItem.item;
+    // newItem is a menuItem, needs to converted into orderItem
+    if ("name" in newItem) item = { item: newItem, count: 1 };
+    else item = newItem;
 
     const temp = state.items.map((orderItem) => {
-      if (orderItem.item.name === item.name) {
-        count++;
-        return { ...orderItem, count: orderItem.count + 1 };
+      if (orderItem.item.name === item.item.name) {
+        count = count + item.count;
+        return { ...orderItem, count: orderItem.count + item.count };
       }
 
       return orderItem;
     });
 
-    const items = count === state.count ? [...temp, { item, count: 1 }] : temp;
+    let items = temp;
 
-    if (count === state.count) count++;
+    if (temp.length === 0 || count === state.count) {
+      items = [...temp, item];
+      count = count + item.count;
+    }
 
-    total += item.price;
+    total += item.item.price * item.count;
 
     return { count, total, items };
   };
