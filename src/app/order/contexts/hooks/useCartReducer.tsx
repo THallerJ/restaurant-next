@@ -1,38 +1,48 @@
 import { cartItems, orderItem } from "../../types";
+import { menuItem } from "@/types";
 import { reducerAction } from "../types";
 import useLocalReducer from "@/hooks/useLocalReducer";
 
 const useCartReducer = () => {
+  const addItem = (state: cartItems, newItem: menuItem) => {
+    let count = state.count;
+    let total = state.total;
+
+    const temp = state.items.map((orderItem) => {
+      if (orderItem.item.name === newItem.name) {
+        count++;
+        return { ...orderItem, count: orderItem.count + 1 };
+      }
+
+      return orderItem;
+    });
+
+    const items =
+      count === state.count ? [...temp, { item: newItem, count: 1 }] : temp;
+
+    if (count === state.count) count++;
+
+    total += newItem.price;
+
+    return { count, total, items };
+  };
+
   const orderReducer = (state: cartItems, action: reducerAction): cartItems => {
     switch (action.type) {
       case "add": {
-        const newItem = action.payload;
-        let count = state.count;
-        let total = state.total;
-
-        const temp = state.items.map((orderItem) => {
-          if (orderItem.item.name === newItem.name) {
-            count++;
-            return { ...orderItem, count: orderItem.count + 1 };
-          }
-
-          return orderItem;
-        });
-
-        const items =
-          count === state.count ? [...temp, { item: newItem, count: 1 }] : temp;
-
-        if (count === state.count) count++;
-
-        total += newItem.price;
-
-        return { count, total, items, backup: null };
+        const res = addItem(state, action.payload);
+        return {
+          count: res.count,
+          total: res.total,
+          items: res.items,
+          backup: null,
+        };
       }
       case "delete": {
         const delItem = action.payload;
         let count = state.count;
         let total = state.total;
-        const backup = state.backup;
+        const backup = { item: delItem, count: 1 };
 
         const items = state.items.reduce((acc, curr) => {
           if (curr.item.name === delItem.name) {
@@ -46,7 +56,7 @@ const useCartReducer = () => {
           return [...acc, curr];
         }, [] as orderItem[]);
 
-        return { count, total, items, backup: { item: delItem, count: 1 } };
+        return { count, total, items, backup };
       }
       case "remove": {
         const remItem = action.payload;
