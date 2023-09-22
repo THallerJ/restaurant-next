@@ -34,8 +34,8 @@ const CartButton = () => {
           ) : null}
         </button>
         <div
-          className={`absolute right-0 top-full h-96 w-80 origin-top-right scale-0 rounded-lg
-          bg-white text-black shadow-lg transition-all ${
+          className={`absolute right-0 top-full h-96 w-64 origin-top-right scale-0 rounded-lg 
+          bg-white text-black shadow-lg transition-all xs:w-80 ${
             clicked || hover ? "scale-100" : null
           }`}
         >
