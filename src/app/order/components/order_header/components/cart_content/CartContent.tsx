@@ -13,7 +13,7 @@ type CartContentProps = {
 const CartContent = ({ closeCart }: CartContentProps) => {
   const { cartItems, cartDispatch } = useOrder();
   const router = useRouter();
-  const [notified, notify] = useNotify(100000);
+  const [showUndo, notify] = useNotify(100000);
 
   const onCheckout = () => {
     closeCart();
@@ -98,7 +98,7 @@ const CartContent = ({ closeCart }: CartContentProps) => {
       <div
         className={`absolute inset-x-0 top-2 m-auto w-11/12 rounded-lg bg-offwhite 
           p-2 shadow-md transition-transform duration-300 ${
-            !notified ? " -translate-y-96" : null
+            !showUndo ? " -translate-y-96" : null
           }`}
       >
         <button
