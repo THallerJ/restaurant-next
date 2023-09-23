@@ -11,12 +11,12 @@ type CartItemProps = {
 };
 
 const CartItem = ({ item, index, notify }: CartItemProps) => {
-  const [animate, setAnimate] = useState(false);
+  const [removeFlag, setRemoveFlag] = useState(false);
   const { cartItems, cartDispatch } = useOrder();
 
   const onDelete = (item: orderItem) => {
-    if (item.count === 1) notify();
-    cartDispatch({ type: "delete", payload: item.item });
+    if (item.count === 1) setRemoveFlag(true);
+    else cartDispatch({ type: "delete", payload: item.item });
   };
 
   const onRemove = (item: orderItem) => {
@@ -27,8 +27,8 @@ const CartItem = ({ item, index, notify }: CartItemProps) => {
   return (
     <div className="flex flex-col overflow-x-hidden">
       <div
-        className={`flex items-center justify-between py-2 text-sm transition-all duration-300 ${
-          animate ? "opacity-0" : null
+        className={`flex items-center justify-between py-2 text-sm transition-opacity duration-300 ${
+          removeFlag ? "opacity-0" : null
         }`}
         onTransitionEnd={() => {
           onRemove(item);
@@ -45,7 +45,7 @@ const CartItem = ({ item, index, notify }: CartItemProps) => {
           </button>
         </div>
         <span className="w-[3ch] text-end">{`$${item.item.price}`}</span>
-        <button onClick={() => setAnimate(true)}>
+        <button onClick={() => setRemoveFlag(true)}>
           <Close className="h-3 w-3" />
         </button>
       </div>

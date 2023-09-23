@@ -2,6 +2,7 @@ import { useOrder } from "@/app/order/contexts/OrderContext";
 import { useNotify } from "@/hooks";
 import { useRouter } from "next/navigation";
 import CartItem from "./CartItem";
+import { useState } from "react";
 
 type CartContentProps = {
   closeCart: () => void;
@@ -11,6 +12,7 @@ const CartContent = ({ closeCart }: CartContentProps) => {
   const { cartItems, cartDispatch } = useOrder();
   const router = useRouter();
   const [showUndo, notify] = useNotify(100000);
+  const [clearFlag, setClearFlag] = useState(false);
 
   const onCheckout = () => {
     closeCart();
@@ -18,8 +20,11 @@ const CartContent = ({ closeCart }: CartContentProps) => {
   };
 
   const onClear = () => {
-    notify();
-    cartDispatch({ type: "clear" });
+    if (clearFlag) {
+      notify();
+      cartDispatch({ type: "clear" });
+      setClearFlag(false);
+    }
   };
 
   return (
@@ -34,14 +39,24 @@ const CartContent = ({ closeCart }: CartContentProps) => {
           className={`text-sm font-normal lowercase text-dark ${
             cartItems.count > 0 ? "block" : "hidden"
           }`}
-          onClick={() => onClear()}
+          onClick={() => {
+            setClearFlag(true);
+          }}
         >
           Clear Cart
         </button>
       </div>
       {cartItems.count > 0 ? (
         <>
-          <div className="flex h-full flex-col overflow-auto p-4">
+          <div
+            className={`flex h-full flex-col overflow-auto p-4 transition-opacity duration-300 ${
+              clearFlag ? "opacity-0" : null
+            }`}
+            onTransitionEnd={() => {
+              console.log("clear thing");
+              onClear();
+            }}
+          >
             {cartItems.items.map((item, index) => (
               <CartItem
                 key={item.item.name}
