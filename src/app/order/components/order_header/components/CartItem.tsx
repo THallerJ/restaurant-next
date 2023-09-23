@@ -25,7 +25,7 @@ const CartItem = ({ item, index, notify }: CartItemProps) => {
   };
 
   return (
-    <div className="flex flex-col overflow-x-hidden">
+    <div className="flex flex-col overflow-hidden">
       <div
         className={`flex items-center justify-between py-2 text-sm transition-opacity duration-300 ${
           removeFlag ? "opacity-0" : null

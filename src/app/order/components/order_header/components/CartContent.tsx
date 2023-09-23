@@ -52,10 +52,7 @@ const CartContent = ({ closeCart }: CartContentProps) => {
             className={`flex h-full flex-col overflow-auto p-4 transition-opacity duration-300 ${
               clearFlag ? "opacity-0" : null
             }`}
-            onTransitionEnd={() => {
-              console.log("clear thing");
-              onClear();
-            }}
+            onTransitionEnd={() => onClear()}
           >
             {cartItems.items.map((item, index) => (
               <CartItem
