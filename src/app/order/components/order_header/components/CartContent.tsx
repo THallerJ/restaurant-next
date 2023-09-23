@@ -39,9 +39,7 @@ const CartContent = ({ closeCart }: CartContentProps) => {
           className={`text-sm font-normal lowercase text-dark ${
             cartItems.count > 0 ? "block" : "hidden"
           }`}
-          onClick={() => {
-            setClearFlag(true);
-          }}
+          onClick={() => setClearFlag(true)}
         >
           Clear Cart
         </button>
