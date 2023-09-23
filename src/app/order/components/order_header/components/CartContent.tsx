@@ -1,10 +1,7 @@
-"use client";
 import { useOrder } from "@/app/order/contexts/OrderContext";
-import { orderItem } from "@/app/order/types";
-import { Close } from "@/assets";
-import { ListDivider } from "@/components";
 import { useNotify } from "@/hooks";
 import { useRouter } from "next/navigation";
+import CartItem from "./CartItem";
 
 type CartContentProps = {
   closeCart: () => void;
@@ -18,16 +15,6 @@ const CartContent = ({ closeCart }: CartContentProps) => {
   const onCheckout = () => {
     closeCart();
     router.push("cart");
-  };
-
-  const onDelete = (item: orderItem) => {
-    if (item.count === 1) notify();
-    cartDispatch({ type: "delete", payload: item.item });
-  };
-
-  const onRemove = (item: orderItem) => {
-    notify();
-    cartDispatch({ type: "remove", payload: item.item });
   };
 
   const onClear = () => {
@@ -56,27 +43,12 @@ const CartContent = ({ closeCart }: CartContentProps) => {
         <>
           <div className="flex h-full flex-col overflow-auto p-4">
             {cartItems.items.map((item, index) => (
-              <div key={item.item.name} className="flex flex-col">
-                <div className="flex items-center justify-between py-2 text-sm">
-                  <p className="w-5/12">{item.item.name}</p>
-                  <div className="flex items-center">
-                    <button onClick={() => onDelete(item)}>-</button>
-                    <span className="w-[3ch] text-center">{item.count}</span>
-                    <button
-                      onClick={() =>
-                        cartDispatch({ type: "add", payload: item.item })
-                      }
-                    >
-                      +
-                    </button>
-                  </div>
-                  <span className="w-[3ch] text-end">{`$${item.item.price}`}</span>
-                  <button onClick={() => onRemove(item)}>
-                    <Close className="h-3 w-3" />
-                  </button>
-                </div>
-                <ListDivider show={index !== cartItems.items.length - 1} />
-              </div>
+              <CartItem
+                key={item.item.name}
+                item={item}
+                index={index}
+                notify={notify}
+              />
             ))}
           </div>
           <div className="flex items-end justify-between px-4 py-2">
