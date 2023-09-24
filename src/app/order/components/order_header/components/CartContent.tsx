@@ -3,7 +3,7 @@ import { useNotify } from "@/hooks";
 import { useRouter } from "next/navigation";
 import CartItem from "./CartItem";
 import { useState } from "react";
-import { Undo } from "@/assets";
+import UndoPrompt from "./UndoPrompt";
 
 type CartContentProps = {
   closeCart: () => void;
@@ -26,11 +26,6 @@ const CartContent = ({ closeCart }: CartContentProps) => {
       cartDispatch({ type: "clear" });
       setClearFlag(false);
     }
-  };
-
-  const onUndo = () => {
-    setUndo(false);
-    cartDispatch({ type: "restore" });
   };
 
   return (
@@ -83,17 +78,7 @@ const CartContent = ({ closeCart }: CartContentProps) => {
           <p>Your cart is empty</p>
         </div>
       )}
-      <div
-        className={`absolute  bottom-1/3 left-0 rounded-r-lg border-y-2 border-r-2 border-dark/50
-           bg-third p-1 shadow-xl transition-transform duration-500 ${
-             !showUndo ? " -translate-x-96" : null
-           }`}
-      >
-        <button className="px-4 text-sm text-dark" onClick={() => onUndo()}>
-          <Undo className="h-8 w-8" />
-          <span className=" text-dark">undo</span>
-        </button>
-      </div>
+      <UndoPrompt showUndo={showUndo} setUndo={setUndo} />
     </div>
   );
 };
