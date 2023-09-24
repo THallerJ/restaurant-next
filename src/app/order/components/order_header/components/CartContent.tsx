@@ -12,7 +12,7 @@ type CartContentProps = {
 const CartContent = ({ closeCart }: CartContentProps) => {
   const { cartItems, cartDispatch } = useOrder();
   const router = useRouter();
-  const [showUndo, notify] = useNotify(3000);
+  const [showUndo, notify, setUndo] = useNotify(3000);
   const [clearFlag, setClearFlag] = useState(false);
 
   const onCheckout = () => {
@@ -26,6 +26,11 @@ const CartContent = ({ closeCart }: CartContentProps) => {
       cartDispatch({ type: "clear" });
       setClearFlag(false);
     }
+  };
+
+  const onUndo = () => {
+    setUndo(false);
+    cartDispatch({ type: "restore" });
   };
 
   return (
@@ -80,14 +85,11 @@ const CartContent = ({ closeCart }: CartContentProps) => {
       )}
       <div
         className={`absolute  bottom-1/3 left-0 rounded-r-lg border-y-2 border-r-2 border-dark/50
-           bg-third p-1 shadow-xl transition-transform duration-300 ${
+           bg-third p-1 shadow-xl transition-transform duration-500 ${
              !showUndo ? " -translate-x-96" : null
            }`}
       >
-        <button
-          className="px-4 text-sm text-dark"
-          onClick={() => cartDispatch({ type: "restore" })}
-        >
+        <button className="px-4 text-sm text-dark" onClick={() => onUndo()}>
           <Undo className="h-8 w-8" />
           <span className=" text-dark">undo</span>
         </button>

@@ -5,13 +5,16 @@ const useNotify = (time?: number) => {
 
   const notify = (): void => {
     setNotified((prev) => !prev);
-    if (time)
-      setTimeout(() => setNotified((prev) => !prev), time ? time : 1500);
+    if (time) setTimeout(() => setNotified(false), time ? time : 1500);
   };
 
-  type res = [bool: boolean, fn: () => void];
+  type res = [
+    state: boolean,
+    fn: () => void,
+    setState: React.Dispatch<React.SetStateAction<boolean>>,
+  ];
 
-  return [notified, notify] as res;
+  return [notified, notify, setNotified] as res;
 };
 
 export default useNotify;
