@@ -3,6 +3,7 @@ import { useNotify } from "@/hooks";
 import { useRouter } from "next/navigation";
 import CartItem from "./CartItem";
 import { useState } from "react";
+import { Undo } from "@/assets";
 
 type CartContentProps = {
   closeCart: () => void;
@@ -11,7 +12,7 @@ type CartContentProps = {
 const CartContent = ({ closeCart }: CartContentProps) => {
   const { cartItems, cartDispatch } = useOrder();
   const router = useRouter();
-  const [showUndo, notify] = useNotify(100000);
+  const [showUndo, notify] = useNotify(3000);
   const [clearFlag, setClearFlag] = useState(false);
 
   const onCheckout = () => {
@@ -78,16 +79,17 @@ const CartContent = ({ closeCart }: CartContentProps) => {
         </div>
       )}
       <div
-        className={`absolute inset-x-0 top-2 m-auto w-11/12 rounded-lg bg-offwhite 
-          p-2 shadow-md transition-transform duration-300 ${
-            !showUndo ? " -translate-y-96" : null
-          }`}
+        className={`absolute  bottom-1/3 left-0 rounded-r-lg border-y-2 border-r-2 border-dark/50
+           bg-third p-1 shadow-xl transition-transform duration-300 ${
+             !showUndo ? " -translate-x-96" : null
+           }`}
       >
         <button
           className="px-4 text-sm text-dark"
           onClick={() => cartDispatch({ type: "restore" })}
         >
-          undo
+          <Undo className="h-8 w-8" />
+          <span className=" text-dark">undo</span>
         </button>
       </div>
     </div>

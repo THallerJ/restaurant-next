@@ -5,7 +5,8 @@ const useNotify = (time?: number) => {
 
   const notify = (): void => {
     setNotified((prev) => !prev);
-    if (time) setTimeout(() => setNotified((prev) => !prev), 1500);
+    if (time)
+      setTimeout(() => setNotified((prev) => !prev), time ? time : 1500);
   };
 
   type res = [bool: boolean, fn: () => void];
