@@ -29,7 +29,7 @@ const OrderItem = ({ item, children, large }: OrderItemProps) => {
           </div>
           {children ? children : <p className="h-12 text-xs">{item.details}</p>}
         </div>
-        <AddButton item={item} />
+        <AddButton item={item} fullSize />
       </div>
     );
   };
