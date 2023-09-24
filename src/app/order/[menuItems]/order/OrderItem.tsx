@@ -1,8 +1,6 @@
-"use client";
 import { menuItem } from "@/types";
 import Image from "next/image";
-import { useOrder } from "../../contexts/OrderContext";
-import { AnimatedButton } from "@/components";
+import AddButton from "./AddButton";
 
 type OrderItemProps = {
   item: menuItem;
@@ -11,14 +9,7 @@ type OrderItemProps = {
 };
 
 const OrderItem = ({ item, children, large }: OrderItemProps) => {
-  {
-    /**
-     * Tried to pass cartDispatch and onClick from OrderItem into subcomponents, but this breaks
-     * AnimatedButton for some reason
-     */
-  }
   const SmallCard = () => {
-    const { cartDispatch } = useOrder();
     return (
       <div
         className="flex w-full flex-col justify-between gap-2 rounded-lg
@@ -38,18 +29,12 @@ const OrderItem = ({ item, children, large }: OrderItemProps) => {
           </div>
           {children ? children : <p className="h-12 text-xs">{item.details}</p>}
         </div>
-        <AnimatedButton
-          onClick={() => cartDispatch({ type: "add", payload: item })}
-          fullSize
-        >
-          add to cart
-        </AnimatedButton>
+        <AddButton item={item} />
       </div>
     );
   };
 
   const LargeCard = () => {
-    const { cartDispatch } = useOrder();
     return (
       <div>
         <div className="hidden flex-col sm:flex">
@@ -68,11 +53,7 @@ const OrderItem = ({ item, children, large }: OrderItemProps) => {
               </div>
               <p>{item.details}</p>
               <div className="flex justify-end">
-                <AnimatedButton
-                  onClick={() => cartDispatch({ type: "add", payload: item })}
-                >
-                  Add to cart
-                </AnimatedButton>
+                <AddButton item={item} />
               </div>
             </div>
           </div>
