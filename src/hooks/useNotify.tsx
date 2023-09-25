@@ -2,26 +2,32 @@ import { useState } from "react";
 
 const useNotify = (time?: number) => {
   const [notified, setNotified] = useState(false);
-  let timeout;
-
+  const [timeout, setTime] = useState<ReturnType<typeof setTimeout> | null>(
+    null,
+  );
   const notify = (): void => {
-    setNotified((prev) => !prev);
-    if (time)
-      timeout = setTimeout(() => setNotified(false), time ? time : 1500);
+    if (timeout) clearTimeout(timeout);
+
+    setNotified(true);
+
+    setTime(
+      setTimeout(
+        () => {
+          setNotified(false);
+          return null;
+        },
+        time ? time : 1500,
+      ),
+    );
   };
 
   const cancel = (): void => {
     setNotified(false);
-    //.clearTimeout(timeout);
   };
 
-  type res = [
-    state: boolean,
-    fn: () => void,
-    setState: React.Dispatch<React.SetStateAction<boolean>>,
-  ];
+  type res = [notified: boolean, notify: () => void, cancel: () => void];
 
-  return [notified, notify, setNotified] as res;
+  return [notified, notify, cancel] as res;
 };
 
 export default useNotify;

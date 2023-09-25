@@ -12,7 +12,7 @@ type CartContentProps = {
 const CartContent = ({ closeCart }: CartContentProps) => {
   const { cartItems, cartDispatch } = useOrder();
   const router = useRouter();
-  const [showUndo, notify, setUndo] = useNotify(3000);
+  const [showUndo, notifyUndo, cancelUndo] = useNotify(3500);
   const [clearFlag, setClearFlag] = useState(false);
 
   const onCheckout = () => {
@@ -22,7 +22,7 @@ const CartContent = ({ closeCart }: CartContentProps) => {
 
   const onClear = () => {
     if (clearFlag) {
-      notify();
+      notifyUndo();
       cartDispatch({ type: "clear" });
       setClearFlag(false);
     }
@@ -48,9 +48,8 @@ const CartContent = ({ closeCart }: CartContentProps) => {
       {cartItems.count > 0 ? (
         <>
           <div
-            className={`flex h-full flex-col overflow-auto p-4 transition-opacity duration-300 ${
-              clearFlag ? "opacity-0" : null
-            }`}
+            className={`flex h-full flex-col overflow-auto p-4 transition-opacity 
+              duration-300 ${clearFlag ? "opacity-0" : null}`}
             onTransitionEnd={() => onClear()}
           >
             {cartItems.items.map((item, index) => (
@@ -58,7 +57,7 @@ const CartContent = ({ closeCart }: CartContentProps) => {
                 key={item.item.name}
                 item={item}
                 index={index}
-                notify={notify}
+                notify={notifyUndo}
               />
             ))}
           </div>
@@ -78,7 +77,7 @@ const CartContent = ({ closeCart }: CartContentProps) => {
           <p>Your cart is empty</p>
         </div>
       )}
-      <UndoPrompt showUndo={showUndo} setUndo={setUndo} />
+      <UndoPrompt showUndo={showUndo} cancelUndo={cancelUndo} />
     </div>
   );
 };
