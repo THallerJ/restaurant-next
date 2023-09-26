@@ -3,7 +3,7 @@ import { Logo } from "@/assets";
 import { navItemType } from "@/types";
 import SocialMediaIcons from "@/components/SocialMediaIcons";
 import { MenuButton } from "@/components";
-import { useHeaderLayoutContext } from "@/app/contexts";
+import { useHeaderLayoutContext } from "@/app/contexts/HeaderLayoutContext";
 import Link from "next/link";
 
 type NavProps = {

@@ -1,6 +1,6 @@
 "use client";
 import { useEffect } from "react";
-import { useHeaderLayoutContext } from "../contexts";
+import { useHeaderLayoutContext } from "../contexts/HeaderLayoutContext";
 import { usePathname } from "next/navigation";
 
 const ScrollTopWrapper = ({ children }: { children: React.ReactNode }) => {

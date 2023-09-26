@@ -1,5 +1,5 @@
 "use client";
-import { useHeaderLayoutContext } from "@/app/contexts";
+import { useHeaderLayoutContext } from "@/app/contexts/HeaderLayoutContext";
 import SocialMediaIcons from "@/components/SocialMediaIcons";
 import { navItemType } from "@/types";
 import Link from "next/link";

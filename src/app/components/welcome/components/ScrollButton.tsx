@@ -1,6 +1,6 @@
 "use client";
 import { DownArrow } from "../../../../assets";
-import { useHeaderLayoutContext } from "@/app/contexts";
+import { useHeaderLayoutContext } from "@/app/contexts/HeaderLayoutContext";
 
 const ScrollButton = () => {
   const { headerLayoutRef, setAutoScroll } = useHeaderLayoutContext();

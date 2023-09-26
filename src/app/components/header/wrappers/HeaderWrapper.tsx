@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useDetectScroll, useStateToRef } from "@/hooks";
 import useNavItemSelected from "../hooks/useNavItemSelected";
 import { navItems } from "../constants";
-import { useHeaderLayoutContext } from "@/app/contexts";
+import { useHeaderLayoutContext } from "@/app/contexts/HeaderLayoutContext";
 import useSmoothScroll from "../hooks/useSmoothScroll";
 import MobileNav from "../components/MobileNav";
 import Nav from "../components/Nav";
