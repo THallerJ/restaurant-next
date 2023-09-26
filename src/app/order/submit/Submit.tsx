@@ -2,7 +2,7 @@
 import YourOrder from "./components/YourOrder";
 import YourInformation from "./components/YourInformation";
 
-const Cart = () => {
+const Submit = () => {
   return (
     <div className="flex w-full items-center justify-center">
       <form
@@ -20,4 +20,4 @@ const Cart = () => {
   );
 };
 
-export default Cart;
+export default Submit;

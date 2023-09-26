@@ -13,7 +13,7 @@ const CartContent = () => {
 
   const onCheckout = () => {
     closeCart();
-    router.push("cart");
+    router.push("submit");
   };
 
   const onClear = () => {
@@ -46,18 +46,14 @@ const CartContent = () => {
           <div
             className={`flex h-full flex-col overflow-auto p-4 transition-opacity 
               duration-300 ${clearFlag ? "opacity-0" : null}`}
-            onTransitionEnd={() => onClear()}
+            onTransitionEnd={onClear}
           >
             {cartItems.items.map((item, index) => (
               <CartItem key={item.item.name} item={item} index={index} />
             ))}
           </div>
           <div className="flex items-end justify-between px-4 py-2">
-            <button
-              className="btn"
-              aria-label="checkout"
-              onClick={() => onCheckout()}
-            >
+            <button className="btn" aria-label="checkout" onClick={onCheckout}>
               Checkout
             </button>
             <p className="font-semibold text-dark">{`Total: $${cartItems.total}`}</p>
