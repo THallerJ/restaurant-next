@@ -1,4 +1,4 @@
-import { useOrder } from "../../contexts/OrderContext";
+import { useOrder } from "../../contexts/OrderContext/OrderContext";
 import { AnimatedButton } from "@/components";
 import { ListDivider } from "@/components";
 

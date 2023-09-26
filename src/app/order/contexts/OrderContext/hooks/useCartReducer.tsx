@@ -1,4 +1,4 @@
-import { cartItems, orderItem } from "../../types";
+import { cartItems, orderItem } from "../../../types";
 import { reducerAction } from "../types";
 import useLocalReducer from "@/hooks/useLocalReducer";
 import { addItem } from "../utils";

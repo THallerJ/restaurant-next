@@ -1,18 +1,19 @@
 import { useState } from "react";
 import { orderItem } from "@/app/order/types";
-import { useOrder } from "@/app/order/contexts/OrderContext";
+import { useOrder } from "@/app/order/contexts/OrderContext/OrderContext";
 import { ListDivider } from "@/components";
 import { Close } from "@/assets";
+import { useCart } from "@/app/order/contexts/CartContext/CartContext";
 
 type CartItemProps = {
   item: orderItem;
   index: number;
-  notify: () => void;
 };
 
-const CartItem = ({ item, index, notify }: CartItemProps) => {
+const CartItem = ({ item, index }: CartItemProps) => {
   const [removeFlag, setRemoveFlag] = useState(false);
   const { cartItems, cartDispatch } = useOrder();
+  const { notifyUndo } = useCart();
 
   const onDelete = (item: orderItem) => {
     if (item.count === 1) setRemoveFlag(true);
@@ -20,16 +21,15 @@ const CartItem = ({ item, index, notify }: CartItemProps) => {
   };
 
   const onRemove = (item: orderItem) => {
-    notify();
+    notifyUndo();
     cartDispatch({ type: "remove", payload: item.item });
   };
 
   return (
     <div className="flex flex-col ">
       <div
-        className={`flex items-center justify-between py-2 text-sm transition-opacity duration-300 ${
-          removeFlag ? "opacity-0" : null
-        }`}
+        className={`flex items-center justify-between py-2 text-sm
+          transition-opacity duration-300 ${removeFlag ? "opacity-0" : null}`}
         onTransitionEnd={() => {
           onRemove(item);
         }}

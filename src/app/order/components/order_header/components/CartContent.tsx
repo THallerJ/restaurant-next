@@ -1,18 +1,14 @@
-import { useOrder } from "@/app/order/contexts/OrderContext";
-import { useNotify } from "@/hooks";
+import { useOrder } from "@/app/order/contexts/OrderContext/OrderContext";
 import { useRouter } from "next/navigation";
 import CartItem from "./CartItem";
 import { useState } from "react";
 import UndoPrompt from "./UndoPrompt";
+import { useCart } from "@/app/order/contexts/CartContext/CartContext";
 
-type CartContentProps = {
-  closeCart: () => void;
-};
-
-const CartContent = ({ closeCart }: CartContentProps) => {
+const CartContent = () => {
   const { cartItems, cartDispatch } = useOrder();
   const router = useRouter();
-  const [showUndo, notifyUndo, cancelUndo] = useNotify(3500);
+  const { notifyUndo, closeCart } = useCart();
   const [clearFlag, setClearFlag] = useState(false);
 
   const onCheckout = () => {
@@ -53,12 +49,7 @@ const CartContent = ({ closeCart }: CartContentProps) => {
             onTransitionEnd={() => onClear()}
           >
             {cartItems.items.map((item, index) => (
-              <CartItem
-                key={item.item.name}
-                item={item}
-                index={index}
-                notify={notifyUndo}
-              />
+              <CartItem key={item.item.name} item={item} index={index} />
             ))}
           </div>
           <div className="flex items-end justify-between px-4 py-2">
@@ -77,7 +68,7 @@ const CartContent = ({ closeCart }: CartContentProps) => {
           <p>Your cart is empty</p>
         </div>
       )}
-      <UndoPrompt showUndo={showUndo} cancelUndo={cancelUndo} />
+      <UndoPrompt />
     </div>
   );
 };

@@ -1,5 +1,5 @@
 "use client";
-import { cartItems } from "../types";
+import { cartItems } from "../../types";
 import { reducerAction } from "./types";
 import { createContext, useContext } from "react";
 import useCartReducer from "./hooks/useCartReducer";

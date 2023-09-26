@@ -1,17 +1,11 @@
 import { Cart } from "@/assets";
-import { useOrder } from "@/app/order/contexts/OrderContext";
+import { useOrder } from "@/app/order/contexts/OrderContext/OrderContext";
 import CartContent from "./CartContent";
-import { useState } from "react";
+import { useCart } from "@/app/order/contexts/CartContext/CartContext";
 
 const CartButton = () => {
   const { cartItems } = useOrder();
-  const [hover, setHover] = useState(false);
-  const [clicked, setClicked] = useState(false);
-
-  const closeCart = () => {
-    setClicked(false);
-    setHover(false);
-  };
+  const { clicked, setClicked, hover, setHover, closeCart } = useCart();
 
   return (
     <>
@@ -34,12 +28,11 @@ const CartButton = () => {
           ) : null}
         </button>
         <div
-          className={`absolute right-0 top-full h-96 w-64 origin-top-right scale-0 rounded-lg 
-          bg-white text-black shadow-lg transition-all xs:w-80 ${
-            clicked || hover ? "scale-100" : null
-          }`}
+          className={`absolute right-0 top-full h-96 w-64 origin-top-right 
+            scale-0 rounded-lg bg-white text-black shadow-lg transition-all 
+            xs:w-80 ${clicked || hover ? "scale-100" : null}`}
         >
-          <CartContent closeCart={closeCart} />
+          <CartContent />
         </div>
       </div>
       <div

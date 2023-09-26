@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { navItems } from "./constants";
 import usePathnameUpdated from "./hooks/usePathnameUpdated";
 import CartButton from "./components/CartButton";
+import { CartContextProvider } from "../../contexts/CartContext/CartContext";
 
 const OrderHeader = () => {
   const pathname = usePathname();
@@ -35,7 +36,9 @@ const OrderHeader = () => {
           </Link>
         ))}
       </div>
-      <CartButton />
+      <CartContextProvider>
+        <CartButton />
+      </CartContextProvider>
     </div>
   );
 };

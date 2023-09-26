@@ -1,5 +1,5 @@
 import { menuItem } from "@/types";
-import { orderItem, cartItems } from "../../types";
+import { orderItem, cartItems } from "../../../types";
 
 const addItem = (state: cartItems, newItem: menuItem | orderItem) => {
   let count = state.count;

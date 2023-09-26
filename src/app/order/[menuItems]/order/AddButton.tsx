@@ -1,6 +1,6 @@
 "use client";
 import { AnimatedButton } from "@/components";
-import { useOrder } from "../../contexts/OrderContext";
+import { useOrder } from "../../contexts/OrderContext/OrderContext";
 import { menuItem } from "@/types";
 
 type AddButtonProps = {
