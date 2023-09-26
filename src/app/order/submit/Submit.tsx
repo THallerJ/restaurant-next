@@ -21,11 +21,11 @@ const Submit = () => {
   );
 
   const EmptyOrder = () => (
-    <h2 className="heading-sm">You have nothing in your cart</h2>
+    <p className="heading-sm">You have nothing in your cart</p>
   );
 
   return (
-    <div className="flex w-full items-center justify-center">
+    <div className="flex h-full w-full flex-1 items-center justify-center">
       {cartItems.count > 0 ? <OrderForm /> : <EmptyOrder />}
     </div>
   );
