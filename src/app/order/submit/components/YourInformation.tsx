@@ -6,9 +6,17 @@ import { Time } from "@/assets";
 
 const YourInformation = () => {
   const [time, setTime] = useState<[number, number] | null>(null);
-
-  const inputGroup = "flex flex-col gap-4 sm:flex-row";
   const inputStyle = "input w-full";
+
+  type ComponentProps = { children: React.ReactNode };
+
+  const InputGroup = ({ children }: ComponentProps) => (
+    <div className="flex flex-col gap-4 sm:flex-row">{children}</div>
+  );
+
+  const InputLabel = ({ children }: ComponentProps) => (
+    <div className="flex w-full flex-col-reverse">{children}</div>
+  );
 
   return (
     <div>
@@ -26,24 +34,68 @@ const YourInformation = () => {
           Icon={Time}
           center
         />
-        <div className={inputGroup}>
-          <input required placeholder="First Name" className={inputStyle} />
-          <input required placeholder="Last Name" className={inputStyle} />
-        </div>
-        <div className={inputGroup}>
-          <input
-            required
-            placeholder="Email Address"
-            type="email"
-            className={inputStyle}
-          />
-          <input
-            required
-            placeholder="Phone Number"
-            type="tele"
-            className={inputStyle}
-          />
-        </div>
+        <InputGroup>
+          <InputLabel>
+            <input
+              id="first_name"
+              required
+              placeholder="First"
+              className={inputStyle}
+            />
+            <label
+              htmlFor="first_name"
+              className=" text-sm font-bold uppercase text-dark/75"
+            >
+              First name
+            </label>
+          </InputLabel>
+          <InputLabel>
+            <input
+              id="last_name"
+              required
+              placeholder="Last"
+              className={inputStyle}
+            />
+            <label
+              htmlFor="last_name"
+              className=" text-sm font-bold uppercase text-dark/75"
+            >
+              Last name
+            </label>
+          </InputLabel>
+        </InputGroup>
+        <InputGroup>
+          <InputLabel>
+            <input
+              id="email"
+              required
+              placeholder="email@address.com"
+              type="email"
+              className={inputStyle}
+            />
+            <label
+              htmlFor="email"
+              className=" text-sm  font-bold uppercase text-dark/75"
+            >
+              Email address
+            </label>
+          </InputLabel>
+          <InputLabel>
+            <input
+              id="phone"
+              required
+              placeholder="XXX-XXX-XXXX"
+              type="tele"
+              className={inputStyle}
+            />
+            <label
+              htmlFor="phone"
+              className=" text-sm font-bold uppercase text-dark/75"
+            >
+              Phone number
+            </label>
+          </InputLabel>
+        </InputGroup>
       </div>
     </div>
   );
