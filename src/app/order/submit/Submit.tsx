@@ -12,7 +12,7 @@ const Submit = () => {
       className="flex w-full flex-col gap-4
         rounded-lg border-4 border-dark bg-white p-4"
     >
-      <YourOrder />
+      <YourOrder cartItems={cartItems} />
       <YourInformation />
       <button className="btn self-end" type="submit">
         Finish order
