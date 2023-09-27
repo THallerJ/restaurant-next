@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import ClickAway from "@/wrappers/ClickAway";
+import { ClickAway } from "@/hocs";
 import { DownArrow } from "@/assets";
 
 type InputListProps<T> = {

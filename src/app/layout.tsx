@@ -2,8 +2,8 @@ import "./globals.css";
 import Header from "./components/header/Header";
 import Footer from "./components/Footer";
 import fonts from "./fonts";
-import HeaderLayoutWrapper from "./wrappers/HeaderLayoutWrapper";
-import ScrollTopWrapper from "./wrappers/ScrollTopWrapper";
+import HeaderLayoutWrapper from "./components/HeaderLayoutWrapper";
+import ScrollTopWrapper from "./components/ScrollTopWrapper";
 import { Divider } from "../components";
 import { Metadata } from "next";
 

@@ -29,7 +29,7 @@ const Modal = ({
       <div className="flex w-full items-center justify-between bg-second px-4 py-5">
         <h3 className="heading-sm">{title}</h3>
         <button onClick={() => setShowDialog(false)}>
-          <Close className="h-6 w-6" />
+          <Close className="h-5 w-5" />
         </button>
       </div>
     );
@@ -55,7 +55,7 @@ const Modal = ({
       <Background />
       <div
         className={`fixed inset-0 z-[2000] m-auto flex h-full w-full flex-col items-center 
-          justify-center transition-transform duration-500 sm:h-1/2 sm:w-1/2 ${
+          justify-center transition-transform duration-500 sm:h-1/2 sm:w-3/4 xl:w-1/2 ${
             title ? "bg-dark" : null
           } ${showDialog ? "translate-y-0" : "translate-y-[100vh]"}`}
       >
