@@ -1,8 +1,8 @@
 "use client";
-import { InputList } from "@/components";
 import { generateTimes, formatTime } from "@/utils";
 import { useState } from "react";
 import { Time } from "@/assets";
+import { InputLabel } from "@/components";
 
 const YourInformation = () => {
   const [time, setTime] = useState<[number, number] | null>(null);
@@ -14,7 +14,7 @@ const YourInformation = () => {
     <div className="flex flex-col gap-4 sm:flex-row">{children}</div>
   );
 
-  const InputLabel = ({ children }: ComponentProps) => (
+  const Thing = ({ children }: ComponentProps) => (
     <div className="flex w-full flex-col-reverse">{children}</div>
   );
 
@@ -22,7 +22,7 @@ const YourInformation = () => {
     <div>
       <h2 className="heading-sm pb-1">Your information</h2>
       <div className="flex flex-col gap-4">
-        <InputList
+        <InputLabel
           text={time !== null ? formatTime(...time) : undefined}
           items={generateTimes(new Date())}
           format={(item) => formatTime(...item)}
@@ -32,10 +32,11 @@ const YourInformation = () => {
           placeholder="Pickup Time"
           className={`${inputStyle} sm:mb-5 sm:w-44`}
           Icon={Time}
+          label="Pickup time"
           center
         />
         <InputGroup>
-          <InputLabel>
+          <Thing>
             <input
               id="first_name"
               required
@@ -48,8 +49,8 @@ const YourInformation = () => {
             >
               First name
             </label>
-          </InputLabel>
-          <InputLabel>
+          </Thing>
+          <Thing>
             <input
               id="last_name"
               required
@@ -62,10 +63,10 @@ const YourInformation = () => {
             >
               Last name
             </label>
-          </InputLabel>
+          </Thing>
         </InputGroup>
         <InputGroup>
-          <InputLabel>
+          <Thing>
             <input
               id="email"
               required
@@ -79,8 +80,8 @@ const YourInformation = () => {
             >
               Email address
             </label>
-          </InputLabel>
-          <InputLabel>
+          </Thing>
+          <Thing>
             <input
               id="phone"
               required
@@ -94,7 +95,7 @@ const YourInformation = () => {
             >
               Phone number
             </label>
-          </InputLabel>
+          </Thing>
         </InputGroup>
       </div>
     </div>

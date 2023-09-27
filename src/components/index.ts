@@ -8,6 +8,7 @@ import Breadcrumbs from "./Breadcrumbs/Breadcrumbs";
 import Hours from "./Hours";
 import AnimatedButton from "./AnimatedButton";
 import ListDivider from "./ListDivider";
+import InputLabel from "./InputLabel";
 
 export {
   MenuButton,
@@ -19,6 +20,7 @@ export {
   Hours,
   AnimatedButton,
   ListDivider,
+  InputLabel,
 };
 
 export type { imageType };
