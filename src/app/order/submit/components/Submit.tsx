@@ -1,9 +1,9 @@
 "use client";
-import YourOrder from "./components/YourOrder";
-import YourInformation from "./components/YourInformation";
-import { useOrder } from "../contexts/OrderContext/OrderContext";
+import YourOrder from "./YourOrder";
+import YourInformation from "./YourInformation";
+import { useOrder } from "../../contexts/OrderContext/OrderContext";
 
-const Submit = () => {
+const Submit = ({ children }: { children: React.ReactNode }) => {
   const { cartItems } = useOrder();
 
   const OrderForm = () => (
@@ -20,13 +20,9 @@ const Submit = () => {
     </form>
   );
 
-  const EmptyOrder = () => (
-    <p className="heading-sm">You have nothing in your cart</p>
-  );
-
   return (
     <div className="flex h-full w-full flex-1 items-center justify-center">
-      {cartItems.count > 0 ? <OrderForm /> : <EmptyOrder />}
+      {cartItems.count > 0 ? <OrderForm /> : children}
     </div>
   );
 };
