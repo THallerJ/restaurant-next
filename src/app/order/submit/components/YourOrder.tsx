@@ -26,19 +26,21 @@ const YourOrder = ({ cartItems }: { cartItems: cartItems }) => {
 
   const DiscountCode = () => {
     return (
-      <div className="flex w-full flex-col items-center justify-center">
-        <InputLabel
-          id="discount_code"
-          maxLength={5}
-          minLength={5}
-          size={5}
-          className="input w-full py-2 sm:w-10/12 md:w-3/4 lg:w-3/5"
-          placeholder="X-X-X-X-X"
-          label="Discount Code"
-        />
-        <AnimatedButton className="mt-2 w-full sm:w-10/12 md:w-3/4 lg:w-3/5">
-          Apply code
-        </AnimatedButton>
+      <div className="flex w-full justify-center">
+        <div className="flex w-full flex-col items-end">
+          <InputLabel
+            id="discount_code"
+            maxLength={5}
+            minLength={5}
+            size={5}
+            className="input w-full py-2 sm:w-10/12 md:w-3/4 lg:w-3/5"
+            placeholder="X-X-X-X-X"
+            label="Discount Code"
+          />
+          <AnimatedButton className="mt-2 w-full sm:w-10/12 md:w-3/4 lg:w-3/5">
+            Apply code
+          </AnimatedButton>
+        </div>
       </div>
     );
   };
