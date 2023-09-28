@@ -8,8 +8,6 @@ const YourInformation = () => {
   const [time, setTime] = useState<[number, number] | null>(null);
   const inputStyle = "input w-full";
 
-  type ComponentProps = { children: React.ReactNode };
-
   const InputGroup = ({ children }: { children: React.ReactNode }) => (
     <div className="flex flex-col gap-4 sm:flex-row">{children}</div>
   );
