@@ -83,7 +83,7 @@ const InputList = <T,>({
   };
 
   return (
-    <>
+    <div className="flex flex-col-reverse">
       <div
         className={`relative flex items-center hover:cursor-pointer ${className} `}
         onClick={() => setToggled((prev) => !prev)}
@@ -106,24 +106,8 @@ const InputList = <T,>({
           {label}
         </label>
       ) : null}
-    </>
-  );
-};
-
-type InputListLabelProps<T> = InputListProps<T> & { label: string };
-
-const InputListLabel = <T,>({ label, ...props }: InputListLabelProps<T>) => {
-  return (
-    <div className="flex w-full flex-col-reverse">
-      <InputList {...props} />
-      <label
-        htmlFor={props.id}
-        className=" text-sm font-bold uppercase text-dark/75"
-      >
-        {label}
-      </label>
     </div>
   );
 };
 
-export { InputList, InputListLabel };
+export default InputList;

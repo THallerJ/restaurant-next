@@ -2,7 +2,7 @@
 import { generateTimes, formatTime } from "@/utils";
 import { useState } from "react";
 import { Time } from "@/assets";
-import { InputListLabel, InputLabel } from "@/components";
+import { InputList, InputLabel } from "@/components";
 
 const YourInformation = () => {
   const [time, setTime] = useState<[number, number] | null>(null);
@@ -18,7 +18,7 @@ const YourInformation = () => {
     <div>
       <h2 className="heading-sm pb-1">Your information</h2>
       <div className="flex flex-col gap-4">
-        <InputListLabel
+        <InputList
           text={time !== null ? formatTime(...time) : undefined}
           items={generateTimes(new Date())}
           format={(item) => formatTime(...item)}
