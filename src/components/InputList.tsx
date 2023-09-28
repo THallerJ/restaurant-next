@@ -13,6 +13,7 @@ type InputListProps<T> = {
   className?: string;
   Icon?: React.FC<React.SVGProps<SVGSVGElement>>;
   center?: boolean;
+  label?: string;
 };
 
 const InputList = <T,>({
@@ -25,6 +26,7 @@ const InputList = <T,>({
   className,
   Icon,
   center,
+  label,
 }: InputListProps<T>) => {
   const [toggled, setToggled] = useState(false);
 
@@ -81,21 +83,47 @@ const InputList = <T,>({
   };
 
   return (
-    <div
-      id={id}
-      className={`relative flex items-center hover:cursor-pointer ${className} `}
-      onClick={() => setToggled((prev) => !prev)}
-    >
-      <input
-        type="text"
-        contentEditable={false}
-        className="absolute top-0 w-1 opacity-0"
-        required
-        value={text || undefined}
-      />
-      <Content />
+    <>
+      <div
+        className={`relative flex items-center hover:cursor-pointer ${className} `}
+        onClick={() => setToggled((prev) => !prev)}
+      >
+        <input
+          id={id}
+          type="text"
+          contentEditable={false}
+          className="absolute top-0 w-1 opacity-0"
+          required
+          value={text || undefined}
+        />
+        <Content />
+      </div>
+      {label ? (
+        <label
+          htmlFor={id}
+          className=" text-sm font-bold uppercase text-dark/75"
+        >
+          {label}
+        </label>
+      ) : null}
+    </>
+  );
+};
+
+type InputListLabelProps<T> = InputListProps<T> & { label: string };
+
+const InputListLabel = <T,>({ label, ...props }: InputListLabelProps<T>) => {
+  return (
+    <div className="flex w-full flex-col-reverse">
+      <InputList {...props} />
+      <label
+        htmlFor={props.id}
+        className=" text-sm font-bold uppercase text-dark/75"
+      >
+        {label}
+      </label>
     </div>
   );
 };
 
-export default InputList;
+export { InputList, InputListLabel };
