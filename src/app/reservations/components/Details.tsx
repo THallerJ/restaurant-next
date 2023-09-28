@@ -2,6 +2,7 @@
 import React from "react";
 import { useReservation } from "../contexts/ReservationContext";
 import { getTime, formatTime, formatDateLong } from "@/utils";
+import { InputLabel } from "@/components";
 
 const Details = () => {
   const { selectedDate, guestNum } = useReservation();
@@ -13,7 +14,7 @@ const Details = () => {
           ${formatTime(...getTime(selectedDate))}`}</span>
         <span>{`${guestNum} people`}</span>
       </div>
-      <div className="flex w-full flex-col items-center space-y-4">
+      <div className="flex w-full flex-col items-center gap-2 pt-4">
         <input
           id="date"
           name="date"
@@ -21,31 +22,35 @@ const Details = () => {
           value={Math.floor(selectedDate.getTime() / 1000)}
         />
         <input id="guestNum" name="guestNum" type="hidden" value={guestNum} />
-        <input
+        <InputLabel
           id="firstName"
-          placeholder="First Name"
+          placeholder="First"
           required
           className="input w-full"
+          label="First name"
         />
-        <input
+        <InputLabel
           id="lastName"
-          placeholder="Last Name"
+          placeholder="Last"
           required
           className="input w-full"
+          label="Last name"
         />
-        <input
+        <InputLabel
           id="email"
-          placeholder="Email Address"
+          placeholder="email@address.com"
           required
           type="email"
           className="input w-full"
+          label="Email address"
         />
-        <input
+        <InputLabel
           id="phone number"
-          placeholder="Phone Number"
+          placeholder="XXX-XXX-XXXX"
           required
           type="tel"
           className="input w-full"
+          label="Phone number"
         />
       </div>
     </div>
