@@ -1,5 +1,5 @@
 "use client";
-import { InputList } from "@/components";
+import { InputLabel, InputList } from "@/components";
 import { useReservation } from "../contexts/ReservationContext";
 import { formatDate, formatTime } from "@/utils";
 import { People, Time } from "@/assets";
@@ -40,19 +40,20 @@ const DateTime = () => {
           text={guestNum ? `${getGuest(guestNum)}` : undefined}
           className={inputStyle}
           items={guestNums}
-          placeholder="# of Guests"
+          placeholder="##"
           onSelect={updateGuestNum}
           format={(item) => `${getGuest(item)}`}
           Icon={People}
-          center
+          label="Number of guests"
         />
-        <input
+        <InputLabel
           id="selectDate"
           type="date"
           min={formatDate(currentDate)}
           value={formatDate(selectedDate)}
           className={inputStyle}
           onChange={(e) => updateDate(e.target.value)}
+          label="Reservation Date"
         />
         <InputList
           id="selectTime"
@@ -63,6 +64,7 @@ const DateTime = () => {
           format={(item) => formatTime(...item)}
           Icon={Time}
           center
+          label="Reservation Time"
         />
       </div>
     </div>

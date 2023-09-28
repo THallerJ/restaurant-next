@@ -1,3 +1,5 @@
+import { ChangeEventHandler } from "react";
+
 type InputLabelProps<T> = {
   id: string;
   text?: string | null;
@@ -6,6 +8,12 @@ type InputLabelProps<T> = {
   label: string;
   required?: boolean;
   type?: string;
+  maxLength?: number;
+  minLength?: number;
+  size?: number;
+  min?: string | number;
+  value?: string | number | readonly string[];
+  onChange?: ChangeEventHandler<HTMLInputElement>;
 };
 
 const InputLabel = <T,>({ label, ...props }: InputLabelProps<T>) => {

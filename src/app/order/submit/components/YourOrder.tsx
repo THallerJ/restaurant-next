@@ -1,5 +1,5 @@
 "use client";
-import { AnimatedButton } from "@/components";
+import { AnimatedButton, InputLabel } from "@/components";
 import { ListDivider } from "@/components";
 import { cartItems } from "../../types";
 
@@ -23,15 +23,18 @@ const YourOrder = ({ cartItems }: { cartItems: cartItems }) => {
       </div>
     );
   };
+
   const DiscountCode = () => {
     return (
       <div className="flex w-full flex-col items-center justify-center">
-        <input
+        <InputLabel
+          id="discount_code"
           maxLength={5}
           minLength={5}
           size={5}
           className="input w-full py-2 sm:w-10/12 md:w-3/4 lg:w-3/5"
-          placeholder="Discount Code"
+          placeholder="X-X-X-X-X"
+          label="Discount Code"
         />
         <AnimatedButton className="mt-2 w-full sm:w-10/12 md:w-3/4 lg:w-3/5">
           Apply code
