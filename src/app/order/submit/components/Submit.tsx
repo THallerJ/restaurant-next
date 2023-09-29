@@ -9,7 +9,7 @@ const Submit = ({ children }: { children: React.ReactNode }) => {
   const OrderForm = () => (
     <form
       onSubmit={(e) => e.preventDefault()}
-      className="flex w-full flex-col gap-4
+      className="flex w-full flex-col gap-16
         rounded-lg border-4 border-dark bg-white p-4"
     >
       <YourOrder cartItems={cartItems} />

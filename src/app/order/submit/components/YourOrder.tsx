@@ -23,11 +23,11 @@ const YourOrder = ({ cartItems }: { cartItems: cartItems }) => {
       </div>
     );
   };
-
+  //fix w of discount code
   const DiscountCode = () => {
     return (
-      <div className="flex w-full justify-center">
-        <div className="flex w-[50%] flex-col items-center">
+      <div className="flex w-full justify-center ">
+        <div className="flex w-full flex-col items-center sm:w-2/3 lg:w-1/2">
           <InputLabel
             id="discount_code"
             maxLength={5}
@@ -47,7 +47,7 @@ const YourOrder = ({ cartItems }: { cartItems: cartItems }) => {
   return (
     <div className="flex flex-col">
       <h2 className="heading-sm self-start pb-1">Your order</h2>
-      <div className="flex flex-col gap-4 sm:flex-row">
+      <div className="flex flex-col gap-8 sm:flex-row">
         <OrderList />
         <DiscountCode />
       </div>
