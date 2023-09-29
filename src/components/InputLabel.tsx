@@ -1,4 +1,5 @@
 import { ChangeEventHandler } from "react";
+import { PatternFormat } from "react-number-format";
 
 type InputLabelProps<T> = {
   id: string;
@@ -13,13 +14,24 @@ type InputLabelProps<T> = {
   size?: number;
   min?: string | number;
   value?: string | number | readonly string[];
+  format?: string;
+  mask?: string;
   onChange?: ChangeEventHandler<HTMLInputElement>;
 };
 
-const InputLabel = <T,>({ label, ...props }: InputLabelProps<T>) => {
+const InputLabel = <T,>({
+  label,
+  format,
+  mask,
+  ...props
+}: InputLabelProps<T>) => {
   return (
     <div className="flex w-full flex-col-reverse">
-      <input {...props} />
+      {format ? (
+        <PatternFormat className="input" format={format} mask={mask} />
+      ) : (
+        <input {...props} />
+      )}
       <label
         htmlFor={props.id}
         className=" text-sm font-bold uppercase text-dark/75"

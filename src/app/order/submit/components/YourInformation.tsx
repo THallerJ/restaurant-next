@@ -54,6 +54,8 @@ const YourInformation = () => {
             id="phone"
             required
             placeholder="XXX-XXX-XXXX"
+            format="(###) ### ####"
+            mask="_"
             type="tele"
             className={inputStyle}
             label="Phone number"
