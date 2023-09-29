@@ -1,10 +1,6 @@
 import Submit from "./components/Submit";
 
 const page = () => {
-  const EmptyOrder = () => (
-    <p className="heading-sm">You have nothing in your cart</p>
-  );
-
   return (
     <Submit>
       <EmptyOrder />
@@ -13,3 +9,7 @@ const page = () => {
 };
 
 export default page;
+
+const EmptyOrder = () => (
+  <p className="heading-sm">You have nothing in your cart</p>
+);

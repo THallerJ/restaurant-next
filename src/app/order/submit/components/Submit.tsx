@@ -6,20 +6,6 @@ import { useOrder } from "../../contexts/OrderContext/OrderContext";
 const Submit = ({ children }: { children: React.ReactNode }) => {
   const { cartItems } = useOrder();
 
-  const OrderForm = () => (
-    <form
-      onSubmit={(e) => e.preventDefault()}
-      className="flex w-full flex-col gap-16
-        rounded-lg border-4 border-dark bg-white p-4"
-    >
-      <YourOrder cartItems={cartItems} />
-      <YourInformation />
-      <button className="btn self-end" type="submit">
-        Finish order
-      </button>
-    </form>
-  );
-
   return (
     <div className="flex h-full w-full flex-1 items-center justify-center">
       {cartItems.count > 0 ? <OrderForm /> : children}
@@ -28,3 +14,17 @@ const Submit = ({ children }: { children: React.ReactNode }) => {
 };
 
 export default Submit;
+
+const OrderForm = () => (
+  <form
+    onSubmit={(e) => e.preventDefault()}
+    className="flex w-full flex-col gap-16
+      rounded-lg border-4 border-dark bg-white p-4"
+  >
+    <YourOrder />
+    <YourInformation />
+    <button className="btn self-end" type="submit">
+      Finish order
+    </button>
+  </form>
+);

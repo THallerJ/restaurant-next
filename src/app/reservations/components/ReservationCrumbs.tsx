@@ -7,7 +7,7 @@ import { useReservation } from "../contexts/ReservationContext";
 import { formatDateLong, formatTime, getTime } from "@/utils";
 
 const ReservationCrumbs = () => {
-  const { guestFlag, selectedDate } = useReservation();
+  const { guestFlag } = useReservation();
 
   const crumbs: breadCrumbs[] = [
     {
@@ -19,14 +19,6 @@ const ReservationCrumbs = () => {
       content: <Details />,
     },
   ];
-
-  const Finished = () => (
-    <p className="flex h-full items-center justify-center font-bold">
-      {`Your reservation for ${formatTime(
-        ...getTime(selectedDate),
-      )} on ${formatDateLong(selectedDate)} is booked!`}
-    </p>
-  );
 
   return (
     <Breadcrumbs
@@ -41,3 +33,14 @@ const ReservationCrumbs = () => {
 };
 
 export default ReservationCrumbs;
+
+const Finished = () => {
+  const { selectedDate } = useReservation();
+  return (
+    <p className="flex h-full items-center justify-center font-bold">
+      {`Your reservation for ${formatTime(
+        ...getTime(selectedDate),
+      )} on ${formatDateLong(selectedDate)} is booked!`}
+    </p>
+  );
+};

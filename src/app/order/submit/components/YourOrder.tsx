@@ -1,9 +1,11 @@
 "use client";
 import { AnimatedButton, InputLabel } from "@/components";
 import { ListDivider } from "@/components";
-import { cartItems } from "../../types";
+import { useOrder } from "../../contexts/OrderContext/OrderContext";
 
-const YourOrder = ({ cartItems }: { cartItems: cartItems }) => {
+const YourOrder = () => {
+  const { cartItems } = useOrder();
+
   const OrderList = () => {
     return (
       <div className="flex w-full flex-col">
@@ -23,27 +25,6 @@ const YourOrder = ({ cartItems }: { cartItems: cartItems }) => {
       </div>
     );
   };
-  //fix w of discount code
-  const DiscountCode = () => {
-    return (
-      <div className="flex w-full justify-center ">
-        <div className="flex w-full flex-col items-center sm:w-2/3 lg:w-1/2">
-          <InputLabel
-            id="discount_code"
-            maxLength={5}
-            minLength={5}
-            size={5}
-            className="input"
-            placeholder="X-X-X-X-X"
-            label="Discount Code"
-          />
-          <AnimatedButton className="mt-2 " fullSize>
-            Apply code
-          </AnimatedButton>
-        </div>
-      </div>
-    );
-  };
   return (
     <div className="flex flex-col">
       <h2 className="heading-sm self-start pb-1">Your order</h2>
@@ -56,3 +37,24 @@ const YourOrder = ({ cartItems }: { cartItems: cartItems }) => {
 };
 
 export default YourOrder;
+
+const DiscountCode = () => {
+  return (
+    <div className="flex w-full justify-center ">
+      <div className="flex w-full flex-col items-center sm:w-2/3 lg:w-1/2">
+        <InputLabel
+          id="discount_code"
+          maxLength={5}
+          minLength={5}
+          size={5}
+          className="input"
+          placeholder="X-X-X-X-X"
+          label="Discount Code"
+        />
+        <AnimatedButton className="mt-2 " fullSize>
+          Apply code
+        </AnimatedButton>
+      </div>
+    </div>
+  );
+};

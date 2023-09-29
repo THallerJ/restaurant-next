@@ -8,10 +8,6 @@ const YourInformation = () => {
   const [time, setTime] = useState<[number, number] | null>(null);
   const inputStyle = "input w-full";
 
-  const InputGroup = ({ children }: { children: React.ReactNode }) => (
-    <div className="flex flex-col gap-4 sm:flex-row">{children}</div>
-  );
-
   return (
     <div>
       <h2 className="heading-sm pb-1">Your information</h2>
@@ -69,3 +65,7 @@ const YourInformation = () => {
 };
 
 export default YourInformation;
+
+const InputGroup = ({ children }: { children: React.ReactNode }) => (
+  <div className="flex flex-col gap-4 sm:flex-row">{children}</div>
+);
