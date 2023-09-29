@@ -1,42 +1,6 @@
 import SocialMediaIcons from "@/components/SocialMediaIcons";
 import { Hours } from "@/components";
 
-const FindContact = ({ className }: { className?: string }) => (
-  <div
-    className={`lg:flex-1 ${className} flex flex-col items-center
-      text-white lg:block`}
-  >
-    <span className="font-poppins text-xl uppercase text-fourth">
-      Find & Contact Us
-    </span>
-    <div className="flex flex-col">
-      <a
-        href="http://maps.google.com/?q=1600 Pennsy lvania Avenue NW, Washington, DC 20500"
-        className="text-center hover:text-third hover:underline lg:text-start"
-        target="_blank"
-        rel="noreferrer noopener"
-      >
-        <span>
-          1600 Pennsylvania <br /> Avenue NW, <br className="xl:hidden" />
-          Washington, DC
-        </span>
-      </a>
-      <a
-        href="tel:1-123-555-6789"
-        className="text-center hover:text-third hover:underline lg:text-start"
-      >
-        1-123-555-6789
-      </a>
-      <a
-        href="mailto: restaurant@email.com"
-        className="hover:text-third hover:underline"
-      >
-        restaurant@email.com
-      </a>
-    </div>
-  </div>
-);
-
 const Footer = () => {
   return (
     <div
@@ -75,3 +39,39 @@ const Footer = () => {
 };
 
 export default Footer;
+
+const FindContact = ({ className }: { className?: string }) => (
+  <div
+    className={`lg:flex-1 ${className} flex flex-col items-center
+      text-white lg:block`}
+  >
+    <span className="font-poppins text-xl uppercase text-fourth">
+      Find & Contact Us
+    </span>
+    <div className="flex flex-col">
+      <a
+        href="http://maps.google.com/?q=1600 Pennsy lvania Avenue NW, Washington, DC 20500"
+        className="text-center hover:text-third hover:underline lg:text-start"
+        target="_blank"
+        rel="noreferrer noopener"
+      >
+        <span>
+          1600 Pennsylvania <br /> Avenue NW, <br className="xl:hidden" />
+          Washington, DC
+        </span>
+      </a>
+      <a
+        href="tel:1-123-555-6789"
+        className="text-center hover:text-third hover:underline lg:text-start"
+      >
+        1-123-555-6789
+      </a>
+      <a
+        href="mailto: restaurant@email.com"
+        className="hover:text-third hover:underline"
+      >
+        restaurant@email.com
+      </a>
+    </div>
+  </div>
+);
