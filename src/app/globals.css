@@ -23,7 +23,7 @@
 }
 
 .message {
-  @apply absolute rounded-lg bg-white p-3 text-black shadow-md;
+  @apply absolute rounded-lg border-2 border-dark/50 bg-white p-3 text-black shadow-md;
 }
 
 .heading {
@@ -37,7 +37,7 @@
 }
 
 .input {
-  @apply rounded-lg border-2 border-darkLight bg-white px-3 py-2 shadow-md focus:border-dark focus:outline-none;
+  @apply h-11 rounded-lg border-2  border-dark/60 bg-white px-3 shadow-md focus:border-dark focus:outline-none;
 }
 
 @keyframes zoom-in-zoom-out {
