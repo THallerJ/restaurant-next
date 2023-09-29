@@ -45,6 +45,7 @@ const DateTime = () => {
           format={(item) => `${getGuest(item)}`}
           Icon={People}
           label="Number of guests"
+          center
         />
         <InputLabel
           id="selectDate"
