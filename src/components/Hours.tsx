@@ -11,34 +11,13 @@ const Hours = ({ spacing }: { spacing?: number }) => {
     "Sunday",
   ];
 
-  const formatTime = (hour: number): string => {
-    return hour > 12 ? `${hour - 12}:00 PM` : `${hour}:00 AM`;
-  };
-
-  const getSpacing = (): string => {
-    switch (spacing) {
-      case 1: {
-        return "pb-1";
-      }
-      case 2: {
-        return "pb-2";
-      }
-      case 3: {
-        return "pb-3";
-      }
-      default: {
-        return "pb-0";
-      }
-    }
-  };
-
   return (
     <ul>
       {days.map((day, i) => {
         return (
           <li
             className={`flex justify-end pb-0 ${
-              i !== days.length - 1 ? getSpacing() : "pb-0"
+              i !== days.length - 1 ? getSpacing(spacing) : "pb-0"
             }`}
             key={day}
           >
@@ -59,3 +38,24 @@ const Hours = ({ spacing }: { spacing?: number }) => {
 };
 
 export default Hours;
+
+const formatTime = (hour: number): string => {
+  return hour > 12 ? `${hour - 12}:00 PM` : `${hour}:00 AM`;
+};
+
+const getSpacing = (spacing?: number): string => {
+  switch (spacing) {
+    case 1: {
+      return "pb-1";
+    }
+    case 2: {
+      return "pb-2";
+    }
+    case 3: {
+      return "pb-3";
+    }
+    default: {
+      return "pb-0";
+    }
+  }
+};

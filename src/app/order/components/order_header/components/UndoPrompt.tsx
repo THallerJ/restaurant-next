@@ -21,7 +21,7 @@ const UndoPrompt = () => {
     >
       <button className="px-4 text-sm text-dark" onClick={() => onUndo()}>
         <Undo className="h-8 w-8" />
-        <span className=" text-dark">undo</span>
+        <span className="text-dark">undo</span>
       </button>
     </div>
   );

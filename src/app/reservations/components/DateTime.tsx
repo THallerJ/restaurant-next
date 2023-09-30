@@ -24,14 +24,6 @@ const DateTime = () => {
     return formatTime(selectedDate.getHours(), selectedDate.getMinutes());
   };
 
-  const inputStyle = "input w-44";
-
-  const guestNums = [1, 2, 3, 4, 5, 6, 7, 8];
-
-  const getGuest = (item: number) => {
-    return `${item} ${item === 1 ? "person" : "people"}`;
-  };
-
   return (
     <div className="flex h-full items-center justify-center pt-4">
       <div className="flex flex-col space-y-2 xl:flex-row xl:space-x-2 xl:space-y-0">
@@ -73,3 +65,11 @@ const DateTime = () => {
 };
 
 export default DateTime;
+
+const inputStyle = "input w-44";
+
+const guestNums = [1, 2, 3, 4, 5, 6, 7, 8];
+
+const getGuest = (item: number) => {
+  return `${item} ${item === 1 ? "person" : "people"}`;
+};
