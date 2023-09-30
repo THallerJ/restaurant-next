@@ -1,4 +1,4 @@
-import Modal from "./Modal";
+import Modal from "./modal/Modal";
 import ImageModal from "./ImageModal";
 import ClickAway from "./ClickAway";
 

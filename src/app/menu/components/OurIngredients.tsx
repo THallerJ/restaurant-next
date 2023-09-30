@@ -10,15 +10,6 @@ import {
 import { imageType } from "@/types";
 
 const OurIngredients = () => {
-  const images: imageType[] = [
-    { image: breakfast, x: 45, y: 40 },
-    { image: dinner, x: 45, y: 25 },
-    { image: starter, x: 0 },
-    { image: dailySpecial, x: 50 },
-    { image: dessert, x: 60, y: 25 },
-    { image: lunch, y: 35 },
-  ];
-
   return (
     <>
       <Gallery images={images} layout="cross" />
@@ -46,3 +37,12 @@ const OurIngredients = () => {
 };
 
 export default OurIngredients;
+
+const images: imageType[] = [
+  { image: breakfast, x: 45, y: 40 },
+  { image: dinner, x: 45, y: 25 },
+  { image: starter, x: 0 },
+  { image: dailySpecial, x: 50 },
+  { image: dessert, x: 60, y: 25 },
+  { image: lunch, y: 35 },
+];

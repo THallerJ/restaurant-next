@@ -6,8 +6,6 @@ import Image from "next/image";
 const BackgroundImage = () => {
   const [curr, setCurr] = useState<number>(0);
 
-  const images = [food1, food2, food3, food4];
-
   useEffect(() => {
     const interval = setInterval(() => {
       setCurr((prev) => {
@@ -16,7 +14,7 @@ const BackgroundImage = () => {
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [images.length]);
+  }, []);
 
   return (
     <Image
@@ -30,3 +28,5 @@ const BackgroundImage = () => {
 };
 
 export default BackgroundImage;
+
+const images = [food1, food2, food3, food4];

@@ -4,16 +4,6 @@ import Location from "./components/Location";
 import InfoSection from "./components/InfoSection";
 
 const AboutPage = () => {
-  const founderImages: imageType[] = [
-    { image: owner1, y: 5, title: "Owner Number 1" },
-    { image: owner2, x: 25, y: 20, title: "Owner Number 2" },
-  ];
-  const staffImages: imageType[] = [
-    { image: chefFire, x: 65, y: 25 },
-    { image: barStaff, x: 95, y: 20 },
-    { image: kitchenStaff, y: 15 },
-  ];
-
   return (
     <>
       <div className="flex w-full flex-col items-center bg-offwhite">
@@ -70,3 +60,13 @@ const AboutPage = () => {
 };
 
 export default AboutPage;
+
+const founderImages: imageType[] = [
+  { image: owner1, y: 5, title: "Owner Number 1" },
+  { image: owner2, x: 25, y: 20, title: "Owner Number 2" },
+];
+const staffImages: imageType[] = [
+  { image: chefFire, x: 65, y: 25 },
+  { image: barStaff, x: 95, y: 20 },
+  { image: kitchenStaff, y: 15 },
+];

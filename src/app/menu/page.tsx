@@ -10,8 +10,6 @@ import MenuItems from ".//components/MenuItems";
 import DailySpecial from "./components//DailySpecial";
 import OurIngredients from "./components/OurIngredients";
 
-const cols = "space-y-8 sm:w-5/12 lg:w-2/5";
-
 const page = () => {
   return (
     <div className="flex flex-col items-center bg-offwhite">
@@ -42,3 +40,5 @@ const page = () => {
 };
 
 export default page;
+
+const cols = "space-y-8 sm:w-5/12 lg:w-2/5";

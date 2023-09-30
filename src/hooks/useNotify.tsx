@@ -25,9 +25,7 @@ const useNotify = (time?: number) => {
     setNotified(false);
   };
 
-  type res = [notified: boolean, notify: () => void, cancel: () => void];
-
-  return [notified, notify, cancel] as res;
+  return [notified, notify, cancel] as const;
 };
 
 export default useNotify;

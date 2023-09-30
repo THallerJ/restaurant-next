@@ -9,6 +9,7 @@ type AnimatedButtonProps = {
   fullSize?: boolean;
   className?: string;
 };
+
 const AnimatedButton = ({
   children,
   onClick,
