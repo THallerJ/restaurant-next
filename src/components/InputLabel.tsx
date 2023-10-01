@@ -33,6 +33,8 @@ const InputLabel = <T,>({
           className="input"
           format={format}
           mask={mask}
+          placeholder={props.placeholder}
+          displayType="input"
         />
       ) : (
         <input {...props} />

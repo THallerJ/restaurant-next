@@ -46,11 +46,13 @@ const Details = () => {
         />
         <InputLabel
           id="phone number"
-          placeholder="XXX-XXX-XXXX"
+          placeholder="(___) ___ ____"
           required
           type="tel"
           className="input w-full"
           label="Phone number"
+          format="(###) ### ####"
+          mask="_"
         />
       </div>
     </div>

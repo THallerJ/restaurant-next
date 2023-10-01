@@ -52,7 +52,7 @@ const YourInformation = () => {
           <InputLabel
             id="phone"
             required
-            placeholder="XXX-XXX-XXXX"
+            placeholder="(___) ___ ____"
             format="(###) ### ####"
             mask="_"
             type="tele"
