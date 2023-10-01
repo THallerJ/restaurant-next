@@ -28,7 +28,12 @@ const InputLabel = <T,>({
   return (
     <div className="flex w-full flex-col-reverse">
       {format ? (
-        <PatternFormat className="input" format={format} mask={mask} />
+        <PatternFormat
+          id={props.id}
+          className="input"
+          format={format}
+          mask={mask}
+        />
       ) : (
         <input {...props} />
       )}
