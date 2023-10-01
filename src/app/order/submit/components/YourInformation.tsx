@@ -55,7 +55,7 @@ const YourInformation = () => {
             placeholder="(___) ___ ____"
             format="(###) ### ####"
             mask="_"
-            type="tele"
+            patternType="tel"
             className={inputStyle}
             label="Phone number"
           />

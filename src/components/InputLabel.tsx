@@ -17,12 +17,14 @@ type InputLabelProps<T> = {
   format?: string;
   mask?: string;
   onChange?: ChangeEventHandler<HTMLInputElement>;
+  patternType?: "text" | "tel" | "password";
 };
 
 const InputLabel = <T,>({
   label,
   format,
   mask,
+  patternType,
   ...props
 }: InputLabelProps<T>) => {
   return (
@@ -30,11 +32,15 @@ const InputLabel = <T,>({
       {format ? (
         <PatternFormat
           id={props.id}
-          className="input"
+          className={props.className}
           format={format}
           mask={mask}
           placeholder={props.placeholder}
           displayType="input"
+          type={patternType}
+          required={props.required}
+          minLength={props.minLength}
+          maxLength={props.maxLength}
         />
       ) : (
         <input {...props} />

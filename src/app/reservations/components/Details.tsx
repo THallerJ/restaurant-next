@@ -48,7 +48,7 @@ const Details = () => {
           id="phone number"
           placeholder="(___) ___ ____"
           required
-          type="tel"
+          patternType="tel"
           className="input w-full"
           label="Phone number"
           format="(###) ### ####"
