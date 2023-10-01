@@ -9,15 +9,16 @@ type InputLabelProps<T> = {
   label: string;
   required?: boolean;
   type?: string;
+  patternType?: "text" | "tel" | "password";
   maxLength?: number;
   minLength?: number;
   size?: number;
   min?: string | number;
   value?: string | number | readonly string[];
+  patternValue?: string | number | null;
   format?: string;
   mask?: string;
   onChange?: ChangeEventHandler<HTMLInputElement>;
-  patternType?: "text" | "tel" | "password";
 };
 
 const InputLabel = <T,>({
@@ -25,29 +26,28 @@ const InputLabel = <T,>({
   format,
   mask,
   patternType,
+  patternValue,
+  value,
+  type,
   ...props
 }: InputLabelProps<T>) => {
   return (
     <div className="flex w-full flex-col-reverse">
       {format ? (
         <PatternFormat
-          id={props.id}
-          className={props.className}
           format={format}
           mask={mask}
-          placeholder={props.placeholder}
           displayType="input"
           type={patternType}
-          required={props.required}
-          minLength={props.minLength}
-          maxLength={props.maxLength}
+          value={patternValue}
+          {...props}
         />
       ) : (
-        <input {...props} />
+        <input value={value} type={type} {...props} />
       )}
       <label
         htmlFor={props.id}
-        className=" text-sm font-bold uppercase text-dark/75"
+        className="text-sm font-bold uppercase text-dark/75"
       >
         {label}
       </label>
