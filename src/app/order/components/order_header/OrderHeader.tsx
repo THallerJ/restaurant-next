@@ -23,7 +23,7 @@ const OrderHeader = () => {
         format={(item) => item.text}
         className="w-32 rounded-lg bg-white p-3 shadow-md sm:hidden"
       />
-      <div className="hidden flex-row gap-4 pr-16 font-semibold uppercase text-dark sm:flex">
+      <div className="hidden flex-row gap-4 font-semibold uppercase text-dark sm:flex">
         {navItems.map((item) => (
           <Link
             href={item.to}
@@ -36,9 +36,11 @@ const OrderHeader = () => {
           </Link>
         ))}
       </div>
-      <CartContextProvider>
-        <CartButton />
-      </CartContextProvider>
+      <div className="flex w-32 justify-end">
+        <CartContextProvider>
+          <CartButton />
+        </CartContextProvider>
+      </div>
     </div>
   );
 };
