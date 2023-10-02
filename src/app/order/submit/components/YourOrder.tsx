@@ -1,7 +1,7 @@
 "use client";
-import { AnimatedButton, InputLabel } from "@/components";
 import { ListDivider } from "@/components";
 import { useOrder } from "../../contexts/OrderContext/OrderContext";
+import DiscountCode from "./DiscountCode";
 
 const YourOrder = () => {
   return (
@@ -34,27 +34,6 @@ const OrderList = () => {
       ))}
       <div className="self-end pt-4">
         <p className="text-lg font-semibold">{`Total: $${cartItems.total}`}</p>
-      </div>
-    </div>
-  );
-};
-
-const DiscountCode = () => {
-  return (
-    <div className="flex w-full justify-center ">
-      <div className="flex w-full flex-col items-center sm:w-2/3 lg:w-1/2">
-        <InputLabel
-          id="discount_code"
-          maxLength={5}
-          minLength={5}
-          size={5}
-          className="input"
-          placeholder="X-X-X-X-X"
-          label="Discount Code"
-        />
-        <AnimatedButton className="mt-2 " fullSize>
-          Apply code
-        </AnimatedButton>
       </div>
     </div>
   );

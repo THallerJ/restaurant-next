@@ -6,12 +6,11 @@ const DiscountCode = () => {
       <div className="flex w-full flex-col items-center sm:w-5/6 lg:w-2/3 ">
         <InputLabel
           id="discount_code"
-          maxLength={5}
-          minLength={5}
-          size={5}
           className="input"
-          placeholder="X-X-X-X-X"
+          format="#####"
+          mask="_"
           label="Discount Code"
+          placeholder="_____"
         />
         <AnimatedButton className="mt-2 " fullSize>
           Apply code
