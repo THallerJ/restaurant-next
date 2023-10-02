@@ -37,7 +37,7 @@ export default ReservationCrumbs;
 const Finished = () => {
   const { selectedDate } = useReservation();
   return (
-    <p className="flex h-full items-center justify-center font-bold">
+    <p className="flex h-full items-center justify-center text-center font-bold">
       {`Your reservation for ${formatTime(
         ...getTime(selectedDate),
       )} on ${formatDateLong(selectedDate)} is booked!`}
