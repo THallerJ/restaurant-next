@@ -37,7 +37,7 @@ const Nav = ({
         >
           <h1>
             <Link href="/" onClick={onNavSelected}>
-              <Logo alt="logo" className="mr-4 h-16 w-36 p-4 sm:w-48" />
+              <Logo alt="logo" className="h-16 w-36 p-4 sm:w-48" />
             </Link>
           </h1>
 
@@ -63,7 +63,7 @@ const Nav = ({
             className="hidden w-48 gap-8 lg:flex"
             iconClassName="w-6 h-6 cursor-pointer hover:stroke-third"
           />
-          <div className="flex md:hidden">
+          <div className="flex p-4 md:hidden">
             <MenuButton
               toggle={toggled}
               onClick={() => setToggled((prev) => !prev)}
