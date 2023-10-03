@@ -1,6 +1,6 @@
 import { Modal } from "../hocs";
 import Image from "next/image";
-import { dailySpecial } from "@/constants/Menu";
+import { dailySpecial } from "@/constants/men";
 
 type DailySpecialModalProps = {
   showDialog: boolean;

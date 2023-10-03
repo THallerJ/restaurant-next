@@ -3,7 +3,7 @@ import { orderItem } from "@/app/order/types";
 import { useOrder } from "@/app/order/contexts/OrderContext/OrderContext";
 import { ListDivider } from "@/components";
 import { Close } from "@/assets";
-import { useCart } from "@/app/order/contexts/CartContext/CartContext";
+import { useCart } from "@/app/order/contexts/cart-cont/CartContext";
 
 type CartItemProps = {
   item: orderItem;

@@ -1,4 +1,4 @@
-import { openHour, closeHour, interval } from "./Hours";
+import { openHour, closeHour, interval } from "./hour";
 import {
   lunchItems,
   breakfastItems,
@@ -7,9 +7,9 @@ import {
   dinnerItems,
   starterItems,
   dailySpecial,
-} from "./Menu";
+} from "./men";
 
-import codes from "./Discount";
+import codes from "./disc";
 
 export {
   openHour,

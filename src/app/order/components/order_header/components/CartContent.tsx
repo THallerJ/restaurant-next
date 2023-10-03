@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 import CartItem from "./CartItem";
 import { useState } from "react";
 import UndoPrompt from "./UndoPrompt";
-import { useCart } from "@/app/order/contexts/CartContext/CartContext";
+import { useCart } from "@/app/order/contexts/cart-cont/CartContext";
 
 const CartContent = () => {
   const { cartItems, cartDispatch } = useOrder();
