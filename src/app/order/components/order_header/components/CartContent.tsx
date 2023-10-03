@@ -1,4 +1,4 @@
-import { useOrder } from "@/app/order/contexts/OrderContext/OrderContext";
+import { useOrder } from "@/app/order/contexts/order_context/OrderContext";
 import { useRouter } from "next/navigation";
 import CartItem from "./CartItem";
 import { useState } from "react";

@@ -1,5 +1,5 @@
 "use client";
-import { OrderContextProvider } from "../contexts/OrderContext/OrderContext";
+import { OrderContextProvider } from "../contexts/order_context/OrderContext";
 import OrderHeader from "./order_header/OrderHeader";
 
 const LayoutWrapper = ({ children }: { children: React.ReactNode }) => {

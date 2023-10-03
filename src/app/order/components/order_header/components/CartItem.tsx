@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { orderItem } from "@/app/order/types";
-import { useOrder } from "@/app/order/contexts/OrderContext/OrderContext";
+import { useOrder } from "@/app/order/contexts/order_context/OrderContext";
 import { ListDivider } from "@/components";
 import { Close } from "@/assets";
 import { useCart } from "@/app/order/contexts/cart_context/CartContext";

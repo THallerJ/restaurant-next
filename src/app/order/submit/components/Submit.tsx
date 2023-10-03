@@ -1,7 +1,7 @@
 "use client";
 import YourOrder from "./YourOrder";
 import YourInformation from "./YourInformation";
-import { useOrder } from "../../contexts/OrderContext/OrderContext";
+import { useOrder } from "../../contexts/order_context/OrderContext";
 
 const Submit = ({ children }: { children: React.ReactNode }) => {
   const { cartItems } = useOrder();

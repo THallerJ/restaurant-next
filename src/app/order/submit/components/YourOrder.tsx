@@ -1,6 +1,6 @@
 "use client";
 import { ListDivider } from "@/components";
-import { useOrder } from "../../contexts/OrderContext/OrderContext";
+import { useOrder } from "../../contexts/order_context/OrderContext";
 import DiscountCode from "./DiscountCode";
 
 const YourOrder = () => {
