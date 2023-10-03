@@ -9,6 +9,8 @@ import {
   dailySpecial,
 } from "./Menu";
 
+import codes from "./Discount";
+
 export {
   openHour,
   closeHour,
@@ -20,4 +22,5 @@ export {
   dessertItems,
   starterItems,
   dailySpecial,
+  codes,
 };

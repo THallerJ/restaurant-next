@@ -7,11 +7,10 @@ const DiscountCode = () => {
         <InputLabel
           id="discount_code"
           className="input text-2xl tracking-widest"
-          format="5%%%%"
+          format="#####"
           mask="_"
           label="Discount Code"
           placeholder="_____"
-          patternChar="%"
         />
         <AnimatedButton className="mt-2" fullSize>
           Apply code
