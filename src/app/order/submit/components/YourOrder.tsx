@@ -2,14 +2,18 @@
 import { ListDivider } from "@/components";
 import { useOrder } from "../../contexts/order_context/OrderContext";
 import DiscountCode from "./DiscountCode";
+import { useState } from "react";
+import { cartItems } from "../../types";
 
 const YourOrder = () => {
+  const [discountItems, setDiscountItems] = useState<cartItems | null>(null);
+
   return (
     <div className="flex flex-col">
       <h2 className="heading-sm self-start pb-1">Your order</h2>
       <div className="flex flex-col gap-8 sm:flex-row">
-        <OrderList />
-        <DiscountCode />
+        <OrderList discountItems={discountItems} />
+        <DiscountCode setDiscountItems={setDiscountItems} />
       </div>
     </div>
   );
@@ -17,7 +21,11 @@ const YourOrder = () => {
 
 export default YourOrder;
 
-const OrderList = () => {
+type OrderListProps = {
+  discountItems: cartItems | null;
+};
+
+const OrderList = ({ discountItems }: OrderListProps) => {
   const { cartItems } = useOrder();
 
   return (

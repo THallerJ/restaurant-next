@@ -1,6 +1,11 @@
 import { InputLabel, AnimatedButton } from "@/components";
+import { cartItems } from "../../types";
 
-const DiscountCode = () => {
+type DiscountCodeProps = {
+  setDiscountItems: React.Dispatch<React.SetStateAction<cartItems | null>>;
+};
+
+const DiscountCode = ({ setDiscountItems }: DiscountCodeProps) => {
   return (
     <div className="flex w-full justify-center sm:px-4">
       <div className="flex w-full flex-col items-center sm:w-5/6 lg:w-2/3">
