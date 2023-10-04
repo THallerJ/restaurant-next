@@ -21,12 +21,24 @@ const DiscountCode = ({ setDiscountItems }: DiscountCodeProps) => {
         image
         name
         price
-   
-   */
-    const temp = cartItems;
+         // const item = { ...curr.item, price: prevPrice * (1 - 0.2) };
 
-    console.log(temp);
+   */
+    let total = cartItems.total;
+    const count = cartItems.count;
+
+    const items = cartItems.items.map((curr) => {
+      const prevPrice = curr.item.price;
+      const newPrice = roundNum(prevPrice * (1 - 0.2));
+
+      total = roundNum(total - (prevPrice - newPrice));
+
+      return { ...curr, item: { ...curr.item, price: newPrice } };
+    });
+
+    setDiscountItems({ count, total, items });
   };
+
   return (
     <div className="flex w-full justify-center sm:px-4">
       <div className="flex w-full flex-col items-center sm:w-5/6 lg:w-2/3">
@@ -47,3 +59,5 @@ const DiscountCode = ({ setDiscountItems }: DiscountCodeProps) => {
 };
 
 export default DiscountCode;
+
+const roundNum = (num: number) => Number(num.toFixed(2));
