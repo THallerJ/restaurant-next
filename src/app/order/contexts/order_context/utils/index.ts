@@ -6,7 +6,7 @@ const addItem = (state: cartItems, newItem: menuItem | orderItem) => {
   let total = state.total;
   let item: orderItem;
 
-  // newItem is a menuItem, needs to converted into orderItem
+  // newItem is a menuItem, needs to be converted into orderItem
   if ("name" in newItem) item = { item: newItem, count: 1 };
   else item = newItem;
 
