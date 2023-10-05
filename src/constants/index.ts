@@ -8,8 +8,7 @@ import {
   starterItems,
   dailySpecial,
 } from "./menu";
-
-import codes from "./discount";
+import discountCodes from "./discount";
 
 export {
   openHour,
@@ -22,5 +21,5 @@ export {
   dessertItems,
   starterItems,
   dailySpecial,
-  codes,
+  discountCodes,
 };

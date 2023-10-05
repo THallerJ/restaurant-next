@@ -2,11 +2,15 @@
 import { ListDivider } from "@/components";
 import { useOrder } from "../../contexts/order_context/OrderContext";
 import DiscountCode from "./DiscountCode";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { cartItems } from "../../types";
 
 const YourOrder = () => {
   const [discountItems, setDiscountItems] = useState<cartItems | null>(null);
+
+  useEffect(() => {
+    console.log(discountItems);
+  }, [discountItems]);
 
   return (
     <div className="flex flex-col">

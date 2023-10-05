@@ -1,6 +1,7 @@
 import { InputLabel, AnimatedButton } from "@/components";
 import { cartItems } from "../../types";
 import { useOrder } from "../../contexts/order_context/OrderContext";
+import { discountCodes } from "@/constants";
 
 type DiscountCodeProps = {
   setDiscountItems: React.Dispatch<React.SetStateAction<cartItems | null>>;
