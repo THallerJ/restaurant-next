@@ -2,6 +2,7 @@ import { InputLabel, AnimatedButton } from "@/components";
 import { cartItems } from "../../../types";
 import { useOrder } from "../../../contexts/order_context/OrderContext";
 import { getDiscountPercent, roundNum } from "./utils";
+import { useState } from "react";
 
 type DiscountCodeProps = {
   setDiscountItems: React.Dispatch<React.SetStateAction<cartItems | null>>;
@@ -9,6 +10,7 @@ type DiscountCodeProps = {
 
 const DiscountCode = ({ setDiscountItems }: DiscountCodeProps) => {
   const { cartItems } = useOrder();
+  const [currCode, setCurrCode] = useState("");
 
   const getDiscount = () => {
     let total = cartItems.total;
@@ -16,7 +18,7 @@ const DiscountCode = ({ setDiscountItems }: DiscountCodeProps) => {
 
     const items = cartItems.items.map((curr) => {
       const prevPrice = curr.item.price;
-      const newPrice = roundNum(prevPrice * (1 - getDiscountPercent("00000")));
+      const newPrice = roundNum(prevPrice * (1 - getDiscountPercent(currCode)));
 
       total = roundNum(total - (prevPrice - newPrice));
 
@@ -36,6 +38,7 @@ const DiscountCode = ({ setDiscountItems }: DiscountCodeProps) => {
           mask="_"
           label="Discount Code"
           placeholder="_____"
+          onChange={(e) => setCurrCode(e.target.value)}
         />
         <AnimatedButton className="mt-2" fullSize onClick={getDiscount}>
           Apply code
