@@ -11,26 +11,12 @@ const DiscountCode = ({ setDiscountItems }: DiscountCodeProps) => {
   const { cartItems } = useOrder();
 
   const getDiscount = () => {
-    /* 
-   count
-   total
-   items
-    [0]
-      count
-      item
-        details
-        image
-        name
-        price
-         // const item = { ...curr.item, price: prevPrice * (1 - 0.2) };
-
-   */
     let total = cartItems.total;
     const count = cartItems.count;
 
     const items = cartItems.items.map((curr) => {
       const prevPrice = curr.item.price;
-      const newPrice = roundNum(prevPrice * (1 - 0.2));
+      const newPrice = roundNum(prevPrice * (1 - getDiscountPercent("00000")));
 
       total = roundNum(total - (prevPrice - newPrice));
 
@@ -62,3 +48,23 @@ const DiscountCode = ({ setDiscountItems }: DiscountCodeProps) => {
 export default DiscountCode;
 
 const roundNum = (num: number) => Number(num.toFixed(2));
+
+const getDiscountPercent = (code: string): number => {
+  const item = discountCodes.find((elem) => elem.code === code);
+  return item ? item.percent / 100 : 0;
+};
+
+/* 
+   count
+   total
+   items
+    [0]
+      count
+      item
+        details
+        image
+        name
+        price
+         // const item = { ...curr.item, price: prevPrice * (1 - 0.2) };
+
+   */
