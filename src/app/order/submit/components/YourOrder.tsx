@@ -1,7 +1,7 @@
 "use client";
 import { ListDivider } from "@/components";
 import { useOrder } from "../../contexts/order_context/OrderContext";
-import DiscountCode from "./DiscountCode";
+import DiscountCode from "./discount_code/DiscountCode";
 import { useEffect, useState } from "react";
 import { cartItems } from "../../types";
 
