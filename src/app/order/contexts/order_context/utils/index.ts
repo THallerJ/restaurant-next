@@ -1,5 +1,6 @@
 import { menuItem } from "@/types";
 import { orderItem, cartItems } from "../../../types";
+import { roundNum } from "@/app/order/utils";
 
 const addItem = (state: cartItems, newItem: menuItem | orderItem) => {
   let count = state.count;
@@ -26,7 +27,7 @@ const addItem = (state: cartItems, newItem: menuItem | orderItem) => {
     count = count + item.count;
   }
 
-  total += item.item.price * item.count;
+  total = roundNum(total + item.item.price * item.count);
 
   return { count, total, items };
 };

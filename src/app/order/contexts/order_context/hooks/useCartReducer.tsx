@@ -3,6 +3,7 @@ import { reducerAction } from "../types";
 import useLocalReducer from "@/hooks/useLocalReducer";
 import { addItem } from "../utils";
 import { useState } from "react";
+import { roundNum } from "@/app/order/utils";
 
 const useCartReducer = () => {
   type backupType = orderItem | cartItems | null;
@@ -28,7 +29,7 @@ const useCartReducer = () => {
         const items = state.items.reduce((acc, curr) => {
           if (curr.item.name === delItem.name) {
             count--;
-            total -= delItem.price;
+            total = roundNum(total - delItem.price);
             if (curr.count !== 1)
               return [...acc, { ...curr, count: curr.count - 1 }];
             if (curr.count === 1) return acc;
@@ -48,7 +49,7 @@ const useCartReducer = () => {
           if (curr.item.name === remItem.name) {
             setBackup({ item: remItem, count: curr.count });
             count -= curr.count;
-            total -= curr.count * curr.item.price;
+            total = roundNum(total - curr.count * curr.item.price);
             return acc;
           }
 
