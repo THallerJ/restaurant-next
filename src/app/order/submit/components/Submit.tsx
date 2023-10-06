@@ -1,5 +1,5 @@
 "use client";
-import YourOrder from "./YourOrder";
+import YourOrder from "./your_order/YourOrder";
 import YourInformation from "./YourInformation";
 import { useOrder } from "../../contexts/order_context/OrderContext";
 
