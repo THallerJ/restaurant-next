@@ -1,19 +1,22 @@
 "use client";
 import { ListDivider } from "@/components";
 import { useOrder } from "../../contexts/order_context/OrderContext";
-import DiscountCode from "./discount_code/DiscountCode";
-import { useState } from "react";
+import DiscountCode from "./DiscountCode";
 import { cartItems } from "../../types";
+import {
+  YourOrderContextProvider,
+  useYourOrder,
+} from "../contexts/YourOrderContext";
 
 const YourOrder = () => {
-  const [discountItems, setDiscountItems] = useState<cartItems | null>(null);
-
   return (
     <div className="flex flex-col">
       <h2 className="heading-sm self-start pb-1">Your order</h2>
       <div className="flex flex-col gap-8 sm:flex-row">
-        <OrderList discountItems={discountItems} />
-        <DiscountCode setDiscountItems={setDiscountItems} />
+        <YourOrderContextProvider>
+          <OrderList />
+          <DiscountCode />
+        </YourOrderContextProvider>
       </div>
     </div>
   );
@@ -21,8 +24,9 @@ const YourOrder = () => {
 
 export default YourOrder;
 
-const OrderList = ({ discountItems }: OrderListProps) => {
+const OrderList = () => {
   const { cartItems } = useOrder();
+  const { discountItems } = useYourOrder();
 
   return (
     <div className="flex w-full flex-col">
@@ -45,8 +49,4 @@ const Items = ({ items }: { items: cartItems }) => {
       <ListDivider show={index !== items.items.length - 1} />
     </>
   ));
-};
-
-type OrderListProps = {
-  discountItems: cartItems | null;
 };

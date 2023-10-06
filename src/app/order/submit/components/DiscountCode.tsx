@@ -1,16 +1,13 @@
 import { InputLabel, AnimatedButton } from "@/components";
-import { cartItems } from "../../../types";
-import { useOrder } from "../../../contexts/order_context/OrderContext";
-import { getDiscountPercent, roundNum } from "./utils";
+import { useOrder } from "../../contexts/order_context/OrderContext";
+import { discountCodes } from "@/constants";
 import { useState } from "react";
+import { useYourOrder } from "../contexts/YourOrderContext";
 
-type DiscountCodeProps = {
-  setDiscountItems: React.Dispatch<React.SetStateAction<cartItems | null>>;
-};
-
-const DiscountCode = ({ setDiscountItems }: DiscountCodeProps) => {
+const DiscountCode = () => {
   const { cartItems } = useOrder();
   const [currCode, setCurrCode] = useState("");
+  const { setDiscountItems } = useYourOrder();
 
   const getDiscount = () => {
     let total = cartItems.total;
@@ -49,6 +46,13 @@ const DiscountCode = ({ setDiscountItems }: DiscountCodeProps) => {
 };
 
 export default DiscountCode;
+
+const getDiscountPercent = (code: string): number => {
+  const item = discountCodes.find((elem) => elem.code === code);
+  return item ? item.percent / 100 : 0;
+};
+
+const roundNum = (num: number) => Number(num.toFixed(2));
 
 /* 
    count
