@@ -44,7 +44,9 @@ const CartItem = ({ item, index }: CartItemProps) => {
             +
           </button>
         </div>
-        <span className="w-[3ch] text-end">{`$${item.item.price}`}</span>
+        <span className="w-[3ch] text-end">{`$${item.item.price.toFixed(
+          2,
+        )}`}</span>
         <button onClick={() => setRemoveFlag(true)}>
           <Close className="h-3 w-3" />
         </button>

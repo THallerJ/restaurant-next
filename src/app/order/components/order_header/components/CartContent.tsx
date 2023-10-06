@@ -56,7 +56,9 @@ const CartContent = () => {
             <button className="btn" aria-label="checkout" onClick={onCheckout}>
               Checkout
             </button>
-            <p className="font-semibold text-dark">{`Total: $${cartItems.total}`}</p>
+            <p className="font-semibold text-dark">{`Total: $${cartItems.total.toFixed(
+              2,
+            )}`}</p>
           </div>
         </>
       ) : (
