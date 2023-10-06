@@ -32,7 +32,11 @@ const OrderList = () => {
     <div className="flex w-full flex-col">
       <Items items={discountItems ? discountItems : cartItems} />
       <div className="self-end pt-4">
-        <p className="text-lg font-semibold">{`Total: $${cartItems.total}`}</p>
+        <p className="text-lg font-semibold">{`Total: $${
+          discountItems
+            ? discountItems.total.toFixed(2)
+            : cartItems.total.toFixed(2)
+        }`}</p>
       </div>
     </div>
   );
@@ -44,7 +48,7 @@ const Items = ({ items }: { items: cartItems }) => {
       <div key={item.item.name} className="flex justify-between p-1">
         <span className="w-1/2">{item.item.name}</span>
         <span className="w-[3ch]">{item.count}</span>
-        <span>{`$${item.item.price}`}</span>
+        <span>{`$${item.item.price.toFixed(2)}`}</span>
       </div>
       <ListDivider show={index !== items.items.length - 1} />
     </>
