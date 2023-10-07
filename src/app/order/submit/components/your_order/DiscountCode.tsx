@@ -8,25 +8,33 @@ const DiscountCode = () => {
   const { cartItems } = useOrder();
   const [currCode, setCurrCode] = useState("");
   const { setDiscountItems } = useYourOrder();
+  const [discountPercent, setDiscountPercent] = useState(0);
+  const [discountCode, setDiscountCode] = useState<string | null>(null);
 
   const getDiscount = () => {
-    let total = cartItems.total;
-    const count = cartItems.count;
+    const discount = getDiscountPercent(currCode);
 
-    const items = cartItems.items.map((curr) => {
-      const prevPrice = curr.item.price;
-      const newPrice = roundNum(prevPrice * (1 - getDiscountPercent(currCode)));
+    if (discount > 0) {
+      let total = cartItems.total;
+      const count = cartItems.count;
 
-      total = roundNum(total - (prevPrice - newPrice));
+      const items = cartItems.items.map((curr) => {
+        const prevPrice = curr.item.price;
+        const newPrice = roundNum(prevPrice * (1 - discount));
 
-      return { ...curr, item: { ...curr.item, price: newPrice } };
-    });
+        total = roundNum(total - (prevPrice - newPrice));
 
-    setDiscountItems({ count, total, items });
+        return { ...curr, item: { ...curr.item, price: newPrice } };
+      });
+
+      setDiscountCode(currCode);
+      setDiscountPercent(discount);
+      setDiscountItems({ count, total, items });
+    }
   };
 
   return (
-    <div className="flex w-full justify-center sm:px-4">
+    <div className="flex w-full items-start justify-center sm:px-4">
       <div className="flex w-full flex-col items-center sm:w-5/6 lg:w-2/3">
         <InputLabel
           id="discount_code"
@@ -40,6 +48,10 @@ const DiscountCode = () => {
         <AnimatedButton className="mt-2" fullSize onClick={getDiscount}>
           Apply code
         </AnimatedButton>
+        <div className="mt-4 w-full rounded-lg border-2 border-green-400 px-2 py-1 text-sm">
+          {discountPercent * 100}% discount applied with code{" "}
+          <span className="rounded-lg bg-green-300 px-1">{discountCode}</span>!
+        </div>
       </div>
     </div>
   );
