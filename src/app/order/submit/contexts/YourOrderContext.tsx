@@ -10,13 +10,15 @@ type YourOrderContextProps = {
   discountPercent: number;
   discountCode: string | null;
   updateDiscount: (currCode: string) => void;
+  resetDiscount: () => void;
 };
 
 const initialState: YourOrderContextProps = {
   discountItems: null,
   discountPercent: 0,
   discountCode: null,
-  updateDiscount: (currCode: string) => {},
+  updateDiscount: () => {},
+  resetDiscount: () => {},
 };
 
 const YourOrderContext = createContext<YourOrderContextProps>(initialState);
@@ -55,11 +57,18 @@ export const YourOrderContextProvider = ({
     }
   };
 
+  const resetDiscount = () => {
+    setDiscountCode(null);
+    setDiscountItems(null);
+    setDiscountPercent(0);
+  };
+
   const value = {
     discountItems,
     discountPercent,
     discountCode,
     updateDiscount,
+    resetDiscount,
   };
 
   return (
