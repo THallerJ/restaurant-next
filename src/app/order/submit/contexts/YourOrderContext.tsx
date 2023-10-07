@@ -1,23 +1,22 @@
 "use client";
 import { createContext, useContext, useState } from "react";
 import { cartItems } from "@/app/order/types";
+import { useOrder } from "../../contexts/order_context/OrderContext";
+import { getDiscountPercent } from "../../utils";
+import { roundNum } from "../../utils";
 
 type YourOrderContextProps = {
   discountItems: cartItems | null;
-  setDiscountItems: React.Dispatch<React.SetStateAction<cartItems | null>>;
   discountPercent: number;
-  setDiscountPercent: React.Dispatch<React.SetStateAction<number>>;
   discountCode: string | null;
-  setDiscountCode: React.Dispatch<React.SetStateAction<string | null>>;
+  updateDiscount: (currCode: string) => void;
 };
 
 const initialState: YourOrderContextProps = {
   discountItems: null,
-  setDiscountItems: () => {},
   discountPercent: 0,
-  setDiscountPercent: () => {},
   discountCode: null,
-  setDiscountCode: () => {},
+  updateDiscount: (currCode: string) => {},
 };
 
 const YourOrderContext = createContext<YourOrderContextProps>(initialState);
@@ -32,14 +31,35 @@ export const YourOrderContextProvider = ({
   const [discountItems, setDiscountItems] = useState<cartItems | null>(null);
   const [discountPercent, setDiscountPercent] = useState(0);
   const [discountCode, setDiscountCode] = useState<string | null>(null);
+  const { cartItems } = useOrder();
+
+  const updateDiscount = (currCode: string) => {
+    const discount = getDiscountPercent(currCode);
+
+    if (discount > 0) {
+      let total = cartItems.total;
+      const count = cartItems.count;
+
+      const items = cartItems.items.map((curr) => {
+        const prevPrice = curr.item.price;
+        const newPrice = roundNum(prevPrice * (1 - discount));
+
+        total = roundNum(total - (prevPrice - newPrice));
+
+        return { ...curr, item: { ...curr.item, price: newPrice } };
+      });
+
+      setDiscountCode(currCode);
+      setDiscountPercent(discount);
+      setDiscountItems({ count, total, items });
+    }
+  };
 
   const value = {
     discountItems,
-    setDiscountItems,
     discountPercent,
-    setDiscountPercent,
     discountCode,
-    setDiscountCode,
+    updateDiscount,
   };
 
   return (

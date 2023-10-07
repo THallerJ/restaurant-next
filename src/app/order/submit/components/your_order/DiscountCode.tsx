@@ -1,37 +1,11 @@
 import { InputLabel, AnimatedButton } from "@/components";
-import { useOrder } from "../../../contexts/order_context/OrderContext";
 import { useState } from "react";
 import { useYourOrder } from "../../contexts/YourOrderContext";
-import { getDiscountPercent, roundNum } from "@/app/order/utils";
 import DiscountMessage from "./DiscountMessage";
 
 const DiscountCode = () => {
-  const { cartItems } = useOrder();
   const [currCode, setCurrCode] = useState("");
-  const { setDiscountItems, setDiscountCode, setDiscountPercent } =
-    useYourOrder();
-
-  const getDiscount = () => {
-    const discount = getDiscountPercent(currCode);
-
-    if (discount > 0) {
-      let total = cartItems.total;
-      const count = cartItems.count;
-
-      const items = cartItems.items.map((curr) => {
-        const prevPrice = curr.item.price;
-        const newPrice = roundNum(prevPrice * (1 - discount));
-
-        total = roundNum(total - (prevPrice - newPrice));
-
-        return { ...curr, item: { ...curr.item, price: newPrice } };
-      });
-
-      setDiscountCode(currCode);
-      setDiscountPercent(discount);
-      setDiscountItems({ count, total, items });
-    }
-  };
+  const { updateDiscount } = useYourOrder();
 
   return (
     <div className="flex w-full items-start justify-center sm:px-4">
@@ -45,7 +19,11 @@ const DiscountCode = () => {
           placeholder="_____"
           onChange={(e) => setCurrCode(e.target.value)}
         />
-        <AnimatedButton className="mt-2" fullSize onClick={getDiscount}>
+        <AnimatedButton
+          className="mt-2"
+          fullSize
+          onClick={() => updateDiscount(currCode)}
+        >
           Apply code
         </AnimatedButton>
         <DiscountMessage />
