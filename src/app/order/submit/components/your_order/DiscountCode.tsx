@@ -3,13 +3,13 @@ import { useOrder } from "../../../contexts/order_context/OrderContext";
 import { useState } from "react";
 import { useYourOrder } from "../../contexts/YourOrderContext";
 import { getDiscountPercent, roundNum } from "@/app/order/utils";
+import DiscountMessage from "./DiscountMessage";
 
 const DiscountCode = () => {
   const { cartItems } = useOrder();
   const [currCode, setCurrCode] = useState("");
-  const { setDiscountItems } = useYourOrder();
-  const [discountPercent, setDiscountPercent] = useState(0);
-  const [discountCode, setDiscountCode] = useState<string | null>(null);
+  const { setDiscountItems, setDiscountCode, setDiscountPercent } =
+    useYourOrder();
 
   const getDiscount = () => {
     const discount = getDiscountPercent(currCode);
@@ -48,10 +48,7 @@ const DiscountCode = () => {
         <AnimatedButton className="mt-2" fullSize onClick={getDiscount}>
           Apply code
         </AnimatedButton>
-        <div className="mt-4 w-full rounded-lg border-2 border-green-400 px-2 py-1 text-sm">
-          {discountPercent * 100}% discount applied with code{" "}
-          <span className="rounded-lg bg-green-300 px-1">{discountCode}</span>!
-        </div>
+        <DiscountMessage />
       </div>
     </div>
   );
