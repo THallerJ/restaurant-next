@@ -38,23 +38,21 @@ export const YourOrderContextProvider = ({
   const updateDiscount = (currCode: string) => {
     const discount = getDiscountPercent(currCode);
 
-    if (discount > 0) {
-      let total = cartItems.total;
-      const count = cartItems.count;
+    let total = cartItems.total;
+    const count = cartItems.count;
 
-      const items = cartItems.items.map((curr) => {
-        const prevPrice = curr.item.price;
-        const newPrice = roundNum(prevPrice * (1 - discount));
+    const items = cartItems.items.map((curr) => {
+      const prevPrice = curr.item.price;
+      const newPrice = roundNum(prevPrice * (1 - discount));
 
-        total = roundNum(total - (prevPrice - newPrice));
+      total = roundNum(total - (prevPrice - newPrice));
 
-        return { ...curr, item: { ...curr.item, price: newPrice } };
-      });
+      return { ...curr, item: { ...curr.item, price: newPrice } };
+    });
 
-      setDiscountCode(currCode);
-      setDiscountPercent(discount);
-      setDiscountItems({ count, total, items });
-    }
+    setDiscountCode(currCode);
+    setDiscountPercent(discount);
+    setDiscountItems({ count, total, items });
   };
 
   const resetDiscount = () => {

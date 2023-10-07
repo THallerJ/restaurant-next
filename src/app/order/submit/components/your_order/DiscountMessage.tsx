@@ -1,15 +1,23 @@
 import { Close } from "@/assets";
 import { useYourOrder } from "../../contexts/YourOrderContext";
+import { useNotify } from "@/hooks";
 //show red error when wrong disocunt applied and give hint towards codes, need to useNotify also flatten all folders all hooks contexts etc should be in root of thing
 const DiscountMessage = () => {
-  const { discountCode, discountPercent, resetDiscount } = useYourOrder();
+  const { discountCode } = useYourOrder();
+  return discountCode ? <Message /> : null;
+};
 
-  return discountCode ? (
+export default DiscountMessage;
+
+const Message = () => {
+  const { discountPercent, discountCode, resetDiscount } = useYourOrder();
+
+  return discountPercent > 0 ? (
     <div
       className="mt-4 flex w-full justify-center rounded-lg border-2 
-      border-green-400 px-2 py-1 text-sm"
+  border-green-400 px-2 py-1 text-sm"
     >
-      <p className="">
+      <p>
         {discountPercent * 100}% discount applied with code{" "}
         <span className="rounded-lg bg-green-300 px-1">{discountCode}</span>!
       </p>
@@ -17,7 +25,7 @@ const DiscountMessage = () => {
         <Close className="h-3 w-3" />
       </button>
     </div>
-  ) : null;
+  ) : (
+    <p className="message absolute top-full mt-2">Invalid code</p>
+  );
 };
-
-export default DiscountMessage;
