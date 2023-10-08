@@ -5,11 +5,10 @@ import DiscountMessage from "./DiscountMessage";
 
 const DiscountCode = () => {
   const [currCode, setCurrCode] = useState("");
-  const { updateDiscount, notifyDiscount } = useYourOrder();
+  const { updateDiscount } = useYourOrder();
 
   const applyCode = () => {
     updateDiscount(currCode);
-    notifyDiscount();
   };
 
   return (
