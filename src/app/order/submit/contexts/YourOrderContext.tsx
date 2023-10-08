@@ -4,6 +4,7 @@ import { cartItems } from "@/app/order/types";
 import { useOrder } from "../../contexts/order_context/OrderContext";
 import { getDiscountPercent } from "../../utils";
 import { roundNum } from "../../utils";
+import { useNotify } from "@/hooks";
 
 type YourOrderContextProps = {
   discountItems: cartItems | null;
@@ -11,6 +12,8 @@ type YourOrderContextProps = {
   discountCode: string | null;
   updateDiscount: (currCode: string) => void;
   resetDiscount: () => void;
+  notifiedDiscount: boolean;
+  notifyDiscount: () => void;
 };
 
 const initialState: YourOrderContextProps = {
@@ -19,6 +22,8 @@ const initialState: YourOrderContextProps = {
   discountCode: null,
   updateDiscount: () => {},
   resetDiscount: () => {},
+  notifiedDiscount: false,
+  notifyDiscount: () => {},
 };
 
 const YourOrderContext = createContext<YourOrderContextProps>(initialState);
@@ -34,6 +39,7 @@ export const YourOrderContextProvider = ({
   const [discountPercent, setDiscountPercent] = useState(0);
   const [discountCode, setDiscountCode] = useState<string | null>(null);
   const { cartItems } = useOrder();
+  const [notifiedDiscount, notifyDiscount] = useNotify();
 
   const updateDiscount = (currCode: string) => {
     const discount = getDiscountPercent(currCode);
@@ -67,6 +73,8 @@ export const YourOrderContextProvider = ({
     discountCode,
     updateDiscount,
     resetDiscount,
+    notifiedDiscount,
+    notifyDiscount,
   };
 
   return (

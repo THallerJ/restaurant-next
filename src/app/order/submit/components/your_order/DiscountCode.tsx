@@ -5,7 +5,12 @@ import DiscountMessage from "./DiscountMessage";
 
 const DiscountCode = () => {
   const [currCode, setCurrCode] = useState("");
-  const { updateDiscount } = useYourOrder();
+  const { updateDiscount, notifyDiscount } = useYourOrder();
+
+  const applyCode = () => {
+    updateDiscount(currCode);
+    notifyDiscount();
+  };
 
   return (
     <div className="flex w-full items-start justify-center sm:px-4">
@@ -19,11 +24,7 @@ const DiscountCode = () => {
           placeholder="_____"
           onChange={(e) => setCurrCode(e.target.value)}
         />
-        <AnimatedButton
-          className="mt-2"
-          fullSize
-          onClick={() => updateDiscount(currCode)}
-        >
+        <AnimatedButton className="mt-2" fullSize onClick={applyCode}>
           Apply code
         </AnimatedButton>
         <DiscountMessage />
