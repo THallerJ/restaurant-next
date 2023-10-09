@@ -9,6 +9,7 @@ import Hours from "./Hours";
 import AnimatedButton from "./AnimatedButton";
 import ListDivider from "./ListDivider";
 import InputLabel from "./InputLabel";
+import Message from "./Message";
 
 export {
   MenuButton,
@@ -21,6 +22,7 @@ export {
   AnimatedButton,
   ListDivider,
   InputLabel,
+  Message,
 };
 
 export type { imageType };
