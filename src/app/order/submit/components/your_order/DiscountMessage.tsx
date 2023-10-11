@@ -32,7 +32,9 @@ const DiscountInfo = () => {
 const InvalidDiscount = () => {
   const { notifiedDiscount } = useYourOrder();
 
-  return notifiedDiscount ? (
-    <Message pos="top-full mt-2">Invalid Code</Message>
-  ) : null;
+  return (
+    <Message pos="top-full mt-2" condition={notifiedDiscount}>
+      Invalid Code
+    </Message>
+  );
 };

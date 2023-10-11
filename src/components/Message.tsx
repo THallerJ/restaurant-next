@@ -1,10 +1,11 @@
 type MessageProps = {
   children: React.ReactNode;
+  condition: boolean;
   pos: string;
 };
 
-const Message = ({ children, pos }: MessageProps) => {
-  return (
+const Message = ({ children, condition, pos }: MessageProps) => {
+  return condition ? (
     <div className={`absolute bg-white ${pos}`}>
       <p
         className="rounded-lg border-2 border-primary/50 
@@ -13,7 +14,7 @@ const Message = ({ children, pos }: MessageProps) => {
         {children}
       </p>
     </div>
-  );
+  ) : null;
 };
 
 export default Message;
