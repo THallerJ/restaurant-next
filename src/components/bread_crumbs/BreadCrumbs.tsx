@@ -6,6 +6,7 @@ import ListItem from "./components/ListItem";
 import Crumb from "./components/Crumb";
 import CrumbContent from "./components/CrumbContent";
 import FinalCrumb from "./components/FinalCrumb";
+import Message from "../Message";
 
 type BreadcrumbsProps = {
   title?: string;
@@ -78,11 +79,13 @@ const Breadcrumbs = ({
             ) : (
               <CrumbNode />
             )}
-            {notified && blockMessage ? (
-              <label className="message top-[105%]">
-                {blockMessage ? blockMessage : ""}
-              </label>
-            ) : null}
+
+            <Message
+              condition={notified && blockMessage !== undefined}
+              pos="top-full mt-2"
+            >
+              {blockMessage}
+            </Message>
           </div>
         </>
       ) : (
