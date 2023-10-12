@@ -1,10 +1,7 @@
 "use client";
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext } from "react";
 import { cartItems } from "@/app/order/types";
-import { useOrder } from "../../contexts/order_context/OrderContext";
-import { getDiscountPercent } from "../../utils";
-import { roundNum } from "../../utils";
-import { useNotify } from "@/hooks";
+import useDiscount from "./hooks/useDiscount";
 
 type YourOrderContextProps = {
   discountItems: cartItems | null;
@@ -35,44 +32,15 @@ type YourOrderContextProviderProps = {
 export const YourOrderContextProvider = ({
   children,
 }: YourOrderContextProviderProps) => {
-  const [discountItems, setDiscountItems] = useState<cartItems | null>(null);
-  const [discountPercent, setDiscountPercent] = useState(0);
-  const [discountCode, setDiscountCode] = useState<string | null>(null);
-  const { cartItems } = useOrder();
-  const [notifiedDiscount, notifyDiscount] = useNotify();
-  const [resetFlag, setResetFlag] = useState(false);
-
-  const updateDiscount = (currCode: string) => {
-    const discount = getDiscountPercent(currCode);
-
-    let total = cartItems.total;
-    const count = cartItems.count;
-
-    const items = cartItems.items.map((curr) => {
-      const prevPrice = curr.item.price;
-      const newPrice = roundNum(prevPrice * (1 - discount));
-
-      total = roundNum(total - (prevPrice - newPrice));
-
-      return { ...curr, item: { ...curr.item, price: newPrice } };
-    });
-
-    setDiscountCode(currCode);
-    setDiscountPercent(discount);
-    setDiscountItems({ count, total, items });
-    notifyDiscount();
-  };
-
-  const resetDiscount = () => {
-    setResetFlag(true);
-    setDiscountCode(null);
-    setDiscountItems(null);
-    setDiscountPercent(0);
-  };
-
-  useEffect(() => {
-    if (!notifiedDiscount) setResetFlag(false);
-  }, [notifiedDiscount]);
+  const {
+    discountItems,
+    discountPercent,
+    discountCode,
+    notifiedDiscount,
+    updateDiscount,
+    resetFlag,
+    resetDiscount,
+  } = useDiscount();
 
   const value = {
     discountItems,
