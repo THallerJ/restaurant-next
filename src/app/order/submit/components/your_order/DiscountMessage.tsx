@@ -3,12 +3,12 @@ import { useYourOrder } from "../../contexts/YourOrderContext";
 import { Message } from "@/components";
 
 const DiscountMessage = () => {
-  const { discountPercent, notifiedDiscount } = useYourOrder();
+  const { discountPercent, notifiedDiscount, resetFlag } = useYourOrder();
 
   return discountPercent > 0 ? (
     <DiscountInfo />
   ) : (
-    <Message pos="top-full mt-2" condition={notifiedDiscount}>
+    <Message pos="top-full mt-2" condition={notifiedDiscount && !resetFlag}>
       Invalid Code
     </Message>
   );

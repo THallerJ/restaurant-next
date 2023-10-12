@@ -1,5 +1,5 @@
 "use client";
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { cartItems } from "@/app/order/types";
 import { useOrder } from "../../contexts/order_context/OrderContext";
 import { getDiscountPercent } from "../../utils";
@@ -13,6 +13,7 @@ type YourOrderContextProps = {
   updateDiscount: (currCode: string) => void;
   resetDiscount: () => void;
   notifiedDiscount: boolean;
+  resetFlag: boolean;
 };
 
 const initialState: YourOrderContextProps = {
@@ -22,6 +23,7 @@ const initialState: YourOrderContextProps = {
   updateDiscount: () => {},
   resetDiscount: () => {},
   notifiedDiscount: false,
+  resetFlag: false,
 };
 
 const YourOrderContext = createContext<YourOrderContextProps>(initialState);
@@ -38,6 +40,7 @@ export const YourOrderContextProvider = ({
   const [discountCode, setDiscountCode] = useState<string | null>(null);
   const { cartItems } = useOrder();
   const [notifiedDiscount, notifyDiscount] = useNotify();
+  const [resetFlag, setResetFlag] = useState(false);
 
   const updateDiscount = (currCode: string) => {
     const discount = getDiscountPercent(currCode);
@@ -61,10 +64,15 @@ export const YourOrderContextProvider = ({
   };
 
   const resetDiscount = () => {
+    setResetFlag(true);
     setDiscountCode(null);
     setDiscountItems(null);
     setDiscountPercent(0);
   };
+
+  useEffect(() => {
+    if (!notifiedDiscount) setResetFlag(false);
+  }, [notifiedDiscount]);
 
   const value = {
     discountItems,
@@ -73,6 +81,7 @@ export const YourOrderContextProvider = ({
     updateDiscount,
     resetDiscount,
     notifiedDiscount,
+    resetFlag,
   };
 
   return (
