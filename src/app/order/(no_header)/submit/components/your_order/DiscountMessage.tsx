@@ -26,9 +26,9 @@ const DiscountInfo = () => {
   return (
     <div
       className="mt-4 flex w-full justify-center rounded-lg border-2 
-      border-green-400 px-2 py-1 text-sm"
+      border-green-400 p-3 text-sm"
     >
-      <p>
+      <p className="font-semibold">
         {discountPercent * 100}% discount applied with code{" "}
         <span className="rounded-lg bg-green-300 px-1">{discountCode}</span>!
       </p>
