@@ -10,7 +10,7 @@ const DiscountMessage = () => {
   ) : (
     <Message
       full
-      pos="top-full mt-2"
+      pos="top-full mt-4"
       condition={notifiedDiscount && !resetFlag}
     >
       Invalid Code! Hint: try 00000, 11111, 22222, or 33333.
