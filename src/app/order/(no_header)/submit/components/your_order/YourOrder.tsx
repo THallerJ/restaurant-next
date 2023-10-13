@@ -1,8 +1,8 @@
 "use client";
 import { ListDivider } from "@/components";
-import { useOrder } from "../../../contexts/order_context/OrderContext";
+import { useOrder } from "../../../../contexts/order_context/OrderContext";
 import DiscountCode from "./DiscountCode";
-import { cartItems } from "../../../types";
+import { cartItems } from "../../../../types";
 import {
   YourOrderContextProvider,
   useYourOrder,

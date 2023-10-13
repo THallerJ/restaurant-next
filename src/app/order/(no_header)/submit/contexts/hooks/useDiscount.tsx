@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { cartItems } from "@/app/order/types";
-import { useOrder } from "../../../contexts/order_context/OrderContext";
+import { useOrder } from "../../../../contexts/order_context/OrderContext";
 import { getDiscountPercent, roundNum } from "@/app/order/utils";
 import { useNotify } from "@/hooks";
 
