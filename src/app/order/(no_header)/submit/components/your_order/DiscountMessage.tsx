@@ -8,7 +8,11 @@ const DiscountMessage = () => {
   return discountPercent > 0 ? (
     <DiscountInfo />
   ) : (
-    <Message pos="top-full mt-2" condition={notifiedDiscount && !resetFlag}>
+    <Message
+      full
+      pos="top-full mt-2"
+      condition={notifiedDiscount && !resetFlag}
+    >
       Invalid Code
     </Message>
   );
