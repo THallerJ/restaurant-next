@@ -9,7 +9,7 @@ const useDiscount = () => {
   const [discountItems, setDiscountItems] = useState<cartItems | null>(null);
   const [discountPercent, setDiscountPercent] = useState(0);
   const [discountCode, setDiscountCode] = useState<string | null>(null);
-  const [notifiedDiscount, notifyDiscount] = useNotify();
+  const [notifiedDiscount, notifyDiscount] = useNotify(3000);
   const [resetFlag, setResetFlag] = useState(false);
 
   const updateDiscount = (currCode: string) => {
