@@ -18,7 +18,7 @@ export default Submit;
 const OrderForm = () => (
   <form
     onSubmit={(e) => e.preventDefault()}
-    className="flex w-full flex-col gap-16
+    className="flex w-full flex-col gap-4
       rounded-lg border-4 border-dark bg-white p-4"
   >
     <YourOrder />

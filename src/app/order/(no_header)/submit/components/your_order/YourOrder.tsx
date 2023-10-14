@@ -13,7 +13,7 @@ const YourOrder = () => {
   return (
     <div className="flex flex-col">
       <h2 className="heading-sm self-start pb-1">Your order</h2>
-      <div className="flex flex-col gap-8 sm:flex-row">
+      <div className="flex flex-col gap-4 sm:flex-row">
         <YourOrderContextProvider>
           <OrderList />
           <DiscountCode />

@@ -10,7 +10,7 @@ const YourInformation = () => {
   return (
     <div>
       <h2 className="heading-sm pb-1">Your information</h2>
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 rounded-lg border-2 border-dark/20 p-4">
         <InputList
           text={time !== null ? formatTime(...time) : undefined}
           items={generateTimes(new Date())}
