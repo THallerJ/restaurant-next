@@ -26,6 +26,7 @@ import Time from "./icons/time.svg";
 import Cart from "./icons/cart.svg";
 import Checkmark from "./icons/checkmark.svg";
 import Undo from "./icons/undo.svg";
+import Add from "./icons/add.svg";
 
 export {
   Logo,
@@ -56,4 +57,5 @@ export {
   Cart,
   Checkmark,
   Undo,
+  Add,
 };
