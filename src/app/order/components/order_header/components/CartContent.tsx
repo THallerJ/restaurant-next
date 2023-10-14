@@ -30,7 +30,7 @@ const CartContent = () => {
         cartItems.count > 0 ? "justify-between" : "justify-start"
       }`}
     >
-      <div className="flex justify-between px-4 pt-4">
+      <div className="flex justify-between p-4">
         <h2 className="heading-sm font-normal">Cart</h2>
         <button
           className={`text-sm font-normal lowercase text-dark ${
@@ -44,7 +44,7 @@ const CartContent = () => {
       {cartItems.count > 0 ? (
         <>
           <div
-            className={`flex h-full flex-col overflow-auto p-4 transition-opacity 
+            className={`flex h-full flex-col overflow-auto overscroll-contain p-4 transition-opacity 
               duration-300 ${clearFlag ? "opacity-0" : null}`}
             onTransitionEnd={onClear}
           >
@@ -52,7 +52,7 @@ const CartContent = () => {
               <CartItem key={item.item.name} item={item} index={index} />
             ))}
           </div>
-          <div className="flex items-end justify-between px-4 py-2">
+          <div className="flex items-end justify-between p-4">
             <button className="btn" aria-label="checkout" onClick={onCheckout}>
               Checkout
             </button>
