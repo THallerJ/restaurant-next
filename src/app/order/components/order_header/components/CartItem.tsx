@@ -26,9 +26,9 @@ const CartItem = ({ item, index }: CartItemProps) => {
   };
 
   return (
-    <div className="flex flex-col ">
+    <div className="flex flex-col">
       <div
-        className={`flex items-center justify-between py-2 text-sm
+        className={`flex items-center justify-between p-3 text-sm
           transition-opacity duration-300 ${removeFlag ? "opacity-0" : null}`}
         onTransitionEnd={() => {
           onRemove(item);
