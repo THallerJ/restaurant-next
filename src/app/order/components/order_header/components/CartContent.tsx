@@ -52,7 +52,10 @@ const CartContent = () => {
               <CartItem key={item.item.name} item={item} index={index} />
             ))}
           </div>
-          <div className="relative z-0 flex items-end justify-between p-4">
+          <div
+            className="relative z-0 flex items-end justify-between p-4"
+            style={{ boxShadow: "0px 5px 10px black" }}
+          >
             <button className="btn" aria-label="checkout" onClick={onCheckout}>
               Checkout
             </button>
