@@ -26,7 +26,7 @@ const CartContent = () => {
 
   return (
     <div
-      className={` relative flex h-full flex-col overflow-hidden ${
+      className={`relative flex h-full flex-col overflow-hidden ${
         cartItems.count > 0 ? "justify-between" : "justify-start"
       }`}
     >
@@ -53,7 +53,7 @@ const CartContent = () => {
             ))}
           </div>
           <div
-            className="relative z-0 flex items-end justify-between p-4"
+            className="mt-1 flex items-end justify-between p-4 shadow-md"
             style={{ boxShadow: "0px 5px 10px black" }}
           >
             <button className="btn" aria-label="checkout" onClick={onCheckout}>
