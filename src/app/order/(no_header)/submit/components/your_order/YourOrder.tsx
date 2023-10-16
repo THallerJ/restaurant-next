@@ -8,6 +8,7 @@ import {
   useYourOrder,
 } from "../../contexts/YourOrderContext";
 import { Add } from "@/assets";
+import { useRouter } from "next/navigation";
 
 const YourOrder = () => {
   return (
@@ -46,7 +47,7 @@ const OrderList = () => {
 
 const Items = ({ items }: { items: cartItems }) => {
   return (
-    <div className="rounded-t-lg border-2 border-dark/25 p-2">
+    <div className="rounded-t-lg border-2 border-dark/25 p-2 shadow-sm">
       {items.items.map((item, index) => (
         <>
           <div key={item.item.name} className="flex justify-between p-2">
@@ -62,10 +63,13 @@ const Items = ({ items }: { items: cartItems }) => {
 };
 
 const AddItems = () => {
+  const router = useRouter();
+
   return (
     <button
-      className="flex items-center justify-center gap-2 rounded-b-lg border-x-2 border-b-2 border-dark/25 p-3"
-      onClick={() => console.log("pressed")}
+      className="flex items-center justify-center gap-2 rounded-b-lg 
+        border-x-2 border-b-2 border-dark/25 p-3 shadow-sm"
+      onClick={() => router.push("/order/all")}
     >
       <Add className="mb-1 h-10 w-10" />
       <span className="font-semibold">Add items to cart</span>
