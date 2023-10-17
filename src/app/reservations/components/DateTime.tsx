@@ -32,7 +32,7 @@ const DateTime = () => {
           text={guestNum ? `${getGuest(guestNum)}` : undefined}
           className={inputStyle}
           items={guestNums}
-          placeholder="##"
+          placeholder="#"
           onSelect={updateGuestNum}
           format={(item) => `${getGuest(item)}`}
           Icon={People}

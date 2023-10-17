@@ -11,7 +11,7 @@ const Welcome = () => {
           text-fourth lg:justify-center"
       >
         <h2
-          className="w-full font-bebas text-[4rem] uppercase leading-[4rem] sm:text-[6rem] 
+          className="w-full font-bebas text-[4rem] uppercase leading-[4rem] sm:text-[5rem] 
 					  sm:leading-[5rem] md:text-[4.5rem]"
         >
           Welcome <br className="xl:hidden" />
