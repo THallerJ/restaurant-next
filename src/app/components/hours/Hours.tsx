@@ -13,8 +13,9 @@ const Hours = () => {
       <div className="pair flex flex-col items-center">
         <span className="heading">Hours</span>
         <div
-          className="flex w-full flex-col items-center gap-2 overflow-hidden 
-            rounded-lg border-2 border-dark p-4 text-xs font-bold sm:text-base"
+          className="flex w-full flex-col items-center gap-2 
+            overflow-hidden rounded-lg border-2 border-dark p-4 
+            font-bold sm:text-base"
         >
           <OpenHours spacing={3} />
         </div>
@@ -22,7 +23,7 @@ const Hours = () => {
       </div>
       <Image
         src={open}
-        className="pair self-center rounded-lg shadow-md lg:self-start"
+        className="pair max-w-full self-center rounded-lg shadow-md lg:self-start"
         alt="open"
       />
     </section>
