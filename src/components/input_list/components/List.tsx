@@ -7,7 +7,7 @@ type InputListProps<T> = {
   toggled: boolean;
   setToggled: React.Dispatch<React.SetStateAction<boolean>>;
 };
-//move util functions out of component body when possibel
+
 const List = <T,>({
   items,
   text,
