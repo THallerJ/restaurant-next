@@ -18,8 +18,8 @@ const CartButton = () => {
           <Cart className="h-7 w-7" />
           {cartItems.count > 0 ? (
             <div
-              className="absolute bottom-1 left-4 flex h-5 w-5 items-center justify-center 
-                rounded-full bg-dark"
+              className="absolute bottom-1 left-4 flex h-5 w-5 items-center 
+                justify-center rounded-full bg-dark"
             >
               <span className="text-sm font-semibold text-offwhite">
                 {cartItems.count}

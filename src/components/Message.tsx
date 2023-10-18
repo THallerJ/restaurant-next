@@ -10,7 +10,7 @@ const Message = ({ children, condition, pos, full }: MessageProps) => {
     <div className={`absolute bg-white ${full ? "w-full" : null} ${pos}`}>
       <p
         className="rounded-lg border-2 border-primary/50 
-        bg-third/20 p-3 text-sm font-semibold text-black"
+        bg-third/20 p-4 text-sm font-semibold text-black"
       >
         {children}
       </p>
