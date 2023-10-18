@@ -3,16 +3,12 @@ import { useYourOrder } from "../../contexts/YourOrderContext";
 import { Message } from "@/components";
 
 const DiscountMessage = () => {
-  const { notifiedDiscount, resetFlag } = useYourOrder();
+  const { resetFlag, invalidFlag } = useYourOrder();
 
   return (
     <>
       <DiscountInfo />
-      <Message
-        full
-        pos="top-full mt-4"
-        condition={notifiedDiscount && !resetFlag}
-      >
+      <Message full pos="top-full mt-4" condition={invalidFlag && !resetFlag}>
         Invalid Code! Hint: try 00000, 11111, 22222, or 33333.
       </Message>
     </>

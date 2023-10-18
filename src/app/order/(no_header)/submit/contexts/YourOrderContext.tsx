@@ -9,8 +9,8 @@ type YourOrderContextProps = {
   discountCode: string | null;
   updateDiscount: (currCode: string) => void;
   resetDiscount: () => void;
-  notifiedDiscount: boolean;
   resetFlag: boolean;
+  invalidFlag: boolean;
 };
 
 const initialState: YourOrderContextProps = {
@@ -19,8 +19,8 @@ const initialState: YourOrderContextProps = {
   discountCode: null,
   updateDiscount: () => {},
   resetDiscount: () => {},
-  notifiedDiscount: false,
   resetFlag: false,
+  invalidFlag: false,
 };
 
 const YourOrderContext = createContext<YourOrderContextProps>(initialState);
@@ -36,10 +36,10 @@ export const YourOrderContextProvider = ({
     discountItems,
     discountPercent,
     discountCode,
-    notifiedDiscount,
     updateDiscount,
     resetFlag,
     resetDiscount,
+    invalidFlag,
   } = useDiscount();
 
   const value = {
@@ -48,8 +48,8 @@ export const YourOrderContextProvider = ({
     discountCode,
     updateDiscount,
     resetDiscount,
-    notifiedDiscount,
     resetFlag,
+    invalidFlag,
   };
 
   return (
