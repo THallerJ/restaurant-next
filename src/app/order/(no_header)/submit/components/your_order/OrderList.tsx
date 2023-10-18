@@ -55,7 +55,7 @@ const Total = () => {
       <p className="text-lg font-semibold">
         Total: {discountItems ? <s>${cartItems.total.toFixed(2)}</s> : null} $
         {discountItems
-          ? discountItems.total.toFixed(2)
+          ? discountItems?.total.toFixed(2)
           : cartItems.total.toFixed(2)}
       </p>
     </div>
