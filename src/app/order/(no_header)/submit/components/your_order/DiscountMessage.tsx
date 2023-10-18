@@ -3,18 +3,19 @@ import { useYourOrder } from "../../contexts/YourOrderContext";
 import { Message } from "@/components";
 
 const DiscountMessage = () => {
-  const { discountPercent, notifiedDiscount, resetFlag } = useYourOrder();
+  const { notifiedDiscount, resetFlag } = useYourOrder();
 
-  return discountPercent > 0 ? (
-    <DiscountInfo />
-  ) : (
-    <Message
-      full
-      pos="top-full mt-4"
-      condition={notifiedDiscount && !resetFlag}
-    >
-      Invalid Code! Hint: try 00000, 11111, 22222, or 33333.
-    </Message>
+  return (
+    <>
+      <DiscountInfo />
+      <Message
+        full
+        pos="top-full mt-4"
+        condition={notifiedDiscount && !resetFlag}
+      >
+        Invalid Code! Hint: try 00000, 11111, 22222, or 33333.
+      </Message>
+    </>
   );
 };
 
@@ -23,7 +24,7 @@ export default DiscountMessage;
 const DiscountInfo = () => {
   const { discountPercent, discountCode, resetDiscount } = useYourOrder();
 
-  return (
+  return discountPercent > 0 ? (
     <div
       className="mt-4 flex w-full justify-between gap-2 rounded-lg border-2 
       border-green-400 bg-green-100 p-4 text-sm"
@@ -36,5 +37,5 @@ const DiscountInfo = () => {
         <Close className="h-3 w-3" />
       </button>
     </div>
-  );
+  ) : null;
 };

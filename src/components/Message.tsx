@@ -1,12 +1,12 @@
 type MessageProps = {
   children: React.ReactNode;
-  condition: boolean;
+  condition?: boolean;
   pos: string;
   full?: boolean;
 };
 
 const Message = ({ children, condition, pos, full }: MessageProps) => {
-  return condition ? (
+  return condition || condition === undefined ? (
     <div className={`absolute bg-white ${full ? "w-full" : null} ${pos}`}>
       <p
         className="rounded-lg border-2 border-primary/50 

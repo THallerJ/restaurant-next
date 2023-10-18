@@ -27,9 +27,12 @@ const useDiscount = () => {
       return { ...curr, item: { ...curr.item, price: newPrice } };
     });
 
-    setDiscountCode(currCode);
-    setDiscountPercent(discount);
-    if (cartItems.total !== total) setDiscountItems({ count, total, items });
+    if (discount > 0) {
+      setDiscountCode(currCode);
+      setDiscountPercent(discount);
+      setDiscountItems({ count, total, items });
+    }
+
     notifyDiscount();
   };
 
