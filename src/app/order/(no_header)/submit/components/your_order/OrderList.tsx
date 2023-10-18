@@ -22,13 +22,7 @@ const OrderList = () => {
         <Add className="mb-1 h-10 w-10" />
         <span className="font-semibold">Add items to cart</span>
       </button>
-      <div className="self-end pt-4">
-        <p className="text-lg font-semibold">{`Total: $${
-          discountItems
-            ? discountItems.total.toFixed(2)
-            : cartItems.total.toFixed(2)
-        }`}</p>
-      </div>
+      <Total />
     </div>
   );
 };
@@ -48,6 +42,22 @@ const Items = ({ items }: { items: cartItems }) => {
           <ListDivider show={index !== items.items.length - 1} />
         </>
       ))}
+    </div>
+  );
+};
+
+const Total = () => {
+  const { cartItems } = useOrder();
+  const { discountItems } = useYourOrder();
+
+  return (
+    <div className="self-end pt-4">
+      <p className="text-lg font-semibold">
+        Total: {discountItems ? <s>${cartItems.total.toFixed(2)}</s> : null} $
+        {discountItems
+          ? discountItems.total.toFixed(2)
+          : cartItems.total.toFixed(2)}
+      </p>
     </div>
   );
 };
