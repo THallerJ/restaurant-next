@@ -38,8 +38,8 @@ const Items = () => {
             key={item.item.name}
             className="flex justify-between bg-blue-200 p-2"
           >
-            <span className="w-2/3 bg-green-100">{item.item.name}</span>
-            <span className="w-1/5 bg-cyan-100 text-center">{item.count}</span>
+            <span className="w-1/2 bg-green-100">{item.item.name}</span>
+            <span className="w-1/6 bg-cyan-100 text-center">{item.count}</span>
             <div className="flex w-1/3 justify-between gap-8 bg-red-100">
               <span>
                 {discountItems ? (
