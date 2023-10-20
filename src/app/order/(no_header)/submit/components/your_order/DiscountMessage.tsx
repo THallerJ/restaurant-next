@@ -2,13 +2,22 @@ import { Close } from "@/assets";
 import { useYourOrder } from "../../contexts/YourOrderContext";
 import { Message } from "@/components";
 
-const DiscountMessage = () => {
+type DiscountMessageProps = {
+  currCode: string;
+  setCurrCode: React.Dispatch<React.SetStateAction<string>>;
+};
+
+const DiscountMessage = ({ setCurrCode, currCode }: DiscountMessageProps) => {
   const { resetFlag, invalidFlag } = useYourOrder();
 
   return (
     <>
-      <DiscountInfo />
-      <Message full pos="top-full mt-4" condition={invalidFlag && !resetFlag}>
+      <DiscountInfo setCurrCode={setCurrCode} />
+      <Message
+        full
+        pos="top-full mt-4"
+        condition={invalidFlag && (currCode === "" || !resetFlag)}
+      >
         Invalid Code! Hint: try 00000, 11111, 22222, or 33333.
       </Message>
     </>
@@ -17,7 +26,11 @@ const DiscountMessage = () => {
 
 export default DiscountMessage;
 
-const DiscountInfo = () => {
+type DiscountInfoProps = {
+  setCurrCode: React.Dispatch<React.SetStateAction<string>>;
+};
+
+const DiscountInfo = ({ setCurrCode }: DiscountInfoProps) => {
   const { discountPercent, discountCode, resetDiscount } = useYourOrder();
 
   return discountPercent > 0 ? (
@@ -29,7 +42,13 @@ const DiscountInfo = () => {
         {discountPercent * 100}% discount applied with code{" "}
         <span className="rounded-lg bg-green-300 px-1">{discountCode}</span>!
       </p>
-      <button onClick={resetDiscount} className="my-1 flex items-start">
+      <button
+        onClick={() => {
+          resetDiscount();
+          setCurrCode("");
+        }}
+        className="my-1 flex items-start"
+      >
         <Close className="h-3 w-3" />
       </button>
     </div>

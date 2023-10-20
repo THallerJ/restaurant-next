@@ -17,6 +17,7 @@ const DiscountCode = () => {
           mask="_"
           label="Discount Code"
           placeholder="_____"
+          patternValue={currCode}
           onChange={(e) => setCurrCode(e.target.value)}
         />
         <AnimatedButton
@@ -26,7 +27,7 @@ const DiscountCode = () => {
         >
           Apply code
         </AnimatedButton>
-        <DiscountMessage />
+        <DiscountMessage currCode={currCode} setCurrCode={setCurrCode} />
       </div>
     </div>
   );
