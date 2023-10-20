@@ -8,22 +8,19 @@ type DiscountMessageProps = {
 };
 
 const DiscountMessage = ({ setCurrCode, currCode }: DiscountMessageProps) => {
-  const { resetFlag, invalidFlag, discountPercent } = useYourOrder();
+  const { resetFlag, invalidFlag } = useYourOrder();
 
   return (
-    <>
-      {discountPercent > 0 && !invalidFlag ? (
-        <DiscountInfo setCurrCode={setCurrCode} />
-      ) : (
-        <Message
-          full
-          pos="top-full mt-4 z-50"
-          condition={invalidFlag && (currCode === "" || !resetFlag)}
-        >
-          Invalid Code! Hint: try 00000, 11111, 22222, or 33333.
-        </Message>
-      )}
-    </>
+    <div className="relative w-full">
+      <DiscountInfo setCurrCode={setCurrCode} />
+      <Message
+        full
+        pos="top-0 mt-4 z-50"
+        condition={invalidFlag && (currCode === "" || !resetFlag)}
+      >
+        Invalid Code! Hint: try 00000, 11111, 22222, or 33333.
+      </Message>
+    </div>
   );
 };
 
@@ -36,7 +33,7 @@ type DiscountInfoProps = {
 const DiscountInfo = ({ setCurrCode }: DiscountInfoProps) => {
   const { discountPercent, discountCode, resetDiscount } = useYourOrder();
 
-  return (
+  return discountPercent > 0 ? (
     <div
       className="mt-4 flex w-full justify-between gap-2 rounded-lg border-2 
       border-green-400 bg-green-100 p-2 text-sm"
@@ -55,5 +52,5 @@ const DiscountInfo = ({ setCurrCode }: DiscountInfoProps) => {
         <Close className="h-3 w-3" />
       </button>
     </div>
-  );
+  ) : null;
 };
