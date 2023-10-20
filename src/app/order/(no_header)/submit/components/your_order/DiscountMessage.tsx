@@ -36,7 +36,7 @@ const DiscountInfo = ({ setCurrCode }: DiscountInfoProps) => {
   return discountPercent > 0 ? (
     <div
       className="mt-4 flex w-full justify-between gap-2 rounded-lg border-2 
-      border-green-400 bg-green-100 p-4 text-sm"
+      border-green-400 bg-green-100 p-2 text-sm"
     >
       <p className="font-semibold">
         {discountPercent * 100}% discount applied with code{" "}
