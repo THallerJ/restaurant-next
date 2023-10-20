@@ -8,16 +8,12 @@ type DiscountMessageProps = {
 };
 
 const DiscountMessage = ({ setCurrCode, currCode }: DiscountMessageProps) => {
-  const { resetFlag, invalidFlag } = useYourOrder();
+  const { invalidFlag } = useYourOrder();
 
   return (
     <div className="relative w-full">
       <DiscountInfo setCurrCode={setCurrCode} />
-      <Message
-        full
-        pos="top-0 mt-4 z-50"
-        condition={invalidFlag && (currCode === "" || !resetFlag)}
-      >
+      <Message full pos="top-0 mt-4 z-50" condition={invalidFlag}>
         Invalid Code! Hint: try 00000, 11111, 22222, or 33333.
       </Message>
     </div>

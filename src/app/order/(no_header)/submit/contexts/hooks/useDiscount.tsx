@@ -10,7 +10,6 @@ const useDiscount = () => {
   const [discountPercent, setDiscountPercent] = useState(0);
   const [discountCode, setDiscountCode] = useState<string | null>(null);
   const [notifiedDiscount, notifyDiscount] = useNotify(2500);
-  const [resetFlag, setResetFlag] = useState(false);
   const [invalidFlag, setInvalidFlag] = useState(false);
 
   const updateDiscount = (currCode: string) => {
@@ -38,7 +37,6 @@ const useDiscount = () => {
   };
 
   const resetDiscount = () => {
-    setResetFlag(true);
     setInvalidFlag(false);
     setDiscountCode(null);
     setDiscountItems(null);
@@ -46,10 +44,7 @@ const useDiscount = () => {
   };
 
   useEffect(() => {
-    if (!notifiedDiscount) {
-      setResetFlag(false);
-      setInvalidFlag(false);
-    }
+    if (!notifiedDiscount) setInvalidFlag(false);
   }, [notifiedDiscount]);
 
   return {
@@ -58,7 +53,6 @@ const useDiscount = () => {
     discountCode,
     notifiedDiscount,
     updateDiscount,
-    resetFlag,
     resetDiscount,
     invalidFlag,
   };
