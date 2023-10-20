@@ -16,7 +16,7 @@ const OrderList = () => {
         type="button"
         onClick={() => router.push("/order/all")}
       >
-        <Add className="mb-1 h-10 w-10" />
+        <Add className="h-10 w-10" />
         <span className="font-semibold">Add items to cart</span>
       </button>
       <Total />
@@ -34,13 +34,10 @@ const Items = () => {
     <div className="rounded-t-lg border-2 border-dark/25 p-2 shadow-sm">
       {cartItems.items.map((item, index) => (
         <>
-          <div
-            key={item.item.name}
-            className="flex justify-between bg-blue-200 p-2"
-          >
-            <span className="w-1/2 bg-green-100">{item.item.name}</span>
-            <span className="w-1/6 bg-cyan-100 text-center">{item.count}</span>
-            <div className="flex w-1/3 justify-between gap-8 bg-red-100">
+          <div key={item.item.name} className="flex justify-between p-2">
+            <span className="w-7/12">{item.item.name}</span>
+            <span className="w-2/12 text-center">{item.count}</span>
+            <div className="flex w-3/12 flex-col text-end ">
               <span>
                 {discountItems ? (
                   <s>{`$${item.item.price.toFixed(2)}`}</s>
@@ -75,15 +72,3 @@ const Total = () => {
     </div>
   );
 };
-
-/*
-<div>
-              {discountItems ? <s>{item.item.price.toFixed(2)}</s> : null}
-              <span>{`$${
-                discountItems
-                  ? discountItems.items[index].item.price.toFixed(2)
-                  : item.item.price.toFixed(2)
-              }`}</span>
-            </div>
-
-*/
