@@ -34,11 +34,18 @@ const Items = () => {
     <div className="rounded-t-lg border-2 border-dark/25 p-2 shadow-sm">
       {cartItems.items.map((item, index) => (
         <>
-          <div key={item.item.name} className="flex justify-between p-2">
-            <span className="w-1/2">{item.item.name}</span>
-            <span className="w-[3ch]">{item.count}</span>
-            <div>
-              {discountItems ? <s>{item.item.price.toFixed(2)}</s> : null}
+          <div
+            key={item.item.name}
+            className="flex justify-between bg-blue-200 p-2"
+          >
+            <span className="w-2/3 bg-green-100">{item.item.name}</span>
+            <span className="w-1/5 bg-cyan-100 text-center">{item.count}</span>
+            <div className="flex w-1/3 justify-between gap-8 bg-red-100">
+              <span>
+                {discountItems ? (
+                  <s>{`$${item.item.price.toFixed(2)}`}</s>
+                ) : null}
+              </span>
               <span>{`$${
                 discountItems
                   ? discountItems.items[index].item.price.toFixed(2)
@@ -68,3 +75,15 @@ const Total = () => {
     </div>
   );
 };
+
+/*
+<div>
+              {discountItems ? <s>{item.item.price.toFixed(2)}</s> : null}
+              <span>{`$${
+                discountItems
+                  ? discountItems.items[index].item.price.toFixed(2)
+                  : item.item.price.toFixed(2)
+              }`}</span>
+            </div>
+
+*/
