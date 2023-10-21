@@ -9,6 +9,11 @@ const OrderList = () => {
 
   return (
     <div className="flex w-full flex-col">
+      <div className="flex w-full px-3">
+        <span className="w-8/12 bg-orange-100">Item</span>
+        <span className="w-2/12 bg-violet-100 text-center">#</span>
+        <span className="w-2/12 bg-gray-100 text-start">$</span>
+      </div>
       <Items />
       <button
         className="flex items-center justify-center gap-2 rounded-b-lg 
@@ -38,9 +43,11 @@ const Items = () => {
             key={item.item.name}
             className="flex items-center justify-between p-3"
           >
-            <span className="w-7/12">{item.item.name}</span>
-            <span className="w-2/12 text-center">{item.count}</span>
-            <div className="flex w-3/12 flex-col text-end ">
+            <span className="w-8/12 bg-cyan-100">{item.item.name}</span>
+            <span className="w-2/12 bg-green-100 text-center">
+              {item.count}
+            </span>
+            <div className="flex w-2/12 flex-col bg-red-100 text-end ">
               <span>
                 {discountItems ? (
                   <s>{`$${item.item.price.toFixed(2)}`}</s>
@@ -65,7 +72,7 @@ const Total = () => {
   const { discountItems } = useYourOrder();
 
   return (
-    <div className="self-end pt-4">
+    <div className="self-end pt-2">
       <p className="text-lg font-semibold">
         Total: {discountItems ? <s>${cartItems.total.toFixed(2)}</s> : null} $
         {discountItems
