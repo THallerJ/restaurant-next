@@ -3,7 +3,7 @@ import { useYourOrder } from "../../contexts/YourOrderContext";
 import { ListDivider } from "@/components";
 import { useRouter } from "next/navigation";
 import { Add } from "@/assets";
-//fix spacing line throuhg Items, fix behavior when entering invalid disocunt code with code active
+
 const OrderList = () => {
   const router = useRouter();
 
@@ -31,10 +31,13 @@ const Items = () => {
   const { discountItems } = useYourOrder();
 
   return (
-    <div className="rounded-t-lg border-2 border-dark/25 p-2 shadow-sm">
+    <div className="rounded-t-lg border-2 border-dark/25 shadow-sm">
       {cartItems.items.map((item, index) => (
         <>
-          <div key={item.item.name} className="flex justify-between p-2">
+          <div
+            key={item.item.name}
+            className="flex items-center justify-between p-3"
+          >
             <span className="w-7/12">{item.item.name}</span>
             <span className="w-2/12 text-center">{item.count}</span>
             <div className="flex w-3/12 flex-col text-end ">
