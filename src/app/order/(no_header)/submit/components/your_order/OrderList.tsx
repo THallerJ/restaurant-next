@@ -9,10 +9,10 @@ const OrderList = () => {
 
   return (
     <div className="flex w-full flex-col">
-      <div className="flex w-full px-3">
-        <span className="w-8/12 bg-orange-100">Item</span>
-        <span className="w-2/12 bg-violet-100 text-center">#</span>
-        <span className="w-2/12 bg-gray-100 text-start">$</span>
+      <div className="flex w-full justify-between px-3 text-dark">
+        <span className="w-6/12">Item</span>
+        <span className="text-center">#</span>
+        <span className="w-[5ch]">$</span>
       </div>
       <Items />
       <button
@@ -43,11 +43,9 @@ const Items = () => {
             key={item.item.name}
             className="flex items-center justify-between p-3"
           >
-            <span className="w-8/12 bg-cyan-100">{item.item.name}</span>
-            <span className="w-2/12 bg-green-100 text-center">
-              {item.count}
-            </span>
-            <div className="flex w-2/12 flex-col bg-red-100 text-end ">
+            <span className="w-6/12">{item.item.name}</span>
+            <span className="text-center">{item.count}</span>
+            <div className="flex w-[5ch] flex-col text-start ">
               <span>
                 {discountItems ? (
                   <s>{`$${item.item.price.toFixed(2)}`}</s>
