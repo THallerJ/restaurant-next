@@ -81,8 +81,7 @@ const AddItems = () => {
   return (
     <button
       className="flex items-center justify-center gap-2 rounded-b-lg 
-        border-t-2 border-dark/10 p-3 xs:border-x-2 xs:border-b-2 
-        xs:border-t-0 xs:shadow-sm"
+        border-2 border-dark/10 p-3 xs:border-t-0 xs:shadow-sm"
       type="button"
       onClick={() => router.push("/order/all")}
     >
