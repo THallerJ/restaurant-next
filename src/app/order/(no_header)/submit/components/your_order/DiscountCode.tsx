@@ -8,7 +8,7 @@ const DiscountCode = () => {
   const { updateDiscount } = useYourOrder();
 
   return (
-    <div className="flex w-full items-start justify-center lg:w-1/3">
+    <div className="flex w-full items-start justify-center sm:w-1/3">
       <div className="relative flex w-full flex-col items-center">
         <InputLabel
           id="discount_code"
