@@ -5,25 +5,11 @@ import { useRouter } from "next/navigation";
 import { Add } from "@/assets";
 
 const OrderList = () => {
-  const router = useRouter();
-
   return (
     <div className="flex w-full flex-col">
-      <div className="flex w-full justify-between text-dark xs:px-3">
-        <span className="w-6/12">Item</span>
-        <span className="text-center">#</span>
-        <span className="w-[5ch]">$</span>
-      </div>
+      <ItemHeader />
       <Items />
-      <button
-        className="flex items-center justify-center gap-2 rounded-b-lg 
-          border-dark/25 p-3 shadow-sm xs:border-x-2 xs:border-b-2"
-        type="button"
-        onClick={() => router.push("/order/all")}
-      >
-        <Add className="h-10 w-10" />
-        <span className="font-semibold">Add items to cart</span>
-      </button>
+      <AddItems />
       <Total />
     </div>
   );
@@ -31,12 +17,20 @@ const OrderList = () => {
 
 export default OrderList;
 
+const ItemHeader = () => (
+  <div className="flex w-full justify-between text-dark xs:px-3">
+    <span className="w-6/12">Item</span>
+    <span className="text-center">#</span>
+    <span className="w-[5ch]">$</span>
+  </div>
+);
+
 const Items = () => {
   const { cartItems } = useOrder();
   const { discountItems } = useYourOrder();
 
   return (
-    <div className="rounded-t-lg border-dark/25 shadow-sm xs:border-2">
+    <div className="rounded-t-lg border-dark/10 xs:border-2 xs:shadow-sm">
       {cartItems.items.map((item, index) => (
         <>
           <div
@@ -78,5 +72,22 @@ const Total = () => {
           : cartItems.total.toFixed(2)}
       </p>
     </div>
+  );
+};
+
+const AddItems = () => {
+  const router = useRouter();
+
+  return (
+    <button
+      className="flex items-center justify-center gap-2 rounded-b-lg 
+        border-t-2 border-dark/10 p-3 xs:border-x-2 xs:border-b-2 
+        xs:border-t-0 xs:shadow-sm"
+      type="button"
+      onClick={() => router.push("/order/all")}
+    >
+      <Add className="h-10 w-10" />
+      <span className="font-semibold">Add items to cart</span>
+    </button>
   );
 };

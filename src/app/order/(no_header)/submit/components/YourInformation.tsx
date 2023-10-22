@@ -11,7 +11,7 @@ const YourInformation = () => {
     <div>
       <h2 className="heading-sm pb-1">Your information</h2>
       <div
-        className="flex flex-col gap-4 rounded-lg border-dark/20 shadow-sm
+        className="flex flex-col gap-4 rounded-lg border-dark/10 shadow-sm
         xs:border-2 xs:p-3"
       >
         <InputList
