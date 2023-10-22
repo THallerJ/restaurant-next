@@ -9,7 +9,7 @@ const OrderList = () => {
 
   return (
     <div className="flex w-full flex-col">
-      <div className="flex w-full justify-between px-3 text-dark">
+      <div className="flex w-full justify-between text-dark xs:px-3">
         <span className="w-6/12">Item</span>
         <span className="text-center">#</span>
         <span className="w-[5ch]">$</span>
@@ -17,7 +17,7 @@ const OrderList = () => {
       <Items />
       <button
         className="flex items-center justify-center gap-2 rounded-b-lg 
-          border-x-2 border-b-2 border-dark/25 p-3 shadow-sm"
+          border-dark/25 p-3 shadow-sm xs:border-x-2 xs:border-b-2"
         type="button"
         onClick={() => router.push("/order/all")}
       >
@@ -36,16 +36,16 @@ const Items = () => {
   const { discountItems } = useYourOrder();
 
   return (
-    <div className="rounded-t-lg border-2 border-dark/25 shadow-sm">
+    <div className="rounded-t-lg border-dark/25 shadow-sm xs:border-2">
       {cartItems.items.map((item, index) => (
         <>
           <div
             key={item.item.name}
-            className="flex items-center justify-between p-3"
+            className="flex items-center justify-between py-3 xs:px-3"
           >
             <span className="w-6/12">{item.item.name}</span>
             <span className="text-center">{item.count}</span>
-            <div className="flex w-[5ch] flex-col text-start ">
+            <div className="flex w-[5ch] flex-col text-start">
               <span>
                 {discountItems ? (
                   <s>{`$${item.item.price.toFixed(2)}`}</s>

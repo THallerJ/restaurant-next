@@ -13,7 +13,7 @@ const starterItems: menuItem[] = [
   {
     name: "Starter 1",
     details: "ingredient 1, ingredient 2, ingredient 3, ingredient 4",
-    price: 11,
+    price: 10,
     image: menuImages.starter,
   },
   {

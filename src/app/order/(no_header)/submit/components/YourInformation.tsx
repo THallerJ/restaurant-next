@@ -11,8 +11,8 @@ const YourInformation = () => {
     <div>
       <h2 className="heading-sm pb-1">Your information</h2>
       <div
-        className="flex flex-col gap-4 rounded-lg border-2 border-dark/20
-        p-4 shadow-sm"
+        className="flex flex-col gap-4 rounded-lg border-dark/20 shadow-sm
+        xs:border-2 xs:p-3"
       >
         <InputList
           text={time !== null ? formatTime(...time) : undefined}
