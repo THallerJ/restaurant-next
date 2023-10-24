@@ -2,31 +2,50 @@
 import YourOrder from "./your_order/YourOrder";
 import YourInformation from "./YourInformation";
 import { useOrder } from "../../../contexts/order_context/OrderContext";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Submit = ({ children }: { children: React.ReactNode }) => {
   const { cartItems } = useOrder();
+  const [submittedFlag, setSubmittedFlag] = useState(false);
+
+  useEffect(() => {
+    if (cartItems && cartItems.count === 0) setSubmittedFlag(true);
+  }, [cartItems]);
 
   return (
     <div className="flex h-full w-full flex-1 items-center justify-center">
-      {cartItems.count > 0 ? <OrderForm /> : children}
+      {cartItems.count > 0 || submittedFlag ? (
+        <OrderForm
+          submittedFlag={submittedFlag}
+          setSubmittedFlag={setSubmittedFlag}
+        />
+      ) : (
+        children
+      )}
     </div>
   );
 };
 
 export default Submit;
 
-const OrderForm = () => {
-  const [submitted, setSubmitted] = useState(false);
+type OrderFormProps = {
+  submittedFlag: boolean;
+  setSubmittedFlag: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+const OrderForm = ({ submittedFlag, setSubmittedFlag }: OrderFormProps) => {
   const { cartDispatch } = useOrder();
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    cartDispatch({ type: "clear" });
+    setSubmittedFlag(true);
   };
 
-  return !submitted ? (
+  useEffect(() => {
+    cartDispatch({ type: "clear" });
+  }, [submittedFlag, cartDispatch]);
+
+  return !submittedFlag ? (
     <form
       onSubmit={onSubmit}
       className="flex w-full flex-col gap-8
@@ -38,5 +57,7 @@ const OrderForm = () => {
         Finish order
       </button>
     </form>
-  ) : null;
+  ) : (
+    <h1>hello</h1>
+  );
 };
