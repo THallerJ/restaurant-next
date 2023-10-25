@@ -36,11 +36,22 @@ export default ReservationCrumbs;
 
 const Finished = () => {
   const { selectedDate } = useReservation();
+
   return (
-    <p className="flex h-full items-center justify-center text-center font-bold">
-      {`Your reservation for ${formatTime(
-        ...getTime(selectedDate),
-      )} on ${formatDateLong(selectedDate)} is booked!`}
-    </p>
+    <div className="flex h-full items-center justify-center">
+      <p className="rounded-lg bg-white p-4 shadow-md">
+        Your reservation for {formatTime(...getTime(selectedDate))} on{" "}
+        {formatDateLong(selectedDate)} is booked! Click{" "}
+        <a
+          className="text-third hover:underline"
+          href="http://maps.google.com/?q=1600 Pennsylvania Avenue NW, Washington, DC 20500"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          here
+        </a>{" "}
+        for directions to the restaurant!
+      </p>
+    </div>
   );
 };
