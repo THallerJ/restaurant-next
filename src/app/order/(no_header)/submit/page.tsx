@@ -8,11 +8,13 @@ const SubmitPage = () => {
   const [submittedFlag, setSubmittedFlag] = useState(false);
 
   return (
-    <div className="flex w-full flex-1 items-center justify-center">
+    <div className="flex h-full w-full flex-1 items-center justify-center">
       {!submittedFlag ? (
         <OrderForm setSubmittedFlag={setSubmittedFlag} />
       ) : (
-        <SubmittedForm />
+        <div className="flex h-full items-center justify-center">
+          <div className="font-bold">Your order has been submitted!</div>
+        </div>
       )}
     </div>
   );
@@ -46,8 +48,10 @@ const OrderForm = ({ setSubmittedFlag }: OrderFormProps) => {
       </button>
     </form>
   ) : (
-    <h1 className="heading-sm  h-96">You have nothing</h1>
+    <div className="flex h-full items-center justify-center">
+      <h2 className="heading-sm">
+        You don&apos;t have any items in your cart.
+      </h2>
+    </div>
   );
 };
-
-const SubmittedForm = () => <div className="h-96 bg-green-700">SUBMITTED</div>;
