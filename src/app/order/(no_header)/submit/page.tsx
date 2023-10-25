@@ -1,8 +1,8 @@
 "use client";
+import { useState } from "react";
 import YourOrder from "./components/your_order/YourOrder";
 import YourInformation from "./components/YourInformation";
 import { useOrder } from "../../contexts/order_context/OrderContext";
-import { useState, useEffect } from "react";
 
 const SubmitPage = () => {
   const [submittedFlag, setSubmittedFlag] = useState(false);
@@ -10,10 +10,7 @@ const SubmitPage = () => {
   return (
     <div className="flex h-full w-full flex-1 items-center justify-center">
       {!submittedFlag ? (
-        <OrderForm
-          submittedFlag={submittedFlag}
-          setSubmittedFlag={setSubmittedFlag}
-        />
+        <OrderForm setSubmittedFlag={setSubmittedFlag} />
       ) : (
         <SubmittedForm />
       )}
@@ -24,21 +21,17 @@ const SubmitPage = () => {
 export default SubmitPage;
 
 type OrderFormProps = {
-  submittedFlag: boolean;
   setSubmittedFlag: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const OrderForm = ({ submittedFlag, setSubmittedFlag }: OrderFormProps) => {
+const OrderForm = ({ setSubmittedFlag }: OrderFormProps) => {
   const { cartDispatch, cartItems } = useOrder();
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmittedFlag(true);
+    cartDispatch({ type: "clear" });
   };
-
-  useEffect(() => {
-    if (submittedFlag) cartDispatch({ type: "clear" });
-  }, [submittedFlag, cartDispatch]);
 
   return cartItems.count > 0 ? (
     <form
@@ -53,8 +46,8 @@ const OrderForm = ({ submittedFlag, setSubmittedFlag }: OrderFormProps) => {
       </button>
     </form>
   ) : (
-    <h1>You have no items in your cart</h1>
+    <h1 className="h-64 bg-pink-400">You have nothing</h1>
   );
 };
 
-const SubmittedForm = () => <h1>SUBMITTED</h1>;
+const SubmittedForm = () => <div className="h-96 bg-green-700">SUBMITTED</div>;
