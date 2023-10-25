@@ -10,6 +10,7 @@ import AnimatedButton from "./AnimatedButton";
 import ListDivider from "./ListDivider";
 import InputLabel from "./InputLabel";
 import Message from "./Message";
+import Directions from "./Directions";
 
 export {
   MenuButton,
@@ -23,6 +24,7 @@ export {
   ListDivider,
   InputLabel,
   Message,
+  Directions,
 };
 
 export type { imageType };

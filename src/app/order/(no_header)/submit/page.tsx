@@ -3,6 +3,7 @@ import { useState } from "react";
 import YourOrder from "./components/your_order/YourOrder";
 import YourInformation from "./components/YourInformation";
 import { useOrder } from "../../contexts/order_context/OrderContext";
+import { Directions } from "@/components";
 
 const SubmitPage = () => {
   const [submittedFlag, setSubmittedFlag] = useState(false);
@@ -12,8 +13,11 @@ const SubmitPage = () => {
       {!submittedFlag ? (
         <OrderForm setSubmittedFlag={setSubmittedFlag} />
       ) : (
-        <div className="flex h-full items-center justify-center">
-          <div className="font-bold">Your order has been submitted!</div>
+        <div className="page-scale flex h-full items-center justify-center">
+          <p className="rounded-lg bg-white p-4 shadow-md">
+            Your order has been submitted! You can pick up your food at 0000.
+            Click <Directions /> for directions to the restaurant!
+          </p>
         </div>
       )}
     </div>

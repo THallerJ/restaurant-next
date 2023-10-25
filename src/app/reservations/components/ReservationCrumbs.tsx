@@ -1,5 +1,5 @@
 "use client";
-import { Breadcrumbs } from "@/components";
+import { Breadcrumbs, Directions } from "@/components";
 import { breadCrumbs } from "@/types";
 import DateTime from "./DateTime";
 import Details from "./Details";
@@ -41,16 +41,8 @@ const Finished = () => {
     <div className="flex h-full items-center justify-center">
       <p className="rounded-lg bg-white p-4 shadow-md">
         Your reservation for {formatTime(...getTime(selectedDate))} on{" "}
-        {formatDateLong(selectedDate)} is booked! Click{" "}
-        <a
-          className="text-third hover:underline"
-          href="http://maps.google.com/?q=1600 Pennsylvania Avenue NW, Washington, DC 20500"
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          here
-        </a>{" "}
-        for directions to the restaurant!
+        {formatDateLong(selectedDate)} is booked! Click <Directions /> for
+        directions to the restaurant!
       </p>
     </div>
   );
