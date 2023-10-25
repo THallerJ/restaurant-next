@@ -8,7 +8,7 @@ const SubmitPage = () => {
   const [submittedFlag, setSubmittedFlag] = useState(false);
 
   return (
-    <div className="flex h-full w-full flex-1 items-center justify-center">
+    <div className="flex w-full flex-1 items-center justify-center">
       {!submittedFlag ? (
         <OrderForm setSubmittedFlag={setSubmittedFlag} />
       ) : (
@@ -46,7 +46,7 @@ const OrderForm = ({ setSubmittedFlag }: OrderFormProps) => {
       </button>
     </form>
   ) : (
-    <h1 className="h-64 bg-pink-400">You have nothing</h1>
+    <h1 className="heading-sm  h-96">You have nothing</h1>
   );
 };
 
