@@ -1,16 +1,19 @@
 import SocialMediaIcons from "@/components/SocialMediaIcons";
-import { Hours } from "@/components";
+import { Hours, Directions, PhoneNumber } from "@/components";
 
 const Footer = () => {
   return (
     <div
-      className="flex w-full flex-col gap-12 bg-dark pb-4 pt-14 font-medium 
-      text-white lg:px-40"
+      className="flex w-full flex-col gap-12 bg-dark pb-4 
+        pt-14 font-medium text-white lg:px-40"
     >
       <FindContact className="lg:hidden" />
       <div className="flex w-full flex-col gap-12 lg:flex-row">
         {/* Left side*/}
-        <div className="flex flex-col items-center lg:flex-1 lg:items-start lg:justify-end">
+        <div
+          className="flex flex-col items-center lg:flex-1 
+            lg:items-start lg:justify-end"
+        >
           <span className="font-poppins text-xl uppercase text-fourth">
             Hours
           </span>
@@ -49,23 +52,16 @@ const FindContact = ({ className }: { className?: string }) => (
       Find & Contact Us
     </span>
     <div className="flex flex-col">
-      <a
-        href="http://maps.google.com/?q=1600 Pennsy lvania Avenue NW, Washington, DC 20500"
-        className="text-center hover:text-third hover:underline lg:text-start"
-        target="_blank"
-        rel="noreferrer noopener"
+      <Directions
+        className="text-center hover:text-third 
+        hover:underline lg:text-start"
       >
         <span>
           1600 Pennsylvania <br /> Avenue NW, <br className="xl:hidden" />
           Washington, DC
         </span>
-      </a>
-      <a
-        href="tel:1-123-555-6789"
-        className="text-center hover:text-third hover:underline lg:text-start"
-      >
-        1-123-555-6789
-      </a>
+      </Directions>
+      <PhoneNumber />
       <a
         href="mailto: restaurant@email.com"
         className="hover:text-third hover:underline"

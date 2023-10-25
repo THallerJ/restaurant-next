@@ -11,6 +11,7 @@ import ListDivider from "./ListDivider";
 import InputLabel from "./InputLabel";
 import Message from "./Message";
 import Directions from "./Directions";
+import PhoneNumber from "./PhoneNumber";
 
 export {
   MenuButton,
@@ -25,6 +26,7 @@ export {
   InputLabel,
   Message,
   Directions,
+  PhoneNumber,
 };
 
 export type { imageType };

@@ -1,29 +1,22 @@
 import { Phone, Location } from "@/assets";
+import { Directions, PhoneNumber } from "@/components";
 
 const HeaderInfo = () => {
   return (
     <>
       <div className="flex items-center pr-7">
         <Phone className="mr-2 h-4 w-4" />
-        <a
-          href="tel:1-123-555-6789"
-          className="font-poppins text-sm font-medium text-fourth 
+        <PhoneNumber
+          className="text-sm font-medium text-fourth 
             hover:text-third hover:underline"
-        >
-          1-123-555-6789
-        </a>
+        />
       </div>
       <div className="flex items-center">
         <Location className="mr-2 h-4 w-4" />
-        <a
-          href="http://maps.google.com/?q=1600 Pennsylvania Avenue NW, Washington, DC 20500"
-          className="font-poppins text-sm font-medium text-fourth
+        <Directions
+          className="text-sm font-medium text-fourth
             hover:text-third hover:underline"
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          1600 Pennsylvania Avenue NW, Washington, DC
-        </a>
+        />
       </div>
     </>
   );
