@@ -1,12 +1,13 @@
 "use client";
 import { generateTimes, formatTime } from "@/utils";
-import { useState } from "react";
 import { Time } from "@/assets";
 import { InputList, InputLabel } from "@/components";
 
-const YourInformation = () => {
-  const [time, setTime] = useState<[number, number] | null>(null);
-
+type YourInformationProps = {
+  time: [number, number] | null;
+  setTime: React.Dispatch<React.SetStateAction<[number, number] | null>>;
+};
+const YourInformation = ({ time, setTime }: YourInformationProps) => {
   return (
     <div>
       <h2 className="heading-sm pb-1">Your information</h2>
