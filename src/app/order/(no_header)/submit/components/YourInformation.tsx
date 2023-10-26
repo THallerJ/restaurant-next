@@ -7,6 +7,7 @@ type YourInformationProps = {
   time: [number, number] | null;
   setTime: React.Dispatch<React.SetStateAction<[number, number] | null>>;
 };
+
 const YourInformation = ({ time, setTime }: YourInformationProps) => {
   return (
     <div>

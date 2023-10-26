@@ -14,7 +14,7 @@ const Hours = () => {
         <span className="heading">Hours</span>
         <div
           className="flex w-full flex-col items-center gap-2 
-            overflow-hidden rounded-lg border-2 border-dark p-4 
+            overflow-hidden rounded-lg border-2 border-dark/40 p-4 
             font-bold sm:text-base"
         >
           <OpenHours spacing={3} />

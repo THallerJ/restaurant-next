@@ -5,6 +5,8 @@ import YourInformation from "./components/YourInformation";
 import { useOrder } from "../../contexts/order_context/OrderContext";
 import { Directions } from "@/components";
 import { formatTime } from "@/utils";
+import Link from "next/link";
+import { Add } from "@/assets";
 
 const SubmitPage = () => {
   const [submittedFlag, setSubmittedFlag] = useState(false);
@@ -61,8 +63,19 @@ const OrderForm = ({ setSubmittedFlag, time, setTime }: OrderFormProps) => {
       </button>
     </form>
   ) : (
-    <div className="flex h-full items-center justify-center">
+    <div
+      className="flex h-full flex-col items-center 
+        justify-center gap-4 text-center"
+    >
       <p className="heading-sm">You don&apos;t have any items in your cart.</p>
+      <Link
+        href="/order/all"
+        className=" flex items-center gap-2 rounded-lg border-2 
+        border-dark/40 p-3 font-semibold text-dark"
+      >
+        <Add className="h-10 w-10" />
+        Add items to cart
+      </Link>
     </div>
   );
 };
