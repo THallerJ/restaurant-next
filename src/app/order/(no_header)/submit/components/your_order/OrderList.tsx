@@ -1,8 +1,8 @@
 import { useOrder } from "@/app/order/contexts/order_context/OrderContext";
 import { useYourOrder } from "../../contexts/YourOrderContext";
 import { ListDivider } from "@/components";
-import { useRouter } from "next/navigation";
 import { Add } from "@/assets";
+import Link from "next/link";
 
 const OrderList = () => {
   return (
@@ -75,18 +75,13 @@ const Total = () => {
   );
 };
 
-const AddItems = () => {
-  const router = useRouter();
-
-  return (
-    <button
-      className="flex items-center justify-center gap-2 rounded-b-lg 
+const AddItems = () => (
+  <Link
+    className="flex items-center justify-center gap-2 rounded-b-lg 
         border-2 border-dark/10 p-2 xs:border-t-0 xs:shadow-sm"
-      type="button"
-      onClick={() => router.push("/order/all")}
-    >
-      <Add className="h-10 w-10" />
-      <span className="font-semibold">Add items to cart</span>
-    </button>
-  );
-};
+    href="/order/all"
+  >
+    <Add className="h-10 w-10" />
+    <span className="font-semibold">Add items to cart</span>
+  </Link>
+);
