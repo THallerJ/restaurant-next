@@ -16,7 +16,8 @@ const SubmitPage = () => {
         <div className="page-scale flex h-full items-center justify-center">
           <p className="rounded-lg bg-white p-4 shadow-md">
             Your order has been submitted! You can pick up your food at 0000.
-            Click <Directions /> for directions to the restaurant!
+            Click <Directions>here</Directions> for directions to the
+            restaurant!
           </p>
         </div>
       )}
@@ -53,9 +54,7 @@ const OrderForm = ({ setSubmittedFlag }: OrderFormProps) => {
     </form>
   ) : (
     <div className="flex h-full items-center justify-center">
-      <h2 className="heading-sm">
-        You don&apos;t have any items in your cart.
-      </h2>
+      <p className="heading-sm">You don&apos;t have any items in your cart.</p>
     </div>
   );
 };
