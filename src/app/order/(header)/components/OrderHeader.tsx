@@ -3,10 +3,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { InputList } from "@/components";
 import { useRouter } from "next/navigation";
-import { navItems } from "./constants";
-import usePathnameUpdated from "./hooks/usePathnameUpdated";
-import CartButton from "./components/CartButton";
-import { CartContextProvider } from "../../../contexts/cart_context/CartContext";
+import { navItems } from "../[menuItems]/constants";
+import usePathnameUpdated from "../[menuItems]/hooks/usePathnameUpdated";
+import CartButton from "./CartButton";
+import { CartContextProvider } from "../../contexts/cart_context/CartContext";
 
 const OrderHeader = () => {
   const pathname = usePathname();

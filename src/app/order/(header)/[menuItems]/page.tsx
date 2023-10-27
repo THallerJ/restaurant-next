@@ -5,8 +5,8 @@ import {
   dinnerItems,
   drinkItems,
 } from "@/constants";
-import OrderList from "./order/OrderList";
-import Order from "./order/Order";
+import OrderList from "./components/OrderList";
+import Order from "./components/Order";
 import { notFound } from "next/navigation";
 
 type Params = { params: { menuItems: string } };
