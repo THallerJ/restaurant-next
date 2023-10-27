@@ -70,8 +70,7 @@ const OrderForm = ({ setSubmittedFlag, time, setTime }: OrderFormProps) => {
       <p className="heading-sm">You don&apos;t have any items in your cart.</p>
       <Link
         href="/order/all"
-        className=" flex items-center gap-2 rounded-lg border-2 
-        border-dark/40 p-3 font-semibold text-dark"
+        className="bordered flex items-center gap-2 p-3 font-semibold text-dark"
       >
         <Add className="h-10 w-10" />
         Add items to cart

@@ -36,6 +36,10 @@
   @apply h-11 rounded-lg border-2  border-dark/60 bg-white px-3 shadow-md focus:border-dark focus:outline-none;
 }
 
+.bordered {
+  @apply rounded-lg border-2 border-dark/40;
+}
+
 @keyframes zoom-in-zoom-out {
   0% {
     transform: scale(1, 1);
