@@ -1,7 +1,7 @@
 import { Cart } from "@/assets";
 import { useOrder } from "@/app/order/contexts/order_context/OrderContext";
 import CartContent from "./CartContent";
-import { useCart } from "@/app/order/contexts/cart_context/CartContext";
+import { useCart } from "@/app/order/contexts/CartContext";
 
 const CartButton = () => {
   const { cartItems } = useOrder();

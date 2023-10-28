@@ -1,6 +1,6 @@
 import { Undo } from "@/assets";
 import { useOrder } from "@/app/order/contexts/order_context/OrderContext";
-import { useCart } from "@/app/order/contexts/cart_context/CartContext";
+import { useCart } from "@/app/order/contexts/CartContext";
 
 const UndoPrompt = () => {
   const { cartDispatch } = useOrder();

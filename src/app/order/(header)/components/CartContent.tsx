@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 import CartItem from "./CartItem";
 import { useState } from "react";
 import UndoPrompt from "./UndoPrompt";
-import { useCart } from "@/app/order/contexts/cart_context/CartContext";
+import { useCart } from "@/app/order/contexts/CartContext";
 
 const CartContent = () => {
   const { cartItems, cartDispatch } = useOrder();
@@ -44,8 +44,10 @@ const CartContent = () => {
       {cartItems.count > 0 ? (
         <>
           <div
-            className={`flex h-full flex-col overflow-auto overscroll-contain transition-opacity
-              duration-300 ${clearFlag ? "opacity-0" : null}`}
+            className={`flex h-full flex-col overflow-auto overscroll-contain 
+              transition-opacity duration-300 ${
+                clearFlag ? "opacity-0" : null
+              }`}
             onTransitionEnd={onClear}
           >
             {cartItems.items.map((item, index) => (

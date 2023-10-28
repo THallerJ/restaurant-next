@@ -1,4 +1,4 @@
-const layout = ({ children }: { children: React.ReactNode }) => {
+const OrderNoHeaderLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="flex min-h-[66%] justify-center bg-offwhite py-4">
       <div className="page-scale">{children}</div>
@@ -6,4 +6,4 @@ const layout = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-export default layout;
+export default OrderNoHeaderLayout;

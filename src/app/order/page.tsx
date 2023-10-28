@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 
-const page = () => {
+const OrderPage = () => {
   return redirect("order/all");
 };
 
-export default page;
+export default OrderPage;

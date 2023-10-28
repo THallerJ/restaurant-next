@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { navItems } from "../[menuItems]/constants";
 import usePathnameUpdated from "../[menuItems]/hooks/usePathnameUpdated";
 import CartButton from "./CartButton";
-import { CartContextProvider } from "../../contexts/cart_context/CartContext";
+import { CartContextProvider } from "../../contexts/CartContext";
 
 const OrderHeader = () => {
   const pathname = usePathname();
@@ -23,7 +23,10 @@ const OrderHeader = () => {
         format={(item) => item.text}
         className="w-32 rounded-lg bg-white p-3 shadow-md sm:hidden"
       />
-      <div className="hidden flex-row gap-4 font-semibold uppercase text-dark sm:flex">
+      <div
+        className="hidden flex-row gap-4 font-semibold uppercase
+        text-dark sm:flex"
+      >
         {navItems.map((item) => (
           <Link
             href={item.to}

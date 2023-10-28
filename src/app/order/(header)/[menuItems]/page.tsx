@@ -11,7 +11,7 @@ import { notFound } from "next/navigation";
 
 type Params = { params: { menuItems: string } };
 
-const page = ({ params: { menuItems } }: Params) => {
+const OrderItemsPage = ({ params: { menuItems } }: Params) => {
   const MenuItems = () => {
     switch (menuItems) {
       case "all":
@@ -34,4 +34,4 @@ const page = ({ params: { menuItems } }: Params) => {
   return <MenuItems />;
 };
 
-export default page;
+export default OrderItemsPage;
