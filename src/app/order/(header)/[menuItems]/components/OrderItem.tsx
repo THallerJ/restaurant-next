@@ -65,11 +65,13 @@ const LargeCard = ({ children, item }: CardProps) => {
             />
           ) : null}
           <div className="flex flex-col justify-between gap-2">
-            <div className="flex justify-between">
-              <h4 className="text-xl font-semibold text-dark">{item.name}</h4>
-              <span className="text-xl font-semibold text-dark">{`$${item.price}`}</span>
+            <div className="flex flex-col gap-2">
+              <div className="flex justify-between">
+                <h4 className="text-xl font-semibold text-dark">{item.name}</h4>
+                <span className="text-xl font-semibold text-dark">{`$${item.price}`}</span>
+              </div>
+              <p>{item.details}</p>
             </div>
-            <p>{item.details}</p>
             <div className="flex justify-end">
               <AddButton item={item} />
             </div>
