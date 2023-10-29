@@ -41,8 +41,8 @@ const Finished = () => {
     <div className="flex h-full items-center justify-center">
       <p className="rounded-lg bg-white p-4 shadow-md">
         Your reservation for {formatTime(...getTime(selectedDate))} on{" "}
-        {formatDateLong(selectedDate)} is booked! Click <Directions /> for
-        directions to the restaurant!
+        {formatDateLong(selectedDate)} is booked! Click{" "}
+        <Directions>here</Directions> for directions to the restaurant!
       </p>
     </div>
   );

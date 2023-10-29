@@ -6,9 +6,11 @@ const useLocalReducer = <T, S>(
   reducer: (state: T, action: S) => T,
 ) => {
   const getIntitialState = (): T => {
-    const jsonValue = localStorage.getItem(key);
+    if (typeof window !== undefined) {
+      const jsonValue = localStorage.getItem(key);
 
-    if (jsonValue) return JSON.parse(jsonValue);
+      if (jsonValue) return JSON.parse(jsonValue);
+    }
 
     return initialState;
   };
