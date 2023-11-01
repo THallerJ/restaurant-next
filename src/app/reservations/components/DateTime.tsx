@@ -1,7 +1,7 @@
 "use client";
-import { InputList } from "@/components";
+import { InputLabel, InputList } from "@/components";
 import { useReservation } from "../contexts/ReservationContext";
-import { formatDate, formatTime } from "../utils";
+import { formatDate, formatTime } from "@/utils";
 import { People, Time } from "@/assets";
 
 const DateTime = () => {
@@ -24,44 +24,40 @@ const DateTime = () => {
     return formatTime(selectedDate.getHours(), selectedDate.getMinutes());
   };
 
-  const inputStyle =
-    "h-full min-h-[3.5em] w-44 rounded-lg border-2 border-dark px-3 shadow-md";
-
-  const guestNums = [1, 2, 3, 4, 5, 6, 7, 8];
-
-  const getGuest = (item: number) => {
-    return `${item} ${item === 1 ? "person" : "people"}`;
-  };
-
   return (
     <div className="flex h-full items-center justify-center pt-4">
       <div className="flex flex-col space-y-2 xl:flex-row xl:space-x-2 xl:space-y-0">
         <InputList
           id="selectGuestNum"
           text={guestNum ? `${getGuest(guestNum)}` : undefined}
-          style={inputStyle}
+          className={inputStyle}
           items={guestNums}
-          placeholder="# of Guests"
+          placeholder="#"
           onSelect={updateGuestNum}
           format={(item) => `${getGuest(item)}`}
           Icon={People}
+          label="Number of guests"
+          center
         />
-        <input
+        <InputLabel
           id="selectDate"
           type="date"
           min={formatDate(currentDate)}
           value={formatDate(selectedDate)}
           className={inputStyle}
           onChange={(e) => updateDate(e.target.value)}
+          label="Reservation Date"
         />
         <InputList
           id="selectTime"
-          style={inputStyle}
+          className={inputStyle}
           items={times ? times : null}
           text={displaySelectedTime()}
           onSelect={updateTime}
-          format={(item) => formatTime(item[0], item[1])}
+          format={(item) => formatTime(...item)}
           Icon={Time}
+          center
+          label="Reservation Time"
         />
       </div>
     </div>
@@ -69,3 +65,11 @@ const DateTime = () => {
 };
 
 export default DateTime;
+
+const inputStyle = "input w-44";
+
+const guestNums = [1, 2, 3, 4, 5, 6, 7, 8];
+
+const getGuest = (item: number) => {
+  return `${item} ${item === 1 ? "person" : "people"}`;
+};

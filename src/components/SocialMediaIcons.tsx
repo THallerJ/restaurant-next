@@ -1,21 +1,24 @@
 import { Instagram, Facebook, Twitter } from "../assets";
 
 type SocialMediaIconsProps = {
-  styles?: string;
-  iconStyles?: string;
+  className?: string;
+  iconClassName?: string;
 };
 
-const SocialMediaIcons = ({ styles, iconStyles }: SocialMediaIconsProps) => {
+const SocialMediaIcons = ({
+  className,
+  iconClassName,
+}: SocialMediaIconsProps) => {
   return (
-    <div className={styles}>
+    <div className={className}>
       <a href="https://instagram.com" target="_blank" rel="noreferrer noopener">
-        <Instagram className={`${iconStyles}`} />
+        <Instagram className={`${iconClassName}`} />
       </a>
       <a href="https://facebook.com" target="_blank" rel="noreferrer noopener">
-        <Facebook className={`${iconStyles}`} />
+        <Facebook className={`${iconClassName}`} />
       </a>
       <a href="https://twitter.com" target="_blank" rel="noreferrer noopener">
-        <Twitter className={`${iconStyles}`} />
+        <Twitter className={`${iconClassName}`} />
       </a>
     </div>
   );

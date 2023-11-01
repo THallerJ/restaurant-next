@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { openHour } from "@/constants";
-import { compareDates } from "../../utils";
-import { generateTimes } from "../../utils";
+import { compareDates } from "@/utils";
+import { generateTimes } from "@/utils";
 
 const useSelectedDate = (currentDate: Date) => {
   const [selectedDate, setSelectedDate] = useState<Date>(currentDate);

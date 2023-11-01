@@ -25,7 +25,7 @@ const Gallery = ({ layout = "diag-end", images }: GalleryProps) => {
         {images.map((item, i) => (
           <div
             key={`${i}gallery`}
-            className={`${getLayout(i, layout)} relative h-96 overflow-hidden`}
+            className={`${getLayout(i, layout)} relative h-80 overflow-hidden`}
           >
             <div
               className="peer absolute top-0 z-10 h-full w-full hover:cursor-pointer"
@@ -35,7 +35,7 @@ const Gallery = ({ layout = "diag-end", images }: GalleryProps) => {
             {item.title ? (
               <div
                 className="peer absolute inset-x-0 bottom-0 z-[20] m-auto flex h-16 w-full
-                  items-center justify-center bg-dark/75 hover:cursor-pointer md:w-[90%] 
+                  items-center justify-center bg-dark/75 hover:cursor-pointer md:w-11/12 
                   md:rounded-t-3xl"
                 onClick={() => onClick(item)}
               >

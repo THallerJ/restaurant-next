@@ -8,7 +8,7 @@ type MenuItemsProps = {
 const MenuItems = ({ title, menuItems }: MenuItemsProps) => {
   return (
     <div className="space-y-1">
-      <h2 className="heading-sm text-sm">{title}</h2>
+      <h2 className="heading-sm">{title}</h2>
       {menuItems.map((item) => (
         <div key={item.name} className="flex justify-between">
           <div>

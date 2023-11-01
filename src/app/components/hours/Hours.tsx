@@ -7,22 +7,22 @@ const Hours = () => {
   return (
     <section
       id="hours"
-      className="flex flex-col items-center justify-center 
-        gap-10 py-12 md:flex-row md:px-12"
+      className="page-scale flex flex-col items-center justify-center gap-10
+        py-12 md:flex-row md:pb-24"
     >
       <div className="pair flex flex-col items-center">
         <span className="heading">Hours</span>
-        <ul
-          className="flex w-full flex-col items-center gap-2 overflow-hidden 
-            rounded-2xl border-2 border-dark p-4 text-sm font-bold sm:text-base"
+        <div
+          className="bordered flex w-full flex-col items-center 
+            gap-2 overflow-hidden p-4 font-bold sm:text-base"
         >
           <OpenHours spacing={3} />
-        </ul>
+        </div>
         <OpenDailySpecialDialog />
       </div>
       <Image
         src={open}
-        className="pair max-w-[20rem] self-center rounded-2xl shadow-md lg:self-start"
+        className="pair max-w-full self-center rounded-lg shadow-md lg:self-start"
         alt="open"
       />
     </section>

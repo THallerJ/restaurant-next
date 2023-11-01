@@ -5,7 +5,7 @@ type MenuButtonProps = {
 
 const MenuButton = ({ toggle, onClick }: MenuButtonProps) => {
   return (
-    <button onClick={onClick} className="flex flex-col gap-[6px] p-4">
+    <button onClick={onClick} className="flex flex-col gap-[6px] ">
       <div
         className={`h-[3px] w-7 bg-fourth transition duration-700 ${
           toggle ? "translate-y-[9px] -rotate-45" : ""

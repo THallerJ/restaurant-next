@@ -5,17 +5,17 @@ const LiveMusic = () => {
   return (
     <section
       id="music"
-      className="flex flex-col-reverse items-center justify-center 
+      className="page-scale flex flex-col-reverse items-center justify-center
         gap-10 pb-12 md:flex-row md:px-12"
     >
       <Image
         src={artist}
-        className="pair max-w-[20rem] rounded-3xl shadow-md"
+        className="pair max-w-full rounded-lg shadow-md"
         alt="artist"
       />
 
       <p
-        className="pair heading text-center
+        className="pair heading max-w-full text-center
           leading-relaxed lg:text-start"
       >
         We have <br />
