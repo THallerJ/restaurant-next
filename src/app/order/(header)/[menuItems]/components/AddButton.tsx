@@ -1,6 +1,6 @@
 "use client";
 import { AnimatedButton } from "@/components";
-import { useOrder } from "../../../contexts/order_context/OrderContext";
+import { useOrderContext } from "../../../contexts/order_context/OrderContext";
 import { menuItem } from "@/types";
 
 type AddButtonProps = {
@@ -9,7 +9,7 @@ type AddButtonProps = {
 };
 
 const AddButton = ({ item, fullSize }: AddButtonProps) => {
-  const { cartDispatch } = useOrder();
+  const { cartDispatch } = useOrderContext();
 
   return (
     <AnimatedButton

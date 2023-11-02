@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { ImageModal } from "../../hocs";
+import ImageModal from "../ImageModal";
 import { getLayout, getObjectPosition } from "./utils";
 import { imageType, layoutType } from "../../types";
 import Image, { StaticImageData } from "next/image";
@@ -43,12 +43,13 @@ const Gallery = ({ layout = "diag-end", images }: GalleryProps) => {
               </div>
             ) : null}
             <Image
-              className="h-full w-full object-cover peer-hover:scale-105"
+              className="h-full w-full object-cover peer-hover:scale-[101%]"
               style={{
                 filter: "box-shadow: inset 0 0 8px rgba(0,0,0,.6)",
                 objectPosition: getObjectPosition(item),
               }}
               alt="gallery-image"
+              placeholder="blur"
               src={item.image}
             />
           </div>

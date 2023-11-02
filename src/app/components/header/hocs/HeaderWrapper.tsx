@@ -5,8 +5,8 @@ import useNavItemSelected from "../hooks/useNavItemSelected";
 import { navItems } from "../constants";
 import { useHeaderLayoutContext } from "@/app/contexts/HeaderLayoutContext";
 import useSmoothScroll from "../hooks/useSmoothScroll";
-import MobileNav from "./MobileNav";
-import Nav from "./Nav";
+import MobileNav from "../components/MobileNav";
+import Nav from "../components/Nav";
 import { usePathname } from "next/navigation";
 import HeaderInfoWrapper from "./HeaderInfoWrapper";
 

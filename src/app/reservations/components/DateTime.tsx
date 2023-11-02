@@ -1,6 +1,6 @@
 "use client";
 import { InputLabel, InputList } from "@/components";
-import { useReservation } from "../contexts/ReservationContext";
+import { useReservationContext } from "../contexts/ReservationContext";
 import { formatDate, formatTime } from "@/utils";
 import { People, Time } from "@/assets";
 
@@ -14,7 +14,7 @@ const DateTime = () => {
     times,
     updateGuestNum,
     guestNum,
-  } = useReservation();
+  } = useReservationContext();
 
   const displaySelectedTime = (): string => {
     if (!timeFlag)

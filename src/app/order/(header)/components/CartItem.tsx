@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { orderItem } from "@/app/order/types";
-import { useOrder } from "@/app/order/contexts/order_context/OrderContext";
+import { useOrderContext } from "@/app/order/contexts/order_context/OrderContext";
 import { ListDivider } from "@/components";
 import { Close } from "@/assets";
-import { useCart } from "@/app/order/contexts/CartContext";
+import { useCartContext } from "@/app/order/contexts/CartContext";
 
 type CartItemProps = {
   item: orderItem;
@@ -12,8 +12,8 @@ type CartItemProps = {
 
 const CartItem = ({ item, index }: CartItemProps) => {
   const [removeFlag, setRemoveFlag] = useState(false);
-  const { cartItems, cartDispatch } = useOrder();
-  const { notifyUndo } = useCart();
+  const { cartItems, cartDispatch } = useOrderContext();
+  const { notifyUndo } = useCartContext();
 
   const onDelete = (item: orderItem) => {
     if (item.count === 1) setRemoveFlag(true);

@@ -12,6 +12,8 @@ import InputLabel from "./InputLabel";
 import Message from "./Message";
 import Directions from "./Directions";
 import PhoneNumber from "./PhoneNumber";
+import Spinner from "./Spinner";
+import ImageModal from "./ImageModal";
 
 export {
   MenuButton,
@@ -27,6 +29,8 @@ export {
   Message,
   Directions,
   PhoneNumber,
+  Spinner,
+  ImageModal,
 };
 
 export type { imageType };

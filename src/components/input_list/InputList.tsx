@@ -37,7 +37,8 @@ const InputList = <T,>({
           contentEditable={false}
           className="absolute top-0 w-1 opacity-0"
           required
-          value={text || undefined}
+          value={text || ""}
+          onChange={() => {}}
         />
         <Content
           {...otherProps}

@@ -1,5 +1,5 @@
 import Modal from "./modal/Modal";
-import ImageModal from "./ImageModal";
 import ClickAway from "./ClickAway";
+import TitleSection from "./TitleSection";
 
-export { Modal, ImageModal, ClickAway };
+export { Modal, ClickAway, TitleSection };

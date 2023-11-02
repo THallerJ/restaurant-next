@@ -1,4 +1,4 @@
-import { Modal } from "./";
+import { Modal } from "../hocs";
 import Image, { StaticImageData } from "next/image";
 
 type ImageModalProps = {
@@ -13,6 +13,7 @@ const ImageModal = ({ showImage, setShowImage, image }: ImageModalProps) => {
       src={image}
       className="h-full w-full object-contain"
       alt="displayed-image"
+      placeholder="blur"
     />
   ) : null;
 
@@ -22,6 +23,7 @@ const ImageModal = ({ showImage, setShowImage, image }: ImageModalProps) => {
       setShowDialog={setShowImage}
       content={content}
       hide
+      forceCenter
     />
   );
 };

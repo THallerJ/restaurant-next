@@ -38,6 +38,7 @@ const SmallCard = ({ children, item }: CardProps) => {
           src={item.image}
           alt={item.name}
           className="h-64 rounded-lg object-cover"
+          placeholder="blur"
         />
       ) : null}
       <div>
@@ -62,13 +63,16 @@ const LargeCard = ({ children, item }: CardProps) => {
               src={item.image}
               className="w-2/5 rounded-lg object-cover md:w-1/3 lg:w-1/5"
               alt="daily-special"
+              placeholder="blur"
             />
           ) : null}
           <div className="flex flex-col justify-between gap-8">
             <div className="flex flex-col gap-2">
               <div className="flex justify-between">
                 <h4 className="text-xl font-semibold text-dark">{item.name}</h4>
-                <span className="text-xl font-semibold text-dark">{`$${item.price}`}</span>
+                <span className="text-xl font-semibold text-dark">
+                  ${item.price}
+                </span>
               </div>
               <p>{item.details}</p>
             </div>

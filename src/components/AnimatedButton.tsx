@@ -2,13 +2,12 @@
 import { useState } from "react";
 import { Checkmark } from "@/assets";
 
-type AnimatedButtonProps = {
+interface AnimatedButtonProps extends React.ComponentPropsWithRef<"button"> {
   children: React.ReactNode;
-  onClick?: () => void;
   Icon?: React.FC<React.SVGProps<SVGSVGElement>>;
   fullSize?: boolean;
   className?: string;
-};
+}
 
 const AnimatedButton = ({
   children,
@@ -19,9 +18,9 @@ const AnimatedButton = ({
 }: AnimatedButtonProps) => {
   const [clicked, setClicked] = useState(false);
 
-  const onButtonClick = () => {
+  const onButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     setClicked(true);
-    if (onClick) onClick();
+    if (onClick) onClick(e);
   };
 
   return (

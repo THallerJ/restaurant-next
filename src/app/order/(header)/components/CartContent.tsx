@@ -1,14 +1,14 @@
-import { useOrder } from "@/app/order/contexts/order_context/OrderContext";
+import { useOrderContext } from "@/app/order/contexts/order_context/OrderContext";
 import { useRouter } from "next/navigation";
 import CartItem from "./CartItem";
 import { useState } from "react";
 import UndoPrompt from "./UndoPrompt";
-import { useCart } from "@/app/order/contexts/CartContext";
+import { useCartContext } from "@/app/order/contexts/CartContext";
 
 const CartContent = () => {
-  const { cartItems, cartDispatch } = useOrder();
+  const { cartItems, cartDispatch } = useOrderContext();
   const router = useRouter();
-  const { notifyUndo, closeCart } = useCart();
+  const { notifyUndo, closeCart } = useCartContext();
   const [clearFlag, setClearFlag] = useState(false);
 
   const onCheckout = () => {
@@ -61,9 +61,9 @@ const CartContent = () => {
             <button className="btn" aria-label="checkout" onClick={onCheckout}>
               Checkout
             </button>
-            <p className="font-semibold text-dark">{`Total: $${cartItems.total.toFixed(
-              2,
-            )}`}</p>
+            <p className="font-semibold text-dark">
+              Total: ${cartItems.total.toFixed(2)}
+            </p>
           </div>
         </>
       ) : (

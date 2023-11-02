@@ -6,7 +6,7 @@ const DailySpecial = () => {
   const [showDialog, setShowDialog] = useState(false);
 
   return (
-    <div className="bordered mt-8 flex flex-col p-4">
+    <div className="bordered mt-5 flex flex-col gap-4 p-4 sm:mt-8">
       <h2 className="heading-sm">Daily special</h2>
       <p>
         Nulla cursus felis nec quam scelerisque hendrerit at vitae massa. Donec

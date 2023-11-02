@@ -1,11 +1,11 @@
 import { Cart } from "@/assets";
-import { useOrder } from "@/app/order/contexts/order_context/OrderContext";
+import { useOrderContext } from "@/app/order/contexts/order_context/OrderContext";
 import CartContent from "./CartContent";
-import { useCart } from "@/app/order/contexts/CartContext";
+import { useCartContext } from "@/app/order/contexts/CartContext";
 
 const CartButton = () => {
-  const { cartItems } = useOrder();
-  const { clicked, setClicked, hover, setHover, closeCart } = useCart();
+  const { cartItems } = useOrderContext();
+  const { clicked, setClicked, hover, setHover, closeCart } = useCartContext();
 
   return (
     <>

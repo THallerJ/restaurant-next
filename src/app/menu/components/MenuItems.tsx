@@ -3,21 +3,24 @@ import { menuItem } from "@/types";
 type MenuItemsProps = {
   title: string;
   menuItems: menuItem[];
+  scrollRef?: React.MutableRefObject<HTMLDivElement | null>;
 };
 
-const MenuItems = ({ title, menuItems }: MenuItemsProps) => {
+const MenuItems = ({ title, menuItems, scrollRef }: MenuItemsProps) => {
   return (
-    <div className="space-y-1">
+    <div className="bordered flex flex-col gap-4 p-4" ref={scrollRef}>
       <h2 className="heading-sm">{title}</h2>
-      {menuItems.map((item) => (
-        <div key={item.name} className="flex justify-between">
-          <div>
-            <span className="font-bold uppercase text-dark">{item.name}</span>
-            <span className="ml-3 text-sm text-dark">{item.details}</span>
+      <div className="flex flex-col gap-5">
+        {menuItems.map((item) => (
+          <div key={item.name} className="flex justify-between">
+            <div>
+              <span className="font-bold uppercase text-dark">{item.name}</span>
+              <span className="ml-3 text-sm text-dark">{item.details}</span>
+            </div>
+            <span className="ml-8">{`$${item.price}`}</span>
           </div>
-          <span className="ml-8">{`$${item.price}`}</span>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };

@@ -85,11 +85,15 @@ const useCartReducer = () => {
   };
 
   const key = "restaurant-next-cart";
-  const init: cartItems = { count: 0, total: 0, items: [] };
+  const initialState: cartItems = { count: 0, total: 0, items: [] };
 
-  const [state, dispatch] = useLocalReducer(key, init, orderReducer);
+  const [state, dispatch, init] = useLocalReducer(
+    key,
+    initialState,
+    orderReducer,
+  );
 
-  return [state, dispatch] as const;
+  return [state, dispatch, init] as const;
 };
 
 export default useCartReducer;

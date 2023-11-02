@@ -12,6 +12,7 @@ const LiveMusic = () => {
         src={artist}
         className="pair max-w-full rounded-lg shadow-md"
         alt="artist"
+        placeholder="blur"
       />
 
       <p

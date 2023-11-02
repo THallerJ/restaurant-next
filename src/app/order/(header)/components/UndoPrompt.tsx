@@ -1,10 +1,10 @@
 import { Undo } from "@/assets";
-import { useOrder } from "@/app/order/contexts/order_context/OrderContext";
-import { useCart } from "@/app/order/contexts/CartContext";
+import { useOrderContext } from "@/app/order/contexts/order_context/OrderContext";
+import { useCartContext } from "@/app/order/contexts/CartContext";
 
 const UndoPrompt = () => {
-  const { cartDispatch } = useOrder();
-  const { showUndo, cancelUndo } = useCart();
+  const { cartDispatch } = useOrderContext();
+  const { showUndo, cancelUndo } = useCartContext();
 
   const onUndo = () => {
     cancelUndo();

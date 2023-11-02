@@ -17,6 +17,7 @@ const YourInformation = ({ time, setTime }: YourInformationProps) => {
           xs:border-2 xs:p-3"
       >
         <InputList
+          id="pickup_time"
           text={time !== null ? formatTime(...time) : undefined}
           items={generateTimes(new Date())}
           format={(item) => formatTime(...item)}
@@ -36,6 +37,7 @@ const YourInformation = ({ time, setTime }: YourInformationProps) => {
             placeholder="First"
             className={inputStyle}
             label="First name"
+            autoComplete="given-name"
           />
           <InputLabel
             id="last_name"
@@ -43,6 +45,7 @@ const YourInformation = ({ time, setTime }: YourInformationProps) => {
             placeholder="Last"
             className={inputStyle}
             label="Last name"
+            autoComplete="family-name"
           />
         </InputGroup>
         <InputGroup>
@@ -53,6 +56,7 @@ const YourInformation = ({ time, setTime }: YourInformationProps) => {
             type="email"
             className={inputStyle}
             label="Email Address"
+            autoComplete="email"
           />
           <InputLabel
             id="phone"
@@ -63,6 +67,7 @@ const YourInformation = ({ time, setTime }: YourInformationProps) => {
             patternType="tel"
             className={inputStyle}
             label="Phone number"
+            autoComplete="tel-national"
           />
         </InputGroup>
       </div>

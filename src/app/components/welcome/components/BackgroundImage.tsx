@@ -23,6 +23,7 @@ const BackgroundImage = () => {
       alt="food1"
       className="breath h-full w-full object-cover brightness-[.3] 
         transition-all duration-700"
+      placeholder="blur"
     />
   );
 };

@@ -1,4 +1,4 @@
-import MailWrapper from "./components/MailWrapper";
+import MailWrapper from "./hocs/MailWrapper";
 
 const MailingList = () => {
   return (

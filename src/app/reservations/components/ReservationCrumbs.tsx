@@ -3,11 +3,11 @@ import { Breadcrumbs, Directions } from "@/components";
 import { breadCrumbs } from "@/types";
 import DateTime from "./DateTime";
 import Details from "./Details";
-import { useReservation } from "../contexts/ReservationContext";
+import { useReservationContext } from "../contexts/ReservationContext";
 import { formatDateLong, formatTime, getTime } from "@/utils";
 
 const ReservationCrumbs = () => {
-  const { guestFlag } = useReservation();
+  const { guestFlag } = useReservationContext();
 
   const crumbs: breadCrumbs[] = [
     {
@@ -27,7 +27,6 @@ const ReservationCrumbs = () => {
       crumbs={crumbs}
       block={!guestFlag}
       blockMessage="Please select the number of guests"
-      submitText="book reservation"
     />
   );
 };
@@ -35,7 +34,7 @@ const ReservationCrumbs = () => {
 export default ReservationCrumbs;
 
 const Finished = () => {
-  const { selectedDate } = useReservation();
+  const { selectedDate } = useReservationContext();
 
   return (
     <div className="flex h-full items-center justify-center">

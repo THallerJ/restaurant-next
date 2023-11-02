@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef } from "react";
+import { useRootContext } from "@/contexts";
 
 // This component triggers a callback when the mouse is clicked outside the child element
 type ClickAwayProps = {
@@ -8,6 +9,7 @@ type ClickAwayProps = {
 };
 
 export const ClickAway = ({ callback, children }: ClickAwayProps) => {
+  const { rootRef } = useRootContext();
   const ref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -17,10 +19,10 @@ export const ClickAway = ({ callback, children }: ClickAwayProps) => {
       }
     };
 
-    document.addEventListener("mousedown", handleClickOutside);
+    rootRef.current?.addEventListener("mousedown", handleClickOutside);
 
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      rootRef.current?.removeEventListener("mousedown", handleClickOutside);
     };
   }, [callback]);
 

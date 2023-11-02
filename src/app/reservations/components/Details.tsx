@@ -1,19 +1,33 @@
 "use client";
-import React from "react";
-import { useReservation } from "../contexts/ReservationContext";
+import { useReservationContext } from "../contexts/ReservationContext";
 import { getTime, formatTime, formatDateLong } from "@/utils";
-import { InputLabel } from "@/components";
+import { InputLabel, ListDivider } from "@/components";
+import { Time, People } from "@/assets";
 
 const Details = () => {
-  const { selectedDate, guestNum } = useReservation();
+  const { selectedDate, guestNum } = useReservationContext();
 
   return (
     <div className="flex h-full w-full flex-col p-4">
-      <div className="flex flex-col text-xs font-semibold text-dark sm:text-base">
-        <span>{`${formatDateLong(selectedDate)} - 
-          ${formatTime(...getTime(selectedDate))}`}</span>
-        <span>{`${guestNum} people`}</span>
+      <div
+        className="flex w-full flex-col justify-between gap-2 py-4 
+          text-xs font-semibold text-dark/75 sm:text-base"
+      >
+        <div className="flex items-center gap-2">
+          <Time className="h-5 w-5" />
+          <span>
+            {formatTime(...getTime(selectedDate))} -{" "}
+            {formatDateLong(selectedDate)}
+          </span>
+        </div>
+        <div className="flex items-center gap-2">
+          <People className="h-5 w-5" />
+          <span>
+            Reservation for {guestNum} {guestNum === 1 ? "person" : "people"}
+          </span>
+        </div>
       </div>
+      <ListDivider show={true} />
       <div className="flex w-full flex-col items-center gap-2 pt-4">
         <input
           id="date"
@@ -28,6 +42,7 @@ const Details = () => {
           required
           className="input w-full"
           label="First name"
+          autoComplete="given-name"
         />
         <InputLabel
           id="lastName"
@@ -35,6 +50,7 @@ const Details = () => {
           required
           className="input w-full"
           label="Last name"
+          autoComplete="family-name"
         />
         <InputLabel
           id="email"
@@ -43,6 +59,7 @@ const Details = () => {
           type="email"
           className="input w-full"
           label="Email address"
+          autoComplete="email"
         />
         <InputLabel
           id="phone number"
@@ -53,6 +70,7 @@ const Details = () => {
           label="Phone number"
           format="(###) ### ####"
           mask="_"
+          autoComplete="tel-national"
         />
       </div>
     </div>

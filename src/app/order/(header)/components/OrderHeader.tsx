@@ -17,6 +17,7 @@ const OrderHeader = () => {
     <div className="page-scale flex flex-row items-center justify-between">
       <div className="hidden sm:flex" />
       <InputList
+        id="menu_header_input_list"
         items={navItems}
         onSelect={(item) => router.push(item.to)}
         text={headerInputText}

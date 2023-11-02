@@ -7,11 +7,13 @@ import useCartReducer from "./hooks/useCartReducer";
 type OrderContextProps = {
   cartItems: cartItems;
   cartDispatch: React.Dispatch<reducerAction>;
+  cartInit: boolean;
 };
 
 const initialState: OrderContextProps = {
   cartItems: { count: 0, total: 0, items: [] },
   cartDispatch: () => {},
+  cartInit: false,
 };
 
 const OrderContext = createContext<OrderContextProps>(initialState);
@@ -23,13 +25,13 @@ type OrderContextProviderProps = {
 export const OrderContextProvider = ({
   children,
 }: OrderContextProviderProps) => {
-  const [cartItems, cartDispatch] = useCartReducer();
+  const [cartItems, cartDispatch, cartInit] = useCartReducer();
 
-  const value = { cartItems, cartDispatch };
+  const value = { cartItems, cartDispatch, cartInit };
 
   return (
     <OrderContext.Provider value={value}>{children}</OrderContext.Provider>
   );
 };
 
-export const useOrder = () => useContext(OrderContext);
+export const useOrderContext = () => useContext(OrderContext);

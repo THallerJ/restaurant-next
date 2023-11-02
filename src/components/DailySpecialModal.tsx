@@ -18,6 +18,7 @@ const DailySpecialModal = ({
           src={dailySpecial.image}
           className="w-full rounded-lg xsm:w-2/3 sm:w-1/3 lg:w-1/4 "
           alt="daily-special"
+          placeholder="blur"
         />
       ) : null}
       <div className="flex flex-col gap-1">

@@ -2,52 +2,72 @@
 @tailwind components;
 @tailwind utilities;
 
-.breath {
-  animation: zoom-in-zoom-out 15s ease-in-out infinite;
-}
-
-.btn {
-  @apply rounded-lg border border-transparent bg-primary px-3 py-2 font-bold uppercase text-white shadow-md hover:border-dark;
-}
-
-.btn-sm {
-  @apply rounded-lg border border-transparent bg-primary px-3 py-2 text-sm font-bold uppercase text-white shadow-md hover:border-dark;
-}
-
-.pair {
-  @apply w-full xs:w-10/12 xsm:w-2/3 sm:max-w-xs md:w-1/2 lg:w-1/2 xl:w-1/2 xxl:w-2/5;
-}
-
-.page-scale {
-  @apply w-11/12 md:w-3/4 xl:w-3/5 xxl:w-1/2;
-}
-
-.heading {
-  font-family: var(--font-bebas);
-  @apply text-4xl uppercase text-dark;
-}
-
-.heading-sm {
-  font-family: var(--font-bebas);
-  @apply text-3xl uppercase text-dark;
-}
-
-.input {
-  @apply h-11 rounded-lg border-2  border-dark/60 bg-white px-3 shadow-md focus:border-dark focus:outline-none;
-}
-
-.bordered {
-  @apply rounded-lg border-2 border-dark/40;
-}
-
-@keyframes zoom-in-zoom-out {
-  0% {
-    transform: scale(1, 1);
+@layer components {
+  .breath {
+    animation: zoom-in-zoom-out 15s ease-in-out infinite;
   }
-  50% {
-    transform: scale(1.07, 1.07);
+
+  .btn {
+    @apply overflow-hidden whitespace-nowrap rounded-lg border border-transparent 
+  bg-primary px-3 py-2 font-bold uppercase text-white shadow-md hover:border-dark;
   }
-  100% {
-    transform: scale(1, 1);
+
+  .btn-sm {
+    @apply rounded-lg border border-transparent bg-primary 
+    px-3 py-2 text-sm font-bold uppercase text-white shadow-md
+   hover:border-dark;
+  }
+
+  .pair {
+    @apply w-full xs:w-10/12 xsm:w-2/3 sm:w-1/2 lg:w-2/5;
+  }
+
+  .page-scale {
+    @apply w-11/12 md:w-3/4 xl:w-3/5 xxl:w-1/2;
+  }
+
+  .heading {
+    font-family: var(--font-bebas);
+    @apply text-4xl uppercase text-dark;
+  }
+
+  .heading-sm {
+    font-family: var(--font-bebas);
+    @apply text-3xl uppercase text-dark;
+  }
+
+  .input {
+    @apply h-11 rounded-lg border-2  border-dark/60 bg-white px-3 
+    shadow-sm focus:border-dark focus:outline-none;
+  }
+
+  .bordered {
+    @apply rounded-lg border-2 border-dark/40;
+  }
+}
+
+@layer utilities {
+  .scrollbar::-webkit-scrollbar {
+    @apply h-1;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    @apply rounded-lg bg-dark/20;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #c0a0b9;
+  }
+
+  @keyframes zoom-in-zoom-out {
+    0% {
+      transform: scale(1, 1);
+    }
+    50% {
+      transform: scale(1.07, 1.07);
+    }
+    100% {
+      transform: scale(1, 1);
+    }
   }
 }

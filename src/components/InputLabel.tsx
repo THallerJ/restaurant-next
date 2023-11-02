@@ -1,27 +1,16 @@
-import { ChangeEventHandler } from "react";
 import { PatternFormat } from "react-number-format";
 
-type InputLabelProps<T> = {
-  id: string;
-  text?: string | null;
-  placeholder?: string;
-  className?: string;
+interface InputLabelProps<T> extends React.ComponentPropsWithRef<"input"> {
   label: string;
-  required?: boolean;
-  type?: string;
   patternType?: "text" | "tel" | "password";
-  maxLength?: number;
-  minLength?: number;
-  size?: number;
-  min?: string | number;
   value?: string | number | readonly string[];
   patternValue?: string | number | null;
   format?: string;
   mask?: string;
-  onChange?: ChangeEventHandler<HTMLInputElement>;
-};
+}
 
 const InputLabel = <T,>({
+  defaultValue,
   label,
   format,
   mask,

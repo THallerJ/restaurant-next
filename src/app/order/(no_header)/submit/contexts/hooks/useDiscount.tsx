@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { cartItems } from "@/app/order/types";
-import { useOrder } from "../../../../contexts/order_context/OrderContext";
+import { useOrderContext } from "../../../../contexts/order_context/OrderContext";
 import { getDiscountPercent, roundNum } from "@/app/order/utils";
 import { useNotify } from "@/hooks";
 
 const useDiscount = () => {
-  const { cartItems } = useOrder();
+  const { cartItems } = useOrderContext();
   const [discountItems, setDiscountItems] = useState<cartItems | null>(null);
   const [discountPercent, setDiscountPercent] = useState(0);
   const [discountCode, setDiscountCode] = useState<string | null>(null);

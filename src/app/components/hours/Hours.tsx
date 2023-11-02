@@ -24,6 +24,7 @@ const Hours = () => {
         src={open}
         className="pair max-w-full self-center rounded-lg shadow-md lg:self-start"
         alt="open"
+        placeholder="blur"
       />
     </section>
   );

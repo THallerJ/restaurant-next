@@ -64,4 +64,4 @@ export const ReservationContextProvider = ({
   );
 };
 
-export const useReservation = () => useContext(ReservationContext);
+export const useReservationContext = () => useContext(ReservationContext);
