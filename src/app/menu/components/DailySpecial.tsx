@@ -21,6 +21,7 @@ const DailySpecial = () => {
       <DailySpecialModal
         showDialog={showDialog}
         setShowDialog={setShowDialog}
+        priority
       />
     </div>
   );

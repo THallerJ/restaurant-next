@@ -51,6 +51,7 @@ const Gallery = ({ layout = "diag-end", images }: GalleryProps) => {
               alt="gallery-image"
               placeholder="blur"
               src={item.image}
+              loading="eager"
             />
           </div>
         ))}

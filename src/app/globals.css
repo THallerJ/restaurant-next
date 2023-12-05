@@ -18,10 +18,6 @@
    hover:border-dark;
   }
 
-  .pair {
-    @apply w-full xs:w-10/12 xsm:w-2/3 sm:w-1/2 lg:w-2/5;
-  }
-
   .page-scale {
     @apply w-11/12 md:w-3/4 xl:w-3/5 xxl:w-1/2;
   }
