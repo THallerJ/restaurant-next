@@ -2,7 +2,11 @@ import { TitleSection } from "@/hocs";
 
 const Location = () => {
   return (
-    <TitleSection title="Where are we?" containerClass="bg-second py-12">
+    <TitleSection
+      title="Where are we?"
+      containerClass="bg-second py-12"
+      id="where-are-we"
+    >
       <iframe
         className="h-96 w-full rounded-lg border-4 border-dark"
         referrerPolicy="no-referrer-when-downgrade"

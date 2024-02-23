@@ -4,11 +4,16 @@ type MenuItemsProps = {
   title: string;
   menuItems: menuItem[];
   scrollRef?: React.MutableRefObject<HTMLDivElement | null>;
+  id: string;
 };
 
-const MenuItems = ({ title, menuItems, scrollRef }: MenuItemsProps) => {
+const MenuItems = ({ title, menuItems, scrollRef, id }: MenuItemsProps) => {
   return (
-    <div className="bordered flex flex-col gap-4 p-4" ref={scrollRef}>
+    <section
+      className="bordered flex flex-col gap-4 p-4"
+      ref={scrollRef}
+      id={id}
+    >
       <h2 className="heading-sm">{title}</h2>
       <div className="flex flex-col gap-5">
         {menuItems.map((item) => (
@@ -21,7 +26,7 @@ const MenuItems = ({ title, menuItems, scrollRef }: MenuItemsProps) => {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

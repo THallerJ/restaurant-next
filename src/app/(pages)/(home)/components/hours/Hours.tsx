@@ -7,7 +7,7 @@ import PairItem from "../../hocs/PairItem";
 
 const Hours = () => {
   return (
-    <PairWrapper className="py-12">
+    <PairWrapper className="py-12" sectionId="hours">
       <PairItem>
         <span className="heading">Hours</span>
         <div

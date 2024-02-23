@@ -2,13 +2,16 @@ import MailWrapper from "./hocs/MailWrapper";
 
 const MailingList = () => {
   return (
-    <div className="flex h-full w-full items-center justify-center bg-second">
+    <section
+      className="flex h-full w-full items-center justify-center bg-second"
+      id="mailing-list"
+    >
       <MailWrapper
         submitted={<ThankYou />}
         label={<Label />}
         input={<Input />}
       />
-    </div>
+    </section>
   );
 };
 

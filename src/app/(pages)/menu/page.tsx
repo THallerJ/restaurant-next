@@ -40,21 +40,25 @@ const page = () => {
             title="Starters"
             menuItems={starterItems}
             scrollRef={menuRefMap.get("starters")?.ref}
+            id="starters"
           />
           <MenuItems
             title="Breakfast"
             menuItems={breakfastItems}
             scrollRef={menuRefMap.get("breakfast")?.ref}
+            id="breakfast"
           />
           <MenuItems
             title="Lunch"
             menuItems={lunchItems}
             scrollRef={menuRefMap.get("lunch")?.ref}
+            id="lunch"
           />
           <MenuItems
             title="Dinner"
             menuItems={dinnerItems}
             scrollRef={menuRefMap.get("dinner")?.ref}
+            id="dinner"
           />
         </div>
         <div className={cols}>
@@ -65,16 +69,22 @@ const page = () => {
             title="Desserts"
             menuItems={dessertItems}
             scrollRef={menuRefMap.get("desserts")?.ref}
+            id="desserts"
           />
           <MenuItems
             title="Drinks"
             menuItems={drinkItems}
             scrollRef={menuRefMap.get("drinks")?.ref}
+            id="drinks"
           />
         </div>
       </div>
       <FoodGallery />
-      <TitleSection title="Our Ingredients" containerClass="bg-second py-12">
+      <TitleSection
+        title="Our Ingredients"
+        containerClass="bg-second py-12"
+        id="out-ingredients"
+      >
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
           sollicitudin iaculis eros at maximus. Suspendisse potenti. Nulla

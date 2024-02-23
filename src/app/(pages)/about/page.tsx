@@ -7,7 +7,11 @@ const AboutPage = () => {
   return (
     <>
       <div className="flex w-full flex-col items-center bg-offwhite">
-        <TitleSection title="Who are we?" containerClass={containerStyle}>
+        <TitleSection
+          title="Who are we?"
+          containerClass={containerStyle}
+          id="who-are-we"
+        >
           <div className="flex flex-col gap-4">
             <p>
               Nulla cursus felis nec quam scelerisque hendrerit at vitae massa.
@@ -40,7 +44,11 @@ const AboutPage = () => {
           </div>
         </TitleSection>
         <FounderGallery />
-        <TitleSection title="Meet the staff" containerClass={containerStyle}>
+        <TitleSection
+          title="Meet the staff"
+          containerClass={containerStyle}
+          id="meet-the-staff"
+        >
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
             suscipit non arcu et pellentesque. Duis id justo et nisl aliquet

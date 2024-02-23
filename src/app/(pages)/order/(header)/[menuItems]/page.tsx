@@ -17,15 +17,19 @@ const OrderItemsPage = ({ params: { menuItems } }: Params) => {
       case "all":
         return <Order />;
       case "starters":
-        return <OrderList title={menuItems} items={starterItems} />;
+        return (
+          <OrderList title={menuItems} items={starterItems} id="starters" />
+        );
       case "breakfast":
-        return <OrderList title={menuItems} items={breakfastItems} />;
+        return (
+          <OrderList title={menuItems} items={breakfastItems} id="breakfast" />
+        );
       case "lunch":
-        return <OrderList title={menuItems} items={lunchItems} />;
+        return <OrderList title={menuItems} items={lunchItems} id="lunch" />;
       case "dinner":
-        return <OrderList title={menuItems} items={dinnerItems} />;
+        return <OrderList title={menuItems} items={dinnerItems} id="dinner" />;
       case "drinks":
-        return <OrderList title={menuItems} items={drinkItems} />;
+        return <OrderList title={menuItems} items={drinkItems} id="drinks" />;
       default:
         return notFound();
     }

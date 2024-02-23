@@ -5,7 +5,7 @@ import PairItem from "../hocs/PairItem";
 
 const LiveMusic = () => {
   return (
-    <PairWrapper reverse className="pb-12 sm:py-12">
+    <PairWrapper reverse className="pb-12 sm:py-12" sectionId="live-music">
       <PairItem>
         <Image
           src={artist}

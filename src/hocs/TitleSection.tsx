@@ -3,6 +3,7 @@ type TitleSectionProps = {
   title: string;
   containerClass?: string;
   bodyClass?: string;
+  id: string;
 };
 
 const TitleSection = ({
@@ -10,9 +11,11 @@ const TitleSection = ({
   title,
   containerClass,
   bodyClass,
+  id,
 }: TitleSectionProps) => {
   return (
-    <div
+    <section
+      id={id}
       className={`flex w-full items-center justify-center ${containerClass}`}
     >
       <div className={`page-scale ${bodyClass} flex justify-center`}>
@@ -21,7 +24,7 @@ const TitleSection = ({
           {children}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

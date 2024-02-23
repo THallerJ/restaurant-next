@@ -8,7 +8,7 @@ const DailySpecial = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="flex flex-col gap-1">
+    <section className="flex flex-col gap-1" id="daily-special">
       <h2 className="heading-sm">Today&apos;s Daily Special</h2>
       <OrderItem item={dailySpecial} large>
         <div className="flex justify-center">
@@ -21,7 +21,7 @@ const DailySpecial = () => {
         </div>
       </OrderItem>
       <DailySpecialModal showDialog={open} setShowDialog={setOpen} />
-    </div>
+    </section>
   );
 };
 
