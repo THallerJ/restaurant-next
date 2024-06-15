@@ -1,8 +1,8 @@
-import dailySpecial from "./daily-special.jpg";
-import breakfast from "./breakfast.jpg";
-import lunch from "./lunch.jpg";
-import dinner from "./dinner.jpg";
-import dessert from "./dessert.jpg";
-import starter from "./starter.jpg";
+import Breakfast from "./breakfastr.webp";
+import DailySpecial from "./daily-special.webp";
+import Dessert from "./dessert.webp";
+import Dinner from "./dinner.webp";
+import Lunch from "./dinner.webp";
+import Starter from "./starter.webp";
 
-export { dailySpecial, breakfast, lunch, dinner, dessert, starter };
+export { Breakfast, DailySpecial, Dessert, Dinner, Lunch, Starter };

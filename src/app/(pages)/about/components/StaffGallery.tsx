@@ -1,6 +1,6 @@
 import { Gallery } from "@/components";
 import { imageType } from "@/types";
-import { chefFire, barStaff, kitchenStaff } from "@/assets";
+import { ChefFire, BarStaff, KitchenStaff } from "@/assets";
 
 const StaffGallery = () => {
   return <Gallery images={staffImages} layout="start" />;
@@ -9,7 +9,7 @@ const StaffGallery = () => {
 export default StaffGallery;
 
 const staffImages: imageType[] = [
-  { image: chefFire, x: 65, y: 25 },
-  { image: barStaff, x: 95, y: 20 },
-  { image: kitchenStaff, y: 15 },
+  { image: ChefFire, x: 65, y: 25 },
+  { image: BarStaff, x: 95, y: 20 },
+  { image: KitchenStaff, y: 15 },
 ];

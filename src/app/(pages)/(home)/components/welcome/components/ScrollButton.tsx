@@ -26,7 +26,7 @@ const ScrollButton = () => {
   };
 
   return (
-    <button onClick={() => scroll()}>
+    <button onClick={() => scroll()} aria-label="scroll down">
       <DownArrow
         className="h-12 w-12 animate-bounce duration-300 
         hover:fill-third hover:stroke-third"

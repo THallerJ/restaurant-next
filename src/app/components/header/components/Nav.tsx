@@ -36,7 +36,7 @@ const Nav = ({
           ref={headerRef}
         >
           <h1>
-            <Link href="/" onClick={onNavSelected}>
+            <Link href="/" onClick={onNavSelected} aria-label="home">
               <Logo alt="logo" className="h-16 w-36 p-4 sm:w-48" />
             </Link>
           </h1>

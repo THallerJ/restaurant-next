@@ -1,6 +1,9 @@
+import Link from "next/link";
+
 const PhoneNumber = ({ className }: { className?: string }) => {
   return (
-    <a
+    <Link
+      aria-label="phone"
       href="tel:1-123-555-6789"
       className={
         className
@@ -9,7 +12,7 @@ const PhoneNumber = ({ className }: { className?: string }) => {
       }
     >
       1-123-555-6789
-    </a>
+    </Link>
   );
 };
 

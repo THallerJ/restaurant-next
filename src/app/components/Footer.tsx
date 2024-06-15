@@ -1,5 +1,6 @@
 import SocialMediaIcons from "@/components/SocialMediaIcons";
 import { Hours, Directions, PhoneNumber } from "@/components";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -36,7 +37,9 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <p className="text-center text-base">© Restaurant. All Rights Reserved</p>
+      <p className="text-center text-base">
+        © Restaurant. All Rights Reserved
+      </p>
     </div>
   );
 };
@@ -62,12 +65,13 @@ const FindContact = ({ className }: { className?: string }) => (
         </span>
       </Directions>
       <PhoneNumber />
-      <a
+      <Link
         href="mailto: restaurant@email.com"
         className="hover:text-third hover:underline"
+        aria-label="email"
       >
         restaurant@email.com
-      </a>
+      </Link>
     </div>
   </div>
 );

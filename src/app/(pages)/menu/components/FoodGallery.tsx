@@ -1,11 +1,11 @@
 import { Gallery } from "@/components";
 import {
-  breakfast,
-  lunch,
-  dinner,
-  starter,
-  dailySpecial,
-  dessert,
+  Breakfast,
+  Lunch,
+  Dinner,
+  Starter,
+  DailySpecial,
+  Dessert,
 } from "@/assets/images/menu";
 import { imageType } from "@/types";
 
@@ -16,10 +16,10 @@ const FoodGallery = () => {
 export default FoodGallery;
 
 const images: imageType[] = [
-  { image: breakfast, x: 45, y: 40 },
-  { image: dinner, x: 45, y: 25 },
-  { image: starter, x: 0 },
-  { image: dailySpecial, x: 50 },
-  { image: dessert, x: 60, y: 25 },
-  { image: lunch, y: 35 },
+  { image: Breakfast, x: 45, y: 40 },
+  { image: Dinner, x: 45, y: 25 },
+  { image: Starter, x: 0 },
+  { image: DailySpecial, x: 50 },
+  { image: Dessert, x: 60, y: 25 },
+  { image: Lunch, y: 35 },
 ];

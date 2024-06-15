@@ -1,4 +1,4 @@
-import { artist } from "@/assets";
+import { Artist } from "@/assets";
 import Image from "next/image";
 import PairWrapper from "../hocs/PairWrapper";
 import PairItem from "../hocs/PairItem";
@@ -8,7 +8,7 @@ const LiveMusic = () => {
     <PairWrapper reverse className="pb-12 sm:py-12" sectionId="live-music">
       <PairItem>
         <Image
-          src={artist}
+          src={Artist}
           className="rounded-lg shadow-md"
           alt="artist"
           placeholder="blur"

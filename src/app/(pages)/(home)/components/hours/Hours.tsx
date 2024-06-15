@@ -1,4 +1,4 @@
-import { open } from "@/assets";
+import { Open } from "@/assets";
 import OpenDailySpecialDialog from "./components/OpenDailySpecialDialog";
 import Image from "next/image";
 import { Hours as OpenHours } from "@/components";
@@ -20,7 +20,7 @@ const Hours = () => {
       </PairItem>
       <PairItem>
         <Image
-          src={open}
+          src={Open}
           className="w-full rounded-lg shadow-md sm:w-11/12 xxl:w-full"
           alt="open"
           placeholder="blur"

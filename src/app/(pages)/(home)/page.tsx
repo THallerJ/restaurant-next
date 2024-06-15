@@ -4,14 +4,14 @@ import MailingList from "./components/mailing_list/MailingList";
 import Hours from "./components/hours/Hours";
 import LiveMusic from "./components/LiveMusic";
 import { Gallery } from "@/components";
-import { exterior, seating, eating } from "@/assets";
+import { Exterior, Seating, Eating } from "@/assets";
 import { imageType } from "@/types";
 
 const HomePage = () => {
   const images: imageType[] = [
-    { image: seating, x: 25 },
-    { image: exterior, x: 40, y: 60 },
-    { image: eating, x: 67, y: 15 },
+    { image: Seating, x: 25 },
+    { image: Exterior, x: 40, y: 60 },
+    { image: Eating, x: 67, y: 15 },
   ];
 
   return (

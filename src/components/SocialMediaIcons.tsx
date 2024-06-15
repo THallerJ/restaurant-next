@@ -1,4 +1,5 @@
 import { Instagram, Facebook, Twitter } from "../assets";
+import Link from "next/link";
 
 type SocialMediaIconsProps = {
   className?: string;
@@ -11,15 +12,30 @@ const SocialMediaIcons = ({
 }: SocialMediaIconsProps) => {
   return (
     <div className={className}>
-      <a href="https://instagram.com" target="_blank" rel="noreferrer noopener">
+      <Link
+        href="https://instagram.com"
+        target="_blank"
+        rel="noreferrer noopener"
+        aria-label="instagram"
+      >
         <Instagram className={`${iconClassName}`} />
-      </a>
-      <a href="https://facebook.com" target="_blank" rel="noreferrer noopener">
+      </Link>
+      <Link
+        href="https://facebook.com"
+        target="_blank"
+        rel="noreferrer noopener"
+        aria-label="facebook"
+      >
         <Facebook className={`${iconClassName}`} />
-      </a>
-      <a href="https://twitter.com" target="_blank" rel="noreferrer noopener">
+      </Link>
+      <Link
+        href="https://twitter.com"
+        target="_blank"
+        rel="noreferrer noopener"
+        aria-label="twitter"
+      >
         <Twitter className={`${iconClassName}`} />
-      </a>
+      </Link>
     </div>
   );
 };

@@ -9,7 +9,7 @@ const Header = ({ title, setShowDialog }: HeaderProps) => {
   return (
     <div className="flex w-full items-center justify-between bg-second px-4 py-5">
       <h3 className="heading-sm">{title}</h3>
-      <button onClick={() => setShowDialog(false)}>
+      <button onClick={() => setShowDialog(false)} aria-label="close modal">
         <Close className="h-5 w-5" />
       </button>
     </div>

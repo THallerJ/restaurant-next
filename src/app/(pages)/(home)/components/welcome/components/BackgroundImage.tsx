@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { food1, food2, food3, food4 } from "@/assets";
+import { Food1, Food2, Food3, Food4 } from "@/assets";
 import Image from "next/image";
 
 const BackgroundImage = () => {
@@ -30,4 +30,4 @@ const BackgroundImage = () => {
 
 export default BackgroundImage;
 
-const images = [food1, food2, food3, food4];
+const images = [Food1, Food2, Food3, Food4];
