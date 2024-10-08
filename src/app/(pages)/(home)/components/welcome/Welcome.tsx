@@ -12,10 +12,10 @@ const Welcome = () => {
       >
         <h2
           className="w-full font-bebas text-[4rem] uppercase
-           leading-[4rem] sm:leading-[5rem] md:text-[4.0rem]"
+           leading-[4rem] sm:leading-[5rem] md:text-[4rem] mobileX:text-[3rem]"
         >
-          Welcome <br className="xl:hidden" />
-          to <br className="xl:hidden" />
+          Welcome <br className="xl:hidden mobileX:hidden" />
+          to <br className="xl:hidden mobileX:hidden" />
           Restaurant!
         </h2>
         <p className="md:mb-8 lg:mb-0">

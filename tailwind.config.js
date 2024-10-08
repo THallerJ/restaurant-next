@@ -27,6 +27,9 @@ module.exports = {
         lg: "1066px",
         xl: "1280px",
         xxl: "1633px",
+        mobileX: {
+          raw: "(max-height: 500px)",
+        },
       },
       fontFamily: {
         poppins: ["var(--font-poppins)"],

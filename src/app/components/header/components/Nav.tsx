@@ -35,9 +35,12 @@ const Nav = ({
           className="flex w-full items-center justify-between py-4"
           ref={headerRef}
         >
-          <h1>
+          <h1 className="flex w-96 sm:w-48">
             <Link href="/" onClick={onNavSelected} aria-label="home">
-              <Logo alt="logo" className="h-16 w-36 p-4 sm:w-48" />
+              <Logo
+                alt="logo"
+                className="h-auto w-32 justify-start overflow-visible p-4 sm:h-16 sm:w-48 md:w-36 mobileX:w-28"
+              />
             </Link>
           </h1>
 
